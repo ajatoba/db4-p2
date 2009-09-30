@@ -1,0 +1,191 @@
+package esseecraque.action;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts.action.Action;
+import org.apache.struts.action.ActionErrors;
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionForward;
+import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
+import org.apache.struts.actions.DispatchAction;
+import org.apache.struts.util.MessageResources;
+
+import esseecraque.bean.Assinante;
+import esseecraque.dao.AssinanteDAO;
+import esseecraque.dao.DAOFactory;
+import esseecraque.dao.VideoDAO;
+import esseecraque.form.AssinanteForm;
+import esseecraque.form.AssinanteLoginForm;
+import esseecraque.util.Constants;
+
+public final class AssinanteAction extends DispatchAction{
+	
+	public ActionForward add(ActionMapping mapping, 
+							 ActionForm form, 
+							 HttpServletRequest req, 
+							 HttpServletResponse resp) throws Exception {
+		
+		try {
+
+			Assinante a = new Assinante();
+			
+			AssinanteForm aForm = (AssinanteForm) form;
+
+			a.setEmail(aForm.getEmail());
+			a.setPassword(aForm.getPassword());
+			a.setNome(aForm.getNome());
+			a.setCpf(aForm.getCpf());
+			a.setEndereco(aForm.getEndereco());
+			a.setCidade(aForm.getCidade());
+			a.setEstado(aForm.getEstado());
+			//DATA ATUAL
+			java.util.Date data = new java.util.Date();   
+            SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");  
+            String strData = formato.format(data);
+	        
+	        a.setDataCadastro(strData); 
+			
+			
+			AssinanteDAO aDAO = DAOFactory.ASSINANTE_DAO();
+			
+			aDAO.salvar(a);
+			
+			aForm.reset(mapping, req);
+
+			return mapping.findForward(Constants.ADD_ASSINANTE_SUCESS);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return mapping.findForward(Constants.ADD_ASSINANTE_ERROR);
+		}
+
+	}
+	
+	public ActionForward edit(ActionMapping mapping, 
+			 ActionForm form, 
+			 HttpServletRequest req, 
+			 HttpServletResponse resp) throws Exception {
+
+		try {
+
+			Assinante a = new Assinante();
+
+			AssinanteForm aForm = (AssinanteForm) form;
+
+			a.setId(aForm.getId());
+			a.setEmail(aForm.getEmail());
+			a.setPassword(aForm.getPassword());
+			a.setNome(aForm.getNome());
+			a.setCpf(aForm.getCpf());
+			a.setEndereco(aForm.getEndereco());
+			a.setCidade(aForm.getCidade());
+			a.setEstado(aForm.getEstado());
+			a.setDataCadastro(aForm.getDataCadastro());
+
+			AssinanteDAO aDAO = DAOFactory.ASSINANTE_DAO();
+
+			aDAO.atualizar(a);
+			
+			aForm.reset(mapping, req);
+
+			return mapping.findForward(Constants.EDIT_ASSINANTE_SUCESS);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return mapping.findForward(Constants.EDIT_ASSINANTE_ERROR);
+		}
+
+	}
+	
+	public ActionForward list(ActionMapping mapping, 
+			 					ActionForm form, 
+			 					HttpServletRequest req, 
+			 					HttpServletResponse resp) throws Exception {
+
+			try {
+				
+				return mapping.findForward(Constants.LIST_ASSINANTE_SUCESS);
+
+			} catch (Exception e) {
+				e.printStackTrace();
+				return mapping.findForward(Constants.LIST_ASSINANTE_ERROR);
+			}
+
+	}
+	
+	public ActionForward login(ActionMapping mapping, 
+				ActionForm form, 
+				HttpServletRequest req, 
+				HttpServletResponse resp) throws Exception {
+		
+		HttpSession objSessao = req.getSession();
+		
+		String msgActionForward = Constants.ASSINANTE_LOGIN_ERROR_FORWARD;
+		
+		MessageResources messageResources = getResources(req);
+		
+		try {
+
+			Assinante a = new Assinante();
+			
+			AssinanteLoginForm aForm = (AssinanteLoginForm) form;
+
+			a.setEmail(aForm.getEmail());
+			a.setPassword(aForm.getPassword());			
+			
+			AssinanteDAO aDAO = DAOFactory.ASSINANTE_DAO();
+			
+			List<Assinante> resulLogin = aDAO.loginAssinante(a.getEmail(), a.getPassword());
+			
+			if (resulLogin.size()==0 || resulLogin==null){
+				
+				req.setAttribute("mensagem_erro", messageResources
+						.getMessage("login_invalido"));
+				
+				msgActionForward = Constants.ASSINANTE_LOGIN_ERROR_FORWARD;
+			
+			}else{
+				
+				a = resulLogin.get(0);
+				
+					req.setAttribute(Constants.ASSINANTE_BEAN, a);
+					objSessao.setAttribute(Constants.ASSINANTE_BEAN, a);
+					
+					String str_idAssinante = String.valueOf(a.getId());
+					int idAssinate = Integer.parseInt(str_idAssinante);
+					
+					VideoDAO vDAO = DAOFactory.VIDEO_DAO();
+					
+					Long qtd = (Long)vDAO.qtdVideo(idAssinate);
+					objSessao.setAttribute(Constants.QUANTIDADE_VIDEO, qtd);
+					
+					msgActionForward = Constants.LOGIN_FORWARD;
+
+			}
+			
+			return mapping.findForward(msgActionForward);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+			req.setAttribute("mensagem_erro", MessageResources
+					.getMessageResources("login_invalido"));
+			
+			return mapping.findForward(Constants.ASSINANTE_LOGIN_ERROR_FORWARD);
+			
+		}
+		
+	}
+
+}

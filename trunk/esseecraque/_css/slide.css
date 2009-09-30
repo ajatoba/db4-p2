@@ -1,0 +1,102 @@
+#image-gallery-wrapper
+{
+    PADDING-RIGHT: 0px;
+    PADDING-LEFT: 0px;
+	background-color: #E0E0E0;
+    PADDING-BOTTOM: 8px;
+    MARGIN: 0px auto;
+    PADDING-TOP: 8px;
+    POSITION: relative;
+	width: 640px;
+}
+#image-gallery
+{
+    MARGIN: 0px auto
+}
+.stepcarousel
+{
+    MARGIN: 0px auto;
+    OVERFLOW: scroll;
+    WIDTH: 558px;
+    POSITION: relative;
+    HEIGHT: 85px
+}
+.stepcarousel .belt
+{
+    LEFT: 0px;
+    POSITION: absolute;
+    TOP: 0px
+}
+.stepcarousel .panel
+{
+    BORDER-RIGHT: #E0E0E0 1px solid;
+    PADDING-RIGHT: 4px;
+    BORDER-TOP: #E0E0E0 1px solid;
+    PADDING-LEFT: 4px;
+    FLOAT: left;
+    PADDING-BOTTOM: 4px;
+    OVERFLOW: hidden;
+    BORDER-LEFT: #E0E0E0 1px solid;
+    WIDTH: 100px;
+    MARGIN-RIGHT: 2px;
+    PADDING-TOP: 4px;
+    BORDER-BOTTOM: #E0E0E0 1px solid;
+    HEIGHT: 73px;
+    BACKGROUND-COLOR: #E0E0E0
+}
+.stepcarousel .panel P
+{
+    MARGIN: 5px;
+    OVERFLOW: hidden;
+    TEXT-ALIGN: left
+}
+.stepcarousel .panel H2
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 16px;
+    MARGIN: 2px 5px;
+    OVERFLOW: hidden;
+    FONT-FAMILY: Georgia,century gothic,Arial,verdana, sans-serif;
+    HEIGHT: 20px;
+    TEXT-ALIGN: center
+}
+.stepcarousel .panel IMG
+{
+    PADDING-RIGHT: 0px;
+    PADDING-LEFT: 0px;
+    FLOAT: left;
+    PADDING-BOTTOM: 0px;
+    MARGIN: 0px;
+    PADDING-TOP: 0px
+}
+#image-gallery-wrapper .prev
+{
+    DISPLAY: block;
+    BACKGROUND: url(../_imgs/setasGaleria.jpg) no-repeat;
+    WIDTH: 37px;
+    TEXT-INDENT: -9999px;
+    POSITION: absolute;
+    TOP: 32px;
+    HEIGHT: 37px;
+	
+}
+#image-gallery-wrapper .next
+{
+    DISPLAY: block;
+    BACKGROUND: url(../_imgs/setasGaleria.jpg) no-repeat;
+    WIDTH: 37px;
+    TEXT-INDENT: -9999px;
+    POSITION: absolute;
+    TOP: 32px;
+    HEIGHT: 37px;
+}
+#image-gallery-wrapper .prev
+{
+    BACKGROUND-POSITION: 0px 0px;
+    LEFT: 0px
+}
+#image-gallery-wrapper .next
+{
+    BACKGROUND-POSITION: 100% 0px;
+    RIGHT: 0px
+}
