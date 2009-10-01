@@ -131,7 +131,6 @@
 </table>   
 <html:submit styleClass="botao"><bean:message key="botao.submit"/>
 </html:submit>
-<html:javascript formName="AssinanteForm" dynamicJavascript="true" staticJavascript="true" />   
 </html:form>
 
 <br />
