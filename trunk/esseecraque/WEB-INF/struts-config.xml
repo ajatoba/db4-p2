@@ -62,7 +62,7 @@
         </action>
         
         <action input="/pages/cadVideoForm.jsp"
-        	path="/pages/uploadVideo"  
+        	path="/uploadVideo"  
             type="esseecraque.action.VideoAction"  
             name="videoForm"
             parameter="act"  
