@@ -61,6 +61,17 @@
             	<forward name="assinante_edit_error" path="/pages/editarPerfilErro.jsp" />   
         </action>
         
+        <action input="/pages/cadVideoForm.jsp"
+        	path="/pages/uploadVideo"  
+            type="esseecraque.action.VideoAction"  
+            name="videoForm"
+            parameter="act"  
+            scope="request"  
+            validate="true">   
+            	<forward name="assinante_edit_sucess" path="/pages/editarPerfilSucesso.jsp" />
+            	<forward name="assinante_edit_error" path="/pages/editarPerfilErro.jsp" />   
+        </action>
+        
         <action input="/login.jsp"
         	path="/loginAssinante"  
             type="esseecraque.action.AssinanteAction"  
@@ -71,22 +82,6 @@
             	<forward name="login_sucess" path="/pages/home.jsp" />
             	<forward name="login_error" path="/homeGerenciador.jsp" />
         </action>
-        
-        <action path="/uploadVideoDados"  
-            type="esseecraque.action.VideoAction"  
-            name="videoForm"
-            parameter="act"  
-            scope="request"  
-            validate="true">   
-            	<forward name="video_add_sucesso" path="/pages/cadVideoSucess.jsp" />
-            	<forward name="video_add_error" path="/pages/cadVideoError.jsp" />   
-        </action>
-        
-        <action path="/pages/uploadVideo"
-			type="esseecraque.action.UploadAction" scope="request"
-			parameter="act" validate="false">			
-			<forward name="video_upload_sucess" path="/pages/upload_video_sucesso.jsp" />				
-		</action>
         
         <action path="/listMeusVideos"  
             type="esseecraque.action.VideoAction"  
