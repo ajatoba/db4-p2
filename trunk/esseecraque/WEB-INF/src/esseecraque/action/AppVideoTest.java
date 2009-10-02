@@ -2,6 +2,7 @@ package esseecraque.action;
 
 import java.util.List;
 
+import esseecraque.bean.Vid;
 import esseecraque.bean.Video;
 import esseecraque.dao.DAOFactory;
 import esseecraque.dao.VideoDAO;
@@ -17,9 +18,13 @@ public class AppVideoTest {
 			
 			VideoDAO vDAO = DAOFactory.VIDEO_DAO();
 		
-			List<Video> lv = vDAO.buscarUltimosVideos();
+			List<Vid> lv = vDAO.buscarUltimosVideos();
 		
-			for(Video v : lv){
+			if(lv==null || lv.size()==0){
+				System.out.println("Retorno vazio...");
+			}
+			
+			for(Vid v : lv){
 				System.out.println("ID: " + v.getId() + " - " + v.getTitle());
 			}
 			

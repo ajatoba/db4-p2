@@ -1,5 +1,6 @@
 <%@ taglib uri="/WEB-INF/TLD/struts-bean.tld" prefix="bean" %>   
 <%@ taglib uri="/WEB-INF/TLD/struts-html.tld" prefix="html" %>
+<%@ taglib uri="/WEB-INF/TLD/struts-logic.tld" prefix="logic" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>      
@@ -164,6 +165,17 @@ document.getElementById("btnRes"+ id).className = 'closeRes';
 	<a class="prev" href="javascript:stepcarousel.stepBy('image-gallery', -2)">Prev</a>
 	<a class="next" href="javascript:stepcarousel.stepBy('image-gallery', 2)">Next</a>
 </div><!-- /image-gallery-wrapper -->
+
+
+				<logic:notEmpty name="Busca_Session">
+					<logic:iterate id="resulBusca" name="Busca_Session">
+						<bean:write name="resulBusca" property="nome" />
+						<bean:write name="resulBusca" property="Videos.id" />
+					</logic:iterate>
+				</logic:notEmpty>
+				<logic:empty name="Busca_Session">  
+                	Nenhum vídeo encontrado.
+                </logic:empty>
 
 
 <!-- Fim resultado busca -->					

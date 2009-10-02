@@ -5,7 +5,7 @@
     <reloadable>true</reloadable>
     <redirectLogger>true</redirectLogger>
     <updateXml>true</updateXml>
-    <warLocation>E:\jatoba\projetos\esseecraque.war</warLocation>
+    <warLocation>C:\Documents and Settings\Anderson\Projetos\WAR\esseecraque.war</warLocation>
     <extraInfo></extraInfo>
     <webPath>/esseecraque</webPath>
 </tomcatProjectProperties>

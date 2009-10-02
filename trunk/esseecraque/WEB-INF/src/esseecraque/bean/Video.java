@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Cascade;
@@ -50,7 +51,8 @@ public class Video implements Serializable{
 	@Column(name="VC_PATH_IMAGE")
 	private String pathImage;
 	
-	@ManyToOne(fetch=FetchType.EAGER)
+	@IndexedEmbedded
+	@OneToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="NR_ID_ASSINANTE", insertable=false, updatable=false)
 	@Fetch(FetchMode.JOIN)
 	@Cascade(CascadeType.SAVE_UPDATE)

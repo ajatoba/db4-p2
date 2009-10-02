@@ -37,5 +37,9 @@
 	<classpathentry kind="lib" path="WEB-INF/lib/asm.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/antlr-2.7.6.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/commons-io-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Arquivos de programas/Apache Software Foundation/Tomcat 5.5/common/lib/mysql-connector-java-5.0.5-bin.jar"/>
+	<classpathentry kind="lib" path="C:/Hibernate/hibernate-search-3.1.1.GA/dist/hibernate-search-3.1.1.GA.jar"/>
+	<classpathentry kind="lib" path="C:/Hibernate/hibernate32266769.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/hibernate32266769.jar"/>
 	<classpathentry kind="output" path="WEB-INF/classes"/>
 </classpath>

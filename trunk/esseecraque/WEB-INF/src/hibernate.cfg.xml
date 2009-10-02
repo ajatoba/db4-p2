@@ -4,8 +4,28 @@
     "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 
 <hibernate-configuration>
-    <session-factory>
-    	<!-- Database connection settings -->
+	<session-factory>
+  		<property name="connection.driver_class">com.mysql.jdbc.Driver</property> 
+		<property name="connection.url">jdbc:mysql://127.0.0.1:3306/esseecreque</property> 
+		<property name="connection.username">root</property> 
+		<property name="connection.password">admin</property> 
+		<property name="connection.pool_size">1</property> 
+		<property name="dialect">org.hibernate.dialect.HSQLDialect</property> 
+		<property name="current_session_context_class">thread</property> 
+		<property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property> 
+		<property name="show_sql">true</property> 
+		<property name="hibernate.search.default.directory_provider">org.hibernate.search.store.FSDirectoryProvider</property> 
+		<property name="hibernate.search.default.indexBase">/home/esseecraque/indexes</property> 
+		<mapping class="esseecraque.bean.Assinante" /> 
+		<mapping class="esseecraque.bean.Video" />
+		<mapping class="esseecraque.bean.Vid" />
+		<mapping class="esseecraque.bean.PersistentObject"/>
+	</session-factory>
+</hibernate-configuration>
+
+
+<!-- BANCO SERVIDOR DE TESTE   	
+	<session-factory>
     	<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
     	<property name="connection.url">jdbc:mysql://87.117.198.64:3306/esseecraque</property>
     	<property name="connection.username">esseecraque</property>
@@ -20,5 +40,5 @@
     	<mapping class="esseecraque.bean.Assinante"/>
     	<mapping class="esseecraque.bean.Video"/>
     	<mapping class="esseecraque.bean.PersistentObject"/>
-    </session-factory>
-</hibernate-configuration>
+	</session-factory>    	
+-->    	

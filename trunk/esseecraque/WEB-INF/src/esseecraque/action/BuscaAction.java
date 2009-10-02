@@ -37,37 +37,28 @@ public class BuscaAction extends DispatchAction{
 
 			String txt_busca = req.getParameter("busca");
 			
-			try {
+			try{
 				
 				final Session session = HibernateUtil.getSessionFactory().openSession();
 				final FullTextSession ftSession = Search.getFullTextSession(session);
-				final List<Assinante> assinantes = session.createCriteria(Assinante.class).list();
 				final List<Video> videos = session.createCriteria(Video.class).list();
-			
-				for(Assinante a : assinantes) {
-					ftSession.index(a);
-				}
 			
 				for(Video v : videos) {
 					ftSession.index(v);
 				}
-			
-				final String[] stopWords = {"de","do","da","dos","das","a","o","na","no","em"};    
-		    	final MultiFieldQueryParser parser = new MultiFieldQueryParser(new String[]{"nome","Videos.description","Videos.title"} , new StopAnalyzer(stopWords));
-		    	final Query query = parser.parse(txt_busca);
-		    	final FullTextQuery fullTextQuery = ftSession.createFullTextQuery(query, Assinante.class);
-		    	final List<Assinante> list = fullTextQuery.list();
-		    	HibernateUtil.getSessionFactory().close();
-		    
-		    	for(Assinante a : list) {
-		    		System.out.println(a.getNome());
-		    		for (Video v : a.getVideos()) {
-		    			System.out.println("   " + v.getTitle());
-		    		}
-		    	}
-
 				
-			} catch (Exception e) {
+				final String[] stopWords = {"de","do","da","dos","das","a","o","na","no","em"};    
+		    	final MultiFieldQueryParser parser = new MultiFieldQueryParser(new String[]{"Video.assinante.nome","Video.description"} , new StopAnalyzer(stopWords));
+		    	final Query query = parser.parse(txt_busca);
+		    	final FullTextQuery fullTextQuery = ftSession.createFullTextQuery(query, Video.class);
+		    	
+		    	final List<Video> list = fullTextQuery.list();
+		    	
+		    	HibernateUtil.getSessionFactory().close();
+		    		    
+				req.setAttribute(Constants.BUSCA_SESSION, list);
+		    
+			}catch(Exception e){
 				e.printStackTrace();
 			}
 			

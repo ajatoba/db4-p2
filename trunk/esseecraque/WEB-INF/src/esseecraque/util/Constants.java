@@ -43,6 +43,8 @@ public interface Constants {
 	
 	public static final String RESULT_BUSCA = "resultado_busca";
 	
+	public static final String BUSCA_SESSION = "Busca_Session";
+	
 	
 	public static final String LOGIN_FORWARD = "login_sucess";
 	

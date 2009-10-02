@@ -2,6 +2,7 @@ package esseecraque.bean;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.List;
 
 
 import javax.persistence.Column;
@@ -18,6 +19,7 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
+import org.hibernate.search.annotations.ContainedIn;
 import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
@@ -52,16 +54,16 @@ public class Assinante extends PersistentObject implements Serializable{
 	@Column(name="DT_DATA_CAD_ASSINANTE")
 	private String dataCadastro;
 	
+	@ContainedIn
 	@OneToMany(mappedBy="assinante", fetch=FetchType.LAZY)
 	@Cascade(CascadeType.ALL)
-	@IndexedEmbedded
-	private Collection<Video> Videos;
+	private List<Video> Videos;
 	
-	public Collection<Video> getVideos() {
+	public List<Video> getVideos() {
 		return Videos;
 	}
 	
-	public void setVideos(Collection<Video> videos) {
+	public void setVideos(List<Video> videos) {
 		Videos = videos;
 	}
 	
