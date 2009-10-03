@@ -1,7 +1,14 @@
 <html:form action="loginAssinante.do?act=login" focus="email">
 <div id="menu">
 	<dt>
-		<span></span>
+		<span><bean:write name="Assinante" property="nome" /> ></span>
+		<html:link page="/listMeusVideos.do?act=list" styleClass="menu_topo">Meus vídeos</html:link>
+		<label class="link_principal">&nbsp;|&nbsp;</label>
+		<html:link page="/minhaConta.do" styleClass="menu_topo">Minha conta</html:link>
+		<label class="link_principal">&nbsp;|&nbsp;</label>
+		<html:link page="/editarPerfilForm.do" styleClass="menu_topo">Editar perfil</html:link>
+		<label class="link_principal">&nbsp;|&nbsp;</label>
+		<html:link page="/cadVideoForm.do" styleClass="menu_topo">Publicar vídeo</html:link>
 	</dt>
 </div>
 <div id="topo">
