@@ -13,65 +13,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
 </head>
 <body>
-<html:form action="loginAssinante.do?act=login" focus="email">
-<div id="menu">
-	<dt>
-		<span></span>
-	</dt>
-</div>
-<div id="topo">
-	<div>
-		<dt class="logo"><img src="_imgs/logo.jpg" class="linkado"/></dt>
-		<dt class="form"><img src="_imgs/banner_assine.jpg" /></dt>
-		<dt class="frm_in">
-			
-      <table width="204" height="133" border="0" cellpadding="0" cellspacing="0">
-        <tr> 
-				<td height="18" colspan="3"></td>
-			  </tr>
-			  <tr> 
-				
-          <td width="56" height="25" class="txt_logs">&nbsp;&nbsp;&nbsp;&nbsp;Login:</td>
-				
-          <td width="118"><dt class="box_log"><html:text property="email" styleClass="txt_logar" /></dt></td>
-				
-          <td width="30"><img src="_imgs/setinha_login.jpg" width="23" height="25" /></td>
-			  </tr>
-			  <tr> 
-				<td height="10"></td>
-				<td colspan="2"></td>
-			  </tr>
-			  <tr> 
-				
-          <td width="56" height="25" class="txt_logs">&nbsp;&nbsp;&nbsp;&nbsp;Senha:</td>
-				<td><dt class="box_log"><html:password property="password" styleClass="txt_logar" /></dt></td>
-				
-          <td><img src="_imgs/setinha_login.jpg" width="23" height="25" /></td>
-			  </tr>
-			  <tr> 
-				<td height="55" colspan="3"> <table width="204" height="55" border="0" cellpadding="0" cellspacing="0">
-              <tr> 
-					  
-                <td width="164"> 
-                  <table width="164" border="0" cellpadding="0" cellspacing="0">
-						  <tr> 
-							<td width="187" class="txt_logs2" height="22">&nbsp;&nbsp;&nbsp;&nbsp;Esqueci minha senha!</td>
-						  </tr>
-						  <tr> 
-							<td class="txt_logs2">&nbsp;&nbsp;&nbsp;&nbsp;<html:link page="/cadAssinanteForm.do" styleClass="link_logs2">Ainda n&atilde;o sou cadastrado.</html:link></td>
-						  </tr>
-						</table></td>
-                <td align="right" valign="bottom"><img src="_imgs/btn_logar.jpg" width="40" height="34" class="linkado" style="border:0px;" /></td>
-					</tr>
-				  </table></td>
-			  </tr>
-			</table>
-			<div style="width:204px;"><html:image src="_imgs/publicar.jpg" property="Submit" styleClass="linkado" /></div>
-		</dt>
-	</div>
-</div>
 
-</html:form>
+<!-- INCLUDE HOME -->
+
+<jsp:include page="topo.jsp" />
+
+<!-- INCLUDE HOME -->
 
 <div id="meio_fundo">
 	<div id="meio">
@@ -164,51 +111,15 @@
 			</dt>
 			<dt class="banner2"><img src="_imgs/bannergrande.jpg" class="linkado"/><img src="_imgs/txt_pub.jpg" /></dt>
 		</div>
+		
 		<div id="direita">
-			<div id="lists">
-<img src="_imgs/btn_videos.jpg" class="linkado"/><img src="_imgs/btn_usuarios.jpg" class="linkado"/><img src="_imgs/btn_canais.jpg" class="linkado"/><div class="nav">
-					<div class="nav_esq"><img src="_imgs/nav_esq.jpg" /></div>
-					<div class="nav1">Pág. </div>
-					<div class="navega"> <input name="page" type="text" class="box_nav" /> </div>
-					<div class="nav2">de 250</div>
-					<div class="nav_dir"><img src="_imgs/nav_dir.jpg" /></div>
-				</div>
-				<div class="atrasOut" onmouseover="this.className='atrasIn';" onmouseout="this.className='atrasOut';">
-					<dt class="frente">
-						<div class="voto0"><img src="_imgs/img_listas.jpg" /></div>
-						<div class="data">09/06/2009 10:26</div>
-						<div class="desc">Edson dos Santos em pedala e da show de bola</div>
-					</dt>
-				</div>
-				<div class="atrasOut" onmouseover="this.className='atrasIn';" onmouseout="this.className='atrasOut';">
-					<dt class="frente">
-						<div class="voto0"><img src="_imgs/img_listas.jpg" /></div>
-						<div class="data">09/06/2009 10:26</div>
-						<div class="desc">Edson dos Santos em pedala e da show de bola</div>
-					</dt>
-				</div>
-				<div class="atrasOut" onmouseover="this.className='atrasIn';" onmouseout="this.className='atrasOut';">
-					<dt class="frente">
-						<div class="voto0"><img src="_imgs/img_listas.jpg" /></div>
-						<div class="data">09/06/2009 10:26</div>
-						<div class="desc">Edson dos Santos em pedala e da show de bola</div>
-					</dt>
-				</div>
-				<div class="atrasOut" onmouseover="this.className='atrasIn';" onmouseout="this.className='atrasOut';">
-					<dt class="frente">
-						<div class="voto0"><img src="_imgs/img_listas.jpg" /></div>
-						<div class="data">09/06/2009 10:26</div>
-						<div class="desc">Edson dos Santos em pedala e da show de bola</div>
-					</dt>
-				</div>
-				<div class="atrasOut" onmouseover="this.className='atrasIn';" onmouseout="this.className='atrasOut';">
-					<dt class="frente">
-						<div class="voto0"><img src="_imgs/img_listas.jpg" /></div>
-						<div class="data">09/06/2009 10:26</div>
-						<div class="desc">Edson dos Santos em pedala e da show de bola</div>
-					</dt>
-				</div>
-			</div>			
+		
+<!-- INCLUDE DOS VÍDEOS LATERIAIS -->
+
+<jsp:include page="videosLaterais.jsp" />
+
+<!-- INCLUDE DOS VÍDEOS LATERAIS -->
+						
 			<dt class="banner"><img src="_imgs/banner.jpg" class="linkado"/></dt>
 			<dt><img src="_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
 			<dt><img src="_imgs/banner_redondo.jpg" class="linkado" /></dt>

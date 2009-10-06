@@ -27,7 +27,7 @@
     <td><input type="text" name="description"></td>   
 </tr>
 <tr>   
-    <td class="form_nome">Descricao:</td>
+    <td class="form_nome">Vídeo:</td>
     <td>
        <input class="default" type="file" id="file1" name="file1"/><br/>
        <!-- HIDDENS PARA UPLOADS MÚLTIPLOS -->

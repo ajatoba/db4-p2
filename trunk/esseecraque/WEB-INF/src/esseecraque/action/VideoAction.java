@@ -249,6 +249,10 @@ public final class VideoAction  extends DispatchAction{
 					List<Video> lv = vDAO.buscarUltimosVideos();
 					
 					objSession.setAttribute(Constants.LIST_ULTIMOS_VIDEOS, lv);
+					
+					List<Video> vLaterais = vDAO.buscarVideosLaterais();
+					
+					req.setAttribute(Constants.LIST_VIDEOS_LATERAIS, vLaterais);
 
 			} catch (Exception e) {
 				e.printStackTrace();

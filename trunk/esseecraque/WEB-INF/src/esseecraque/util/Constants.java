@@ -35,6 +35,8 @@ public interface Constants {
 	
 	public static final String LIST_ULTIMOS_VIDEOS = "UltimosVideos";
 	
+	public static final String LIST_VIDEOS_LATERAIS = "VideosLaterais";
+	
 	
 	public static final String PLAYER_SECAO_LIBERADA = "player_secao_liberada";
 	

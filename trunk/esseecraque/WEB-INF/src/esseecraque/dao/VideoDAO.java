@@ -16,4 +16,6 @@ public interface VideoDAO {
 	
 	public abstract Video buscarVideo(Long id);
 	
+	public abstract List buscarVideosLaterais();
+	
 }

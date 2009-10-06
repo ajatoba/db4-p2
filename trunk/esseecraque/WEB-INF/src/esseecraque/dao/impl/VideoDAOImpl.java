@@ -86,4 +86,16 @@ public class VideoDAOImpl implements VideoDAO{
 		
 	}
 	
+	public List buscarVideosLaterais(){
+
+		HibernateUtil hu = new HibernateUtil();
+		session = hu.getSessionFactory().getCurrentSession();
+		session.beginTransaction(); 
+		Query q = session.createQuery("SELECT v FROM Video v");
+		List<Vid> lv = q.list();
+		session.getTransaction().commit();
+		return lv;
+		
+	}
+	
 }
