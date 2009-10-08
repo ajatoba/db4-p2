@@ -14,7 +14,7 @@
     </head>
 <body>
 
-<form action="uploadVideo.do?act=add" enctype="multipart/form-data" method="post" onsubmit="startProgress()">
+<form action="uploadVideo.do?act=add" enctype="multipart/form-data" method="post" onSubmit="startProgress()">
 
 <table>
 
