@@ -223,7 +223,7 @@ public final class VideoAction  extends DispatchAction{
 					
 					List lVideos = vDAO.buscarMeusVideos(idAssinante);
 					
-					req.setAttribute(Constants.LIST_MY_VIDEOS, lVideos);
+					objSession.setAttribute(Constants.LIST_MY_VIDEOS, lVideos);
 
 					return mapping.findForward(Constants.LIST_MY_VIDEOS_SUCESS);
 				}
@@ -283,8 +283,6 @@ public final class VideoAction  extends DispatchAction{
 					
 					Video v = vDAO.buscarVideo(idVideo);
 					
-					System.out.println("Real Path: " + v.getRealPath());
-					
 					objSession.setAttribute(Constants.VIDEO_BEAN, v);
 
 			} catch (Exception e) {
@@ -295,6 +293,86 @@ public final class VideoAction  extends DispatchAction{
 				return mapping.findForward(Constants.PLAYER_SECAO_LIBERADA);
 			}else{
 				return mapping.findForward(Constants.PLAYER_SECAO_RESTRITA);
+			}
+						
+	}
+	
+	public ActionForward excluirPerg(ActionMapping mapping, 
+			 ActionForm form, 
+			 HttpServletRequest req, 
+			 HttpServletResponse resp) throws Exception {
+
+			HttpSession objSession = req.getSession();
+			
+			Long idVideo;
+			String str_idVideo;
+			
+			str_idVideo = req.getParameter("id");
+			idVideo = Long.parseLong(str_idVideo);
+
+			try {
+					
+					VideoDAO vDAO = DAOFactory.VIDEO_DAO();
+					
+					Video v = vDAO.buscarVideo(idVideo);
+					
+					objSession.setAttribute(Constants.EXCLUIR_VIDEO_SESSION, v);
+					
+					return mapping.findForward(Constants.EXCLUIR_VIDEO_RESPOSTA);
+
+			} catch (Exception e) {
+				e.printStackTrace();
+				return mapping.findForward(Constants.EXCLUI_VIDEO_ERROR);
+			}
+						
+	}
+	
+	public ActionForward excluir(ActionMapping mapping, 
+			 ActionForm form, 
+			 HttpServletRequest req, 
+			 HttpServletResponse resp) throws Exception {
+
+			HttpSession objSession = req.getSession();
+			
+			Video v = (Video)objSession.getAttribute(Constants.EXCLUIR_VIDEO_SESSION);
+
+			try {
+					
+					VideoDAO vDAO = DAOFactory.VIDEO_DAO();
+					
+					vDAO.removerVideo(v);
+					
+					//Recarrega a sessão com meus vídeos
+					
+					Assinante a = new Assinante();
+					
+					a = (Assinante)objSession.getAttribute(Constants.ASSINANTE_BEAN);
+
+					if (a==null){
+						return mapping.findForward(Constants.LIST_MY_VIDEOS_ERROR);
+					}else{
+						
+						Long idAssinante = a.getId();
+						
+						String str_idAss = String.valueOf(a.getId());
+						int idAss = Integer.parseInt(str_idAss);
+						
+						List lVideos = vDAO.buscarMeusVideos(idAssinante);
+						
+						objSession.setAttribute(Constants.LIST_MY_VIDEOS, lVideos);
+					
+						//Atualiza o número de vídeos
+						Long qtd = (Long)vDAO.qtdVideo(idAss);
+						objSession.setAttribute(Constants.QUANTIDADE_VIDEO, qtd);
+					
+						
+						return mapping.findForward(Constants.LIST_MY_VIDEOS_SUCESS);
+					
+					}
+
+			} catch (Exception e) {
+				e.printStackTrace();
+				return mapping.findForward(Constants.EXCLUI_VIDEO_ERROR);
 			}
 						
 	}

@@ -36,12 +36,7 @@ public class AppBuscaTest {
 			
 			final Session session = HibernateUtil.getSessionFactory().openSession();
 			final FullTextSession ftSession = Search.getFullTextSession(session);
-			//final List<Assinante> assinantes = session.createCriteria(Assinante.class).list();
 			final List<Video> videos = session.createCriteria(Video.class).list();
-		
-			//for(Assinante a : assinantes) {
-				//ftSession.index(a);
-			//}
 		
 			for(Video v : videos) {
 				ftSession.index(v);
@@ -49,12 +44,9 @@ public class AppBuscaTest {
 		
 			
 			final String[] stopWords = {"de","do","da","dos","das","a","o","na","no","em"};    
-	    	final MultiFieldQueryParser parser = new MultiFieldQueryParser(new String[]{"Video.assinante.nome","Video.description"} , new StopAnalyzer(stopWords));
+	    	final MultiFieldQueryParser parser = new MultiFieldQueryParser(new String[]{"assinante.nome","title"} , new StopAnalyzer(stopWords));
 	    	final Query query = parser.parse("Moraes Flamengo");
 	    	final FullTextQuery fullTextQuery = ftSession.createFullTextQuery(query, Video.class);
-	    	
-	    	//TermQuery query = new TermQuery(new Term("Video.assinante.nome", "Moraes"));
-	    	//FullTextQuery fullTextQuery = ftSession.createFullTextQuery(query, Video.class);
 	    	
 	    	final List<Video> list = fullTextQuery.list();
 	    	
@@ -66,13 +58,9 @@ public class AppBuscaTest {
 				System.out.println("Nenhum Vídeo encontrado.");
 			}else{
 			
-				//for(Assinante a : list) {
-					//System.out.println(a.getNome());
-					//for (Video v : a.getVideos()) {
 					for (Video v : list) {
 						System.out.println("   " + v.getTitle());
 					}
-				//}
 				
 			}
 	    

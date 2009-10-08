@@ -91,6 +91,24 @@
             	<forward name="list_meus_videos_sucess" path="/pages/listMeusVideos.jsp" />
             	<forward name="list_meus_videos_erro" path="/pages/listMeusVideosErro.jsp" />   
         </action>
+        
+        <action path="/excluirVideo"  
+            type="esseecraque.action.VideoAction"  
+            parameter="act"  
+            scope="request"  
+            validate="true">   
+            	<forward name="video_excluir_resp" path="/pages/excluirVideo.jsp" />
+            	<forward name="excluir_video_error" path="/pages/excluirVideoError.jsp" />   
+        </action>
+        
+        <action path="/excluirVideoSim"  
+            type="esseecraque.action.VideoAction"  
+            parameter="act"  
+            scope="request"  
+            validate="true">   
+            	<forward name="list_meus_videos_sucess" path="/pages/listMeusVideos.jsp" />
+            	<forward name="excluir_video_error" path="/pages/excluirVideoError.jsp" />   
+        </action>
            
     </action-mappings>
     

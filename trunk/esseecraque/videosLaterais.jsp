@@ -11,20 +11,14 @@
 
 			<div id="lists">
 				<img src="_imgs/btn_videos.jpg" class="linkado"/><img src="_imgs/btn_usuarios.jpg" class="linkado"/><img src="_imgs/btn_canais.jpg" class="linkado"/>
-				<div class="nav">
-					<div class="nav_esq"><img src="_imgs/nav_esq.jpg" /></div>
-					<div class="nav1">Pág. </div>
-					<div class="navega"> <input name="page" type="text" class="box_nav" /> </div>
-					<div class="nav2">de 250</div>
-					<div class="nav_dir"><img src="_imgs/nav_dir.jpg" /></div>
-				</div>
+
 				
-				<display:table name="VideosLaterais" id="lv" pagesize="5">
+				<display:table name="VideosLaterais" id="lv" pagesize="5" requestURI="welcome.do?act=carregaHome">
 				    <display:column>
 				    	<div class="atrasOut" onmouseover="this.className='atrasIn';" onmouseout="this.className='atrasOut';">
 							<dt class="frente">
 								<div class="voto0"><img src="<bean:write name='lv' property='pathImage' />" /></div>
-								<div class="data"><bean:write name="lv" property="dataUpload" format="dd/MM/yyyy" /></div>
+								<div class="data"><bean:write name="lv" property="dataUpload" format="{0,date,dd-MM-yyyy}" /></div>
 								<div class="desc"><bean:write name="lv" property="title" /></div>
 							</dt>
 						</div>

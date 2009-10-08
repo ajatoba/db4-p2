@@ -20,6 +20,17 @@
 		<mapping class="esseecraque.bean.Video" />
 		<mapping class="esseecraque.bean.Vid" />
 		<mapping class="esseecraque.bean.PersistentObject"/>
+		
+		<event type="post-update">
+            <listener class="org.hibernate.search.event.FullTextIndexEventListener"/>
+	    </event>
+    	<event type="post-insert">
+            <listener class="org.hibernate.search.event.FullTextIndexEventListener"/>
+	    </event>
+        <event type="post-delete">
+            <listener class="org.hibernate.search.event.FullTextIndexEventListener"/>
+    	</event>
+		
 	</session-factory>
 </hibernate-configuration>
 

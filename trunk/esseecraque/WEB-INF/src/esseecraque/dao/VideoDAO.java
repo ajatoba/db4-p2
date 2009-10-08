@@ -18,4 +18,6 @@ public interface VideoDAO {
 	
 	public abstract List buscarVideosLaterais();
 	
+	public abstract void removerVideo(Video v);
+	
 }

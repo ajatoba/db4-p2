@@ -98,4 +98,14 @@ public class VideoDAOImpl implements VideoDAO{
 		
 	}
 	
+	public void removerVideo(Video v){
+		
+		HibernateUtil hu = new HibernateUtil();
+		session = hu.getSessionFactory().getCurrentSession();
+		session.beginTransaction(); 
+		session.delete(v);
+		session.getTransaction().commit();
+		
+	}
+	
 }

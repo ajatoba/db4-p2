@@ -56,4 +56,14 @@ public interface Constants {
 	
 	public static final String QUANTIDADE_VIDEO = "qtdVideo";
 	
+	
+	public static final String EXCLUI_VIDEO_SUCESS = "excluir_video_sucess";
+	
+	public static final String EXCLUI_VIDEO_ERROR = "excluir_video_error";
+	
+	public static final String EXCLUIR_VIDEO_SESSION = "session_video_excluir";
+	
+	public static final String EXCLUIR_VIDEO_RESPOSTA = "video_excluir_resp";
+
+	
 }

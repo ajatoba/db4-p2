@@ -25,48 +25,24 @@
 		<div id="esquerda">
 			<!-- INÍCIO LISTA MEUS VÍDEOS -->
 
-			<table border="0">
-				<logic:notEmpty name="meusVideos">
-					<logic:iterate id="v" name="meusVideos">
-					<form action="excluirVideo.do?act=excluirPerg" method="post">
-						<tr>
-							<td>
-								<table>
-									<tr>
-										<td width="540"><img src="<bean:write name='v' property='pathImage' />" /></td>
-									</tr>
-									<tr>
-										<td class="data"><bean:write name="v" property="dataUpload" format="dd/MM/yyyy" /></td>
-									</tr>
-									<tr>
-										<td class="desc"><bean:write name="v" property="title" /></td>
-									</tr>
-								</table>
-							</td>
+<br />
+<bean:message key="pergunta.excluir.video" />
+<br />
+<br />
 
-							<td>
-								<input type="hidden" name="id" value="<bean:write name='v' property='id' />" />
-								<input type="image" src="_imgs/icone_excluir.jpg" name="Submit" styleClass="linkado" />
-							</td>
-						</tr>
-					</form>
-					</logic:iterate>
-				</logic:notEmpty>
-				<logic:empty name="meusVideos">  
-                	<tr>  
-                    	<td>Nenhum vídeo encontrado.</td>  
-                    </tr>
-					<tr>  
-                    	<td>&nbsp;</td>  
-                    </tr>
-					<tr>  
-                    	<td>&nbsp;</td>  
-                    </tr>    
-                </logic:empty>
-			</table>
+<img src="<bean:write name='session_video_excluir' property='pathImage' />" />
+<div class="data"><bean:write name="session_video_excluir" property="dataUpload" format="dd/MM/yyyy" /></div>
+<div class="desc"><bean:write name="session_video_excluir" property="title" /></div>
+
+<br />
+
+<h3>
+<html:link page="/excluirVideoSim.do?act=excluir" styleClass="menu_topo">Sim</html:link> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <html:link page="/listMeusVideos.do?act=list" styleClass="menu_topo">Não</html:link>
+</h3>
 					
 			<!-- FIM LISTA MEUS VÍDEOS -->
 
+<br />
 <br />
 <html:link page="/valtarHome.do" styleClass="menu_topo">Voltar para home</html:link>
 <br />

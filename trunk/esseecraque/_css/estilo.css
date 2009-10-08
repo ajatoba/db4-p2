@@ -82,7 +82,6 @@ body{margin:0px; font-family:Arial, Helvetica, sans-serif; }
 .atrasIn{ width: 339px; height:100px; background:#EA9006; display:table; margin-left:4px; cursor:pointer; cursor:hand;}
 .atrasOut{ width: 339px; height:100px; background:#fff; display:table; margin-left:4px; cursor:pointer; cursor:hand;}
 
-
 .frente{margin:2px; width: 335px; height:96px; background:url(../_imgs/fundo_frene.jpg); display:table;}
 .frente div img{border:4px solid #71706E;}
 .voto0{background:url(../_imgs/0voto.jpg) right top no-repeat; width:325px; margin:4px;}
