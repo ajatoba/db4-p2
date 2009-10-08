@@ -26,7 +26,6 @@ dt.campo_nome {
 .form_campo_nome {
 	width:400px;
 	height:20px;
-	display:table;
 	border:solid 1px #D3D3D3;
 	background-color:#F5F5F5;
 }
@@ -49,7 +48,6 @@ dt.campo_endereco {
 .form_campo_endereco {
 	width:400px;
 	height:20px;
-	display:table;
 	border:solid 1px #D3D3D3;
 	background-color:#F5F5F5;
 	margin-top:10px;
@@ -112,7 +110,6 @@ td.campo_estado {
 .form_campo_estado {
 	width:30px;
 	height:20px;
-	display:table;
 	border:solid 1px #D3D3D3;
 	background-color:#F5F5F5;
 	margin-top:10px;
@@ -168,7 +165,6 @@ td.campo_cep {
 .form_campo_cep {
 	width:60px;
 	height:20px;
-	display:table;
 	border:solid 1px #D3D3D3;
 	background-color:#F5F5F5;
 	margin-top:10px;
@@ -311,7 +307,6 @@ td.campo_nacionalidade {
 .form_campo_titulo {
 	width:400px;
 	height:20px;
-	display:table;
 	border:solid 1px #D3D3D3;
 	background-color:#F5F5F5;
 	margin-top:10px;
@@ -320,7 +315,6 @@ td.campo_nacionalidade {
 .form_campo_descricao {
 	width:400px;
 	height:60px;
-	display:table;
 	border:solid 1px #D3D3D3;
 	background-color:#F5F5F5;
 	margin-top:10px;
