@@ -46,17 +46,19 @@ public class BuscaAction extends DispatchAction{
 				for(Video v : videos) {
 					ftSession.index(v);
 				}
+			
 				
 				final String[] stopWords = {"de","do","da","dos","das","a","o","na","no","em"};    
-		    	final MultiFieldQueryParser parser = new MultiFieldQueryParser(new String[]{"Video.assinante.nome","Video.description"} , new StopAnalyzer(stopWords));
+		    	final MultiFieldQueryParser parser = new MultiFieldQueryParser(new String[]{"assinante.nome","title","description"} , new StopAnalyzer(stopWords));
 		    	final Query query = parser.parse(txt_busca);
 		    	final FullTextQuery fullTextQuery = ftSession.createFullTextQuery(query, Video.class);
 		    	
 		    	final List<Video> list = fullTextQuery.list();
 		    	
+		    	
 		    	HibernateUtil.getSessionFactory().close();
 		    		    
-				req.setAttribute(Constants.BUSCA_SESSION, list);
+				objSession.setAttribute(Constants.BUSCA_SESSION, list);
 		    
 			}catch(Exception e){
 				e.printStackTrace();

@@ -87,22 +87,58 @@ document.getElementById("btnRes"+ id).className = 'closeRes';
 			<tr>
 
 				<td>
-					<table border="0" cellpadding="0" cellspacing="0" class="panel">
+<%
+int cont=1;
+%>
+			<logic:notEmpty name="Busca_Session">
+				<logic:iterate id="resulBusca" name="Busca_Session">
+				
+				<%
+					if (cont == 1){
+				%>
+					<table border="0" cellpadding="0" cellspacing="0" class="panel">				
 						<tr>
 							<td>
-								<a href="#" title="Link 1" >
-									<img src="_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagem 01"/>
+								<a href="player.do?act=playerVideo&idVideo=<bean:write name='resulBusca' property='id' />&secao=liberada" >
+									<img src="<bean:write name='resulBusca' property='pathImage' />" width="100" height="73" border="0" alt="<bean:write name='resulBusca' property='title' />"/>
 								</a>
 							</td>
 						</tr>
+				<%
+				cont=2;
+					}else{
+						if (cont == 2){
+				%>
 						<tr>
 							<td>
-								<a href="#" title="Link 1" >
-									<img src="_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagem 1"/>
+								<a href="player.do?act=playerVideo&idVideo=<bean:write name='resulBusca' property='id' />&secao=liberada" >
+									<img src="<bean:write name='resulBusca' property='pathImage' />" width="100" height="73" border="0" alt="<bean:write name='resulBusca' property='title' />"/>
 								</a>
 							</td>
 						</tr>
 					</table>
+					
+				<%
+				cont=1;
+						}
+					}
+				%>
+					
+					</logic:iterate>					
+					
+				</logic:notEmpty>
+				<logic:empty name="Busca_Session">  
+                	Nenhum vídeo encontrado.
+                </logic:empty>
+                
+<%
+				if (cont==2){
+%>
+					<tr><td>&nbsp;</td></tr></table>
+<%
+                }
+%>
+                
 				</td>
 
 			</tr>
@@ -113,18 +149,6 @@ document.getElementById("btnRes"+ id).className = 'closeRes';
 	<a class="prev" href="javascript:stepcarousel.stepBy('image-gallery', -2)">Prev</a>
 	<a class="next" href="javascript:stepcarousel.stepBy('image-gallery', 2)">Next</a>
 </div><!-- /image-gallery-wrapper -->
-
-
-				<logic:notEmpty name="Busca_Session">
-					<logic:iterate id="resulBusca" name="Busca_Session">
-						<bean:write name="resulBusca" property="nome" />
-						<bean:write name="resulBusca" property="Videos.id" />
-					</logic:iterate>
-				</logic:notEmpty>
-				<logic:empty name="Busca_Session">  
-                	Nenhum vídeo encontrado.
-                </logic:empty>
-
 
 <!-- Fim resultado busca -->					
 				</div>
