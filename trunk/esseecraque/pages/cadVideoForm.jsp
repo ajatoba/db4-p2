@@ -6,6 +6,7 @@
 <title><bean:message key="titulo.paginas"/></title>
 <link href="<html:rewrite page="/_css/estilo.css" />" rel="stylesheet" type="text/css">
 <link href="<html:rewrite page="/_css/slide.css" />" rel="stylesheet" type="text/css">
+<link href="<html:rewrite page="/_css/cadastro.css" />" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="js/jquery-1.2.6-packed.js"></script>
 <script type="text/javascript" src="js/slide.noconflict.js"></script>
  <script src='resources/js/upload.js'> </script>
@@ -51,16 +52,16 @@
 <tr>   
     <td class="form_nome">Vídeo:</td>
     <td>
-       <input class="default" type="file" id="file1" name="file1"/><br/>
-       <!-- HIDDENS PARA UPLOADS MÚLTIPLOS -->
+      <!--  <input class="default" type="file" id="file1" name="file1"/><br/>
+       HIDDENS PARA UPLOADS MÚLTIPLOS 
        <input class="default" type="hidden" id="file2" name="file2"/>
        <input class="default" type="hidden" id="file3" name="file3"/>
        <input class="default" type="hidden" id="file4" name="file4"/>
-       <!-- ****************************** -->
+       ****************************** -->
     </td>
 </tr>
 <tr>   
-    <td colspan="2"><input type="submit" value="Upload" id="uploadbutton"/></td>
+    <td colspan="2"><!--<input type="submit" value="Upload" id="uploadbutton"/>--><a href="http://87.117.198.64:8080/upload">UPLOAD</a></td>
 </tr>
 <tr>   
     <td colspan="2">
