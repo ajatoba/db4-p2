@@ -57,7 +57,7 @@
 					<div class="nav_esq"><img src="_imgs/nav_esq.jpg" /></div>
 					<div class="nav1">Pág. </div>
 					<div class="navega"> <input name="page" type="text" class="box_nav" /> </div>
-					<div class="nav2">de 250</div><img src="_imgs/btn_jogadores.jpg" class="linkado"/><img src="_imgs/btn_posicoes.jpg" class="linkado"/><img src="_imgs/btn_jogadores.jpg" class="linkado"/>
+					<div class="nav2">de 250</div><img src="_imgs/btn_jogadores.jpg" class="linkado"/><img src="_imgs/btn_posicoes.jpg" class="linkado"/><img src="_imgs/btn_categorias.jpg" class="linkado"/>
 					<div class="nav_dir"><img src="_imgs/nav_dir.jpg" /></div>
 				</div>
 				<div class="atrasOut" onmouseover="this.className='atrasIn';" onmouseout="this.className='atrasOut';">
