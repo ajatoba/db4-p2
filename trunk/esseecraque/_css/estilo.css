@@ -79,14 +79,16 @@ body{margin:0px; font-family:Arial, Helvetica, sans-serif; }
 .box_nav{width:40px; height:21px; border:0px; background:url(../_imgs/fnd_box_nav.jpg) no-repeat; text-align:center; font-size:12px;}
 
 
-.atrasIn{ width: 339px; height:100px; background:#EA9006; display:table; margin-left:4px; cursor:pointer; cursor:hand;}
-.atrasOut{ width: 339px; height:100px; background:#fff; display:table; margin-left:4px; cursor:pointer; cursor:hand;}
+.atrasIn{ width: 339px; height:65px; background:#EA9006; display:table; margin-left:4px; cursor:pointer; cursor:hand;}
+.atrasOut{ width: 339px; height:65px; background:#fff; display:table; margin-left:4px; cursor:pointer; cursor:hand;}
 
-.frente{margin:2px; width: 335px; height:96px; background:url(../_imgs/fundo_frene.jpg); display:table;}
+
+.frente{margin:2px; width: 335px; height:65px; background:url(../_imgs/fundo_frene.jpg); display:table;}
 .frente div img{border:4px solid #71706E;}
-.voto0{background:url(../_imgs/0voto.jpg) right top no-repeat; width:325px; margin:4px;}
-.data{color:#EA9006; font-size:11px; margin-left:7px; margin-right:4px;}
-.desc{color:#706E6F; font-size:11px;margin-left:7px; margin-right:4px;}
+.voto0{background:url(../_imgs/0voto.jpg) right top no-repeat; width:320px; height:58px; margin:4px;}
+.img_list {float:left; margin-right:5px;}
+.data{color:#EA9006; font-size:11px; margin-left:17px; margin-right:4px; width:260px;}
+.desc{color:#706E6F; font-size:11px;margin-left:17px; margin-right:4px;  width:260px;}
 
 .banner{margin-top:6px; }
 
