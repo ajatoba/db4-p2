@@ -30,8 +30,7 @@ import esseecraque.bean.Assinante;
 import esseecraque.dao.AssinanteDAO;
 import esseecraque.dao.DAOFactory;
 import esseecraque.dao.VideoDAO;
-import esseecraque.form.AssinanteForm;
-import esseecraque.form.AssinanteLoginForm;
+import esseecraque.form.*;
 import esseecraque.util.Constants;
 import esseecraque.util.SiteManager;
 
@@ -41,6 +40,8 @@ public final class AssinanteAction extends DispatchAction{
 							 ActionForm form, 
 							 HttpServletRequest req, 
 							 HttpServletResponse resp) throws Exception {
+		
+		HttpSession objSession = req.getSession();
 		
 		try {
 
@@ -74,8 +75,6 @@ public final class AssinanteAction extends DispatchAction{
 			String userFolder 	= (String) SiteManager.getInstance().getProperties().get("user_folder");
 			String path 		= docRoot + userFolder + a.getUsername();
 	        
-			System.out.println(path);
-	        
 			File f = new File(path);
 			
 			if(!f.exists())
@@ -89,15 +88,10 @@ public final class AssinanteAction extends DispatchAction{
 			ods.writeBytes(new StringWriter().toString());	
 	        
 	        //***************************************************
-	        
+	        					
+			objSession.setAttribute(Constants.ASSINANTE_BEAN, a);
 			
-			AssinanteDAO aDAO = DAOFactory.ASSINANTE_DAO();
-			
-			aDAO.salvar(a);
-			
-			aForm.reset(mapping, req);
-
-			return mapping.findForward(Constants.ADD_ASSINANTE_SUCESS);
+			return mapping.findForward(Constants.ASSINANTE_PERFIL);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -105,6 +99,48 @@ public final class AssinanteAction extends DispatchAction{
 		}
 
 	}
+	
+	public ActionForward addPerfil(ActionMapping mapping, 
+			 ActionForm form, 
+			 HttpServletRequest req, 
+			 HttpServletResponse resp) throws Exception {
+		
+		HttpSession objSession = req.getSession();
+		
+		Assinante a = (Assinante)objSession.getAttribute(Constants.ASSINANTE_BEAN);
+		AssinanteForm aForm = (AssinanteForm) form;
+		
+		try{
+			a.setEmail(aForm.getEmail());
+			a.setPassword(aForm.getPassword());
+			a.setNome(aForm.getNome());
+			a.setCpf(aForm.getCpf());
+			a.setEndereco(aForm.getEndereco());
+			a.setCidade(aForm.getCidade());
+			a.setEstado(aForm.getEstado());
+			a.setUsername(aForm.getUsername());
+			a.setHeight(aForm.getHeight());
+			a.setWeight(aForm.getWeight());
+			a.setComment(aForm.getComment());
+			a.setPosition(aForm.getPosition());
+			a.setTournaments(aForm.getTournaments());
+			a.setTeams(aForm.getTeams());
+				
+			AssinanteDAO aDAO = DAOFactory.ASSINANTE_DAO();
+				
+			aDAO.salvar(a);
+				
+			aForm.reset(mapping, req);
+			
+			objSession.setAttribute(Constants.ASSINANTE_BEAN, a);
+			
+			return mapping.findForward(Constants.ADD_ASSINANTE_SUCESS);
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+			return mapping.findForward(Constants.ADD_ASSINANTE_ERROR);
+		}
+	}	
 	
 	public ActionForward edit(ActionMapping mapping, 
 			 ActionForm form, 
