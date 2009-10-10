@@ -28,40 +28,35 @@
 				<div class="btn_busca"><img src="_imgs/btnbusca.jpg" class="linkado"/></div>
 			</dt>
 			<dt class="form_upload">
-            <form action="uploadVideo.do?act=add" enctype="multipart/form-data" method="post" onSubmit="startProgress()">
+
+<html:form action="cadVideo.do?act=add">  
 
 <table>
 
 <tr>   
     <td class="form_nome">Titulo:</td>   
-    <td><input type="text" name="title" maxlength="150"></td>   
+    <td><html:text property="title"/></td>   
 </tr>   
 <tr>   
     <td class="form_nome">Descricao:</td>   
-    <td><input type="text" name="description"></td>   
+    <td><html:text property="description"/></td>   
 </tr>
 <tr>   
-    <td class="form_nome">Palavras Chave:</td>   
-    <td><input type="text" name="tag"></td>   
+    <td class="form_nome">Tags:</td>   
+    <td><html:text property="tagVideo"/></td>   
 </tr>
 
 <tr>   
-    <td colspan="2"><!--<input type="submit" value="Upload" id="uploadbutton"/>--><a href="http://87.117.198.64:8080/upload">UPLOAD</a></td>
-</tr>
-<tr>   
     <td colspan="2">
-		<div id="progressBar" style="display: none;">
-			<div id="theMeter">
-		    	<div id="progressBarText"></div>
-				<div id="progressBarBox">
-					<div id="progressBarBoxContent"></div>
-				</div>
-			</div>
-		</div>
-	</td>
+    <html:submit>
+    	<bean:message key="botao.submit"/>
+	</html:submit>
+    
+    </td>
 </tr>
+
 </table>
-</form>
+</html:form>
             
             </dt>
 			<dt class="desc_player">
