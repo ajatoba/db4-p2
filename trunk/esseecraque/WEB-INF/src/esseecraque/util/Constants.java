@@ -11,6 +11,8 @@ public interface Constants {
 	public static final String VOTO_BEAN = "Voto";
 	
 	
+	public static final String ASSINANTE_PERFIL = "assinante_perfil";
+	
 	public static final String ADD_ASSINANTE_SUCESS = "assinante_add_sucesso";
 	
 	public static final String ADD_ASSINANTE_ERROR = "assinante_add_error";
