@@ -1,5 +1,10 @@
 package esseecraque.action;
 
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
+import java.io.StringWriter;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -28,6 +33,7 @@ import esseecraque.dao.VideoDAO;
 import esseecraque.form.AssinanteForm;
 import esseecraque.form.AssinanteLoginForm;
 import esseecraque.util.Constants;
+import esseecraque.util.SiteManager;
 
 public final class AssinanteAction extends DispatchAction{
 	
@@ -49,6 +55,8 @@ public final class AssinanteAction extends DispatchAction{
 			a.setEndereco(aForm.getEndereco());
 			a.setCidade(aForm.getCidade());
 			a.setEstado(aForm.getEstado());
+			a.setUsername(aForm.getUsername());
+			
 			//DATA ATUAL
 			java.util.Date data = new java.util.Date();   
             SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");  
@@ -56,6 +64,32 @@ public final class AssinanteAction extends DispatchAction{
 	        
 	        a.setDataCadastro(strData); 
 			
+	        //********** CRIANDO DIRETÓRIO DO USUÁRIO ***********
+	        
+	        FileOutputStream os = null;
+			PrintStream ps = null;
+			DataOutputStream ods = null;
+			
+			String docRoot 		= (String) SiteManager.getInstance().getProperties().get("docroot");
+			String userFolder 	= (String) SiteManager.getInstance().getProperties().get("user_folder");
+			String path 		= docRoot + userFolder + a.getUsername();
+	        
+			System.out.println(path);
+	        
+			File f = new File(path);
+			
+			if(!f.exists())
+				f.mkdir();
+			
+			os = new FileOutputStream(path + System.getProperty("file.separator") + "index.html");		
+			
+			ps = new PrintStream(os);
+			ods = new DataOutputStream(os);
+			ods.flush();
+			ods.writeBytes(new StringWriter().toString());	
+	        
+	        //***************************************************
+	        
 			
 			AssinanteDAO aDAO = DAOFactory.ASSINANTE_DAO();
 			
@@ -92,6 +126,7 @@ public final class AssinanteAction extends DispatchAction{
 			a.setCidade(aForm.getCidade());
 			a.setEstado(aForm.getEstado());
 			a.setDataCadastro(aForm.getDataCadastro());
+			a.setUsername(aForm.getUsername());
 
 			AssinanteDAO aDAO = DAOFactory.ASSINANTE_DAO();
 
