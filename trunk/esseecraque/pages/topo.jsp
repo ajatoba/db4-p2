@@ -9,14 +9,7 @@
 
 <div id="menu">
 	<dt>
-		<span><bean:write name="Assinante" property="nome" /> ></span>
-		<html:link page="/listMeusVideos.do?act=list" styleClass="menu_topo">Meus vídeos</html:link>
-		<label class="link_principal">&nbsp;|&nbsp;</label>
-		<html:link page="/minhaConta.do" styleClass="menu_topo">Minha conta</html:link>
-		<label class="link_principal">&nbsp;|&nbsp;</label>
-		<html:link page="/editarPerfilForm.do" styleClass="menu_topo">Editar perfil</html:link>
-		<label class="link_principal">&nbsp;|&nbsp;</label>
-		<html:link page="/cadVideoForm.do" styleClass="menu_topo">Publicar vídeo</html:link>
+		
 	</dt>
 </div>
 <div id="topo">
@@ -26,18 +19,22 @@
 		<dt class="frm_in">
 			
       <table width="204" height="133" border="0" cellpadding="0" cellspacing="0">
-        <tr> 
-			<td height="18">&nbsp;</td>
-		</tr>
 		<tr> 		
-    	    <td width="204" height="25" class="txt_logs">&nbsp;&nbsp;&nbsp;&nbsp;Olá, <bean:write name="Assinante" property="nome" /></td>
-		</tr>
-		<tr> 
-			<td height="5"></td>
+    	    <td width="204" height="20" class="txt_logs">&nbsp;&nbsp;&nbsp;&nbsp;Olá, <bean:write name="Assinante" property="nome" /></td>
 		</tr>
 		<tr> 
 			<td width="204" height="25" class="txt_logs">&nbsp;&nbsp;&nbsp;&nbsp;Você possui <bean:write name="qtdVideo" /> vídeos</td>
-		</tr>	
+		</tr>
+        <tr>
+        	<td width="204" class="txt_logs">&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp; <html:link page="/listMeusVideos.do?act=list" styleClass="menu_topo">Meus vídeos</html:link></td>
+        </tr>	
+        <tr>
+        	<td width="204" class="txt_logs">&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp; <html:link page="/minhaConta.do" styleClass="menu_topo">Minha conta</html:link></td>
+        </tr>
+        <tr>
+        	<td width="204" class="txt_logs">&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp; <html:link page="/editarPerfilForm.do" styleClass="menu_topo">Editar perfil</html:link></td>
+        </tr>	
+        
 		<tr> 
 			<td height="34" align="right" valign="bottom"><img src="_imgs/btn_logar.jpg" width="40" height="34" class="linkado" style="border:0px;" /></td>
 		</tr>
