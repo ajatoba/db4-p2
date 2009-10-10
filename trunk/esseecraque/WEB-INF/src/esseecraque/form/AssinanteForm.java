@@ -1,5 +1,6 @@
 package esseecraque.form;
 
+import javax.persistence.Column;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionErrors;
@@ -20,6 +21,13 @@ public class AssinanteForm extends ActionForm{
 	private String estado;
 	private String dataCadastro;
 	private String username;
+
+	private String height;
+	private String weight;
+	private String position;
+	private String comment;
+	private String tournaments;
+	private String teams;
 	
 	public Long getId(){
 		return id;
@@ -90,7 +98,44 @@ public class AssinanteForm extends ActionForm{
 	public void setUsername(String username) {
 		this.username = username;
 	}
+
+	public String getHeight() {
+		return height;
+	}
+	public void setHeight(String height) {
+		this.height = height;
+	}
+	public String getWeight() {
+		return weight;
+	}
+	public void setWeight(String weight) {
+		this.weight = weight;
+	}
+	public String getPosition() {
+		return position;
+	}
+	public void setPosition(String position) {
+		this.position = position;
+	}
+	public String getComment() {
+		return comment;
+	}
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+	public String getTournaments() {
+		return tournaments;
+	}
+	public void setTournaments(String tournaments) {
+		this.tournaments = tournaments;
+	}
 	
+	public String getTeams() {
+		return teams;
+	}
+	public void setTeams(String teams) {
+		this.teams = teams;
+	}
 	public ActionErrors validate(ActionMapping mapping,
 			HttpServletRequest request) {
 		
