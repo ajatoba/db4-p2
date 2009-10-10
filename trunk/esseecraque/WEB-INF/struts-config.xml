@@ -48,7 +48,8 @@
             parameter="act"  
             scope="request"  
             validate="true">   
-            	<forward name="assinante_add_sucesso" path="/addAssinanteSucesso.jsp" />
+            	<forward name="assinante_perfil" path="/pages/addAssinantePerfil.jsp" />
+            	<forward name="assinante_add_sucesso" path="/pages/addAssinanteSucesso.jsp" />
             	<forward name="assinante_add_error" path="/addAssinanteError.jsp" />   
         </action>
         
