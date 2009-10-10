@@ -61,6 +61,25 @@ public class Assinante extends PersistentObject implements Serializable{
 	@Cascade(CascadeType.ALL)
 	private List<Video> Videos;
 	
+	//CAMPOS DE PERFIL
+	@Column(name="VC_HEIGHT")
+	private String height;
+	
+	@Column(name="VC_WEIGHT")
+	private String weight;
+	
+	@Column(name="VC_POSITION")
+	private String position;
+	
+	@Column(name="VC_COMMENTS")
+	private String comment;
+	
+	@Column(name="VC_TOURNAMENTS")
+	private String tournaments;
+	
+	@Column(name="VC_TEAMS")
+	private String teams;
+	
 	public List<Video> getVideos() {
 		return Videos;
 	}
@@ -132,6 +151,54 @@ public class Assinante extends PersistentObject implements Serializable{
 
 	public void setUsername(String username) {
 		this.username = username;
+	}
+
+	public String getHeight() {
+		return height;
+	}
+
+	public void setHeight(String height) {
+		this.height = height;
+	}
+
+	public String getWeight() {
+		return weight;
+	}
+
+	public void setWeight(String weight) {
+		this.weight = weight;
+	}
+
+	public String getPosition() {
+		return position;
+	}
+
+	public void setPosition(String position) {
+		this.position = position;
+	}
+
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+
+	public String getTournaments() {
+		return tournaments;
+	}
+
+	public void setTournaments(String tournaments) {
+		this.tournaments = tournaments;
+	}
+
+	public String getTeams() {
+		return teams;
+	}
+
+	public void setTeams(String teams) {
+		this.teams = teams;
 	}
 	
 	
