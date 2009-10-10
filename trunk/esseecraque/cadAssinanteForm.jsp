@@ -34,9 +34,9 @@
 					</div>
 				</form>
 			</dt>
-
+<div id="cadastro">
 <html:form action="cadAssinante.do?act=add" focus="email" onsubmit="return validateAssinanteForm(this)">   
-<table border="0" cellpadding="0" cellspacing="0">
+<table border="0" cellpadding="3" cellspacing="3">
 <tr>   
     <td valign="middle" class="form_nome">E-mail:</td>   
     <td valign="middle"><html:text property="email" styleClass="form_campo_nome" /></td>
@@ -79,7 +79,7 @@
 </tr>   
 <tr>   
     <td valign="middle" class="form_nome">URL do assinante:</td>   
-    <td valign="middle">http://www.esseecraque.com.br/<html:text property="username" styleClass="form_campo_nome" /></td>
+    <td valign="middle">http://www.esseecraque.com.br/<html:text property="username" styleClass="form_campo_path" /></td>
 	<td valign="middle" class="valida_form"><html:errors  property="erro.vcUsername" /></td>   
 </tr>          
 </table>   
@@ -87,7 +87,7 @@
 </html:submit>
    
 </html:form>
-
+</div>
 <br />
 <html:link page="/home.jsp" styleClass="menu_topo">Voltar para home</html:link>
 <br />
