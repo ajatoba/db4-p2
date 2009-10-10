@@ -91,5 +91,10 @@
     <taglib-uri>http://displaytag.sf.net</taglib-uri>
     <taglib-location>/WEB-INF/TLD/displaytag-12.tld</taglib-location>
   </taglib>
+  
+  <taglib>
+	<taglib-uri>http://java.sun.com/jstl/core</taglib-uri>
+	<taglib-location>/WEB-INF/TLD/c.tld</taglib-location>
+  </taglib>
       
 </web-app>  

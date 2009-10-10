@@ -1,7 +1,6 @@
 <%@ taglib uri="/WEB-INF/TLD/struts-bean.tld" prefix="bean" %>   
 <%@ taglib uri="/WEB-INF/TLD/struts-html.tld" prefix="html" %>
 <%@ taglib uri="/WEB-INF/TLD/struts-logic.tld" prefix="logic" %>
-<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
 <%@page import="java.text.SimpleDateFormat" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -24,19 +23,62 @@
 <div id="meio_fundo">
 	<div id="meio">
 		<div id="esquerda">
-			<!-- Resultado Voto -->
-
+			<!-- VOTAR -->
 			<br />
 			<table border="0" cellpadding="0" cellspacing="0">
 				<tr>
-					<td><img src="_imgs/iconeSucesso.jpg" /></td>
+					<td><img src="_imgs/iconeErro.jpg" /></td>
 					<td>&nbsp;</td>
-					<td><span class="txtMsg"><bean:message key="msg.add.voto" /></span></td>
+					<td><span class="txtMsg"><bean:message key="msg.add.erro.voto" /></span></td>
 				</tr>
 			</table>
 
 			<br />
 			<br />
+			Que nota você dá para esse vídeo?
+			<br />
+			
+			<table border="0">
+				<tr>
+					<td>
+						<form action="votarAdd.do?act=votarAdd" method="Post">
+							<input type="hidden" name="idVideo" value="<bean:write name='Video' property='id' />" />
+							<input type="hidden" name="nota" value="1" />
+							<input type="submit" name="Submit" value="(1)" />
+						</form>
+					</td>
+					<td>
+						<form action="votarAdd.do?act=votarAdd" method="Post">
+							<input type="hidden" name="idVideo" value="<bean:write name='Video' property='id' />" />
+							<input type="hidden" name="nota" value="2" />
+							<input type="submit" name="Submit" value="(2)" />
+						</form>
+					</td>
+					<td>
+						<form action="votarAdd.do?act=votarAdd" method="Post">
+							<input type="hidden" name="idVideo" value="<bean:write name='Video' property='id' />" />
+							<input type="hidden" name="nota" value="3" />
+							<input type="submit" name="Submit" value="(3)" />
+						</form>
+					</td>
+					<td>
+						<form action="votarAdd.do?act=votarAdd" method="Post">
+							<input type="hidden" name="idVideo" value="<bean:write name='Video' property='id' />" />
+							<input type="hidden" name="nota" value="4" />
+							<input type="submit" name="Submit" value="(4)" />
+						</form>
+					</td>
+					<td>
+						<form action="votarAdd.do?act=votarAdd" method="Post">
+							<input type="hidden" name="idVideo" value="<bean:write name='Video' property='id' />" />
+							<input type="hidden" name="nota" value="5" />
+							<input type="submit" name="Submit" value="(5)" />
+						</form>
+					</td>
+				</tr>
+			</table>
+
+
 			<table>
 				<tr>
 					<td><img src="<bean:write name="Video" property="pathImage" />" /></td>
@@ -48,11 +90,9 @@
 					<td class="desc"><bean:write name="Video" property="title" /></td>
 				</tr>
 			</table>
-			Média: <bean:write name="Voto" property="media" />
 					
-			<!-- Resultado Voto -->
+			<!-- VOTAR -->
 
-<br />
 <br />
 <br />
 <html:link page="/valtarHome.do" styleClass="menu_topo">Voltar para home</html:link>

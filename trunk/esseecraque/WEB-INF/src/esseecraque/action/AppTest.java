@@ -14,7 +14,7 @@ public class AppTest {
 
 	public static void main(String[] args) {
 
-		int notaUser = 5;
+		int notaUser = 3;
 		
 		int qtd = 0;
 		double nota = 0;
@@ -27,31 +27,43 @@ public class AppTest {
 			
 			VotoDAO vtDAO = DAOFactory.VOTO_DAO();
 			
-			String idVideo_str = "2";
+			String idVideo_str = "1";
 			Long idVideo = Long.parseLong(idVideo_str);
 			
 			vt = vtDAO.buscarVoto(idVideo);
-			
-			if(vt==null || vt.equals("")){
-				vt.setQtdVoto(1);
-				vt.setNota(notaUser);
-				vt.setIdVideo(idVideo);
-				vt.setMedia(notaUser);
+			Voto v = new Voto();
+			if(vt==null){
+				
+				v.setQtdVoto(1);
+				v.setNota(notaUser);
+				v.setIdVideo(idVideo);
+				v.setMedia(notaUser);
+				
+				System.out.println("Sem voto ainda - Média: " + v.getMedia());
+				
 			}else{
 				qtd = vt.getQtdVoto();
 				nota = vt.getNota();
 				
-				vt.setQtdVoto(qtd + 1);
-				vt.setNota(nota + notaUser);
-				vt.setIdVideo(idVideo);
+				System.out.println("Nota do Banco: " + nota);
+				System.out.println("Nota dada: " + notaUser);
+				
+				//Voto v = new Voto();
+				
+				v.setQtdVoto(qtd + 1);
+				v.setNota(nota + notaUser);
+				v.setIdVideo(idVideo);
 
-				media = Math.ceil(vt.getNota()/vt.getQtdVoto());
+				media = Math.ceil(v.getNota()/v.getQtdVoto());
 				
-				vt.setMedia(media);
+				v.setMedia(media);
 				
+				System.out.println("Total Quantidade: " + v.getQtdVoto());
+				System.out.println("Total Nota: " + v.getNota());
+				System.out.println("Média: " + v.getMedia());
+				System.out.println("Média Sem tratar: " + v.getNota()/v.getQtdVoto());
 			}
 			
-			System.out.println("Média: " + vt.getMedia());
 			
 			
 		} catch (Exception e) {

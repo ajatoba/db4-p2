@@ -27,12 +27,14 @@ private Session session;
 	
 	public Voto buscarVoto(Long idVideo){
 
+		Voto resultado = new Voto();
+		
 		HibernateUtil hu = new HibernateUtil();
 		session = hu.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 		Query q = session.createQuery("SELECT vt FROM Voto vt WHERE vt.idVideo=:id");
 		q.setParameter("id", idVideo);
-		Voto resultado = (Voto)q.uniqueResult();
+		resultado = (Voto)q.uniqueResult();
 		session.getTransaction().commit();
 		return resultado;
 	}

@@ -39,26 +39,30 @@ public class VotoAction extends DispatchAction{
 			
 			vt = vtDAO.buscarVoto(idVideo);
 			
-			if(vt==null || vt.equals("")){
-				vt.setQtdVoto(1);
-				vt.setNota(notaUser);
-				vt.setIdVideo(idVideo);
-				vt.setMedia(notaUser);
+			Voto v = new Voto();
+			
+			if(vt==null){
+				v.setQtdVoto(1);
+				v.setNota(notaUser);
+				v.setIdVideo(idVideo);
+				v.setMedia(notaUser);
 			}else{
 				qtd = vt.getQtdVoto();
 				nota = vt.getNota();
 				
-				vt.setQtdVoto(qtd + 1);
-				vt.setNota(nota + notaUser);
-				vt.setIdVideo(idVideo);
+				v.setQtdVoto(qtd + 1);
+				v.setNota(nota + notaUser);
+				v.setIdVideo(idVideo);
 
-				media = Math.ceil(vt.getNota()/vt.getQtdVoto());
+				media = Math.ceil(v.getNota()/v.getQtdVoto());
 				
-				vt.setMedia(media);
+				v.setMedia(media);
 				
 			}
 			
-			objSession.setAttribute(Constants.VOTO_BEAN, vt);
+			vtDAO.salvar(v);
+			
+			objSession.setAttribute(Constants.VOTO_BEAN, v);
 			
 			return mapping.findForward(Constants.BUSCA_VOTO_SUCESS);
 			
