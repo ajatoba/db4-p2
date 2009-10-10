@@ -9,6 +9,7 @@
        <form-bean name="assinanteForm" type="esseecraque.form.AssinanteForm"/>
        <form-bean name="assinanteLoginForm" type="esseecraque.form.AssinanteLoginForm"/>
        <form-bean name="videoForm" type="esseecraque.form.VideoForm"/>
+       <form-bean name="votoForm" type="esseecraque.form.VotoForm"/>       
     </form-beans>
     
     <!-- Action Mapping Definitions -->   
@@ -19,6 +20,7 @@
         <action path="/editarPerfilForm" forward="/pages/editarPerfil.jsp" />
         <action path="/valtarHome" forward="/pages/home.jsp" />
         <action path="/minhaConta" forward="/pages/minhaConta.jsp" />
+        <action path="/votar" forward="/votar.jsp" />
         
         <action path="/welcome" 
         	type="esseecraque.action.VideoAction"
@@ -108,6 +110,15 @@
             validate="true">   
             	<forward name="list_meus_videos_sucess" path="/pages/listMeusVideos.jsp" />
             	<forward name="excluir_video_error" path="/pages/excluirVideoError.jsp" />   
+        </action>
+        
+        <action path="/votarAdd"  
+            type="esseecraque.action.VotoAction"  
+            parameter="act"  
+            scope="request"  
+            validate="true">   
+            	<forward name="votar_sucess" path="/votarSucess.jsp" />
+            	<forward name="votar_error" path="/votarError.jsp" />   
         </action>
            
     </action-mappings>

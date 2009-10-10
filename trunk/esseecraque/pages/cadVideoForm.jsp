@@ -50,6 +50,10 @@
     <td><input type="text" name="description"></td>   
 </tr>
 <tr>   
+    <td class="form_nome">Palavras Chave:</td>   
+    <td><input type="text" name="tag"></td>   
+</tr>
+<tr>   
     <td class="form_nome">Vídeo:</td>
     <td>
       <!--  <input class="default" type="file" id="file1" name="file1"/><br/>

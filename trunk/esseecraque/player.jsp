@@ -42,7 +42,7 @@
 					<div class="fundo_desc"><bean:write name='Video' property='url' /></div>
 				</div>
 				<div class="meio_desc">
-					<div><img src="_imgs/votar.jpg" class="linkado"/></div>
+					<div><a href="votar.do"><img src="_imgs/votar.jpg" class="linkado" border="0" /></a></div>
 					<div><img src="_imgs/ver_perfil.jpg" class="mgn5_linkado"/></div>
 				</div>
 				<div class="esq_desc">

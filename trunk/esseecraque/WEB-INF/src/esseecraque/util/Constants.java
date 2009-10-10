@@ -8,6 +8,8 @@ public interface Constants {
 	
 	public static final String VIDEO_BEAN = "Video";
 	
+	public static final String VOTO_BEAN = "Voto";
+	
 	
 	public static final String ADD_ASSINANTE_SUCESS = "assinante_add_sucesso";
 	
@@ -64,6 +66,11 @@ public interface Constants {
 	public static final String EXCLUIR_VIDEO_SESSION = "session_video_excluir";
 	
 	public static final String EXCLUIR_VIDEO_RESPOSTA = "video_excluir_resp";
+	
+	
+	public static final String BUSCA_VOTO_SUCESS = "votar_sucess";
+	
+	public static final String BUSCA_VOTO_ERROR = "votar_error";
 
 	
 }

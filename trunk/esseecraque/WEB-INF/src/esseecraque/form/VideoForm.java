@@ -1,5 +1,6 @@
 package esseecraque.form;
 
+import javax.persistence.Column;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.*;
@@ -11,6 +12,7 @@ public class VideoForm extends ActionForm{
 	private String title;
 	private String description;
 	private FormFile file;
+	private String tagVideo;
 	
 	public Long getId(){
 		return id;
@@ -36,7 +38,15 @@ public class VideoForm extends ActionForm{
 	}
 	public void setFile(FormFile file) {
 		this.file = file;
-	}	
+	}
+	
+	public String getTagVideo() {
+		return tagVideo;
+	}
+	
+	public void setTagVideo(String tagVideo) {
+		this.tagVideo = tagVideo;
+	}
 	
 	public void reset(ActionMapping mapping, HttpServletRequest request) {
 	

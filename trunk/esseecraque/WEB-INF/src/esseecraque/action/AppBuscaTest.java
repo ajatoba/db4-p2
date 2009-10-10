@@ -45,7 +45,7 @@ public class AppBuscaTest {
 			
 			final String[] stopWords = {"de","do","da","dos","das","a","o","na","no","em"};    
 	    	final MultiFieldQueryParser parser = new MultiFieldQueryParser(new String[]{"assinante.nome","title"} , new StopAnalyzer(stopWords));
-	    	final Query query = parser.parse("Moraes Flamengo");
+	    	final Query query = parser.parse("Anderson");
 	    	final FullTextQuery fullTextQuery = ftSession.createFullTextQuery(query, Video.class);
 	    	
 	    	final List<Video> list = fullTextQuery.list();
@@ -59,7 +59,7 @@ public class AppBuscaTest {
 			}else{
 			
 					for (Video v : list) {
-						System.out.println("   " + v.getTitle());
+						System.out.println("   " + v.getIdAssinante() + " - " + v.getTitle());
 					}
 				
 			}

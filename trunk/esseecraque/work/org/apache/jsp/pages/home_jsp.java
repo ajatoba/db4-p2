@@ -227,7 +227,7 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t</div>\r\n");
       out.write("\t\t<div id=\"direita\">\r\n");
       out.write("\t\t\t<div id=\"lists\">\r\n");
-      out.write("<img src=\"_imgs/btn_videos.jpg\" class=\"linkado\"/><img src=\"_imgs/btn_usuarios.jpg\" class=\"linkado\"/><img src=\"_imgs/btn_canais.jpg\" class=\"linkado\"/><div class=\"nav\">\r\n");
+      out.write("<img src=\"_imgs/btn_jogadores.jpg\" class=\"linkado\"/><img src=\"_imgs/btn_posicoes.jpg\" class=\"linkado\"/><img src=\"_imgs/btn_categorias.jpg\" class=\"linkado\"/><div class=\"nav\">\r\n");
       out.write("\t\t\t\t\t<div class=\"nav_esq\"><img src=\"_imgs/nav_esq.jpg\" /></div>\r\n");
       out.write("\t\t\t\t\t<div class=\"nav1\">Pág. </div>\r\n");
       out.write("\t\t\t\t\t<div class=\"navega\"> <input name=\"page\" type=\"text\" class=\"box_nav\" /> </div>\r\n");

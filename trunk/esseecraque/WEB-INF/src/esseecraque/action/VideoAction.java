@@ -166,7 +166,8 @@ public final class VideoAction  extends DispatchAction{
 
             //SETANDO ATRIBUTOS DO VIDEO
 			v.setTitle(vForm.getTitle());
-			v.setDescription(vForm.getDescription());		
+			v.setDescription(vForm.getDescription());
+			v.setTagVideo(vForm.getTagVideo());
 			v.setIdAssinante(vForm.getId());	        
             v.setDataUpload(strData);
             v.setRealPath(encodedFileName);

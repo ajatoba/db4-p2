@@ -46,6 +46,8 @@ public class Vid implements Serializable{
 	private String dataUpload;
 	@Column(name="VC_PATH_IMAGE")
 	private String pathImage;
+	@Column(name="VC_TAG")
+	private String tagVideo;
 	
 	public Long getId(){
 		return id;
@@ -95,4 +97,13 @@ public class Vid implements Serializable{
 	public void setPathImage(String pathImage) {
 		this.pathImage = pathImage;
 	}
+	
+	public String getTagVideo() {
+		return tagVideo;
+	}
+	
+	public void setTagVideo(String tagVideo) {
+		this.tagVideo = tagVideo;
+	}
+	
 }
