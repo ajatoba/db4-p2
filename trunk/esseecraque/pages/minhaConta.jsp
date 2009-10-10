@@ -8,7 +8,7 @@
 <head>      
 <title><bean:message key="titulo.paginas"/></title>
 <link href="<html:rewrite page="/_css/estilo.css" />" rel="stylesheet" type="text/css">
-<link href="<html:rewrite page="/_css/cadastro.css" />" rel="stylesheet" type="text/css">
+<link href="<html:rewrite page="/_css/minha_conta.css" />" rel="stylesheet" type="text/css">
 <link href="<html:rewrite page="/_css/slide.css" />" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="js/jquery-1.2.6-packed.js"></script>
 <script type="text/javascript" src="js/slide.noconflict.js"></script>
@@ -26,13 +26,13 @@
 		<div id="esquerda">
 
 <!-- INÍCIO MINHA CONTA -->
-
+<div id="dados_conta">
 <div><b>Histórico Financeiro</b></div>
 <div>...</div>
 <br /><br />
 <div><b>Data do Próximo Pagamento</b></div>
 <div>29/10/2009</div>
-
+</div>
 <!-- FIM MINHA CONTA -->
 
 <br />
