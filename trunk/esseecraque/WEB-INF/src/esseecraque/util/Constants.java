@@ -71,6 +71,10 @@ public interface Constants {
 	public static final String BUSCA_VOTO_SUCESS = "votar_sucess";
 	
 	public static final String BUSCA_VOTO_ERROR = "votar_error";
+	
+	public static final String VIDEO_UPLOAD_FORM = "video_upload_form";
+	
+	public static final String TEMP_VIDEO = "temp_video";
 
 	
 }

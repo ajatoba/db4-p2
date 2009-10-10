@@ -34,7 +34,7 @@ public class Assinante extends PersistentObject implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="NR_ID_ASSINANTE")
+	@Column(name="NR_ID_ASSINANTE", unique=true)
 	private Long id;
 	@Column(name="VC_EMAIL_ASSINANTE")
 	private String email;
@@ -53,6 +53,8 @@ public class Assinante extends PersistentObject implements Serializable{
 	private String estado;
 	@Column(name="DT_DATA_CAD_ASSINANTE")
 	private String dataCadastro;
+	@Column(name="VC_USERNAME", unique=true)
+	private String username;
 	
 	@ContainedIn
 	@OneToMany(mappedBy="assinante", fetch=FetchType.LAZY)
@@ -123,5 +125,14 @@ public class Assinante extends PersistentObject implements Serializable{
 	public void setDataCadastro(String dataCadastro){
 		this.dataCadastro = dataCadastro;
 	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	
 	
 }

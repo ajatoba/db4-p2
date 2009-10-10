@@ -47,113 +47,11 @@ public final class VideoAction  extends DispatchAction{
 		
 		MessageResources messageResources = getResources(req);
 		
-//		*********** PARÂMETROS DE UPLOAD
-		String docRoot 				= (String) SiteManager.getInstance().getProperties().get("docroot");
-		String videoFolder 			= (String) SiteManager.getInstance().getProperties().get("video_folder");
-		String maxVideoUploadSize 	= (String) SiteManager.getInstance().getProperties().get("max_video_upload_size_mb");
-		//*********************************
-		
-		//***********PARÂMETROS DE ENCODING
-		String videoBitrate			= (String) SiteManager.getInstance().getProperties().get("video_bitrate");
-		String frameRate			= (String) SiteManager.getInstance().getProperties().get("frame_rate");
-		String videoSize			= (String) SiteManager.getInstance().getProperties().get("video_size");
-		String videoFormat			= (String) SiteManager.getInstance().getProperties().get("video_format");
-		String audioCodec			= (String) SiteManager.getInstance().getProperties().get("audio_codec");
-		String audioBitrate			= (String) SiteManager.getInstance().getProperties().get("audio_bitrate");
-		String audioFrequency		= (String) SiteManager.getInstance().getProperties().get("audio_frequency");
-		String audioChannels		= (String) SiteManager.getInstance().getProperties().get("audio_channels");
-		//**********************************
-		
-		UploadListener listener = new UploadListener(req, 30);
-	    FileItemFactory factory = new MonitoredDiskFileItemFactory(listener);
-	    
-	    String name="", can_path="", userFolder="";
-	    long size=0;
-	    
-	    //userFolder="test"+System.currentTimeMillis()+ System.getProperty("file.separator");
-	    
-	    File objfile = new File(docRoot + videoFolder + userFolder);  
-	    File arquivo = null;
-	    if(!objfile.exists()) objfile.mkdir();
-	    
-	    can_path = objfile.getCanonicalPath();
-	    
-	    try
+		Assinante assinante = (Assinante) objSession.getAttribute(Constants.ASSINANTE_BEAN);
+				
+		try
 	    {
-	        boolean isMultipart = FileUpload.isMultipartContent(req);  
-			
-	        String uploadedFileName="",encodedFileName="", imageName="";
-	        
-			if (isMultipart) {  
-				ServletFileUpload upload = new ServletFileUpload(factory);
-				upload.setSizeMax(Integer.parseInt(maxVideoUploadSize)*1024*1024);
-				List items = upload.parseRequest(req);  
-				Iterator it = items.iterator();
-				
-				FileItem fi = (FileItem)it.next();  
-
-				name=fi.getName();  
-				size=fi.getSize();
-				
-				//****** COMPOSIÇÃO DOS NOMES (COM OS PATHS) DOS ARQUIVOS
-				uploadedFileName = can_path + System.getProperty("file.separator") + name;				
-				encodedFileName = can_path + System.getProperty("file.separator") + System.currentTimeMillis() + "." + videoFormat;
-				//*******************************************************
-				
-				arquivo = new File(uploadedFileName);  
-				fi.write(arquivo); 	
-
-				req.setAttribute("name", name);
-				req.setAttribute("size", String.valueOf(size/1024));
-				
-				//COMANDO DE ENCODING 								
-				String encoderCommand = "ffmpeg -i "+ uploadedFileName +" -b "+ videoBitrate+ " -r "+ frameRate +" -s "+ videoSize 
-				+ " -sameq -ss -hq -deinterlace -ab "+ audioBitrate +" -f "+ videoFormat 
-				+ " -acodec "+ audioCodec +" -ar "+ audioFrequency +" -ac "+ audioChannels +" -y "+ encodedFileName;
-
-				//System.out.println("COMANDO:" + encoderCommand);
-
-				//****** FAZENDO O ENCODING				
-				SysCommandExecutor cmdExecutor = new SysCommandExecutor(); 		
-				int exitStatus = -1;
-				String cmdError = "", cmdOutput = "";
-
-				exitStatus 	= cmdExecutor.runCommand(encoderCommand);
-				cmdError 	= cmdExecutor.getCommandError();
-				cmdOutput 	= cmdExecutor.getCommandOutput();
-				
-				//************************
-				
-				//GERANDO THUMBNAIL E FINALIZANDO O PROCESSO
-				
-				if(arquivo.exists()){
-					//****** OBTENDO A DURAÇÃO DO VÍDEO (DO LOG DE EXECUÇÃO DO COMANDO)
-					String duration = cmdError.substring(cmdError.indexOf("Duration:")+10, cmdError.indexOf("Duration:")+18);
-					String[] time = duration.split(":");
-					
-					if (time.length <3) throw new Exception("Erro ao calcular o tempo do vídeo");
-					
-					int seconds = (Integer.parseInt(time[0])*3600)+(Integer.parseInt(time[1])*60) + (Integer.parseInt(time[2]));
-					
-					int i = 1 + (int)(Math.random() * seconds) ;
-					imageName = encodedFileName.substring(0,encodedFileName.lastIndexOf(".")+1)+"jpg";
-					String generateThumbnail="ffmpeg -itsoffset -"+ i +"  -i "+ encodedFileName +" -vcodec mjpeg -vframes 1 -an -f rawvideo -s "+ videoSize +" -y " + imageName;
-					cmdExecutor.runCommand(generateThumbnail);					
-				}
-				
-				//*************************
-				
-				if (exitStatus >=0 && cmdError.indexOf("Output #")>=0) {
-					req.setAttribute("mensagem_sucesso", messageResources.getMessage("video_upload_sucess"));
-				}else if(cmdError.indexOf("Output #")< 0){ 
-					req.setAttribute("mensagem_erro", messageResources.getMessage("video_encoding_error"));
-				}else {
-					req.setAttribute("mensagem_erro", messageResources.getMessage("video_upload_error"));
-				}
-								
-			}
-			
-			//******* SALVANDO O VIDEO NO BANCO  
+	    	//******* SALVANDO O VIDEO NO BANCO  
 			
 			Video v = new Video();
 			
@@ -168,11 +66,12 @@ public final class VideoAction  extends DispatchAction{
 			v.setTitle(vForm.getTitle());
 			v.setDescription(vForm.getDescription());
 			v.setTagVideo(vForm.getTagVideo());
-			v.setIdAssinante(vForm.getId());	        
+			v.setIdAssinante(assinante.getId());	        
             v.setDataUpload(strData);
-            v.setRealPath(encodedFileName);
-            v.setPathImage(imageName);
             
+            objSession.setAttribute(Constants.TEMP_VIDEO, v);
+            
+            /*
             VideoDAO vDAO = DAOFactory.VIDEO_DAO();
 			
 			vDAO.salvar(v);
@@ -186,17 +85,15 @@ public final class VideoAction  extends DispatchAction{
 			vForm.reset(mapping, req);
 
 			//******************************
+			*/
+			return mapping.findForward(Constants.VIDEO_UPLOAD_FORM);
 			
-			return mapping.findForward(Constants.ADD_VIDEO_SUCESS);
-			
-	    }catch (FileUploadException e){
+	    }catch (Exception e){
 	        e.printStackTrace();
 	        req.setAttribute("mensagem_erro", e.getMessage());
 	        return mapping.findForward(Constants.ADD_VIDEO_ERROR);
 	    }finally{
-	    	//******* APAGANDO O ARQUIVO ORIGINAL
-	    	if(arquivo != null && arquivo.exists())arquivo.delete();
-	    	//************************************
+	    	
 	    }				
 
 	}
