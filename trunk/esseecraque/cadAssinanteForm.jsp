@@ -1,5 +1,6 @@
 <%@ taglib uri="WEB-INF/TLD/struts-bean.tld" prefix="bean" %>   
 <%@ taglib uri="WEB-INF/TLD/struts-html.tld" prefix="html" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>      
@@ -22,6 +23,17 @@
 <div id="meio_fundo">
 	<div id="meio">
 		<div id="esquerda">
+		<dt class="box_busca">
+				<form action="busca.do?act=busca" method="post">
+					<div class="sep_busca"></div>
+					<div class="txt_busca">
+						<input type="text" name="busca" Class="txt_buscar" />
+					</div>
+					<div class="btn_busca">
+						<input type="image" src="_imgs/btnbusca.jpg" name="Submit" Class="linkado" />
+					</div>
+				</form>
+			</dt>
 
 <html:form action="cadAssinante.do?act=add" focus="email" onsubmit="return validateAssinanteForm(this)">   
 <table border="0" cellpadding="0" cellspacing="0">
@@ -82,50 +94,13 @@
 
 		</div>
 		<div id="direita">
-			<div id="lists">
-<img src="_imgs/btn_videos.jpg" class="linkado"/><img src="_imgs/btn_usuarios.jpg" class="linkado"/><img src="_imgs/btn_canais.jpg" class="linkado"/><div class="nav">
-					<div class="nav_esq"><img src="_imgs/nav_esq.jpg" /></div>
-					<div class="nav1">Pág. </div>
-					<div class="navega"> <input name="page" type="text" class="box_nav" /> </div>
-					<div class="nav2">de 250</div>
-					<div class="nav_dir"><img src="_imgs/nav_dir.jpg" /></div>
-				</div>
-				<div class="atrasOut" onmouseover="this.className='atrasIn';" onmouseout="this.className='atrasOut';">
-					<dt class="frente">
-						<div class="voto0"><img src="_imgs/img_listas.jpg" /></div>
-						<div class="data">09/06/2009 10:26</div>
-						<div class="desc">Edson dos Santos em pedala e da show de bola</div>
-					</dt>
-				</div>
-				<div class="atrasOut" onmouseover="this.className='atrasIn';" onmouseout="this.className='atrasOut';">
-					<dt class="frente">
-						<div class="voto0"><img src="_imgs/img_listas.jpg" /></div>
-						<div class="data">09/06/2009 10:26</div>
-						<div class="desc">Edson dos Santos em pedala e da show de bola</div>
-					</dt>
-				</div>
-				<div class="atrasOut" onmouseover="this.className='atrasIn';" onmouseout="this.className='atrasOut';">
-					<dt class="frente">
-						<div class="voto0"><img src="_imgs/img_listas.jpg" /></div>
-						<div class="data">09/06/2009 10:26</div>
-						<div class="desc">Edson dos Santos em pedala e da show de bola</div>
-					</dt>
-				</div>
-				<div class="atrasOut" onmouseover="this.className='atrasIn';" onmouseout="this.className='atrasOut';">
-					<dt class="frente">
-						<div class="voto0"><img src="_imgs/img_listas.jpg" /></div>
-						<div class="data">09/06/2009 10:26</div>
-						<div class="desc">Edson dos Santos em pedala e da show de bola</div>
-					</dt>
-				</div>
-				<div class="atrasOut" onmouseover="this.className='atrasIn';" onmouseout="this.className='atrasOut';">
-					<dt class="frente">
-						<div class="voto0"><img src="_imgs/img_listas.jpg" /></div>
-						<div class="data">09/06/2009 10:26</div>
-						<div class="desc">Edson dos Santos em pedala e da show de bola</div>
-					</dt>
-				</div>
-			</div>			
+			
+<!-- INCLUDE DOS VÍDEOS LATERAIS -->
+
+<jsp:include page="/pages/jogadores.jsp" />
+
+<!-- INCLUDE DOS VÍDEOS LATERAIS -->
+			
 			<dt class="banner"><img src="_imgs/banner.jpg" class="linkado"/></dt>
 			<dt><img src="_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
 			<dt><img src="_imgs/banner_redondo.jpg" class="linkado" /></dt>
