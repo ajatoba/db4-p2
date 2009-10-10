@@ -1,20 +1,20 @@
 body{margin:0px; font-family:Arial, Helvetica, sans-serif; }
 .linkado{cursor:pointer; cursor:hand;}
 
-#menu{background:#313133; height:28px; color:#8C8C8C;}
+#menu{background:#313133; height:14px; color:#8C8C8C;}
 #menu dt span{color:#5F5F5F;}
 #menu dt{ width:1000px; margin-left:auto; margin-right:auto; line-height:26px; font-size:13px;}
 
 .menu_topo{
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: 14px;
+	font-size: 12px;
 	font-weight: normal;
-	color: #8C8C8C;
+	color: #FFFFFF;
 	text-decoration: none;
 }
 .menu_topo:hover{
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: 14px;
+	font-size: 12px;
 	font-weight: normal;
 	color: #8C8C8C;
 	text-decoration: underline;
