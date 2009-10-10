@@ -33,6 +33,9 @@
         </tr>
         <tr>
         	<td width="204" class="txt_logs">&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp; <html:link page="/editarPerfilForm.do" styleClass="menu_topo">Editar perfil</html:link></td>
+        </tr>
+        <tr>
+        	<td width="204" class="txt_logs">&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp; Sair</td>
         </tr>	
         
 		<tr> 
