@@ -63,17 +63,24 @@
             	<forward name="assinante_edit_error" path="/pages/editarPerfilErro.jsp" />   
         </action>
         
+        
         <action input="/pages/cadVideoForm.jsp"
-        	path="/uploadVideo"  
+        	path="/cadVideo"  
             type="esseecraque.action.VideoAction"  
             name="videoForm"
             parameter="act"  
             scope="request"  
             validate="true">   
-            	<forward name="assinante_edit_sucess" path="/pages/editarPerfilSucesso.jsp" />
-            	<forward name="assinante_edit_error" path="/pages/editarPerfilErro.jsp" />   
+            	<forward name="video_upload_form" path="/pages/upload.jsp" />            	
         </action>
         
+        
+        <action path="/pages/uploadVideo"
+			type="esseecraque.action.UploadAction" scope="request"
+			parameter="act" validate="false">			
+			<forward name="video_upload_sucess" path="/pages/upload_video_sucesso.jsp" />				
+		</action>
+		
         <action input="/login.jsp"
         	path="/loginAssinante"  
             type="esseecraque.action.AssinanteAction"  
