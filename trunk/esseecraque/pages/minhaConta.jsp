@@ -24,7 +24,11 @@
 <div id="meio_fundo">
 	<div id="meio">
 		<div id="esquerda">
-
+<dt class="box_busca">
+				<div class="sep_busca"></div>
+				<div class="txt_busca"><input name="busca" type="text" class="txt_buscar" /></div>
+				<div class="btn_busca"><img src="_imgs/btnbusca.jpg" class="linkado"/></div>
+			</dt>
 <!-- INÍCIO MINHA CONTA -->
 <div id="dados_conta">
 <div><b>Histórico Financeiro</b></div>
