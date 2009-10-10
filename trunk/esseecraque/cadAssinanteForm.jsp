@@ -64,7 +64,12 @@
     <td valign="middle" class="form_nome">Estado:</td>   
     <td valign="middle"><html:text property="estado" styleClass="form_campo_nome" /></td>
 	<td valign="middle" class="valida_form"><html:errors  property="erro.vcEstadoAssinante" /></td>   
-</tr>        
+</tr>   
+<tr>   
+    <td valign="middle" class="form_nome">URL do assinante:</td>   
+    <td valign="middle">http://www.esseecraque.com.br/<html:text property="username" styleClass="form_campo_nome" /></td>
+	<td valign="middle" class="valida_form"><html:errors  property="erro.vcUsername" /></td>   
+</tr>          
 </table>   
 <html:submit styleClass="botao"><bean:message key="botao.submit"/>
 </html:submit>
