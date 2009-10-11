@@ -19,6 +19,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
 </head>
 <body>
+
 <script>
 function montarTorneios(){
 	var formulario = document.forms[0];
@@ -45,69 +46,83 @@ function montarExperiencia(){
 }
 </script>
 
+<div id="meio_fundo">
+	<div id="meio">
+		<div id="esquerda">
 <% Assinante a = (Assinante)session.getAttribute(Constants.ASSINANTE_BEAN); %>
 
 
+
 <html:form action="cadAssinante.do?act=addPerfil">   
-<table border="0" cellpadding="0" cellspacing="0">
+<table border="0" cellpadding="3" cellspacing="3">
 <tr>   
-    <td valign="middle" class="form_nome">Altura:</td>   
-    <td valign="middle"><html:text property="height" styleClass="form_campo_nome" /></td>
-	<td valign="middle" class="valida_form"></td>   
+    <td width="74" valign="top" class="form_nome">Altura:</td>   
+    <td width="408" valign="top" ><html:text property="height" styleClass="form_campo_altura" /></td>
+	<td width="44" valign="top" class="valida_form"></td>   
 </tr>   
 <tr>   
-    <td valign="middle" class="form_nome">Peso:</td>   
-    <td valign="middle"><html:text property="weight" styleClass="form_campo_nome" /></td>
-	<td valign="middle" class="valida_form"></td>   
+    <td valign="top" class="form_nome">Peso:</td>   
+    <td valign="top""><html:text property="weight" styleClass="form_campo_altura" /></td>
+	<td valign="top" class="valida_form"></td>   
 </tr>
 <tr>   
-    <td valign="middle" class="form_nome">Posição:</td>   
-    <td valign="middle"><html:text property="position" styleClass="form_campo_nome" /></td>
-	<td valign="middle" class="valida_form"></td>   
+    <td valign="top" class="form_nome">Posição:</td>   
+    <td valign="top"><html:text property="position" styleClass="form_campo_posicao" /></td>
+	<td valign="top" class="valida_form"></td>   
 </tr>
 <tr>   
-    <td colspan="3" valign="middle" class="form_nome">Times em que jogou:</td>
+    <td colspan="3" valign="middle" class="form_nome">Times em que jogou :</td>
 </tr>
 <tr>    
-    <td colspan="2" valign="middle">
-    Time:<input type="text" name="nomeTime">
-    Cidade:<input type="text" name="cidadeTime">
-   <br>
-    Ano de Início:<input type="text" name="anoInicio">
-    Ano de Fim:<input type="text" name="anoFim">
-    <input type="button" value="adicionar" onclick="montarExperiencia();">
-    <br/>
-    
-    <html:textarea property="teams" rows="5" cols ="100" />
+    <td colspan="3" valign="middle" class="campo_cadastro">
+      Time : 
+        <input type="text" width="120" name="nomeTime" class="form_campo_posicao">
+      Cidade : 
+      <input type="text" width="150" name="cidadeTime" class="form_campo_posicao">
+      <br/>
     </td>
-	<td valign="middle" class="valida_form"></td>   
-</tr>
+  </tr>
+<tr>    
+    <td colspan="3" valign="middle" class="campo_cadastro">
+      Ano de Início :
+      <input type="text" name="anoInicio" class="form_campo_posicao">
+      Ano de Fim :
+      <input type="text" name="anoFim" class="form_campo_posicao">
+      
+      <br/>
+      <br/>
+      <html:textarea property="teams" rows="5" cols ="50" />
+      <br>
+      <input type="button" value="adicionar" onclick="montarExperiencia();">
+    </td>
+  </tr>
 
 <tr>   
-    <td valign="middle" class="form_nome" colspan="3">Titulos que ganhou:</td>   
+    <td valign="middle" class="form_nome" colspan="3">Titulos que ganhou :</td>   
        
 </tr>
 
 <tr>   
-    <td colspan="2"valign="middle">
-    Título: <input type="text" name="titulo">
-    Time: <input type="text" name="time">
-    <br>
-    Local: <input type="text" name="local">
-    Ano: <input type="text" name="ano">
+     <td colspan="2" valign="middle" class="campo_cadastro">
+    Título: <input type="text" name="titulo" class="form_campo_posicao">
+    Time: <input type="text" name="time" class="form_campo_posicao">
+    </td>
+    </tr>
+    <tr>
+    <td colspan="2" class="campo_cadastro" class="form_campo_posicao">
+    Local: <input type="text" name="local" class="form_campo_posicao">
+    Ano: <input type="text" name="ano" class="form_campo_posicao"><br /><br>
+    <html:textarea property="tournaments" rows="5" cols ="50" /><br />
     <input type="button" value="adicionar" onclick="montarTorneios();">
-    <br/>
-    
-    <html:textarea property="tournaments" rows="5" cols ="100" />
     </td>
 	<td valign="middle" class="valida_form"></td>   
 </tr>
 <tr>   
-    <td valign="middle" class="form_nome">Comentário:</td>   
-    <td valign="middle"><html:textarea property="comment" rows="5" cols ="100" /></td>
+    <td valign="middle" class="form_nome">Comentário:</td>  
+    <td valign="middle"><html:textarea property="comment" rows="5" cols ="50" /></td>
 	<td valign="middle" class="valida_form"></td>   
 </tr>
-</table> 
+</table>
 <!-- HIDDENS -->
 <html:hidden property="email" value="<%=a.getEmail()%>"/>
 <html:hidden property="password" value="<%=a.getPassword()%>"/>
@@ -125,7 +140,18 @@ function montarExperiencia(){
 </html:submit>
    
 </html:form>
-
+</div>
+<div id="direita">
+		<!--INCLUDE LISTAGEM DE VIDEOS-->
+			<jsp:include page="jogadores.jsp" />
+		<!--INCLUDE LISTAGEM DE VIDEOS-->
+			<dt class="banner"><img src="_imgs/banner.jpg" class="linkado"/></dt>
+			<dt><img src="_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
+			<dt><img src="_imgs/banner_redondo.jpg" class="linkado" /></dt>
+		</div>
+</div>
+</div>
+<jsp:include page="rodape.jsp" />
 
 </body>
 </html>
