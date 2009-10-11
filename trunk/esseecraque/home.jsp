@@ -116,7 +116,7 @@
 		
 <!-- INCLUDE DOS VÍDEOS LATERAIS -->
 
-<jsp:include page="abas.jsp" />
+<jsp:include page="buscaAvancada.jsp" />
 
 <!-- INCLUDE DOS VÍDEOS LATERAIS -->
 						
