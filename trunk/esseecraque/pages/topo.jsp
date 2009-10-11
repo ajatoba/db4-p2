@@ -14,7 +14,7 @@
 </div>
 <div id="topo">
 	<div>
-		<dt class="logo"><img src="_imgs/logo.jpg" class="linkado"/></dt>
+		<dt class="logo"><a href="index.jsp"><img src="_imgs/logo.jpg" class="linkado"/></a></dt>
 		<dt class="form"><img src="_imgs/banner_assine.jpg" /></dt>
 		<dt class="frm_in">
 			
@@ -23,7 +23,7 @@
     	    <td width="204" height="20" class="txt_logs">&nbsp;&nbsp;&nbsp;&nbsp;Olá, <bean:write name="Assinante" property="nome" /></td>
 		</tr>
 		<tr> 
-			<td width="204" height="25" class="txt_logs">&nbsp;&nbsp;&nbsp;&nbsp;Você possui <bean:write name="qtdVideo" /> vídeos</td>
+			<td width="204" height="20" class="txt_logs">&nbsp;&nbsp;&nbsp;&nbsp;Você possui <bean:write name="qtdVideo" /> vídeos</td>
 		</tr>
         <tr>
         	<td width="204" class="txt_logs">&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp; <html:link page="/listMeusVideos.do?act=list" styleClass="menu_topo">Meus vídeos</html:link></td>

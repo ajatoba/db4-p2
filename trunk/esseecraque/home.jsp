@@ -114,9 +114,9 @@
 		
 		<div id="direita">
 		
-<!-- INCLUDE DOS VÍDEOS LATERIAIS -->
+<!-- INCLUDE DOS VÍDEOS LATERAIS -->
 
-<jsp:include page="videosLaterais.jsp" />
+<jsp:include page="abas.jsp" />
 
 <!-- INCLUDE DOS VÍDEOS LATERAIS -->
 						

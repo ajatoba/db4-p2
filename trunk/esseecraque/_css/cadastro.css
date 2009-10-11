@@ -1,3 +1,8 @@
+#cadastro { width:640px;
+			display:table;
+			margin-top:8px;
+}
+
 dt.tit_cadastro {
 	width:640px;
 	height:42px;
@@ -25,6 +30,12 @@ dt.campo_nome {
 }
 .form_campo_nome {
 	width:400px;
+	height:20px;
+	border:solid 1px #D3D3D3;
+	background-color:#F5F5F5;
+}
+.form_campo_path {
+	width:100px;
 	height:20px;
 	border:solid 1px #D3D3D3;
 	background-color:#F5F5F5;
@@ -327,3 +338,29 @@ td.campo_nacionalidade {
 	color: red;
 	text-decoration: none;
 }
+
+.form_campo_altura {
+	width:50px;
+	height:20px;
+	border:solid 1px #D3D3D3;
+	background-color:#F5F5F5;
+	
+}
+.form_campo_posicao {
+	width:100px;
+	height:20px;
+	border:solid 1px #D3D3D3;
+	background-color:#F5F5F5;
+	
+}
+
+.campo_cadastro 
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	color: #ABABAB;
+	text-decoration: none;
+}
+
+

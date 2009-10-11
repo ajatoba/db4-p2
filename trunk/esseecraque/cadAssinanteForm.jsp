@@ -88,12 +88,126 @@
    
 </html:form>
 </div>
-<br />
-<html:link page="/home.jsp" styleClass="menu_topo">Voltar para home</html:link>
-<br />
+<dt class="desc_player">
+			
+			</dt>
+			<dt id="ultimos_videos">
+<!-- INÍCIO GALERIA ÚLTIMOS VÍDEOS -->
+<img src="_imgs/ultimos_videos.jpg" />
 
+<div id="image-gallery-wrapper">
+	<script type="text/javascript">
+	stepcarousel.setup({
+		galleryid: 'image-gallery', //id of carousel DIV
+		beltclass: 'belt', //class of inner "belt" DIV containing all the panel DIVs
+		panelclass: 'panel', //class of panel DIVs each holding content
+		panelbehavior: {speed:500, wraparound:true, persist:true},
+		defaultbuttons: {enable: false},
+		statusvars: ['statusA', 'statusB', 'statusC'], //register 3 variables that contain current panel (start), current panel (last), and total panels
+		contenttype: ['external'] //content setting ['inline'] or ['external', 'path_to_external_file']
+	})
+	
+	</script>
+	
+<div id="image-gallery" class="stepcarousel">
+	<div class="belt">
+		<div class="panel">
+			<a href="#" title="Link 1" >
+				<img src="_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagem 1" class="imgs" />
+			</a>
 		</div>
-		<div id="direita">
+		<div class="panel">
+			<a href="#" title="Link 2" >
+				<img src="_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagem 2" class="imgs" />
+			</a>
+		</div>
+		<div class="panel">
+			<a href="#" title="Link 3" >
+				<img src="_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagem 3" class="imgs" />
+			</a>
+		</div>
+		<div class="panel">
+			<a href="#" title="Link 4" >
+				<img src="_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagm 4" class="imgs" />
+			</a>
+		</div>
+		<div class="panel">
+			<a href="#" title="Link 5" >
+				<img src="_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagem 5" class="imgs" />
+			</a>
+		</div>
+		<div class="panel">
+			<a href="#" title="Link 6" >
+				<img src="_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagem 6" class="imgs" />
+			</a>
+		</div>
+		<div class="panel">
+			<a href="#" title="Link 7" >
+				<img src="_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagem 7" class="imgs" />
+			</a>
+		</div>
+				<div class="panel">
+			<a href="#" title="Link 8" >
+				<img src="_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagem 8" class="imgs" />
+			</a>
+		</div>
+		<div class="panel">
+			<a href="#" title="Link 9" >
+				<img src="_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagem 9" class="imgs" />
+			</a>
+		</div>
+		<div class="panel">
+			<a href="#" title="Link 10" >
+				<img src="_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagem 10" class="imgs" />
+			</a>
+		</div>
+		<div class="panel">
+			<a href="#" title="Link 11" >
+				<img src="_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagm 11" class="imgs" />
+			</a>
+		</div>
+		<div class="panel">
+			<a href="#" title="Link 12" >
+				<img src="_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagem 12" class="imgs" />
+			</a>
+		</div>
+		<div class="panel">
+			<a href="#" title="Link 13" >
+				<img src="_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagem 13" class="imgs" />
+			</a>
+		</div>
+		<div class="panel">
+			<a href="#" title="Link 14" >
+				<img src="_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagem 14" class="imgs" />
+			</a>
+		</div>
+		<div class="panel">
+			<a href="#" title="Link 15" >
+				<img src="_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagem 15" class="imgs" />
+			</a>
+		</div>
+	</div>
+</div>
+	<a class="prev" href="javascript:stepcarousel.stepBy('image-gallery', -5)">Prev</a>
+	<a class="next" href="javascript:stepcarousel.stepBy('image-gallery', 5)">Next</a>
+</div>
+
+<!-- FIM GALERIA ÚLTIMOS VÍDEOS -->
+			</dt>
+			<dt id="mais_votados">
+				<div class="seta"><img src="_imgs/seta_tras.jpg" /></div>
+				<div class="imgs"><img src="_imgs/img_videos.jpg" /></div>
+				<div class="imgs"><img src="_imgs/img_videos.jpg" /></div>
+				<div class="imgs"><img src="_imgs/img_videos.jpg" /></div>
+				<div class="imgs"><img src="_imgs/img_videos.jpg" /></div>
+				<div class="imgs"><img src="_imgs/img_videos.jpg" /></div>
+				<div class="seta2"><img src="_imgs/seta_frente.jpg" /></div>			
+			</dt>
+			<dt class="banner2"><img src="_imgs/bannergrande.jpg" class="linkado"/><img src="_imgs/txt_pub.jpg" /></dt>
+		</div>
+
+<html:link page="/home.jsp" styleClass="menu_topo">Voltar para home</html:link>
+<div id="direita">
 			
 <!-- INCLUDE DOS VÍDEOS LATERAIS -->
 
@@ -107,42 +221,7 @@
 		</div>
 	</div>
 </div>
-<div id="rodape">
-	<div class="rodape_in">
-		<div class="rod_esq">
-			<span>Ajuda</span> <br>
-			Dúvidas mais frequentes &nbsp;|&nbsp;
-			Como publicar um vídeo &nbsp;|&nbsp;
-			Fale conosco
-			<dt><img src="_imgs/ico_okt.jpg" class="ico" /><img src="_imgs/ico_face.jpg" class="ico" /><img src="_imgs/ico_rss.jpg" class="ico" /></dt>		
-		</div>
-		<div class="rod_dir">
-			<span>Sobre</span> <br>
-			Lorem Ipsum is simply dummy text of the printing and typesetting 
-			industry. Lorem Ipsum has been the industry's standard dummy text
-			 ever since the 1500s, when an unknown printer took a galley of
-			  type and scrambled it to make a type specimen book. It has survived
-			   not only five centuries, but also the leap into electronic typesetting,
-			    remaining essentially unchanged. It was popularised in the 1960s
-				 with the release of Letraset sheets containing Lorem Ipsum
-				  passages, and more recently with desktop publishing software.
-
-			
-			
-		</div>
-	</div>
-</div>
-<div id="rodape_baixo">
-	<span>2009. Todos os direitos reservados</span>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
-	Acordo de utilização &nbsp;|&nbsp;
-	Anuncie &nbsp;|&nbsp;
-	Desenvolvedores &nbsp;|&nbsp;
-	Comunidade no orkut &nbsp;|&nbsp;
-	Rss Feed &nbsp;|&nbsp;
-	Adicionar a Del.icio.us &nbsp;|&nbsp;
-	Download Logo
-</div>
+<jsp:include page="rodape.jsp" />
 
 
 </body>   

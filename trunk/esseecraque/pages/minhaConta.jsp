@@ -31,10 +31,10 @@
 			</dt>
 <!-- INÍCIO MINHA CONTA -->
 <div id="dados_conta">
-<div><b>Histórico Financeiro</b></div>
+<div class="itens_conta"><b>Histórico Financeiro</b></div>
 <div>...</div>
 <br /><br />
-<div><b>Data do Próximo Pagamento</b></div>
+<div class="itens_conta"><b>Data do Próximo Pagamento</b></div>
 <div>29/10/2009</div>
 </div>
 <!-- FIM MINHA CONTA -->
