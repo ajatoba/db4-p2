@@ -9,8 +9,7 @@
   
       <div>
         <dt class="fundo_abas">
-          <dt class="conteudo_abas">
-          <!--TABELA DE BUSCA-->
+               <!--TABELA DE BUSCA-->
           <table width="300" border="0" cellspacing="3" cellpadding="3">
   <tr>
     <td width="64" class="txt_busca_avancada">Nome :</td>
@@ -53,7 +52,6 @@
 </table>
           
           <!--FIM TABELA DE BUSCA-->
-          </dt>
         </dt>
       </div>
   
