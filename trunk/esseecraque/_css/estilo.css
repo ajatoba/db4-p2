@@ -130,3 +130,21 @@ body{margin:0px; font-family:Arial, Helvetica, sans-serif; }
 
 .meio_it_rBusca{ width:560px; height:158px; margin-top:16px; }
 .meio_it_rBusca div{ float:left; margin-right:12px; margin-bottom:12px; cursor:pointer; cursor:hand;}
+
+
+/*BUSCA AVANÇADA*/
+
+.txt_busca_avancada{ font-size:11px; color:#8C8C8C;}
+
+.form_busca_avancada {
+	width:100px;
+	height:20px;
+	border:solid 1px #D3D3D3;
+	background-color:#F5F5F5;}
+
+.form_busca_avancada_02 {
+	width:30px;
+	height:20px;
+	border:solid 1px #D3D3D3;
+	background-color:#F5F5F5;}
+
