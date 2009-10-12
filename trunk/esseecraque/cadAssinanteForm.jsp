@@ -206,12 +206,12 @@
 			<dt class="banner2"><img src="_imgs/bannergrande.jpg" class="linkado"/><img src="_imgs/txt_pub.jpg" /></dt>
 		</div>
 
-<html:link page="/home.jsp" styleClass="menu_topo">Voltar para home</html:link>
+
 <div id="direita">
 			
 <!-- INCLUDE DOS VÍDEOS LATERAIS -->
 
-<jsp:include page="/pages/jogadores.jsp" />
+<jsp:include page="buscaAvancada.jsp" />
 
 <!-- INCLUDE DOS VÍDEOS LATERAIS -->
 			

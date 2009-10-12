@@ -45,10 +45,19 @@ function montarExperiencia(){
 	formulario.anoFim.value = '';  
 }
 </script>
+<!-- INCLUDE HOME -->
 
+<jsp:include page="topo.jsp" />
+
+<!-- INCLUDE HOME -->
 <div id="meio_fundo">
 	<div id="meio">
 		<div id="esquerda">
+		<dt class="box_busca">
+				<div class="sep_busca"></div>
+				<div class="txt_busca"><input name="busca" type="text" class="txt_buscar" /></div>
+				<div class="btn_busca"><img src="_imgs/btnbusca.jpg" class="linkado"/></div>
+			</dt>
 <% Assinante a = (Assinante)session.getAttribute(Constants.ASSINANTE_BEAN); %>
 
 
@@ -143,7 +152,7 @@ function montarExperiencia(){
 </div>
 <div id="direita">
 		<!--INCLUDE LISTAGEM DE VIDEOS-->
-			<jsp:include page="jogadores.jsp" />
+			<jsp:include page="/abas.jsp" />
 		<!--INCLUDE LISTAGEM DE VIDEOS-->
 			<dt class="banner"><img src="_imgs/banner.jpg" class="linkado"/></dt>
 			<dt><img src="_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>

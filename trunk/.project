@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>Craque</name>
+	<comment></comment>
+	<projects>
+		<project>blog</project>
+		<project>popblog</project>
+	</projects>
+	<buildSpec>
+	</buildSpec>
+	<natures>
+	</natures>
+</projectDescription>

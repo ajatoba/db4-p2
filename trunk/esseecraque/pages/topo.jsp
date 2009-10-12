@@ -14,11 +14,10 @@
 </div>
 <div id="topo">
 	<div>
-		<dt class="logo"><a href="index.jsp"><img src="_imgs/logo.jpg" class="linkado"/></a></dt>
+		<dt class="logo"><img src="_imgs/logo.jpg" class="linkado"/></dt>
 		<dt class="form"><img src="_imgs/banner_assine.jpg" /></dt>
 		<dt class="frm_in">
-			
-      <table width="204" height="133" border="0" cellpadding="0" cellspacing="0">
+	<table width="204" height="133" border="0" cellpadding="0" cellspacing="0">
 		<tr> 		
     	    <td width="204" height="20" class="txt_logs">&nbsp;&nbsp;&nbsp;&nbsp;Olá, <bean:write name="Assinante" property="nome" /></td>
 		</tr>

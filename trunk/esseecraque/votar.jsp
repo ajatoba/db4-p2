@@ -98,7 +98,7 @@
 		<div id="direita">
 			
 			<!--INCLUDE LISTAGEM DE VIDEOS-->
-			<jsp:include page="videosLaterais.jsp" />
+			<jsp:include page="buscaAvancada.jsp" />
 		<!--INCLUDE LISTAGEM DE VIDEOS-->
 			
 			<dt class="banner"><img src="_imgs/banner.jpg" class="linkado"/></dt>
