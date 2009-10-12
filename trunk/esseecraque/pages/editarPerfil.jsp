@@ -33,7 +33,7 @@
 
 <html:form action="editAssinante.do?act=edit" focus="VC_EMAIL_ASSINANTE" onsubmit="return validateAssinanteForm(this)">
 <html:hidden name="Assinante" property="id" />   
-<table border="0">
+<table border="0" cellpadding="3" cellspacing="3">
 <tr>   
     <td valign="middle" class="form_nome">E-mail:</td>   
     <td valign="middle"><html:text name="Assinante" property="email" styleClass="form_campo_nome" /></td>
@@ -76,7 +76,7 @@
 </tr>
 <tr>   
     <td valign="middle" class="form_nome">URL do assinante:</td>   
-    <td valign="middle">http://www.esseecraque.com.br/<html:text property="username" styleClass="form_campo_nome" /></td>
+    <td valign="middle">http://www.esseecraque.com.br/<html:text property="username" styleClass="form_campo_path" /></td>
 	<td valign="middle" class="valida_form"><html:errors  property="erro.vcUsername" /></td>   
 </tr>      
 </table>
@@ -98,7 +98,7 @@
 		<div id="direita">
 		
 			<!--INCLUDE LISTAGEM DE VIDEOS-->
-			<jsp:include page="jogadores.jsp" />
+			<jsp:include page="/buscaAvancada.jsp" />
 		<!--INCLUDE LISTAGEM DE VIDEOS-->
 		
 			<dt class="banner"><img src="_imgs/banner.jpg" class="linkado"/></dt>
