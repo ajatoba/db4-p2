@@ -38,13 +38,118 @@
 <div>29/10/2009</div>
 </div>
 <!-- FIM MINHA CONTA -->
+<dt id="ultimos_videos">
+<!-- INÍCIO GALERIA ÚLTIMOS VÍDEOS -->
+<img src="_imgs/ultimos_videos.jpg" />
 
-<br />
-<br />
-<html:link page="/valtarHome.do" styleClass="menu_topo">Voltar para home</html:link>
-<br />
-<br />
+<div id="image-gallery-wrapper">
+	<script type="text/javascript">
+	stepcarousel.setup({
+		galleryid: 'image-gallery', //id of carousel DIV
+		beltclass: 'belt', //class of inner "belt" DIV containing all the panel DIVs
+		panelclass: 'panel', //class of panel DIVs each holding content
+		panelbehavior: {speed:500, wraparound:true, persist:true},
+		defaultbuttons: {enable: false},
+		statusvars: ['statusA', 'statusB', 'statusC'], //register 3 variables that contain current panel (start), current panel (last), and total panels
+		contenttype: ['external'] //content setting ['inline'] or ['external', 'path_to_external_file']
+	})
+	
+	</script>
+	
+<div id="image-gallery" class="stepcarousel">
+	<div class="belt">
+		<div class="panel">
+			<a href="#" title="Link 1" >
+				<img src="_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagem 1" class="imgs" />
+			</a>
+		</div>
+		<div class="panel">
+			<a href="#" title="Link 2" >
+				<img src="_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagem 2" class="imgs" />
+			</a>
+		</div>
+		<div class="panel">
+			<a href="#" title="Link 3" >
+				<img src="_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagem 3" class="imgs" />
+			</a>
+		</div>
+		<div class="panel">
+			<a href="#" title="Link 4" >
+				<img src="_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagm 4" class="imgs" />
+			</a>
+		</div>
+		<div class="panel">
+			<a href="#" title="Link 5" >
+				<img src="_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagem 5" class="imgs" />
+			</a>
+		</div>
+		<div class="panel">
+			<a href="#" title="Link 6" >
+				<img src="_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagem 6" class="imgs" />
+			</a>
+		</div>
+		<div class="panel">
+			<a href="#" title="Link 7" >
+				<img src="_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagem 7" class="imgs" />
+			</a>
+		</div>
+				<div class="panel">
+			<a href="#" title="Link 8" >
+				<img src="_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagem 8" class="imgs" />
+			</a>
+		</div>
+		<div class="panel">
+			<a href="#" title="Link 9" >
+				<img src="_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagem 9" class="imgs" />
+			</a>
+		</div>
+		<div class="panel">
+			<a href="#" title="Link 10" >
+				<img src="_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagem 10" class="imgs" />
+			</a>
+		</div>
+		<div class="panel">
+			<a href="#" title="Link 11" >
+				<img src="_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagm 11" class="imgs" />
+			</a>
+		</div>
+		<div class="panel">
+			<a href="#" title="Link 12" >
+				<img src="_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagem 12" class="imgs" />
+			</a>
+		</div>
+		<div class="panel">
+			<a href="#" title="Link 13" >
+				<img src="_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagem 13" class="imgs" />
+			</a>
+		</div>
+		<div class="panel">
+			<a href="#" title="Link 14" >
+				<img src="_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagem 14" class="imgs" />
+			</a>
+		</div>
+		<div class="panel">
+			<a href="#" title="Link 15" >
+				<img src="_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagem 15" class="imgs" />
+			</a>
+		</div>
+	</div>
+</div>
+	<a class="prev" href="javascript:stepcarousel.stepBy('image-gallery', -5)">Prev</a>
+	<a class="next" href="javascript:stepcarousel.stepBy('image-gallery', 5)">Next</a>
+</div>
 
+<!-- FIM GALERIA ÚLTIMOS VÍDEOS -->
+			</dt>
+			<dt id="mais_votados">
+				<div class="seta"><img src="_imgs/seta_tras.jpg" /></div>
+				<div class="imgs"><img src="_imgs/img_videos.jpg" /></div>
+				<div class="imgs"><img src="_imgs/img_videos.jpg" /></div>
+				<div class="imgs"><img src="_imgs/img_videos.jpg" /></div>
+				<div class="imgs"><img src="_imgs/img_videos.jpg" /></div>
+				<div class="imgs"><img src="_imgs/img_videos.jpg" /></div>
+				<div class="seta2"><img src="_imgs/seta_frente.jpg" /></div>			
+			</dt>
 			<dt class="banner2"><img src="_imgs/bannergrande.jpg" class="linkado"/><img src="_imgs/txt_pub.jpg" /></dt>
 		</div>
 		<div id="direita">

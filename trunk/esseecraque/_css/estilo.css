@@ -147,4 +147,27 @@ body{margin:0px; font-family:Arial, Helvetica, sans-serif; }
 	height:20px;
 	border:solid 1px #D3D3D3;
 	background-color:#F5F5F5;}
+	
+/*MEUS VIDEOS*/
+
+#meus_videos { 
+width:640px; 
+height:470px;
+display:table;
+}	
+
+.table_videos
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	color: #D3D3D3;
+	text-decoration: none;
+}
+
+.form_upload{
+width:640px; 
+height:470px;
+display:table;
+}	
 

@@ -59,9 +59,7 @@
 </html:form>
             
             </dt>
-			<dt class="desc_player">
 			
-			</dt>
 			<dt id="ultimos_videos">
 <!-- INÍCIO GALERIA ÚLTIMOS VÍDEOS -->
 <img src="_imgs/ultimos_videos.jpg" />
