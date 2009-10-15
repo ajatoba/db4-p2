@@ -49,6 +49,8 @@
 				</tr>
 			</table>
 			Média: <bean:write name="Voto" property="media" />
+			<c:set var="vMedia" value="10"/>
+			<c:out value="${vMedia}" />
 					
 			<!-- Resultado Voto -->
 

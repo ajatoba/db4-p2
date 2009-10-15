@@ -50,9 +50,10 @@ public class VideoDAOImpl implements VideoDAO{
 			//List<Vid> resultado = (List<Vid>)criteria.setMaxResults(2);
 			//List<Vid> resultado = (List)criteria.setMaxResults(2);
 			//List listResul = criteria.setMaxResults(2).list();
-			
-			
-		Query q = session.createQuery("SELECT v FROM Vid v ORDER BY v.id DESC LIMIT 0,2");
+	
+		Query q = session.createQuery("SELECT v FROM Vid v ORDER BY v.id DESC");
+		//q.setFirstResult(1);
+		//q.setMaxResults(2);
 		List<Vid> resultado = q.list();
 		
 		session.getTransaction().commit();

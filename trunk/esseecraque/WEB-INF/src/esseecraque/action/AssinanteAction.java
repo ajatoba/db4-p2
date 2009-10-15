@@ -183,8 +183,20 @@ public final class AssinanteAction extends DispatchAction{
 			 					ActionForm form, 
 			 					HttpServletRequest req, 
 			 					HttpServletResponse resp) throws Exception {
+		
+			HttpSession objSession = req.getSession();
 
 			try {
+				
+				String letra = null;
+				
+				letra = req.getParameter("letra");
+				
+				AssinanteDAO aDAO = DAOFactory.ASSINANTE_DAO();
+				
+				List<Assinante> list = aDAO.buscarAssinanteLetra(letra + "%");
+				
+				objSession.setAttribute(Constants.ASSINANTE_BEAN_LETRA, list);
 				
 				return mapping.findForward(Constants.LIST_ASSINANTE_SUCESS);
 

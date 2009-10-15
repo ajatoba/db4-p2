@@ -24,7 +24,6 @@ public final class listMeusVideos_jsp extends org.apache.jasper.runtime.HttpJspB
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fbean_005fwrite_005fproperty_005fname_005fnobody;
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fbean_005fwrite_005fproperty_005fname_005fformat_005fnobody;
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005flogic_005fempty_005fname;
-  private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fhtml_005flink_005fstyleClass_005fpage;
 
   public Object getDependants() {
     return _jspx_dependants;
@@ -38,7 +37,6 @@ public final class listMeusVideos_jsp extends org.apache.jasper.runtime.HttpJspB
     _005fjspx_005ftagPool_005fbean_005fwrite_005fproperty_005fname_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _005fjspx_005ftagPool_005fbean_005fwrite_005fproperty_005fname_005fformat_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _005fjspx_005ftagPool_005flogic_005fempty_005fname = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-    _005fjspx_005ftagPool_005fhtml_005flink_005fstyleClass_005fpage = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
   }
 
   public void _jspDestroy() {
@@ -49,7 +47,6 @@ public final class listMeusVideos_jsp extends org.apache.jasper.runtime.HttpJspB
     _005fjspx_005ftagPool_005fbean_005fwrite_005fproperty_005fname_005fnobody.release();
     _005fjspx_005ftagPool_005fbean_005fwrite_005fproperty_005fname_005fformat_005fnobody.release();
     _005fjspx_005ftagPool_005flogic_005fempty_005fname.release();
-    _005fjspx_005ftagPool_005fhtml_005flink_005fstyleClass_005fpage.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -113,9 +110,15 @@ public final class listMeusVideos_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("<div id=\"meio_fundo\">\r\n");
       out.write("\t<div id=\"meio\">\r\n");
       out.write("\t\t<div id=\"esquerda\">\r\n");
+      out.write("\t\t<dt class=\"box_busca\">\r\n");
+      out.write("\t\t\t\t<div class=\"sep_busca\"></div>\r\n");
+      out.write("\t\t\t\t<div class=\"txt_busca\"><input name=\"busca\" type=\"text\" class=\"txt_buscar\" /></div>\r\n");
+      out.write("\t\t\t\t<div class=\"btn_busca\"><img src=\"_imgs/btnbusca.jpg\" class=\"linkado\"/></div>\r\n");
+      out.write("\t\t\t</dt>\r\n");
+      out.write("\t\t\t\r\n");
       out.write("\t\t\t<!-- INÍCIO LISTA MEUS VÍDEOS -->\r\n");
-      out.write("\r\n");
-      out.write("\t\t\t<table border=\"0\">\r\n");
+      out.write("\t<div id=\"meus_videos\">\r\n");
+      out.write("\t\t\t<table border=\"0\" cellspacing=\"3\" cellpadding=\"3\" class=\"table_videos\">\r\n");
       out.write("\t\t\t\t");
       //  logic:notEmpty
       org.apache.struts.taglib.logic.NotEmptyTag _jspx_th_logic_005fnotEmpty_005f0 = (org.apache.struts.taglib.logic.NotEmptyTag) _005fjspx_005ftagPool_005flogic_005fnotEmpty_005fname.get(org.apache.struts.taglib.logic.NotEmptyTag.class);
@@ -211,64 +214,131 @@ public final class listMeusVideos_jsp extends org.apache.jasper.runtime.HttpJspB
         return;
       out.write("\r\n");
       out.write("\t\t\t</table>\r\n");
-      out.write("\t\t\t\t\t\r\n");
+      out.write("</div>\t\t\t\t\t\r\n");
       out.write("\t\t\t<!-- FIM LISTA MEUS VÍDEOS -->\r\n");
       out.write("\r\n");
-      out.write("<br />\r\n");
-      if (_jspx_meth_html_005flink_005f0(_jspx_page_context))
-        return;
+      out.write("<dt id=\"ultimos_videos\">\r\n");
+      out.write("<!-- INÍCIO GALERIA ÚLTIMOS VÍDEOS -->\r\n");
+      out.write("<img src=\"_imgs/ultimos_videos.jpg\" />\r\n");
       out.write("\r\n");
-      out.write("<br />\r\n");
-      out.write("<br />\r\n");
-      out.write("<br />\r\n");
+      out.write("<div id=\"image-gallery-wrapper\">\r\n");
+      out.write("\t<script type=\"text/javascript\">\r\n");
+      out.write("\tstepcarousel.setup({\r\n");
+      out.write("\t\tgalleryid: 'image-gallery', //id of carousel DIV\r\n");
+      out.write("\t\tbeltclass: 'belt', //class of inner \"belt\" DIV containing all the panel DIVs\r\n");
+      out.write("\t\tpanelclass: 'panel', //class of panel DIVs each holding content\r\n");
+      out.write("\t\tpanelbehavior: {speed:500, wraparound:true, persist:true},\r\n");
+      out.write("\t\tdefaultbuttons: {enable: false},\r\n");
+      out.write("\t\tstatusvars: ['statusA', 'statusB', 'statusC'], //register 3 variables that contain current panel (start), current panel (last), and total panels\r\n");
+      out.write("\t\tcontenttype: ['external'] //content setting ['inline'] or ['external', 'path_to_external_file']\r\n");
+      out.write("\t})\r\n");
+      out.write("\t\r\n");
+      out.write("\t</script>\r\n");
+      out.write("\t\r\n");
+      out.write("<div id=\"image-gallery\" class=\"stepcarousel\">\r\n");
+      out.write("\t<div class=\"belt\">\r\n");
+      out.write("\t\t<div class=\"panel\">\r\n");
+      out.write("\t\t\t<a href=\"#\" title=\"Link 1\" >\r\n");
+      out.write("\t\t\t\t<img src=\"_imgs/img_videos.jpg\" width=\"100\" height=\"73\" border=\"0\" alt=\"Imagem 1\" class=\"imgs\" />\r\n");
+      out.write("\t\t\t</a>\r\n");
+      out.write("\t\t</div>\r\n");
+      out.write("\t\t<div class=\"panel\">\r\n");
+      out.write("\t\t\t<a href=\"#\" title=\"Link 2\" >\r\n");
+      out.write("\t\t\t\t<img src=\"_imgs/img_videos.jpg\" width=\"100\" height=\"73\" border=\"0\" alt=\"Imagem 2\" class=\"imgs\" />\r\n");
+      out.write("\t\t\t</a>\r\n");
+      out.write("\t\t</div>\r\n");
+      out.write("\t\t<div class=\"panel\">\r\n");
+      out.write("\t\t\t<a href=\"#\" title=\"Link 3\" >\r\n");
+      out.write("\t\t\t\t<img src=\"_imgs/img_videos.jpg\" width=\"100\" height=\"73\" border=\"0\" alt=\"Imagem 3\" class=\"imgs\" />\r\n");
+      out.write("\t\t\t</a>\r\n");
+      out.write("\t\t</div>\r\n");
+      out.write("\t\t<div class=\"panel\">\r\n");
+      out.write("\t\t\t<a href=\"#\" title=\"Link 4\" >\r\n");
+      out.write("\t\t\t\t<img src=\"_imgs/img_videos.jpg\" width=\"100\" height=\"73\" border=\"0\" alt=\"Imagm 4\" class=\"imgs\" />\r\n");
+      out.write("\t\t\t</a>\r\n");
+      out.write("\t\t</div>\r\n");
+      out.write("\t\t<div class=\"panel\">\r\n");
+      out.write("\t\t\t<a href=\"#\" title=\"Link 5\" >\r\n");
+      out.write("\t\t\t\t<img src=\"_imgs/img_videos.jpg\" width=\"100\" height=\"73\" border=\"0\" alt=\"Imagem 5\" class=\"imgs\" />\r\n");
+      out.write("\t\t\t</a>\r\n");
+      out.write("\t\t</div>\r\n");
+      out.write("\t\t<div class=\"panel\">\r\n");
+      out.write("\t\t\t<a href=\"#\" title=\"Link 6\" >\r\n");
+      out.write("\t\t\t\t<img src=\"_imgs/img_videos.jpg\" width=\"100\" height=\"73\" border=\"0\" alt=\"Imagem 6\" class=\"imgs\" />\r\n");
+      out.write("\t\t\t</a>\r\n");
+      out.write("\t\t</div>\r\n");
+      out.write("\t\t<div class=\"panel\">\r\n");
+      out.write("\t\t\t<a href=\"#\" title=\"Link 7\" >\r\n");
+      out.write("\t\t\t\t<img src=\"_imgs/img_videos.jpg\" width=\"100\" height=\"73\" border=\"0\" alt=\"Imagem 7\" class=\"imgs\" />\r\n");
+      out.write("\t\t\t</a>\r\n");
+      out.write("\t\t</div>\r\n");
+      out.write("\t\t\t\t<div class=\"panel\">\r\n");
+      out.write("\t\t\t<a href=\"#\" title=\"Link 8\" >\r\n");
+      out.write("\t\t\t\t<img src=\"_imgs/img_videos.jpg\" width=\"100\" height=\"73\" border=\"0\" alt=\"Imagem 8\" class=\"imgs\" />\r\n");
+      out.write("\t\t\t</a>\r\n");
+      out.write("\t\t</div>\r\n");
+      out.write("\t\t<div class=\"panel\">\r\n");
+      out.write("\t\t\t<a href=\"#\" title=\"Link 9\" >\r\n");
+      out.write("\t\t\t\t<img src=\"_imgs/img_videos.jpg\" width=\"100\" height=\"73\" border=\"0\" alt=\"Imagem 9\" class=\"imgs\" />\r\n");
+      out.write("\t\t\t</a>\r\n");
+      out.write("\t\t</div>\r\n");
+      out.write("\t\t<div class=\"panel\">\r\n");
+      out.write("\t\t\t<a href=\"#\" title=\"Link 10\" >\r\n");
+      out.write("\t\t\t\t<img src=\"_imgs/img_videos.jpg\" width=\"100\" height=\"73\" border=\"0\" alt=\"Imagem 10\" class=\"imgs\" />\r\n");
+      out.write("\t\t\t</a>\r\n");
+      out.write("\t\t</div>\r\n");
+      out.write("\t\t<div class=\"panel\">\r\n");
+      out.write("\t\t\t<a href=\"#\" title=\"Link 11\" >\r\n");
+      out.write("\t\t\t\t<img src=\"_imgs/img_videos.jpg\" width=\"100\" height=\"73\" border=\"0\" alt=\"Imagm 11\" class=\"imgs\" />\r\n");
+      out.write("\t\t\t</a>\r\n");
+      out.write("\t\t</div>\r\n");
+      out.write("\t\t<div class=\"panel\">\r\n");
+      out.write("\t\t\t<a href=\"#\" title=\"Link 12\" >\r\n");
+      out.write("\t\t\t\t<img src=\"_imgs/img_videos.jpg\" width=\"100\" height=\"73\" border=\"0\" alt=\"Imagem 12\" class=\"imgs\" />\r\n");
+      out.write("\t\t\t</a>\r\n");
+      out.write("\t\t</div>\r\n");
+      out.write("\t\t<div class=\"panel\">\r\n");
+      out.write("\t\t\t<a href=\"#\" title=\"Link 13\" >\r\n");
+      out.write("\t\t\t\t<img src=\"_imgs/img_videos.jpg\" width=\"100\" height=\"73\" border=\"0\" alt=\"Imagem 13\" class=\"imgs\" />\r\n");
+      out.write("\t\t\t</a>\r\n");
+      out.write("\t\t</div>\r\n");
+      out.write("\t\t<div class=\"panel\">\r\n");
+      out.write("\t\t\t<a href=\"#\" title=\"Link 14\" >\r\n");
+      out.write("\t\t\t\t<img src=\"_imgs/img_videos.jpg\" width=\"100\" height=\"73\" border=\"0\" alt=\"Imagem 14\" class=\"imgs\" />\r\n");
+      out.write("\t\t\t</a>\r\n");
+      out.write("\t\t</div>\r\n");
+      out.write("\t\t<div class=\"panel\">\r\n");
+      out.write("\t\t\t<a href=\"#\" title=\"Link 15\" >\r\n");
+      out.write("\t\t\t\t<img src=\"_imgs/img_videos.jpg\" width=\"100\" height=\"73\" border=\"0\" alt=\"Imagem 15\" class=\"imgs\" />\r\n");
+      out.write("\t\t\t</a>\r\n");
+      out.write("\t\t</div>\r\n");
+      out.write("\t</div>\r\n");
+      out.write("</div>\r\n");
+      out.write("\t<a class=\"prev\" href=\"javascript:stepcarousel.stepBy('image-gallery', -5)\">Prev</a>\r\n");
+      out.write("\t<a class=\"next\" href=\"javascript:stepcarousel.stepBy('image-gallery', 5)\">Next</a>\r\n");
+      out.write("</div>\r\n");
       out.write("\r\n");
+      out.write("<!-- FIM GALERIA ÚLTIMOS VÍDEOS -->\r\n");
+      out.write("\t\t\t</dt>\r\n");
+      out.write("\t\t\t<dt id=\"mais_votados\">\r\n");
+      out.write("\t\t\t\t<div class=\"seta\"><img src=\"_imgs/seta_tras.jpg\" /></div>\r\n");
+      out.write("\t\t\t\t<div class=\"imgs\"><img src=\"_imgs/img_videos.jpg\" /></div>\r\n");
+      out.write("\t\t\t\t<div class=\"imgs\"><img src=\"_imgs/img_videos.jpg\" /></div>\r\n");
+      out.write("\t\t\t\t<div class=\"imgs\"><img src=\"_imgs/img_videos.jpg\" /></div>\r\n");
+      out.write("\t\t\t\t<div class=\"imgs\"><img src=\"_imgs/img_videos.jpg\" /></div>\r\n");
+      out.write("\t\t\t\t<div class=\"imgs\"><img src=\"_imgs/img_videos.jpg\" /></div>\r\n");
+      out.write("\t\t\t\t<div class=\"seta2\"><img src=\"_imgs/seta_frente.jpg\" /></div>\t\t\t\r\n");
+      out.write("\t\t\t</dt>\r\n");
       out.write("\t\t\t<dt class=\"banner2\"><img src=\"_imgs/bannergrande.jpg\" class=\"linkado\"/><img src=\"_imgs/txt_pub.jpg\" /></dt>\r\n");
       out.write("\t\t</div>\r\n");
       out.write("\t\t<div id=\"direita\">\r\n");
-      out.write("\t\t\t<div id=\"lists\">\r\n");
-      out.write("<img src=\"_imgs/btn_jogadores.jpg\" class=\"linkado\"/><img src=\"_imgs/btn_posicoes.jpg\" class=\"linkado\"/><img src=\"_imgs/btn_categorias.jpg\" class=\"linkado\"/><div class=\"nav\">\r\n");
-      out.write("\t\t\t\t\t<div class=\"nav_esq\"><img src=\"_imgs/nav_esq.jpg\" /></div>\r\n");
-      out.write("\t\t\t\t\t<div class=\"nav1\">Pág. </div>\r\n");
-      out.write("\t\t\t\t\t<div class=\"navega\"> <input name=\"page\" type=\"text\" class=\"box_nav\" /> </div>\r\n");
-      out.write("\t\t\t\t\t<div class=\"nav2\">de 250</div>\r\n");
-      out.write("\t\t\t\t\t<div class=\"nav_dir\"><img src=\"_imgs/nav_dir.jpg\" /></div>\r\n");
-      out.write("\t\t\t\t</div>\r\n");
-      out.write("\t\t\t\t<div class=\"atrasOut\" onmouseover=\"this.className='atrasIn';\" onmouseout=\"this.className='atrasOut';\">\r\n");
-      out.write("\t\t\t\t\t<dt class=\"frente\">\r\n");
-      out.write("\t\t\t\t\t\t<div class=\"voto0\"><img src=\"_imgs/img_listas.jpg\" /></div>\r\n");
-      out.write("\t\t\t\t\t\t<div class=\"data\">09/06/2009 10:26</div>\r\n");
-      out.write("\t\t\t\t\t\t<div class=\"desc\">Edson dos Santos em pedala e da show de bola</div>\r\n");
-      out.write("\t\t\t\t\t</dt>\r\n");
-      out.write("\t\t\t\t</div>\r\n");
-      out.write("\t\t\t\t<div class=\"atrasOut\" onmouseover=\"this.className='atrasIn';\" onmouseout=\"this.className='atrasOut';\">\r\n");
-      out.write("\t\t\t\t\t<dt class=\"frente\">\r\n");
-      out.write("\t\t\t\t\t\t<div class=\"voto0\"><img src=\"_imgs/img_listas.jpg\" /></div>\r\n");
-      out.write("\t\t\t\t\t\t<div class=\"data\">09/06/2009 10:26</div>\r\n");
-      out.write("\t\t\t\t\t\t<div class=\"desc\">Edson dos Santos em pedala e da show de bola</div>\r\n");
-      out.write("\t\t\t\t\t</dt>\r\n");
-      out.write("\t\t\t\t</div>\r\n");
-      out.write("\t\t\t\t<div class=\"atrasOut\" onmouseover=\"this.className='atrasIn';\" onmouseout=\"this.className='atrasOut';\">\r\n");
-      out.write("\t\t\t\t\t<dt class=\"frente\">\r\n");
-      out.write("\t\t\t\t\t\t<div class=\"voto0\"><img src=\"_imgs/img_listas.jpg\" /></div>\r\n");
-      out.write("\t\t\t\t\t\t<div class=\"data\">09/06/2009 10:26</div>\r\n");
-      out.write("\t\t\t\t\t\t<div class=\"desc\">Edson dos Santos em pedala e da show de bola</div>\r\n");
-      out.write("\t\t\t\t\t</dt>\r\n");
-      out.write("\t\t\t\t</div>\r\n");
-      out.write("\t\t\t\t<div class=\"atrasOut\" onmouseover=\"this.className='atrasIn';\" onmouseout=\"this.className='atrasOut';\">\r\n");
-      out.write("\t\t\t\t\t<dt class=\"frente\">\r\n");
-      out.write("\t\t\t\t\t\t<div class=\"voto0\"><img src=\"_imgs/img_listas.jpg\" /></div>\r\n");
-      out.write("\t\t\t\t\t\t<div class=\"data\">09/06/2009 10:26</div>\r\n");
-      out.write("\t\t\t\t\t\t<div class=\"desc\">Edson dos Santos em pedala e da show de bola</div>\r\n");
-      out.write("\t\t\t\t\t</dt>\r\n");
-      out.write("\t\t\t\t</div>\r\n");
-      out.write("\t\t\t\t<div class=\"atrasOut\" onmouseover=\"this.className='atrasIn';\" onmouseout=\"this.className='atrasOut';\">\r\n");
-      out.write("\t\t\t\t\t<dt class=\"frente\">\r\n");
-      out.write("\t\t\t\t\t\t<div class=\"voto0\"><img src=\"_imgs/img_listas.jpg\" /></div>\r\n");
-      out.write("\t\t\t\t\t\t<div class=\"data\">09/06/2009 10:26</div>\r\n");
-      out.write("\t\t\t\t\t\t<div class=\"desc\">Edson dos Santos em pedala e da show de bola</div>\r\n");
-      out.write("\t\t\t\t\t</dt>\r\n");
-      out.write("\t\t\t\t</div>\r\n");
-      out.write("\t\t\t</div>\t\t\t\r\n");
+      out.write("\t\t\t\r\n");
+      out.write("\t\t\t<!--INCLUDE LISTAGEM DE VIDEOS-->\r\n");
+      out.write("\t\t\t");
+      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "/buscaAvancada.jsp", out, false);
+      out.write("\r\n");
+      out.write("\t\t<!--INCLUDE LISTAGEM DE VIDEOS-->\r\n");
+      out.write("\t\t\t\r\n");
       out.write("\t\t\t<dt class=\"banner\"><img src=\"_imgs/banner.jpg\" class=\"linkado\"/></dt>\r\n");
       out.write("\t\t\t<dt><img src=\"_imgs/txt_pub.jpg\" style=\"margin-bottom:6px;\" /></dt>\r\n");
       out.write("\t\t\t<dt><img src=\"_imgs/banner_redondo.jpg\" class=\"linkado\" /></dt>\r\n");
@@ -456,41 +526,6 @@ public final class listMeusVideos_jsp extends org.apache.jasper.runtime.HttpJspB
       return true;
     }
     _005fjspx_005ftagPool_005flogic_005fempty_005fname.reuse(_jspx_th_logic_005fempty_005f0);
-    return false;
-  }
-
-  private boolean _jspx_meth_html_005flink_005f0(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  html:link
-    org.apache.struts.taglib.html.LinkTag _jspx_th_html_005flink_005f0 = (org.apache.struts.taglib.html.LinkTag) _005fjspx_005ftagPool_005fhtml_005flink_005fstyleClass_005fpage.get(org.apache.struts.taglib.html.LinkTag.class);
-    _jspx_th_html_005flink_005f0.setPageContext(_jspx_page_context);
-    _jspx_th_html_005flink_005f0.setParent(null);
-    _jspx_th_html_005flink_005f0.setPage("/valtarHome.do");
-    _jspx_th_html_005flink_005f0.setStyleClass("menu_topo");
-    int _jspx_eval_html_005flink_005f0 = _jspx_th_html_005flink_005f0.doStartTag();
-    if (_jspx_eval_html_005flink_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      if (_jspx_eval_html_005flink_005f0 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE) {
-        out = _jspx_page_context.pushBody();
-        _jspx_th_html_005flink_005f0.setBodyContent((javax.servlet.jsp.tagext.BodyContent) out);
-        _jspx_th_html_005flink_005f0.doInitBody();
-      }
-      do {
-        out.write("Voltar para home");
-        int evalDoAfterBody = _jspx_th_html_005flink_005f0.doAfterBody();
-        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-          break;
-      } while (true);
-      if (_jspx_eval_html_005flink_005f0 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE) {
-        out = _jspx_page_context.popBody();
-      }
-    }
-    if (_jspx_th_html_005flink_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _005fjspx_005ftagPool_005fhtml_005flink_005fstyleClass_005fpage.reuse(_jspx_th_html_005flink_005f0);
-      return true;
-    }
-    _005fjspx_005ftagPool_005fhtml_005flink_005fstyleClass_005fpage.reuse(_jspx_th_html_005flink_005f0);
     return false;
   }
 }

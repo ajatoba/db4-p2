@@ -6,6 +6,8 @@ public interface Constants {
 	
 	public static final String ASSINANTE_BEAN = "Assinante";
 	
+	public static final String ASSINANTE_BEAN_LETRA = "AssinanteLetra";
+	
 	public static final String VIDEO_BEAN = "Video";
 	
 	public static final String VOTO_BEAN = "Voto";
@@ -27,7 +29,7 @@ public interface Constants {
 	public static final String EDIT_ASSINANTE_ERROR = "assinante_edit_error";
 
 	
-	public static final String LIST_ASSINANTE_SUCESS = "assinante_list_sucesso";
+	public static final String LIST_ASSINANTE_SUCESS = "assinante_list_sucess";
 	
 	public static final String LIST_ASSINANTE_ERROR = "assinante_list_error";
 	
@@ -40,6 +42,12 @@ public interface Constants {
 	public static final String LIST_ULTIMOS_VIDEOS = "UltimosVideos";
 	
 	public static final String LIST_VIDEOS_LATERAIS = "VideosLaterais";
+	
+	public static final String LIST_VIDEOS_ASSINANTE = "VideosAssinante";
+	
+	public static final String LIST_VIDEOS_SUCESS = "list_videos_assinante_sucess";
+	
+	public static final String LIST_VIDEOS_ERROR = "list_videos_assinante_error";
 	
 	
 	public static final String PLAYER_SECAO_LIBERADA = "player_secao_liberada";

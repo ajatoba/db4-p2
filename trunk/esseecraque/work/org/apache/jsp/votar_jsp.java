@@ -209,7 +209,7 @@ public final class votar_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t\r\n");
       out.write("\t\t\t<!--INCLUDE LISTAGEM DE VIDEOS-->\r\n");
       out.write("\t\t\t");
-      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "videosLaterais.jsp", out, false);
+      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "buscaAvancada.jsp", out, false);
       out.write("\r\n");
       out.write("\t\t<!--INCLUDE LISTAGEM DE VIDEOS-->\r\n");
       out.write("\t\t\t\r\n");

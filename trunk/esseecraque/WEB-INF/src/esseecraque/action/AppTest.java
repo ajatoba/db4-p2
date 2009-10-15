@@ -2,9 +2,11 @@ package esseecraque.action;
 
 import java.util.List;
 
+import esseecraque.bean.Assinante;
 import esseecraque.bean.Vid;
 import esseecraque.bean.Video;
 import esseecraque.bean.Voto;
+import esseecraque.dao.AssinanteDAO;
 import esseecraque.dao.DAOFactory;
 import esseecraque.dao.VideoDAO;
 import esseecraque.dao.VotoDAO;
@@ -14,6 +16,7 @@ public class AppTest {
 
 	public static void main(String[] args) {
 
+	/**
 		int notaUser = 3;
 		
 		int qtd = 0;
@@ -69,6 +72,22 @@ public class AppTest {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
+	**/
+		
+	try{
+		
+		VideoDAO vDAO = DAOFactory.VIDEO_DAO();
+		
+		List<Vid> list = vDAO.buscarUltimosVideos();
+		
+		for(Vid v : list){
+			System.out.println("id: " + v.getId() + " - Título: " + v.getTitle());
+		}
+		
+	}catch (Exception e) {
+		e.printStackTrace();
+	}
 
 	}
 

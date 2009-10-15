@@ -63,4 +63,17 @@ public class AssinanteDAOImpl implements AssinanteDAO{
 		session.getTransaction().commit();
 		return resultado;
 	}
+	
+	public List buscarAssinanteLetra(String letra){
+
+		HibernateUtil hu = new HibernateUtil();
+		session = hu.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		Query q = session.createQuery("SELECT a FROM Assinante a WHERE a.nome LIKE :lt ORDER BY a.nome");
+		q.setString("lt", letra);
+		List resultado = q.list();
+		session.getTransaction().commit();
+		return resultado;
+	}	
+	
 }

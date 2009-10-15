@@ -133,6 +133,32 @@ public final class VideoAction  extends DispatchAction{
 
 	}
 	
+	public ActionForward listVideosAssinante(ActionMapping mapping, 
+			 ActionForm form, 
+			 HttpServletRequest req, 
+			 HttpServletResponse resp) throws Exception {
+
+			HttpSession objSession = req.getSession();
+
+			try {
+				
+				Long idAssinante = Long.parseLong(req.getParameter("id"));
+				
+				VideoDAO vDAO = DAOFactory.VIDEO_DAO();
+							
+				List lVideos = vDAO.buscarMeusVideos(idAssinante);
+					
+				objSession.setAttribute(Constants.LIST_VIDEOS_ASSINANTE, lVideos);
+
+				return mapping.findForward(Constants.LIST_VIDEOS_SUCESS);
+
+			}catch (Exception e) {
+				e.printStackTrace();
+				return mapping.findForward(Constants.LIST_VIDEOS_ERROR);
+			}
+
+	}
+	
 	public ActionForward carregaHome(ActionMapping mapping, 
 			 ActionForm form, 
 			 HttpServletRequest req, 

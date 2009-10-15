@@ -102,6 +102,24 @@
             	<forward name="list_meus_videos_erro" path="/pages/listMeusVideosErro.jsp" />   
         </action>
         
+        <action path="/listVideosAssinante"  
+            type="esseecraque.action.VideoAction"  
+            parameter="act"  
+            scope="request"  
+            validate="true">   
+            	<forward name="list_videos_assinante_sucess" path="/listVideosAssinante.jsp" />
+            	<forward name="list_videos_assinante_error" path="/listVideosAssinante.jsp" />   
+        </action>
+        
+        <action path="/listAssinantes"  
+            type="esseecraque.action.AssinanteAction"  
+            parameter="act"  
+            scope="request"  
+            validate="true">   
+            	<forward name="assinante_list_sucess" path="/assinantes.jsp" />
+            	<forward name="assinante_list_error" path="/assinantes.jsp" />   
+        </action>
+        
         <action path="/excluirVideo"  
             type="esseecraque.action.VideoAction"  
             parameter="act"  

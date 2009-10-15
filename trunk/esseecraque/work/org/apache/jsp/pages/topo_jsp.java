@@ -17,8 +17,8 @@ public final class topo_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fhtml_005frewrite_005fpage_005fnobody;
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fbean_005fwrite_005fproperty_005fname_005fnobody;
-  private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fhtml_005flink_005fstyleClass_005fpage;
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fbean_005fwrite_005fname_005fnobody;
+  private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fhtml_005flink_005fstyleClass_005fpage;
 
   public Object getDependants() {
     return _jspx_dependants;
@@ -27,15 +27,15 @@ public final class topo_jsp extends org.apache.jasper.runtime.HttpJspBase
   public void _jspInit() {
     _005fjspx_005ftagPool_005fhtml_005frewrite_005fpage_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _005fjspx_005ftagPool_005fbean_005fwrite_005fproperty_005fname_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-    _005fjspx_005ftagPool_005fhtml_005flink_005fstyleClass_005fpage = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _005fjspx_005ftagPool_005fbean_005fwrite_005fname_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _005fjspx_005ftagPool_005fhtml_005flink_005fstyleClass_005fpage = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
   }
 
   public void _jspDestroy() {
     _005fjspx_005ftagPool_005fhtml_005frewrite_005fpage_005fnobody.release();
     _005fjspx_005ftagPool_005fbean_005fwrite_005fproperty_005fname_005fnobody.release();
-    _005fjspx_005ftagPool_005fhtml_005flink_005fstyleClass_005fpage.release();
     _005fjspx_005ftagPool_005fbean_005fwrite_005fname_005fnobody.release();
+    _005fjspx_005ftagPool_005fhtml_005flink_005fstyleClass_005fpage.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -78,29 +78,7 @@ public final class topo_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("<div id=\"menu\">\r\n");
       out.write("\t<dt>\r\n");
-      out.write("\t\t<span>");
-      if (_jspx_meth_bean_005fwrite_005f0(_jspx_page_context))
-        return;
-      out.write(" ></span>\r\n");
-      out.write("\t\t");
-      if (_jspx_meth_html_005flink_005f0(_jspx_page_context))
-        return;
-      out.write("\r\n");
-      out.write("\t\t<label class=\"link_principal\">&nbsp;|&nbsp;</label>\r\n");
-      out.write("\t\t");
-      if (_jspx_meth_html_005flink_005f1(_jspx_page_context))
-        return;
-      out.write("\r\n");
-      out.write("\t\t<label class=\"link_principal\">&nbsp;|&nbsp;</label>\r\n");
-      out.write("\t\t");
-      if (_jspx_meth_html_005flink_005f2(_jspx_page_context))
-        return;
-      out.write("\r\n");
-      out.write("\t\t<label class=\"link_principal\">&nbsp;|&nbsp;</label>\r\n");
-      out.write("\t\t");
-      if (_jspx_meth_html_005flink_005f3(_jspx_page_context))
-        return;
-      out.write("\r\n");
+      out.write("\t\t\r\n");
       out.write("\t</dt>\r\n");
       out.write("</div>\r\n");
       out.write("<div id=\"topo\">\r\n");
@@ -108,32 +86,47 @@ public final class topo_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t<dt class=\"logo\"><img src=\"_imgs/logo.jpg\" class=\"linkado\"/></dt>\r\n");
       out.write("\t\t<dt class=\"form\"><img src=\"_imgs/banner_assine.jpg\" /></dt>\r\n");
       out.write("\t\t<dt class=\"frm_in\">\r\n");
-      out.write("\t\t\t\r\n");
-      out.write("      <table width=\"204\" height=\"133\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\r\n");
-      out.write("        <tr> \r\n");
-      out.write("\t\t\t<td height=\"18\">&nbsp;</td>\r\n");
-      out.write("\t\t</tr>\r\n");
+      out.write("\t<table width=\"204\" height=\"133\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\r\n");
       out.write("\t\t<tr> \t\t\r\n");
-      out.write("    \t    <td width=\"204\" height=\"25\" class=\"txt_logs\">&nbsp;&nbsp;&nbsp;&nbsp;Olá, ");
-      if (_jspx_meth_bean_005fwrite_005f1(_jspx_page_context))
+      out.write("    \t    <td width=\"204\" height=\"20\" class=\"txt_logs\">&nbsp;&nbsp;&nbsp;&nbsp;Olá, ");
+      if (_jspx_meth_bean_005fwrite_005f0(_jspx_page_context))
         return;
       out.write("</td>\r\n");
       out.write("\t\t</tr>\r\n");
       out.write("\t\t<tr> \r\n");
-      out.write("\t\t\t<td height=\"5\"></td>\r\n");
-      out.write("\t\t</tr>\r\n");
-      out.write("\t\t<tr> \r\n");
-      out.write("\t\t\t<td width=\"204\" height=\"25\" class=\"txt_logs\">&nbsp;&nbsp;&nbsp;&nbsp;Você possui ");
-      if (_jspx_meth_bean_005fwrite_005f2(_jspx_page_context))
+      out.write("\t\t\t<td width=\"204\" height=\"20\" class=\"txt_logs\">&nbsp;&nbsp;&nbsp;&nbsp;Você possui ");
+      if (_jspx_meth_bean_005fwrite_005f1(_jspx_page_context))
         return;
       out.write(" vídeos</td>\r\n");
-      out.write("\t\t</tr>\t\r\n");
+      out.write("\t\t</tr>\r\n");
+      out.write("        <tr>\r\n");
+      out.write("        \t<td width=\"204\" class=\"txt_logs\">&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp; ");
+      if (_jspx_meth_html_005flink_005f0(_jspx_page_context))
+        return;
+      out.write("</td>\r\n");
+      out.write("        </tr>\t\r\n");
+      out.write("        <tr>\r\n");
+      out.write("        \t<td width=\"204\" class=\"txt_logs\">&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp; ");
+      if (_jspx_meth_html_005flink_005f1(_jspx_page_context))
+        return;
+      out.write("</td>\r\n");
+      out.write("        </tr>\r\n");
+      out.write("        <tr>\r\n");
+      out.write("        \t<td width=\"204\" class=\"txt_logs\">&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp; ");
+      if (_jspx_meth_html_005flink_005f2(_jspx_page_context))
+        return;
+      out.write("</td>\r\n");
+      out.write("        </tr>\r\n");
+      out.write("        <tr>\r\n");
+      out.write("        \t<td width=\"204\" class=\"txt_logs\">&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp; Sair</td>\r\n");
+      out.write("        </tr>\t\r\n");
+      out.write("        \r\n");
       out.write("\t\t<tr> \r\n");
       out.write("\t\t\t<td height=\"34\" align=\"right\" valign=\"bottom\"><img src=\"_imgs/btn_logar.jpg\" width=\"40\" height=\"34\" class=\"linkado\" style=\"border:0px;\" /></td>\r\n");
       out.write("\t\t</tr>\r\n");
       out.write("\t</table>\r\n");
       out.write("\t<div style=\"width:204px;\">");
-      if (_jspx_meth_html_005flink_005f4(_jspx_page_context))
+      if (_jspx_meth_html_005flink_005f3(_jspx_page_context))
         return;
       out.write("</div>\r\n");
       out.write("\t</dt>\r\n");
@@ -187,6 +180,24 @@ public final class topo_jsp extends org.apache.jasper.runtime.HttpJspBase
       return true;
     }
     _005fjspx_005ftagPool_005fbean_005fwrite_005fproperty_005fname_005fnobody.reuse(_jspx_th_bean_005fwrite_005f0);
+    return false;
+  }
+
+  private boolean _jspx_meth_bean_005fwrite_005f1(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  bean:write
+    org.apache.struts.taglib.bean.WriteTag _jspx_th_bean_005fwrite_005f1 = (org.apache.struts.taglib.bean.WriteTag) _005fjspx_005ftagPool_005fbean_005fwrite_005fname_005fnobody.get(org.apache.struts.taglib.bean.WriteTag.class);
+    _jspx_th_bean_005fwrite_005f1.setPageContext(_jspx_page_context);
+    _jspx_th_bean_005fwrite_005f1.setParent(null);
+    _jspx_th_bean_005fwrite_005f1.setName("qtdVideo");
+    int _jspx_eval_bean_005fwrite_005f1 = _jspx_th_bean_005fwrite_005f1.doStartTag();
+    if (_jspx_th_bean_005fwrite_005f1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _005fjspx_005ftagPool_005fbean_005fwrite_005fname_005fnobody.reuse(_jspx_th_bean_005fwrite_005f1);
+      return true;
+    }
+    _005fjspx_005ftagPool_005fbean_005fwrite_005fname_005fnobody.reuse(_jspx_th_bean_005fwrite_005f1);
     return false;
   }
 
@@ -304,7 +315,7 @@ public final class topo_jsp extends org.apache.jasper.runtime.HttpJspBase
     _jspx_th_html_005flink_005f3.setPageContext(_jspx_page_context);
     _jspx_th_html_005flink_005f3.setParent(null);
     _jspx_th_html_005flink_005f3.setPage("/cadVideoForm.do");
-    _jspx_th_html_005flink_005f3.setStyleClass("menu_topo");
+    _jspx_th_html_005flink_005f3.setStyleClass("linkado");
     int _jspx_eval_html_005flink_005f3 = _jspx_th_html_005flink_005f3.doStartTag();
     if (_jspx_eval_html_005flink_005f3 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       if (_jspx_eval_html_005flink_005f3 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE) {
@@ -313,7 +324,7 @@ public final class topo_jsp extends org.apache.jasper.runtime.HttpJspBase
         _jspx_th_html_005flink_005f3.doInitBody();
       }
       do {
-        out.write("Publicar vídeo");
+        out.write("<img src=\"_imgs/publicar.jpg\" border=\"0\" />");
         int evalDoAfterBody = _jspx_th_html_005flink_005f3.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -327,78 +338,6 @@ public final class topo_jsp extends org.apache.jasper.runtime.HttpJspBase
       return true;
     }
     _005fjspx_005ftagPool_005fhtml_005flink_005fstyleClass_005fpage.reuse(_jspx_th_html_005flink_005f3);
-    return false;
-  }
-
-  private boolean _jspx_meth_bean_005fwrite_005f1(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  bean:write
-    org.apache.struts.taglib.bean.WriteTag _jspx_th_bean_005fwrite_005f1 = (org.apache.struts.taglib.bean.WriteTag) _005fjspx_005ftagPool_005fbean_005fwrite_005fproperty_005fname_005fnobody.get(org.apache.struts.taglib.bean.WriteTag.class);
-    _jspx_th_bean_005fwrite_005f1.setPageContext(_jspx_page_context);
-    _jspx_th_bean_005fwrite_005f1.setParent(null);
-    _jspx_th_bean_005fwrite_005f1.setName("Assinante");
-    _jspx_th_bean_005fwrite_005f1.setProperty("nome");
-    int _jspx_eval_bean_005fwrite_005f1 = _jspx_th_bean_005fwrite_005f1.doStartTag();
-    if (_jspx_th_bean_005fwrite_005f1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _005fjspx_005ftagPool_005fbean_005fwrite_005fproperty_005fname_005fnobody.reuse(_jspx_th_bean_005fwrite_005f1);
-      return true;
-    }
-    _005fjspx_005ftagPool_005fbean_005fwrite_005fproperty_005fname_005fnobody.reuse(_jspx_th_bean_005fwrite_005f1);
-    return false;
-  }
-
-  private boolean _jspx_meth_bean_005fwrite_005f2(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  bean:write
-    org.apache.struts.taglib.bean.WriteTag _jspx_th_bean_005fwrite_005f2 = (org.apache.struts.taglib.bean.WriteTag) _005fjspx_005ftagPool_005fbean_005fwrite_005fname_005fnobody.get(org.apache.struts.taglib.bean.WriteTag.class);
-    _jspx_th_bean_005fwrite_005f2.setPageContext(_jspx_page_context);
-    _jspx_th_bean_005fwrite_005f2.setParent(null);
-    _jspx_th_bean_005fwrite_005f2.setName("qtdVideo");
-    int _jspx_eval_bean_005fwrite_005f2 = _jspx_th_bean_005fwrite_005f2.doStartTag();
-    if (_jspx_th_bean_005fwrite_005f2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _005fjspx_005ftagPool_005fbean_005fwrite_005fname_005fnobody.reuse(_jspx_th_bean_005fwrite_005f2);
-      return true;
-    }
-    _005fjspx_005ftagPool_005fbean_005fwrite_005fname_005fnobody.reuse(_jspx_th_bean_005fwrite_005f2);
-    return false;
-  }
-
-  private boolean _jspx_meth_html_005flink_005f4(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  html:link
-    org.apache.struts.taglib.html.LinkTag _jspx_th_html_005flink_005f4 = (org.apache.struts.taglib.html.LinkTag) _005fjspx_005ftagPool_005fhtml_005flink_005fstyleClass_005fpage.get(org.apache.struts.taglib.html.LinkTag.class);
-    _jspx_th_html_005flink_005f4.setPageContext(_jspx_page_context);
-    _jspx_th_html_005flink_005f4.setParent(null);
-    _jspx_th_html_005flink_005f4.setPage("/cadVideoForm.do");
-    _jspx_th_html_005flink_005f4.setStyleClass("linkado");
-    int _jspx_eval_html_005flink_005f4 = _jspx_th_html_005flink_005f4.doStartTag();
-    if (_jspx_eval_html_005flink_005f4 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      if (_jspx_eval_html_005flink_005f4 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE) {
-        out = _jspx_page_context.pushBody();
-        _jspx_th_html_005flink_005f4.setBodyContent((javax.servlet.jsp.tagext.BodyContent) out);
-        _jspx_th_html_005flink_005f4.doInitBody();
-      }
-      do {
-        out.write("<img src=\"_imgs/publicar.jpg\" border=\"0\" />");
-        int evalDoAfterBody = _jspx_th_html_005flink_005f4.doAfterBody();
-        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-          break;
-      } while (true);
-      if (_jspx_eval_html_005flink_005f4 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE) {
-        out = _jspx_page_context.popBody();
-      }
-    }
-    if (_jspx_th_html_005flink_005f4.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _005fjspx_005ftagPool_005fhtml_005flink_005fstyleClass_005fpage.reuse(_jspx_th_html_005flink_005f4);
-      return true;
-    }
-    _005fjspx_005ftagPool_005fhtml_005flink_005fstyleClass_005fpage.reuse(_jspx_th_html_005flink_005f4);
     return false;
   }
 }

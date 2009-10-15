@@ -230,9 +230,9 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\r\n");
       out.write("\t\t<div id=\"direita\">\r\n");
       out.write("\t\t\r\n");
-      out.write("<!-- INCLUDE DOS VÍDEOS LATERIAIS -->\r\n");
+      out.write("<!-- INCLUDE DOS VÍDEOS LATERAIS -->\r\n");
       out.write("\r\n");
-      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "videosLaterais.jsp", out, false);
+      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "buscaAvancada.jsp", out, false);
       out.write("\r\n");
       out.write("\r\n");
       out.write("<!-- INCLUDE DOS VÍDEOS LATERAIS -->\r\n");
