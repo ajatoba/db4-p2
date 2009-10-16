@@ -14,7 +14,25 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
 </head>
 <body>
+<!-- INCLUDE HOME -->
 
+<jsp:include page="topo.jsp" />
+
+<!-- INCLUDE HOME -->
+<div id="meio_fundo">
+	<div id="meio">
+		<div id="esquerda">
+		<dt class="box_busca">
+				<form action="busca.do?act=busca" method="post">
+					<div class="sep_busca"></div>
+					<div class="txt_busca">
+						<input type="text" name="busca" Class="txt_buscar" />
+					</div>
+					<div class="btn_busca">
+						<input type="image" src="_imgs/btnbusca.jpg" name="Submit" Class="linkado" />
+					</div>
+				</form>
+			</dt>
 <table border="0" cellspacing="3" cellpadding="3">
 	<logic:notEmpty name="AssinanteLetra">
  		<logic:iterate id="a" name="AssinanteLetra">
@@ -44,6 +62,21 @@
             </tr>    
     </logic:empty>
 </table>
+</div>
+<div id="direita">
+			
+<!-- INCLUDE DOS VÍDEOS LATERAIS -->
 
+<jsp:include page="buscaAvancada.jsp" />
+
+<!-- INCLUDE DOS VÍDEOS LATERAIS -->
+			
+			<dt class="banner"><img src="_imgs/banner.jpg" class="linkado"/></dt>
+			<dt><img src="_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
+			<dt><img src="_imgs/banner_redondo.jpg" class="linkado" /></dt>
+		</div>
+	</div>
+</div>
+<jsp:include page="rodape.jsp" />
 </body>   
 </html>
