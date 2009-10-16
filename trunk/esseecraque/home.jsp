@@ -99,7 +99,10 @@
 
 <!-- FIM GALERIA ÚLTIMOS VÍDEOS -->
 			</dt>
+
 <!-- INICIO DA GALERIA VÍDEOS MAIS VOTADOS -->
+<!-- 
+
 			<dt id="mais_votados">
 				<div class="seta"><img src="_imgs/seta_tras.jpg" /></div>
 				<div class="imgs"><img src="_imgs/img_videos.jpg" /></div>
@@ -109,6 +112,7 @@
 				<div class="imgs"><img src="_imgs/img_videos.jpg" /></div>
 				<div class="seta2"><img src="_imgs/seta_frente.jpg" /></div>			
 			</dt>
+ -->
 			<dt class="banner2"><img src="_imgs/bannergrande.jpg" class="linkado"/><img src="_imgs/txt_pub.jpg" /></dt>
 		</div>
 		
