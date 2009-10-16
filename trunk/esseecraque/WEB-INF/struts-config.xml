@@ -26,6 +26,7 @@
         	type="esseecraque.action.VideoAction"
         	parameter="act">
         	<forward name="carrega_home" path="/home.jsp" />
+        	<forward name="ultimos_videos" path="/ultimosVideos.jsp" />
         </action>
         
         <action path="/busca" 
