@@ -16,5 +16,7 @@ public interface AssinanteDAO {
 	public abstract List loginAssinante(String email, String senha);
 	
 	public abstract List buscarAssinanteLetra(String letra);
+	
+	public abstract List<Assinante> search(Assinante assinante);
 		
 }

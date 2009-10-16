@@ -270,5 +270,41 @@ public final class AssinanteAction extends DispatchAction{
 		}
 		
 	}
+	
+	public ActionForward search(ActionMapping mapping, 
+				ActionForm form, 
+				HttpServletRequest req, 
+				HttpServletResponse resp) throws Exception {
+
+		HttpSession objSession = req.getSession();
+		
+		try {
+		
+			String nome=null,posicao=null,cidade=null;
+			
+			nome 	= req.getParameter("nome");
+			posicao	= req.getParameter("posicao");
+			cidade 	= req.getParameter("cidade");
+			
+			Assinante assinante = new Assinante();
+			assinante.setNome(nome);
+			assinante.setPosition(posicao);
+			assinante.setCidade(cidade);
+			
+			AssinanteDAO aDAO = DAOFactory.ASSINANTE_DAO();
+			
+			List<Assinante> list = aDAO.search(assinante);
+			
+			objSession.setAttribute(Constants.ASSINANTE_BEAN_LETRA, list);
+			
+			return mapping.findForward(Constants.LIST_ASSINANTE_SUCESS);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return mapping.findForward(Constants.LIST_ASSINANTE_ERROR);
+		}
+
+	}
+
 
 }

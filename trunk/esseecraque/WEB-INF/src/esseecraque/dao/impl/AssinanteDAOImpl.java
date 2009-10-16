@@ -69,11 +69,50 @@ public class AssinanteDAOImpl implements AssinanteDAO{
 		HibernateUtil hu = new HibernateUtil();
 		session = hu.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
-		Query q = session.createQuery("SELECT a FROM Assinante a WHERE a.nome LIKE :lt ORDER BY a.nome");
+		Query q = session.createQuery("SELECT DISTINCT a FROM Assinante a WHERE a.nome LIKE :lt ORDER BY a.nome");
 		q.setString("lt", letra);
 		List resultado = q.list();
 		session.getTransaction().commit();
 		return resultado;
 	}	
+	
+	public List<Assinante> search(Assinante assinante){
+		
+		HibernateUtil hu = new HibernateUtil();
+		session = hu.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+				
+		String sQuery="SELECT DISTINCT a FROM Assinante a WHERE ";
+		
+		if(assinante.getNome() != null){
+			sQuery += "a.nome LIKE :nome ";
+		}else if (assinante.getPosition() !=null) {
+			if(assinante.getNome() != null){
+				sQuery += " AND ";
+			}			
+			sQuery += "a.position LIKE :position ";
+		}else if (assinante.getCidade()!=null) {
+			if(assinante.getNome() != null || assinante.getPosition()!= null){
+				sQuery += " AND ";
+			}
+			sQuery += "a.cidade LIKE :cidade ";
+		}
+		
+		sQuery += "ORDER BY a.nome";
+		
+		Query q = session.createQuery(sQuery);
+		
+		if(assinante.getNome() != null){
+			q.setString("nome", "%"+assinante.getNome()+"%");
+		}else if (assinante.getPosition() !=null) {
+			q.setString("position", "%"+assinante.getPosition()+"%");
+		}else if (assinante.getCidade()!=null) {
+			q.setString("cidade", "%"+assinante.getCidade()+"%");
+		}
+		
+		List<Assinante> resultado = q.list();
+		session.getTransaction().commit();
+		return resultado;
+	}
 	
 }

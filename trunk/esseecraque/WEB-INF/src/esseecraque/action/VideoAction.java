@@ -174,10 +174,11 @@ public final class VideoAction  extends DispatchAction{
 					
 					objSession.setAttribute(Constants.LIST_ULTIMOS_VIDEOS, lv);
 					
+					/*
 					List<Video> vLaterais = vDAO.buscarVideosLaterais();
 					
 					req.setAttribute(Constants.LIST_VIDEOS_LATERAIS, vLaterais);
-
+					*/
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -299,6 +300,32 @@ public final class VideoAction  extends DispatchAction{
 				return mapping.findForward(Constants.EXCLUI_VIDEO_ERROR);
 			}
 						
+	}
+
+	public ActionForward ultimosVideos(ActionMapping mapping, 
+			 ActionForm form, 
+			 HttpServletRequest req, 
+			 HttpServletResponse resp) throws Exception {
+
+			HttpSession objSession = req.getSession();
+
+			try {
+											
+					/************  GERANDO ARQUIVO ESTÁTICO COM OS ÚLTIMOS VÍDEOS ***********/
+					String docRoot = (String) SiteManager.getInstance().getProperties().get("docroot");
+					try {
+						SiteManager.getInstance().writerStaticFile(docRoot, "ultimosVideos.html", "http://localhost:8080/esseecraque/welcome.do?act=ultimosVideos");
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+					
+					/************************************************************************/
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			return mapping.findForward(Constants.ULTIMOS_VIDEOS);
+			
 	}
 
 }
