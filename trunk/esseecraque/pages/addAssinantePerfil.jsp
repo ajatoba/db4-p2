@@ -11,11 +11,11 @@
 
 <head>      
 <title><bean:message key="titulo.paginas"/></title>
-<link href="<html:rewrite page="/_css/estilo.css" />" rel="stylesheet" type="text/css">
-<link href="<html:rewrite page="/_css/slide.css" />" rel="stylesheet" type="text/css">
-<link href="<html:rewrite page="/_css/cadastro.css" />" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="js/jquery-1.2.6-packed.js"></script>
-<script type="text/javascript" src="js/slide.noconflict.js"></script>
+<link href="/eec/_css/estilo.css" rel="stylesheet" type="text/css">
+<link href="/eec/_css/slide.css" rel="stylesheet" type="text/css">
+<link href="/eec/_css/cadastro.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/eec/js/jquery-1.2.6-packed.js"></script>
+<script type="text/javascript" src="/eec/js/slide.noconflict.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
 </head>
 <body>
@@ -56,7 +56,7 @@ function montarExperiencia(){
 		<dt class="box_busca">
 				<div class="sep_busca"></div>
 				<div class="txt_busca"><input name="busca" type="text" class="txt_buscar" /></div>
-				<div class="btn_busca"><img src="_imgs/btnbusca.jpg" class="linkado"/></div>
+				<div class="btn_busca"><img src="/eec/_imgs/btnbusca.jpg" class="linkado"/></div>
 			</dt>
 <% Assinante a = (Assinante)session.getAttribute(Constants.ASSINANTE_BEAN); %>
 
@@ -154,9 +154,9 @@ function montarExperiencia(){
 		<!--INCLUDE LISTAGEM DE VIDEOS-->
 			<jsp:include page="/buscaAvancada.jsp" />
 		<!--INCLUDE LISTAGEM DE VIDEOS-->
-			<dt class="banner"><img src="_imgs/banner.jpg" class="linkado"/></dt>
-			<dt><img src="_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
-			<dt><img src="_imgs/banner_redondo.jpg" class="linkado" /></dt>
+			<dt class="banner"><img src="/eec/_imgs/banner.jpg" class="linkado"/></dt>
+			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
+			<dt><img src="/eec/_imgs/banner_redondo.jpg" class="linkado" /></dt>
 		</div>
 </div>
 </div>

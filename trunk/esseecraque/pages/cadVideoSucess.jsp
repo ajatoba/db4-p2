@@ -7,11 +7,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>      
 <title><bean:message key="titulo.paginas"/></title>
-<link href="<html:rewrite page="/_css/estilo.css" />" rel="stylesheet" type="text/css">
-<link href="<html:rewrite page="/_css/cadastro.css" />" rel="stylesheet" type="text/css">
-<link href="<html:rewrite page="/_css/slide.css" />" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="js/jquery-1.2.6-packed.js"></script>
-<script type="text/javascript" src="js/slide.noconflict.js"></script>
+<link href="/eec/_css/estilo.css" rel="stylesheet" type="text/css">
+<link href="/eec/_css/cadastro.css" rel="stylesheet" type="text/css">
+<link href="/eec/_css/slide.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/eec/js/jquery-1.2.6-packed.js"></script>
+<script type="text/javascript" src="/eec/js/slide.noconflict.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
 </head>
 <body>
@@ -27,7 +27,7 @@
 <!-- INÍCIO FORM DE CADASTRO DE VÍDEOS -->
 <table border="0" cellpadding="0" cellspacing="0" align="center">
 	<tr>
-		<td><img src="_imgs/iconeSucesso.jpg" /></td>
+		<td><img src="/eec/_imgs/iconeSucesso.jpg" /></td>
 		<td>&nbsp;</td>
 		<td><span class="txtMsg"><bean:message key="msg.add.video.sucesso"/></span></td>
 	</tr>
@@ -70,7 +70,7 @@
 <br />
 <br />
 
-			<dt class="banner2"><img src="_imgs/bannergrande.jpg" class="linkado"/><img src="_imgs/txt_pub.jpg" /></dt>
+			<dt class="banner2"><img src="/eec/_imgs/bannergrande.jpg" class="linkado"/><img src="/eec/_imgs/txt_pub.jpg" /></dt>
 		</div>
 		<div id="direita">
 		
@@ -78,9 +78,9 @@
 			<jsp:include page="/buscaAvancada.jsp" />
 		<!--INCLUDE LISTAGEM DE VIDEOS-->
 		
-			<dt class="banner"><img src="_imgs/banner.jpg" class="linkado"/></dt>
-			<dt><img src="_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
-			<dt><img src="_imgs/banner_redondo.jpg" class="linkado" /></dt>
+			<dt class="banner"><img src="/eec/_imgs/banner.jpg" class="linkado"/></dt>
+			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
+			<dt><img src="/eec/_imgs/banner_redondo.jpg" class="linkado" /></dt>
 		</div>
 	</div>
 </div>
