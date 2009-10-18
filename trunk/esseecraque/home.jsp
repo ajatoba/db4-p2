@@ -6,10 +6,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>      
 <title><bean:message key="titulo.paginas"/></title>
-<link href="<html:rewrite page="/_css/estilo.css" />" rel="stylesheet" type="text/css">
-<link href="<html:rewrite page="/_css/slide.css" />" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="js/jquery-1.2.6-packed.js"></script>
-<script type="text/javascript" src="js/slide.noconflict.js"></script>
+<link href="/eec/_css/estilo.css" rel="stylesheet" type="text/css">
+<link href="/eec/_css/slide.css"  rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/eec/js/jquery-1.2.6-packed.js"></script>
+<script type="text/javascript" src="/eec/js/slide.noconflict.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
 </head>
 <body>
@@ -31,7 +31,7 @@
 						<input type="text" name="busca" Class="txt_buscar" />
 					</div>
 					<div class="btn_busca">
-						<input type="image" src="_imgs/btnbusca.jpg" name="Submit" Class="linkado" />
+						<input type="image" src="/eec/_imgs/btnbusca.jpg" name="Submit" Class="linkado" />
 					</div>
 				</form>
 			</dt>
@@ -53,8 +53,8 @@
 					<div class="fundo_desc">http://www.orkut.com/watch?=4fsfafdge</div>
 				</div>
 				<div class="meio_desc">
-					<div><img src="_imgs/votar.jpg" class="linkado"/></div>
-					<div><img src="_imgs/ver_perfil.jpg" class="mgn5_linkado"/></div>
+					<div><img src="/eec/_imgs/votar.jpg" class="linkado"/></div>
+					<div><img src="/eec/_imgs/ver_perfil.jpg" class="mgn5_linkado"/></div>
 				</div>
 				<div class="esq_desc">
 					<div>Disponível para contratação</div>
@@ -64,7 +64,7 @@
 
 <!-- INÍCIO GALERIA ÚLTIMOS VÍDEOS -->
 
-<img src="_imgs/ultimos_videos.jpg" />
+<img src="/eec/_imgs/ultimos_videos.jpg" />
 
 <div id="image-gallery-wrapper">
 	<script type="text/javascript">
@@ -113,7 +113,7 @@
 				<div class="seta2"><img src="_imgs/seta_frente.jpg" /></div>			
 			</dt>
  -->
-			<dt class="banner2"><img src="_imgs/bannergrande.jpg" class="linkado"/><img src="_imgs/txt_pub.jpg" /></dt>
+			<dt class="banner2"><img src="/eec/_imgs/bannergrande.jpg" class="linkado"/><img src="/eec/_imgs/txt_pub.jpg" /></dt>
 		</div>
 		
 		<div id="direita">
@@ -124,9 +124,9 @@
 
 <!-- INCLUDE DOS VÍDEOS LATERAIS -->
 						
-			<dt class="banner"><img src="_imgs/banner.jpg" class="linkado"/></dt>
-			<dt><img src="_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
-			<dt><img src="_imgs/banner_redondo.jpg" class="linkado" /></dt>
+			<dt class="banner"><img src="/eec/_imgs/banner.jpg" class="linkado"/></dt>
+			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
+			<dt><img src="/eec/_imgs/banner_redondo.jpg" class="linkado" /></dt>
 		</div>
 	</div>
 </div>
@@ -137,7 +137,7 @@
 			Dúvidas mais frequentes &nbsp;|&nbsp;
 			Como publicar um vídeo &nbsp;|&nbsp;
 			Fale conosco
-			<dt><img src="_imgs/ico_okt.jpg" class="ico" /><img src="_imgs/ico_face.jpg" class="ico" /><img src="_imgs/ico_rss.jpg" class="ico" /></dt>		
+			<dt><img src="/eec/_imgs/ico_okt.jpg" class="ico" /><img src="/eec/_imgs/ico_face.jpg" class="ico" /><img src="/eec/_imgs/ico_rss.jpg" class="ico" /></dt>		
 		</div>
 		<div class="rod_dir">
 			<span>Sobre</span> <br>

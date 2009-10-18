@@ -5,11 +5,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>      
 <title><bean:message key="titulo.paginas"/></title>
-<link href="<html:rewrite page="/_css/estilo.css" />" rel="stylesheet" type="text/css">
-<link href="<html:rewrite page="/_css/slide.css" />" rel="stylesheet" type="text/css">
-<link href="<html:rewrite page="/_css/cadastro.css" />" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="js/jquery-1.2.6-packed.js"></script>
-<script type="text/javascript" src="js/slide.noconflict.js"></script>
+<link href="/eec/_css/estilo.css" rel="stylesheet" type="text/css">
+<link href="/eec/_css/slide.css" rel="stylesheet" type="text/css">
+<link href="/eec/_css/cadastro.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/eec/js/jquery-1.2.6-packed.js"></script>
+<script type="text/javascript" src="/eec/js/slide.noconflict.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
 </head>
 <body>
@@ -26,7 +26,7 @@
 
 <table border="0" cellpadding="0" cellspacing="0" align="center">
 	<tr>
-		<td><img src="_imgs/iconeErro.jpg" /></td>
+		<td><img src="/eec/_imgs/iconeErro.jpg" /></td>
 		<td>&nbsp;</td>
 		<td><span class="txtMsg"><bean:message key="msg.add.assinante.erro"/></span></td>
 	</tr>
@@ -87,52 +87,52 @@
 		</div>
 		<div id="direita">
 			<div id="lists">
-<img src="_imgs/btn_videos.jpg" class="linkado"/><img src="_imgs/btn_usuarios.jpg" class="linkado"/><img src="_imgs/btn_canais.jpg" class="linkado"/><div class="nav">
-					<div class="nav_esq"><img src="_imgs/nav_esq.jpg" /></div>
+<img src="/eec/_imgs/btn_videos.jpg" class="linkado"/><img src="/eec/_imgs/btn_usuarios.jpg" class="linkado"/><img src="/eec/_imgs/btn_canais.jpg" class="linkado"/><div class="nav">
+					<div class="nav_esq"><img src="/eec/_imgs/nav_esq.jpg" /></div>
 					<div class="nav1">Pág. </div>
 					<div class="navega"> <input name="page" type="text" class="box_nav" /> </div>
 					<div class="nav2">de 250</div>
-					<div class="nav_dir"><img src="_imgs/nav_dir.jpg" /></div>
+					<div class="nav_dir"><img src="/eec/_imgs/nav_dir.jpg" /></div>
 				</div>
 				<div class="atrasOut" onmouseover="this.className='atrasIn';" onmouseout="this.className='atrasOut';">
 					<dt class="frente">
-						<div class="voto0"><img src="_imgs/img_listas.jpg" /></div>
+						<div class="voto0"><img src="/eec/_imgs/img_listas.jpg" /></div>
 						<div class="data">09/06/2009 10:26</div>
 						<div class="desc">Edson dos Santos em pedala e da show de bola</div>
 					</dt>
 				</div>
 				<div class="atrasOut" onmouseover="this.className='atrasIn';" onmouseout="this.className='atrasOut';">
 					<dt class="frente">
-						<div class="voto0"><img src="_imgs/img_listas.jpg" /></div>
+						<div class="voto0"><img src="/eec/_imgs/img_listas.jpg" /></div>
 						<div class="data">09/06/2009 10:26</div>
 						<div class="desc">Edson dos Santos em pedala e da show de bola</div>
 					</dt>
 				</div>
 				<div class="atrasOut" onmouseover="this.className='atrasIn';" onmouseout="this.className='atrasOut';">
 					<dt class="frente">
-						<div class="voto0"><img src="_imgs/img_listas.jpg" /></div>
+						<div class="voto0"><img src="/eec/_imgs/img_listas.jpg" /></div>
 						<div class="data">09/06/2009 10:26</div>
 						<div class="desc">Edson dos Santos em pedala e da show de bola</div>
 					</dt>
 				</div>
 				<div class="atrasOut" onmouseover="this.className='atrasIn';" onmouseout="this.className='atrasOut';">
 					<dt class="frente">
-						<div class="voto0"><img src="_imgs/img_listas.jpg" /></div>
+						<div class="voto0"><img src="/eec/_imgs/img_listas.jpg" /></div>
 						<div class="data">09/06/2009 10:26</div>
 						<div class="desc">Edson dos Santos em pedala e da show de bola</div>
 					</dt>
 				</div>
 				<div class="atrasOut" onmouseover="this.className='atrasIn';" onmouseout="this.className='atrasOut';">
 					<dt class="frente">
-						<div class="voto0"><img src="_imgs/img_listas.jpg" /></div>
+						<div class="voto0"><img src="/eec/_imgs/img_listas.jpg" /></div>
 						<div class="data">09/06/2009 10:26</div>
 						<div class="desc">Edson dos Santos em pedala e da show de bola</div>
 					</dt>
 				</div>
 			</div>			
-			<dt class="banner"><img src="_imgs/banner.jpg" class="linkado"/></dt>
-			<dt><img src="_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
-			<dt><img src="_imgs/banner_redondo.jpg" class="linkado" /></dt>
+			<dt class="banner"><img src="/eec/_imgs/banner.jpg" class="linkado"/></dt>
+			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
+			<dt><img src="/eec/_imgs/banner_redondo.jpg" class="linkado" /></dt>
 		</div>
 	</div>
 </div>
@@ -143,7 +143,7 @@
 			Dúvidas mais frequentes &nbsp;|&nbsp;
 			Como publicar um vídeo &nbsp;|&nbsp;
 			Fale conosco
-			<dt><img src="_imgs/ico_okt.jpg" class="ico" /><img src="_imgs/ico_face.jpg" class="ico" /><img src="_imgs/ico_rss.jpg" class="ico" /></dt>		
+			<dt><img src="/eec/_imgs/ico_okt.jpg" class="ico" /><img src="/eec/_imgs/ico_face.jpg" class="ico" /><img src="/eec/_imgs/ico_rss.jpg" class="ico" /></dt>		
 		</div>
 		<div class="rod_dir">
 			<span>Sobre</span> <br>

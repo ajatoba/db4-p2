@@ -5,7 +5,7 @@
 			Dúvidas mais frequentes &nbsp;|&nbsp;
 			Como publicar um vídeo &nbsp;|&nbsp;
 			Fale conosco
-			<dt><img src="_imgs/ico_okt.jpg" class="ico" /><img src="_imgs/ico_face.jpg" class="ico" /><img src="_imgs/ico_rss.jpg" class="ico" /></dt>		
+			<dt><img src="/eec/_imgs/ico_okt.jpg" class="ico" /><img src="/eec/_imgs/ico_face.jpg" class="ico" /><img src="/eec/_imgs/ico_rss.jpg" class="ico" /></dt>		
 		</div>
 		<div class="rod_dir">
 			<span>Sobre</span> <br>

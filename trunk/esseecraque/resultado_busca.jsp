@@ -5,13 +5,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>      
 <title><bean:message key="titulo.paginas"/></title>
-<link href="<html:rewrite page="/_css/estilo.css" />" rel="stylesheet" type="text/css">
-<link href="<html:rewrite page="/_css/slide_busca.css" />" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="js/jquery-1.2.6-packed.js"></script>
-<script type="text/javascript" src="js/slide.noconflict.js"></script>
+<link href="/eec/_css/estilo.css" rel="stylesheet" type="text/css">
+<link href="/eec/_css/slide_busca.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/eec/js/jquery-1.2.6-packed.js"></script>
+<script type="text/javascript" src="/eec/js/slide.noconflict.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
 </head>
 <script>
+
+
 function abaBusca(id){
 
 document.getElementById("btnRes1").className = 'openRes';
@@ -36,9 +38,9 @@ document.getElementById("btnRes"+ id).className = 'closeRes';
 			<dt class="box_busca">
 				<div class="sep_busca"></div>
 				<div class="txt_busca"><input name="busca" type="text" class="txt_buscar" /></div>
-				<div class="btn_busca"><img src="_imgs/btnbusca.jpg" class="linkado"/></div>
+				<div class="btn_busca"><img src="/eec/_imgs/btnbusca.jpg" class="linkado"/></div>
 			</dt>
-			<dt class="player"><img src="_imgs/player.jpg" /></dt>
+			<dt class="player"><img src="/eec/_imgs/player.jpg" /></dt>
 			<dt class="desc_player">
 				<div class="dir_desc">
 					<div class="data_pl">09/06/2009 10:26</div>
@@ -47,8 +49,8 @@ document.getElementById("btnRes"+ id).className = 'closeRes';
 					<div class="fundo_desc">http://www.orkut.com/watch?=4fsfafdge</div>
 				</div>
 				<div class="meio_desc">
-					<div><img src="_imgs/votar.jpg" class="linkado"/></div>
-					<div><img src="_imgs/ver_perfil.jpg" class="mgn5 linkado"/></div>
+					<div><img src="/eec/_imgs/votar.jpg" class="linkado"/></div>
+					<div><img src="/eec/_imgs/ver_perfil.jpg" class="mgn5 linkado"/></div>
 				</div>
 				<div class="esq_desc">
 					<div>Disponível para contratação</div>
@@ -154,7 +156,7 @@ int cont=1;
 				</div>
 							
 			</dt>
-			<dt class="banner2"><img src="_imgs/bannergrande.jpg" class="linkado"/><img src="_imgs/txt_pub.jpg" /></dt>
+			<dt class="banner2"><img src="/eec/_imgs/bannergrande.jpg" class="linkado"/><img src="/eec/_imgs/txt_pub.jpg" /></dt>
 		</div>
 		<div id="direita">
 			<!-- INCLUDE DOS VÍDEOS LATERAIS -->
@@ -162,9 +164,9 @@ int cont=1;
 <jsp:include page="buscaAvancada.jsp" />
 
 <!-- INCLUDE DOS VÍDEOS LATERAIS -->	
-			<dt class="banner"><img src="_imgs/banner.jpg" class="linkado"/></dt>
-			<dt><img src="_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
-			<dt><img src="_imgs/banner_redondo.jpg" class="linkado" /></dt>
+			<dt class="banner"><img src="/eec/_imgs/banner.jpg" class="linkado"/></dt>
+			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
+			<dt><img src="/eec/_imgs/banner_redondo.jpg" class="linkado" /></dt>
 		</div>
 	</div>
 </div>

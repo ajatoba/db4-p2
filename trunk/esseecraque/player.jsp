@@ -5,10 +5,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>      
 <title><bean:message key="titulo.paginas"/></title>
-<link href="<html:rewrite page="/_css/estilo.css" />" rel="stylesheet" type="text/css">
-<link href="<html:rewrite page="/_css/slide.css" />" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="js/jquery-1.2.6-packed.js"></script>
-<script type="text/javascript" src="js/slide.noconflict.js"></script>
+<link href="/eec/_css/estilo.css" rel="stylesheet" type="text/css">
+<link href="/eec/_css/slide.css"  rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/eec/js/jquery-1.2.6-packed.js"></script>
+<script type="text/javascript" src="/eec/js/slide.noconflict.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
 </head>
 <body>
@@ -25,7 +25,7 @@
 			<dt class="box_busca">
 				<div class="sep_busca"></div>
 				<div class="txt_busca"><input name="busca" type="text" class="txt_buscar" /></div>
-				<div class="btn_busca"><img src="_imgs/btnbusca.jpg" class="linkado"/></div>
+				<div class="btn_busca"><img src="/eec/_imgs/btnbusca.jpg" class="linkado"/></div>
 			</dt>
 			<dt class="player">
 <!-- INICIO PLAYER -->
@@ -42,8 +42,8 @@
 					<div class="fundo_desc"><bean:write name='Video' property='url' /></div>
 				</div>
 				<div class="meio_desc">
-					<div><a href="votar.do"><img src="_imgs/votar.jpg" class="linkado" border="0" /></a></div>
-					<div><img src="_imgs/ver_perfil.jpg" class="mgn5_linkado"/></div>
+					<div><a href="votar.do"><img src="/eec/_imgs/votar.jpg" class="linkado" border="0" /></a></div>
+					<div><img src="/eec/_imgs/ver_perfil.jpg" class="mgn5_linkado"/></div>
 				</div>
 				<div class="esq_desc">
 					<div>Disponível para contratação</div>
@@ -53,7 +53,7 @@
 
 <!-- INÍCIO GALERIA ÚLTIMOS VÍDEOS -->
 
-<img src="_imgs/ultimos_videos.jpg" />
+<img src="/eec/_imgs/ultimos_videos.jpg" />
 
 <div id="image-gallery-wrapper">
 	<script type="text/javascript">
@@ -90,15 +90,15 @@
 			</dt>
 <!-- INICIO DA GALERIA VÍDEOS MAIS VOTADOS -->
 			<dt id="mais_votados">
-				<div class="seta"><img src="_imgs/seta_tras.jpg" /></div>
-				<div class="imgs"><img src="_imgs/img_videos.jpg" /></div>
-				<div class="imgs"><img src="_imgs/img_videos.jpg" /></div>
-				<div class="imgs"><img src="_imgs/img_videos.jpg" /></div>
-				<div class="imgs"><img src="_imgs/img_videos.jpg" /></div>
-				<div class="imgs"><img src="_imgs/img_videos.jpg" /></div>
-				<div class="seta2"><img src="_imgs/seta_frente.jpg" /></div>			
+				<div class="seta"><img src="/eec/_imgs/seta_tras.jpg" /></div>
+				<div class="imgs"><img src="/eec/_imgs/img_videos.jpg" /></div>
+				<div class="imgs"><img src="/eec/_imgs/img_videos.jpg" /></div>
+				<div class="imgs"><img src="/eec/_imgs/img_videos.jpg" /></div>
+				<div class="imgs"><img src="/eec/_imgs/img_videos.jpg" /></div>
+				<div class="imgs"><img src="/eec/_imgs/img_videos.jpg" /></div>
+				<div class="seta2"><img src="/eec/_imgs/seta_frente.jpg" /></div>			
 			</dt>
-			<dt class="banner2"><img src="_imgs/bannergrande.jpg" class="linkado"/><img src="_imgs/txt_pub.jpg" /></dt>
+			<dt class="banner2"><img src="/eec/_imgs/bannergrande.jpg" class="linkado"/><img src="/eec/_imgs/txt_pub.jpg" /></dt>
 		</div>
 		<div id="direita">
 			<!-- INCLUDE DOS VÍDEOS LATERAIS -->
@@ -106,9 +106,9 @@
 <jsp:include page="buscaAvancada.jsp" />
 
 <!-- INCLUDE DOS VÍDEOS LATERAIS -->	
-			<dt class="banner"><img src="_imgs/banner.jpg" class="linkado"/></dt>
-			<dt><img src="_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
-			<dt><img src="_imgs/banner_redondo.jpg" class="linkado" /></dt>
+			<dt class="banner"><img src="/eec/_imgs/banner.jpg" class="linkado"/></dt>
+			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
+			<dt><img src="/eec/_imgs/banner_redondo.jpg" class="linkado" /></dt>
 		</div>
 	</div>
 </div>

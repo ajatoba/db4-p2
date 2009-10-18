@@ -3,7 +3,7 @@ function submitBusca(){
 	document.busca.submit();
 }
 </script>
-<div id="lists"><img src="_imgs/btn_jogadores.jpg" class="linkado"/><img src="_imgs/btn_posicoes.jpg" class="linkado"/><img src="_imgs/btn_categorias.jpg" class="linkado"/>
+<div id="lists"><img src="/eec/_imgs/btn_jogadores.jpg" class="linkado"/><img src="/eec/_imgs/btn_posicoes.jpg" class="linkado"/><img src="/eec/_imgs/btn_categorias.jpg" class="linkado"/>
   
   
       <div>
