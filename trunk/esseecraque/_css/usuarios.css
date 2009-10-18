@@ -1,7 +1,0 @@
-@charset "utf-8";
-/* CSS Document */
-
-.status { margin-left:4px; margin-right:4px; float:left;}
-.desc_nome_users {color:#706E6F; font-size:12px; font-weight:bold; margin-left:4px; margin-right:4px; } 
-
-.voto_user {background:url(../_imgs/voto_user.jpg) right top no-repeat; width:325px; margin:4px;}
