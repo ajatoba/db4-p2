@@ -6,10 +6,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>      
 <title></title>
-<link href="eec/_css/estilo.css" rel="stylesheet" type="text/css">
-<link href="eec/_css/slide.css"  rel="stylesheet" type="text/css">
-<script type="text/javascript" src="eec/js/jquery-1.2.6-packed.js"></script>
-<script type="text/javascript" src="eec/js/slide.noconflict.js"></script>
+<link href="/eec/_css/estilo.css" rel="stylesheet" type="text/css">
+<link href="/eec/_css/slide.css"  rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/eec/js/jquery-1.2.6-packed.js"></script>
+<script type="text/javascript" src="/eec/js/slide.noconflict.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
 </head>
 <body>
@@ -18,7 +18,7 @@
 
 <dt id="ultimos_videos">
 
-<img src="eec/_imgs/ultimos_videos.jpg" />
+<img src="/eec/_imgs/ultimos_videos.jpg" />
 
 <div id="image-gallery-wrapper">
 	<script type="text/javascript">
