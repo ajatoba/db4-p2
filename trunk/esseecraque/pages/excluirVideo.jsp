@@ -15,7 +15,7 @@
 </head>
 <body>
 <!--INCLUDE DO MENU-->
-<jsp:include page="topo.jsp" />
+<jsp:include page="/topo.jsp" />
 
 <!--FIM INCLUDE DO MENU-->
 
@@ -63,7 +63,7 @@
 		</div>
 	</div>
 </div>
-<jsp:include page="rodape.jsp" />
+<jsp:include page="/rodape.jsp" />
 
 </body>   
 </html>

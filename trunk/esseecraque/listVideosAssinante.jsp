@@ -74,7 +74,7 @@
 			
 <!-- INCLUDE DOS VÍDEOS LATERAIS -->
 
-<jsp:include page="buscaAvancada.jsp" />
+<jsp:include page="perfil.jsp" />
 
 <!-- INCLUDE DOS VÍDEOS LATERAIS -->
 			

@@ -4,15 +4,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>      
 <title><bean:message key="titulo.paginas"/></title>
-<link href="<html:rewrite page="/_css/estilo.css" />" rel="stylesheet" type="text/css">
-<link href="<html:rewrite page="/_css/slide.css" />" rel="stylesheet" type="text/css">
+<link href="<html:rewrite page="/eec/_css/estilo.css" />" rel="stylesheet" type="text/css">
+<link href="<html:rewrite page="/eec/_css/slide.css" />" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="js/jquery-1.2.6-packed.js"></script>
 <script type="text/javascript" src="js/slide.noconflict.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
 </head>
 <body>
 <!--INCLUDE DO MENU-->
-<jsp:include page="topo.jsp" />
+<jsp:include page="/topo.jsp" />
 
 <!--FIM INCLUDE DO MENU-->
 
@@ -158,7 +158,7 @@
 		<div id="direita">
 			
 			<!--INCLUDE LISTAGEM DE VIDEOS-->
-			<jsp:include page="categorias.jsp" />
+			<jsp:include page="/buscaAvancada.jsp" />
 		<!--INCLUDE LISTAGEM DE VIDEOS-->
 			
 			<dt class="banner"><img src="_imgs/banner.jpg" class="linkado"/></dt>
@@ -168,7 +168,7 @@
 	</div>
 </div>
 
-<jsp:include page="rodape.jsp" />
+<jsp:include page="/rodape.jsp" />
 
 
 </body>   

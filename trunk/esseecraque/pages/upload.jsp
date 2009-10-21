@@ -23,7 +23,7 @@
 <body>
 
 <!--INCLUDE DO MENU-->
-<jsp:include page="topo.jsp" />
+<jsp:include page="/topo.jsp" />
 <!--FIM INCLUDE DO MENU-->
 <div id="meio_fundo">
 	<div id="meio">
@@ -83,6 +83,6 @@
 		</div>
 </div>
 </div>
-<jsp:include page="rodape.jsp" />
+<jsp:include page="/rodape.jsp" />
 </body>
 </html>

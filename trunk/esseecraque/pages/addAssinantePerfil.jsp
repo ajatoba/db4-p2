@@ -47,7 +47,7 @@ function montarExperiencia(){
 </script>
 <!-- INCLUDE HOME -->
 
-<jsp:include page="topo.jsp" />
+<jsp:include page="/topo.jsp" />
 
 <!-- INCLUDE HOME -->
 <div id="meio_fundo">
@@ -160,7 +160,7 @@ function montarExperiencia(){
 		</div>
 </div>
 </div>
-<jsp:include page="rodape.jsp" />
+<jsp:include page="/rodape.jsp" />
 
 </body>
 </html>

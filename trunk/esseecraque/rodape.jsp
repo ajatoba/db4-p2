@@ -1,10 +1,17 @@
+<head>
+<link href="/_js/thickbox.css" rel="stylesheet" type="text/css" />
+<SCRIPT src="/_js/jquery-1.1.3.1.pack.js" type="text/javascript"></SCRIPT>
+<SCRIPT src="/_js/thickbox.js" type="text/javascript"></SCRIPT>
+<SCRIPT src="/_js/global.js" type="text/javascript"></SCRIPT>
+</head>
+<body>
 <div id="rodape">
 	<div class="rodape_in">
 		<div class="rod_esq">
 			<span>Ajuda</span> <br>
 			Dúvidas mais frequentes &nbsp;|&nbsp;
 			Como publicar um vídeo &nbsp;|&nbsp;
-			Fale conosco
+			<a class="thickbox" href="fale_conosco.jsp?height=400&width=400" >Fale conosco</a>
 			<dt><img src="/eec/_imgs/ico_okt.jpg" class="ico" /><img src="/eec/_imgs/ico_face.jpg" class="ico" /><img src="/eec/_imgs/ico_rss.jpg" class="ico" /></dt>		
 		</div>
 		<div class="rod_dir">
@@ -34,3 +41,5 @@
 	Adicionar a Del.icio.us &nbsp;|&nbsp;
 	Download Logo
 </div>
+
+</body>
