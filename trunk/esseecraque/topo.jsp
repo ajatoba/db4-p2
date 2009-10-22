@@ -2,9 +2,11 @@
 <%@ taglib uri="/WEB-INF/TLD/struts-html.tld" prefix="html" %>
 <%@ taglib uri="/WEB-INF/TLD/struts-logic.tld" prefix="logic" %>
 
+<div id="menu"></div>
+
 <div id="topo">
 
-	<div id="menu"></div>
+	
 	
 	<div>
 	
