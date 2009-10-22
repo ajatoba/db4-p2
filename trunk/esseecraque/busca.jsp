@@ -38,9 +38,9 @@ function submitBusca(){
 		  <tr>
 		    <td><input type="text" name="cidade" class="form_busca_avancada" id="textfield8" /></td>
 		  </tr>
-		  <tr>
-		    <td>&nbsp;</td>
-		    <td><input type="button" name="button" id="button" value="Submit" onclick="javascript:submitBusca();" /></td>
+		  <tr>    
+		    <td>
+		    <input  type="image" src="/eec/_imgs/btn_busca.jpg" name="button" id="button" value="Submit" onclick="javascript: submitBusca();" /></td>
 		  </tr>
 		</table>
 		</form>
