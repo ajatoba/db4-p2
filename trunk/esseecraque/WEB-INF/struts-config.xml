@@ -113,7 +113,7 @@
             scope="request"  
             validate="true">   
             	<forward name="list_meus_videos_sucess" path="/pages/listMeusVideos.jsp" />
-            	<forward name="list_meus_videos_erro" path="/pages/listMeusVideosErro.jsp" />   
+            	<forward name="list_meus_videos_erro" path="/pages/listMeusVideos.jsp" />   
         </action>
         
         <action path="/listVideosAssinante"  
