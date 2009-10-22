@@ -1,11 +1,4 @@
-<%@ taglib uri="/WEB-INF/TLD/struts-bean.tld" prefix="bean" %>
-<%@ taglib uri="/WEB-INF/TLD/struts-html.tld" prefix="html" %>
-<%@ taglib uri="/WEB-INF/TLD/struts-logic.tld" prefix="logic" %>
-<%@ taglib uri="http://displaytag.sf.net" prefix="display" %>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>      
+     
 <link href="/eec/_css/estilo.css" rel="stylesheet" type="text/css">
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <script>
@@ -13,8 +6,7 @@ function submitBusca(){
 	document.busca.submit();
 }
 </script>
-</head>
-<body>
+
 	 <dt class="fundo_abas">
 	    <!--TABELA DE BUSCA-->
 	
@@ -30,7 +22,16 @@ function submitBusca(){
 		    <td class="txt_busca_avancada">Posição : </td>
 		  </tr>
 		  <tr>
-		    <td><input type="text" name="posicao" class="form_busca_avancada" id="textfield2" /></td>
+		    <td>		    
+		    <select name="posicao" styleClass="form_campo_posicao">
+		    	<option value="GOL">Goleiro</option>
+		    	<option value="ZAG">Zagueiro</option>
+		    	<option value="LAT">Lateral</option>
+		    	<option value="MEI">Meia</option>
+		    	<option value="ATA">Atacante</option>
+    		</select>
+		    
+		    </td>
 		  </tr>
 		  <tr>
 		    <td class="txt_busca_avancada">Cidade :</td>
@@ -47,6 +48,3 @@ function submitBusca(){
 	          
 	          <!--FIM TABELA DE BUSCA-->
 	        </dt>
-
-</body>
-</html>
