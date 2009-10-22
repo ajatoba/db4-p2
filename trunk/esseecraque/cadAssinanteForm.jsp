@@ -1,6 +1,6 @@
 <%@ taglib uri="WEB-INF/TLD/struts-bean.tld" prefix="bean" %>   
 <%@ taglib uri="WEB-INF/TLD/struts-html.tld" prefix="html" %>
-
+<%@ taglib uri="WEB-INF/TLD/struts-logic.tld" prefix="logic" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>      
@@ -35,6 +35,18 @@
 				</form>
 			</dt>
 <div id="cadastro">
+<table border="0" cellpadding="0" cellspacing="0" align="center">
+	<tr>
+		<td>
+			<span class="txtMsg">		
+			<logic:present name="mensagem_erro">
+	  			<img src="/eec/_imgs/iconeErro.jpg" /> <bean:message key="msg.add.assinante.erro"/><br/>
+	  			<font color="red"><bean:write name="mensagem_erro"/></font>
+	  		</logic:present>
+			</span>
+		</td>
+	</tr>
+</table>
 <html:form action="cadAssinante.do?act=add" focus="email" onsubmit="return validateAssinanteForm(this)">   
 <table border="0" cellpadding="3" cellspacing="3">
 <tr>   
@@ -74,9 +86,62 @@
 </tr>
 <tr>   
     <td valign="middle" class="form_nome">Estado:</td>   
-    <td valign="middle"><html:text property="estado" styleClass="form_campo_nome" /></td>
+    <td valign="middle">
+    <html:select property="estado" styleClass="form_campo_posicao">    	
+		<html:option  value="Acre">Acre</html:option>
+		<html:option  value="Alagoas">Alagoas</html:option>
+		<html:option  value="Amapá">Amapá</html:option>
+		<html:option  value="Amazonas">Amazonas</html:option>
+		<html:option  value="Bahia">Bahia</html:option>
+		<html:option  value="Ceará">Ceará</html:option> 
+		<html:option  value="Distrito Federal">Distrito Federal</html:option> 
+		<html:option  value="Espírito Santos">Espírito Santos</html:option>
+		<html:option  value="Goias">Goias</html:option>
+		<html:option  value="Maranhão">Maranhão</html:option>
+		<html:option  value="Mato Grosso">Mato Grosso</html:option>
+		<html:option  value="Mato Grosso do Sul">Mato Grosso do Sul</html:option>
+		<html:option  value="Minas Gerais">Minas Gerais</html:option> 
+		<html:option  value="Pará">Pará</html:option>
+		<html:option  value="Paraíba">Paraíba</html:option> 
+		<html:option  value="Paraná">Paraná</html:option>
+		<html:option  value="Pernambuco">Pernambuco</html:option>
+		<html:option  value="Piauí">Piauí</html:option>
+		<html:option  value="Rio de Janeiro">Rio de Janeiro</html:option>
+		<html:option  value="Rio Grande do Norte">Rio Grande do Norte</html:option>
+		<html:option  value="Rio Grande do Sul">Rio Grande do Sul</html:option>
+		<html:option  value="Rondônia">Rondônia</html:option>
+		<html:option  value="Roraima">Roraima</html:option>
+		<html:option  value="Santa Catarina">Santa Catarina</html:option>
+		<html:option  value="São Paulo">São Paulo</html:option>
+		<html:option  value="Sergipe">Sergipe</html:option> 
+		<html:option  value="Tocantins">Tocantins</html:option>
+	</html:select>
+    </td>
 	<td valign="middle" class="valida_form"><html:errors  property="erro.vcEstadoAssinante" /></td>   
+</tr>
+<tr>   
+    <td width="74" valign="top" class="form_nome">Altura:</td>   
+    <td width="408" valign="top" ><html:text property="height" styleClass="form_campo_altura" /></td>
+	<td width="44" valign="top" class="valida_form"></td>   
 </tr>   
+<tr>   
+    <td valign="top" class="form_nome">Peso:</td>   
+    <td valign="top""><html:text property="weight" styleClass="form_campo_altura" /></td>
+	<td valign="top" class="valida_form"></td>   
+</tr>
+<tr>   
+    <td valign="top" class="form_nome">Posição:</td>   
+    <td valign="top">
+    <html:select property="position" styleClass="form_campo_posicao">
+    	<html:option value="GOL">Goleiro</html:option>
+    	<html:option value="ZAG">Zagueiro</html:option>
+    	<html:option value="LAT">Lateral</html:option>
+    	<html:option value="MEI">Meia</html:option>
+    	<html:option value="ATA">Atacante</html:option>
+    </html:select>
+    </td>
+	<td valign="top" class="valida_form"></td>   
+</tr>
 <tr>   
     <td valign="middle" class="form_nome">URL do assinante:</td>   
     <td valign="middle">http://www.esseecraque.com.br/<html:text property="username" styleClass="form_campo_path" /></td>
@@ -194,15 +259,7 @@
 
 <!-- FIM GALERIA ÚLTIMOS VÍDEOS -->
 			</dt>
-			<dt id="mais_votados">
-				<div class="seta"><img src="/eec/_imgs/seta_tras.jpg" /></div>
-				<div class="imgs"><img src="/eec/_imgs/img_videos.jpg" /></div>
-				<div class="imgs"><img src="/eec/_imgs/img_videos.jpg" /></div>
-				<div class="imgs"><img src="/eec/_imgs/img_videos.jpg" /></div>
-				<div class="imgs"><img src="/eec/_imgs/img_videos.jpg" /></div>
-				<div class="imgs"><img src="/eec/_imgs/img_videos.jpg" /></div>
-				<div class="seta2"><img src="/eec/_imgs/seta_frente.jpg" /></div>			
-			</dt>
+			
 			<dt class="banner2"><img src="/eec/_imgs/bannergrande.jpg" class="linkado"/><img src="/eec/_imgs/txt_pub.jpg" /></dt>
 		</div>
 

@@ -72,7 +72,7 @@
 
 			<table>
 				<tr>
-					<td><img src="<bean:write name="Video" property="pathImage" />" /></td>
+					<td><img src="<bean:write name="Video" property="pathImage" />" width="100" height="73"/></td>
 				</tr>
 				<tr>
 					<td class="data"><bean:write name="Video" property="dataUpload" format="dd/MM/yyyy" /></td>

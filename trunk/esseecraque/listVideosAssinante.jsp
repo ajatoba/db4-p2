@@ -42,7 +42,7 @@
 						<tr>
 							<td width="540">
 								<a href="player.do?act=playerVideo&idVideo=<bean:write name='v' property='id' />&secao=liberada" >
-									<img src="<bean:write name='v' property='pathImage' />" />
+									<img src="<bean:write name='v' property='pathImage' />" width="100" height="73" border="0"/>
 								</a>
 							</td>
 						</tr>

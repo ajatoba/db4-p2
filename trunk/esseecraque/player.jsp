@@ -30,7 +30,7 @@
 			<dt class="player">
 <!-- INICIO PLAYER -->
 
-	<embed allowFullScreen="true"src="player.swf?movie=<bean:write name='Video' property='realPath' />&autoplay=off" quality="high"bgcolor="#000000" width="640" height="419"align="middle" allowScriptAccess="sameDomain"type="application/x-shockwave-flash" />
+	<embed allowFullScreen="true"src="player.swf?movie=<bean:write name='Video' property='url' />&autoplay=off" quality="high"bgcolor="#000000" width="640" height="419"align="middle" allowScriptAccess="sameDomain"type="application/x-shockwave-flash" />
 
 <!-- FIM PLAYER -->			
 			</dt>
@@ -89,15 +89,7 @@
 <!-- FIM GALERIA ÚLTIMOS VÍDEOS -->
 			</dt>
 <!-- INICIO DA GALERIA VÍDEOS MAIS VOTADOS -->
-			<dt id="mais_votados">
-				<div class="seta"><img src="/eec/_imgs/seta_tras.jpg" /></div>
-				<div class="imgs"><img src="/eec/_imgs/img_videos.jpg" /></div>
-				<div class="imgs"><img src="/eec/_imgs/img_videos.jpg" /></div>
-				<div class="imgs"><img src="/eec/_imgs/img_videos.jpg" /></div>
-				<div class="imgs"><img src="/eec/_imgs/img_videos.jpg" /></div>
-				<div class="imgs"><img src="/eec/_imgs/img_videos.jpg" /></div>
-				<div class="seta2"><img src="/eec/_imgs/seta_frente.jpg" /></div>			
-			</dt>
+
 			<dt class="banner2"><img src="/eec/_imgs/bannergrande.jpg" class="linkado"/><img src="/eec/_imgs/txt_pub.jpg" /></dt>
 		</div>
 		<div id="direita">

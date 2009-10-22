@@ -4,40 +4,18 @@
 <%@ taglib uri="http://displaytag.sf.net" prefix="display" %>
 
 
-<div id="lists">NOME DO CABOCLO
-  
-  
+<div id="lists"><bean:write name="Assinante" property="nome"/>
       <div>
         <dt class="fundo_abas">
-       	<dt>POSICAO<dt>	
+       	<dt><bean:write name="Assinante" property="position"/><dt>	
           <dt class="conteudo_abas">
           <table>
           <tr>
-          <td>THUMB</td>
-          <td>
-          Nome : 
-          Nascimento:
-          Altura : Peso:                      
-          </td>
-
-          </tr>
-          <tr>
-          	<td colspan="2">Times:</td>
-          	
-          	
-          
-          </tr>
-           <tr>
-          	<td colspan="2">Títulos:</td>
-          	
-          	
-          
-          </tr>
-           <tr>
-          	<td colspan="2">Comentário:</td>
-          	
-          	
-          
+	          <td>THUMB</td>
+	          <td>
+	          Nome : <bean:write name="Assinante" property="nome"/>
+	          Altura <bean:write name="Assinante" property="height"/>: Peso: <bean:write name="Assinante" property="weight"/>                     
+	          </td>
           </tr>
           </table>
           </dt>

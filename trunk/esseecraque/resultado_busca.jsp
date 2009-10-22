@@ -86,19 +86,8 @@ document.getElementById("btnRes"+ id).className = 'closeRes';
 	<div class="belt">
 	
 		<table border="0" cellpadding="0" cellspacing="0">
-			<tr>
-
-				<td>
-<%
-int cont=1;
-%>
-			<logic:notEmpty name="Busca_Session">
-				<logic:iterate id="resulBusca" name="Busca_Session">
-				
-				<%
-					if (cont == 1){
-				%>
-					<table border="0" cellpadding="0" cellspacing="0" class="panel">				
+			<logic:notEmpty name="videos_busca">
+				<logic:iterate id="resulBusca" name="videos_busca">				
 						<tr>
 							<td>
 								<a href="player.do?act=playerVideo&idVideo=<bean:write name='resulBusca' property='id' />&secao=liberada" >
@@ -106,44 +95,20 @@ int cont=1;
 								</a>
 							</td>
 						</tr>
-				<%
-				cont=2;
-					}else{
-						if (cont == 2){
-				%>
-						<tr>
-							<td>
-								<a href="player.do?act=playerVideo&idVideo=<bean:write name='resulBusca' property='id' />&secao=liberada" >
-									<img src="<bean:write name='resulBusca' property='pathImage' />" width="100" height="73" border="0" alt="<bean:write name='resulBusca' property='title' />"/>
-								</a>
-							</td>
-						</tr>
-					</table>
-					
-				<%
-				cont=1;
-						}
-					}
-				%>
 					
 					</logic:iterate>					
 					
 				</logic:notEmpty>
-				<logic:empty name="Busca_Session">  
-                	Nenhum vídeo encontrado.
+				
+				<logic:empty name="videos_busca">  
+                	<tr>
+	                	<td>
+	                	Nenhum vídeo encontrado.
+	                	</td>
+                	</tr>
+                	
                 </logic:empty>
-                
-<%
-				if (cont==2){
-%>
-					<tr><td>&nbsp;</td></tr></table>
-<%
-                }
-%>
-                
-				</td>
 
-			</tr>
 		</table>
 		
 	</div>
