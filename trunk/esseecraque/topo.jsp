@@ -55,15 +55,6 @@
 							</tr>
 						</table>
 					</td>
-					
-					
-				</tr>
-				<tr> 
-				
-					<td width="56" height="25" class="txt_logs">&nbsp;</td>
-					<td><div><html:image src="/eec/_imgs/btn_entrar.jpg" property="Submit" /></div></td>				
-		        	<td></td>
-					
 				</tr>
 			</table>
 					
