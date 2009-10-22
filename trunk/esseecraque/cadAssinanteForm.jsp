@@ -126,7 +126,7 @@
 </tr>   
 <tr>   
     <td valign="top" class="form_nome">Peso:</td>   
-    <td valign="top""><html:text property="weight" styleClass="form_campo_altura" /></td>
+    <td valign="top"><html:text property="weight" styleClass="form_campo_altura" /></td>
 	<td valign="top" class="valida_form"></td>   
 </tr>
 <tr>   
