@@ -34,7 +34,7 @@
 					</div>
 				</form>
 			</dt>
-<dt id="cadastro">
+<dt id="cadastro" >
 <table border="0" cellpadding="0" cellspacing="0" align="center">
 	<tr>
 		<td>
