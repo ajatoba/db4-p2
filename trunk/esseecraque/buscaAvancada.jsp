@@ -3,7 +3,7 @@ function submitBusca(){
 	document.busca.submit();
 }
 </script>
-<div id="lists"><a href="busca.jsp" target="buscaavancada"><img src="/eec/_imgs/btn_buscaavancada_default.jpg" class="linkado"/></a><a href="az.jsp" target="buscaavancada"></<img src="/eec/_imgs/btn_aaz_default.jpg" class="linkado"/></a>
+<div id="lists"><a href="busca.jsp" target="buscaavancada"><img src="/eec/_imgs/btn_buscaavancada_default.jpg" class="linkado" border="0"/></a><a href="az.jsp" target="buscaavancada"></<img src="/eec/_imgs/btn_aaz_default.jpg" class="linkado" border="0"/></a>
   
   
       <div>
