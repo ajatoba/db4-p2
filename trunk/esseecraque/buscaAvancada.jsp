@@ -9,7 +9,7 @@ function submitBusca(){
       <div>
       
 
-      <iframe src="/esseecraque/busca.jsp" name="buscaavancada" allowtransparency="0" scrolling="no" frameborder="0" width="339" height="495"></iframe>
+      <iframe src="/esseecraque/busca.jsp" name="buscaavancada" allowtransparency="0" scrolling="no" frameborder="0" width="342" height="495"></iframe>
 
       </div>
   
