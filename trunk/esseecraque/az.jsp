@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<div id="lists"><img src="/eec/_imgs/btn_jogadores.jpg" class="linkado"/><img src="/eec/_imgs/btn_posicoes.jpg" class="linkado"/><img src="/eec/_imgs/btn_categorias.jpg" class="linkado"/>
+<div id="lists">
   
   
       <div>
