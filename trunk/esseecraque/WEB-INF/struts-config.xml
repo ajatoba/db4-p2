@@ -61,6 +61,7 @@
             validate="false">   
             	<forward name="carrega_home" path="/" />  
             	<forward name="password_reminder_out" path="/esqueci.jsp" />  
+            	<forward name="fale_conosco_out" path="/fale_conosco.jsp" />  
             	          	
         </action>
         
