@@ -205,11 +205,18 @@ public final class VideoAction  extends DispatchAction{
 			tipo_secao = req.getParameter("secao");
 			idVideo = Long.parseLong(str_idVideo);
 
+			MessageResources messageResources = getResources(req);
+			
 			try {
 					
 					VideoDAO vDAO = DAOFactory.VIDEO_DAO();
 					
 					Video v = vDAO.buscarVideo(idVideo);
+					
+					if(v==null){
+						req.setAttribute("mensagem_erro",messageResources.getMessage("video_excluido"));
+						return mapping.findForward(Constants.REDIRECIONA_INDEX);
+					}
 					
 					objSession.setAttribute(Constants.VIDEO_BEAN, v);
 
