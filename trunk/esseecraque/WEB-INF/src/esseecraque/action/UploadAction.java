@@ -189,9 +189,12 @@ public class UploadAction extends DispatchAction {
 				}
 								
 			}
+			return mapping.findForward("video_upload_sucess");
+			
 	    }catch (FileUploadException e){
-	        e.printStackTrace();
+	        e.printStackTrace();	        
 	        req.setAttribute("mensagem", e.getMessage());
+	        return mapping.findForward("video_upload_sucess");
 	    }finally{
 	    	//******* APAGANDO O ARQUIVO ORIGINAL
 	    	if(arquivo != null && arquivo.exists())arquivo.delete();
@@ -200,9 +203,9 @@ public class UploadAction extends DispatchAction {
 	    	//********* REMOVENDO O VÍDEO TEMPORÁRIO DA SESSÃO
 	    	objSession.removeAttribute(Constants.TEMP_VIDEO);
 	    	//************************************************
-	    }				
+	    }			
 	    
-	    return mapping.findForward("video_upload_sucess");
+	    
 
 	}
 	
