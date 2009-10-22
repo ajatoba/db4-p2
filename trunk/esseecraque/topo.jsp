@@ -3,6 +3,9 @@
 <%@ taglib uri="/WEB-INF/TLD/struts-logic.tld" prefix="logic" %>
 
 <div id="topo">
+
+	<div id="menu"></div>
+	
 	<div>
 	
 		<dt class="logo"><img src="/eec/_imgs/logo.jpg" class="linkado"/></dt>
