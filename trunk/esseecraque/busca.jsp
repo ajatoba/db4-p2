@@ -7,7 +7,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>      
 <link href="/eec/_css/estilo.css" rel="stylesheet" type="text/css">
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script>
+function submitBusca(){
+	document.busca.submit();
+}
+</script>
 </head>
 <body>
 	 <dt class="fundo_abas">
