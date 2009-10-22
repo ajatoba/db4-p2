@@ -72,6 +72,16 @@ public class UploadAction extends DispatchAction {
 	    
 	    userFolder = (String) SiteManager.getInstance().getProperties().get("user_folder") + assinante.getUsername() + System.getProperty("file.separator");
 	    
+	    /*
+	     * Caso o diretório do usuário não exista 
+	     * (Por algum motivo não foi criado no cadastro), 
+	     * é criado na hora
+	     */
+	    File userRoot = new File(docRoot + userFolder);
+	    	if(!userRoot.exists()) userRoot.mkdir();
+	    
+	    /**************/
+	    	
 	    File objfile = new File(docRoot + userFolder + videoFolder);  
 	    File arquivo = null;
 	    if(!objfile.exists()) objfile.mkdir();
@@ -150,8 +160,10 @@ public class UploadAction extends DispatchAction {
 				
 				String videoUrl=(String) SiteManager.getInstance().getProperties().get("video_host")+"/"+ assinante.getUsername()+"/"+encodedFileName.substring(encodedFileName.lastIndexOf(System.getProperty("file.separator"))+1,encodedFileName.length());
 				
+				String imageWebPath = (String) SiteManager.getInstance().getProperties().get("user_folder_web") + assinante.getUsername() + "/" + videoFolder.substring(0, videoFolder.lastIndexOf(System.getProperty("file.separator"))) +"/" + imagePath.substring(imagePath.lastIndexOf(System.getProperty("file.separator"))+1,imagePath.length()) ;
+				
 				video.setRealPath(encodedFileName);
-				video.setPathImage(imagePath);
+				video.setPathImage(imageWebPath);
 				video.setUrl(videoUrl);
 				
 				VideoDAO vDAO = DAOFactory.VIDEO_DAO();
@@ -169,17 +181,17 @@ public class UploadAction extends DispatchAction {
 				
 				
 				if (exitStatus >=0 && cmdError.indexOf("Output #")>=0) {
-					req.setAttribute("mensagem_sucesso", messageResources.getMessage("video_upload_sucess"));
+					req.setAttribute("mensagem", messageResources.getMessage("video_upload_sucess"));
 				}else if(cmdError.indexOf("Output #")< 0){ 
-					req.setAttribute("mensagem_erro", messageResources.getMessage("video_encoding_error"));
+					req.setAttribute("mensagem", messageResources.getMessage("video_encoding_error"));
 				}else {
-					req.setAttribute("mensagem_erro", messageResources.getMessage("video_upload_error"));
+					req.setAttribute("mensagem", messageResources.getMessage("video_upload_error"));
 				}
 								
 			}
 	    }catch (FileUploadException e){
 	        e.printStackTrace();
-	        req.setAttribute("mensagem_erro", e.getMessage());
+	        req.setAttribute("mensagem", e.getMessage());
 	    }finally{
 	    	//******* APAGANDO O ARQUIVO ORIGINAL
 	    	if(arquivo != null && arquivo.exists())arquivo.delete();
@@ -189,7 +201,7 @@ public class UploadAction extends DispatchAction {
 	    	objSession.removeAttribute(Constants.TEMP_VIDEO);
 	    	//************************************************
 	    }				
-		
+	    
 	    return mapping.findForward("video_upload_sucess");
 
 	}

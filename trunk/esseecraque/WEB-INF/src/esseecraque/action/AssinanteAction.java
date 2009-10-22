@@ -2,6 +2,7 @@ package esseecraque.action;
 
 import java.io.DataOutputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
 import java.io.StringWriter;
@@ -43,8 +44,14 @@ public final class AssinanteAction extends DispatchAction{
 		
 		HttpSession objSession = req.getSession();
 		
+		MessageResources messageResources = null;
+		FileOutputStream os = null;
+		PrintStream ps = null;
+		DataOutputStream ods = null;
 		try {
 
+			messageResources = getResources(req);
+			
 			Assinante a = new Assinante();
 			
 			AssinanteForm aForm = (AssinanteForm) form;
@@ -57,6 +64,9 @@ public final class AssinanteAction extends DispatchAction{
 			a.setCidade(aForm.getCidade());
 			a.setEstado(aForm.getEstado());
 			a.setUsername(aForm.getUsername());
+			a.setHeight(aForm.getHeight());
+			a.setWeight(aForm.getWeight());
+			a.setPosition(aForm.getPosition());
 			
 			//DATA ATUAL
 			java.util.Date data = new java.util.Date();   
@@ -66,20 +76,27 @@ public final class AssinanteAction extends DispatchAction{
 	        a.setDataCadastro(strData); 
 			
 	        //********** CRIANDO DIRETÓRIO DO USUÁRIO ***********
-	        
-	        FileOutputStream os = null;
-			PrintStream ps = null;
-			DataOutputStream ods = null;
+
 			
 			String docRoot 		= (String) SiteManager.getInstance().getProperties().get("docroot");
 			String userFolder 	= (String) SiteManager.getInstance().getProperties().get("user_folder");
 			String path 		= docRoot + userFolder + a.getUsername();
 	        
+			/*
+		     * Caso o diretório de usuários não exista 
+		     * (Por algum motivo não foi criado pelo Administrador), 
+		     * é criado na hora
+		     */
+		    File userRoot = new File(docRoot + userFolder);
+		    	if(!userRoot.exists()) userRoot.mkdir();
+		    
+		    /**************/
+			
 			File f = new File(path);
 			
-			if(!f.exists())
+			if(!f.exists()){
 				f.mkdir();
-			
+			}
 			os = new FileOutputStream(path + System.getProperty("file.separator") + "index.html");		
 			
 			ps = new PrintStream(os);
@@ -89,65 +106,45 @@ public final class AssinanteAction extends DispatchAction{
 	        
 	        //***************************************************
 	        					
-			objSession.setAttribute(Constants.ASSINANTE_BEAN, a);
-			
-			return mapping.findForward(Constants.ASSINANTE_PERFIL);
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-			return mapping.findForward(Constants.ADD_ASSINANTE_ERROR);
-		}
-
-	}
-	
-	public ActionForward addPerfil(ActionMapping mapping, 
-			 ActionForm form, 
-			 HttpServletRequest req, 
-			 HttpServletResponse resp) throws Exception {
-		
-		HttpSession objSession = req.getSession();
-		
-		Assinante a = (Assinante)objSession.getAttribute(Constants.ASSINANTE_BEAN);
-		AssinanteForm aForm = (AssinanteForm) form;
-		
-		try{
-			a.setEmail(aForm.getEmail());
-			a.setPassword(aForm.getPassword());
-			a.setNome(aForm.getNome());
-			a.setCpf(aForm.getCpf());
-			a.setEndereco(aForm.getEndereco());
-			a.setCidade(aForm.getCidade());
-			a.setEstado(aForm.getEstado());
-			a.setUsername(aForm.getUsername());
-			a.setHeight(aForm.getHeight());
-			a.setWeight(aForm.getWeight());
-			a.setComment(aForm.getComment());
-			a.setPosition(aForm.getPosition());
-			a.setTournaments(aForm.getTournaments());
-			a.setTeams(aForm.getTeams());
-				
 			AssinanteDAO aDAO = DAOFactory.ASSINANTE_DAO();
-				
+			
 			aDAO.salvar(a);
 				
 			aForm.reset(mapping, req);
 			
 			objSession.setAttribute(Constants.ASSINANTE_BEAN, a);
 			
-			return mapping.findForward(Constants.ADD_ASSINANTE_SUCESS);
-		
-		} catch (Exception e) {
-			e.printStackTrace();
+			//return mapping.findForward(Constants.ADD_ASSINANTE_SUCESS);
+			return mapping.findForward(Constants.REDIRECIONA_INDEX);
+		}catch (FileNotFoundException fnfe) {
+			fnfe.printStackTrace();
+			req.setAttribute("mensagem_erro",messageResources.getMessage("erro.userFolderNotFound"));
 			return mapping.findForward(Constants.ADD_ASSINANTE_ERROR);
+			
+		} catch (Exception e) {
+			e.printStackTrace();			
+			req.setAttribute("mensagem_erro", e.getMessage());
+			return mapping.findForward(Constants.ADD_ASSINANTE_ERROR);
+		}finally{
+			if(os!=null) os.close();
+			if(ods!=null) ods.close();
+			if(ps!=null) ps.close();
 		}
-	}	
+
+	}
 	
 	public ActionForward edit(ActionMapping mapping, 
 			 ActionForm form, 
 			 HttpServletRequest req, 
 			 HttpServletResponse resp) throws Exception {
 
+		HttpSession objSession = req.getSession();
+		
+		MessageResources messageResources = null;
+		
 		try {
+
+			messageResources = getResources(req);
 
 			Assinante a = new Assinante();
 
@@ -163,13 +160,17 @@ public final class AssinanteAction extends DispatchAction{
 			a.setEstado(aForm.getEstado());
 			a.setDataCadastro(aForm.getDataCadastro());
 			a.setUsername(aForm.getUsername());
+			a.setHeight(aForm.getHeight());
+			a.setWeight(aForm.getWeight());
+			a.setPosition(aForm.getPosition());
 
 			AssinanteDAO aDAO = DAOFactory.ASSINANTE_DAO();
 
 			aDAO.atualizar(a);
 			
-			aForm.reset(mapping, req);
-
+			objSession.setAttribute(Constants.ASSINANTE_BEAN, a);
+			
+			req.setAttribute("mensagem",messageResources.getMessage("msg.edit.assinante.sucesso"));
 			return mapping.findForward(Constants.EDIT_ASSINANTE_SUCESS);
 
 		} catch (Exception e) {
@@ -306,5 +307,21 @@ public final class AssinanteAction extends DispatchAction{
 
 	}
 
+	public ActionForward logout(ActionMapping mapping, 
+			ActionForm form, 
+			HttpServletRequest req, 
+			HttpServletResponse resp) throws Exception {
+		HttpSession objSession = req.getSession();
+		
+		try {
+			objSession.setAttribute(Constants.ASSINANTE_BEAN, null);
+			return mapping.findForward(Constants.REDIRECIONA_INDEX);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return mapping.findForward(Constants.REDIRECIONA_INDEX);
+		}
+		
+	}
+	
 
 }

@@ -1,6 +1,10 @@
 package esseecraque.action;
 
+import java.io.DataOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
+import java.io.StringWriter;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -27,8 +31,7 @@ import org.apache.struts.util.MessageResources;
 import be.telio.mediastore.ui.upload.MonitoredDiskFileItemFactory;
 import be.telio.mediastore.ui.upload.UploadListener;
 
-import esseecraque.bean.Assinante;
-import esseecraque.bean.Video;
+import esseecraque.bean.*;
 import esseecraque.dao.VideoDAO;
 import esseecraque.dao.DAOFactory;
 import esseecraque.encoding.SysCommandExecutor;
@@ -302,7 +305,65 @@ public final class VideoAction  extends DispatchAction{
 						
 	}
 
-	public ActionForward ultimosVideos(ActionMapping mapping, 
+	public ActionForward listLastVideos(ActionMapping mapping, 
+			 ActionForm form, 
+			 HttpServletRequest req, 
+			 HttpServletResponse resp) throws Exception {
+
+		MessageResources messageResources = null;
+		FileOutputStream os = null;
+		PrintStream ps = null;
+		DataOutputStream ods = null;
+		try {
+
+			messageResources = getResources(req);
+			
+			VideoDAO vDAO = DAOFactory.VIDEO_DAO();
+			
+			List<Vid> lv = vDAO.buscarUltimosVideos();
+			
+			req.setAttribute(Constants.LIST_ULTIMOS_VIDEOS, lv);
+			
+			String html="";
+			Iterator<Vid> it = lv.iterator();
+			while (it.hasNext()) {
+				Vid video = (Vid) it.next();
+				html = "<div class=\"panel\">";
+				html +="<a href=\"player.do?act=playerVideo&idVideo="+video.getId()+"&secao=liberada\" >";
+				html +="<img src=\""+ video.getPathImage() +"\" width=\"100\" height=\"73\" border=\"0\" alt=\""+video.getTitle()+"\" class=\"imgs\" />";
+				html +="</a>";
+				html +="</div>";
+			}
+
+			
+			String docRoot = req.getRealPath("/");//(String)SiteManager.getInstance().getProperties().getProperty("docroot");
+			String fileName = "ultimosVideos.html";
+			
+			String path = docRoot+fileName;
+
+			os = new FileOutputStream(path);		
+			
+			ps = new PrintStream(os);
+			ods = new DataOutputStream(os);
+			ods.flush();
+			ods.writeBytes(html);	
+			
+			req.setAttribute("mensagem",messageResources.getMessage("msg.ultimosVideosSucesso"));
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			if(os!=null) os.close();
+			if(ods!=null) ods.close();
+			if(ps!=null) ps.close();
+		}
+		
+		return mapping.findForward(Constants.ULTIMOS_VIDEOS);
+			
+	}
+	
+	public ActionForward search(ActionMapping mapping, 
 			 ActionForm form, 
 			 HttpServletRequest req, 
 			 HttpServletResponse resp) throws Exception {
@@ -310,23 +371,24 @@ public final class VideoAction  extends DispatchAction{
 			HttpSession objSession = req.getSession();
 
 			try {
-											
-					/************  GERANDO ARQUIVO ESTÁTICO COM OS ÚLTIMOS VÍDEOS ***********/
-					String docRoot = (String) SiteManager.getInstance().getProperties().get("docroot");
-					try {
-						SiteManager.getInstance().writerStaticFile(docRoot, "ultimosVideos.html", "http://localhost:8080/esseecraque/welcome.do?act=ultimosVideos");
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
+							
+					VideoDAO vDAO = DAOFactory.VIDEO_DAO();
 					
-					/************************************************************************/
+					String keyWord = req.getParameter("busca");
+					
+					List lVideos = vDAO.search(keyWord);
+					
+					objSession.setAttribute(Constants.VIDEOS_BUSCA, lVideos);
+
+					return mapping.findForward(Constants.RESULT_BUSCA);				
+
 			} catch (Exception e) {
 				e.printStackTrace();
+				return mapping.findForward(Constants.LIST_MY_VIDEOS_ERROR);
 			}
 
-			return mapping.findForward(Constants.ULTIMOS_VIDEOS);
-			
 	}
+
 
 }
 

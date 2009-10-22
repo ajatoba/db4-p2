@@ -20,4 +20,6 @@ public interface VideoDAO {
 	
 	public abstract void removerVideo(Video v);
 	
+	public abstract List<Video> search(String busca);
+	
 }

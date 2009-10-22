@@ -109,4 +109,16 @@ public class VideoDAOImpl implements VideoDAO{
 		
 	}
 	
+	public List<Video> search(String keyWord){
+
+		HibernateUtil hu = new HibernateUtil();
+		session = hu.getSessionFactory().getCurrentSession();
+		session.beginTransaction(); 
+		Query q = session.createQuery("SELECT v FROM Video v WHERE v.title LIKE :keyWord OR v.description LIKE :keyWord OR v.tagVideo LIKE :keyWord");
+		q.setString("keyWord", "%"+keyWord+"%");
+		List<Video> lv = q.list();
+		session.getTransaction().commit();
+		return lv;
+		
+	}
 }

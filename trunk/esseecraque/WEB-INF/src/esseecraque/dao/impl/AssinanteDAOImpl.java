@@ -88,12 +88,12 @@ public class AssinanteDAOImpl implements AssinanteDAO{
 			sQuery += "a.nome LIKE :nome ";
 		}else if (assinante.getPosition() !=null) {
 			if(assinante.getNome() != null){
-				sQuery += " AND ";
+				sQuery += " OR ";
 			}			
 			sQuery += "a.position LIKE :position ";
 		}else if (assinante.getCidade()!=null) {
 			if(assinante.getNome() != null || assinante.getPosition()!= null){
-				sQuery += " AND ";
+				sQuery += " OR ";
 			}
 			sQuery += "a.cidade LIKE :cidade ";
 		}

@@ -87,6 +87,8 @@ public interface Constants {
 	public static final String TEMP_VIDEO = "temp_video";
 	
 	public static final String ULTIMOS_VIDEOS = "ultimos_videos";
+	
+	public static final String VIDEOS_BUSCA = "videos_busca";
 
 	
 }

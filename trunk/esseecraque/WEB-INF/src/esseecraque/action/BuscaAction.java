@@ -49,7 +49,7 @@ public class BuscaAction extends DispatchAction{
 			
 				
 				final String[] stopWords = {"de","do","da","dos","das","a","o","na","no","em"};    
-		    	final MultiFieldQueryParser parser = new MultiFieldQueryParser(new String[]{"assinante.nome","title","description"} , new StopAnalyzer(stopWords));
+		    	final MultiFieldQueryParser parser = new MultiFieldQueryParser(new String[]{"title","description"} , new StopAnalyzer(stopWords));
 		    	final Query query = parser.parse(txt_busca);
 		    	final FullTextQuery fullTextQuery = ftSession.createFullTextQuery(query, Video.class);
 		    	

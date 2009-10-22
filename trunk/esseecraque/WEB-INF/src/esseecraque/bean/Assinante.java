@@ -43,7 +43,7 @@ public class Assinante extends PersistentObject implements Serializable{
 	@Field(index=Index.TOKENIZED, store=Store.YES)
 	@Column(name="VC_NOME_ASSINANTE")
 	private String nome;
-	@Column(name="VC_CPF_ASSINANTE")
+	@Column(name="VC_CPF_ASSINANTE", unique=true)
 	private String cpf;
 	@Column(name="VC_ENDERECO_ASSINANTE")
 	private String endereco;
