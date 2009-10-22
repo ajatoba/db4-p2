@@ -60,6 +60,10 @@ public class UploadAction extends DispatchAction {
 		String audioBitrate			= (String) SiteManager.getInstance().getProperties().get("audio_bitrate");
 		String audioFrequency		= (String) SiteManager.getInstance().getProperties().get("audio_frequency");
 		String audioChannels		= (String) SiteManager.getInstance().getProperties().get("audio_channels");
+		String seek					= (String) SiteManager.getInstance().getProperties().get("seek");
+		String highQuality			= (String) SiteManager.getInstance().getProperties().get("high_quality");
+		String interlace			= (String) SiteManager.getInstance().getProperties().get("interlace");
+		
 		//**********************************
 				
 		
@@ -105,11 +109,15 @@ public class UploadAction extends DispatchAction {
 				name=fi.getName();  
 				size=fi.getSize();
 			
+				System.out.println("NOME DO ARQUIVO:"+name);
+				
 				//****** COMPOSIÇÃO DOS NOMES (COM OS PATHS) DOS ARQUIVOS
-				String uploadedFileName = can_path + System.getProperty("file.separator") + name;
+				String uploadedFileName = can_path + System.getProperty("file.separator") + name.substring(name.lastIndexOf(System.getProperty("file.separator"))+1, name.length());
 				//String encodedFileName = uploadedFileName.substring(0, uploadedFileName.lastIndexOf(".")+1)+videoFormat;
 				String encodedFileName = can_path + System.getProperty("file.separator") + System.currentTimeMillis() + "." + videoFormat;
 				//*******************************************************
+				
+				System.out.println("NOME DO ARQUIVO SUBIDO:"+uploadedFileName);
 				
 				arquivo = new File(uploadedFileName);  
 				fi.write(arquivo); 	
@@ -119,10 +127,21 @@ public class UploadAction extends DispatchAction {
 				
 				//COMANDO DE ENCODING 								
 				String encoderCommand = "ffmpeg -i "+ uploadedFileName +" -b "+ videoBitrate+ " -r "+ frameRate +" -s "+ videoSize 
-				+ " -sameq -ss -hq -deinterlace -ab "+ audioBitrate +" -f "+ videoFormat 
+				+ " -sameq ";
+				if(seek !=null && seek.equals("true")){
+					encoderCommand += " -ss "; 
+				}
+				if(highQuality !=null && highQuality.equals("true")){
+					encoderCommand += " -hq ";
+				}				
+				if (interlace != null && interlace.equals("true")) {
+					encoderCommand += " -deinterlace ";
+				}
+				
+				encoderCommand += " -ab " + audioBitrate +" -f "+ videoFormat 
 				+ " -acodec "+ audioCodec +" -ar "+ audioFrequency +" -ac "+ audioChannels +" -y "+ encodedFileName;
 
-				//System.out.println("COMANDO:" + encoderCommand);
+				System.out.println("COMANDO:" + encoderCommand);
 
 				//****** FAZENDO O ENCODING				
 				SysCommandExecutor cmdExecutor = new SysCommandExecutor(); 		
