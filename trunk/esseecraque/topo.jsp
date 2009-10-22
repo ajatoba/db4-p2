@@ -56,6 +56,9 @@
 						</table>
 					</td>
 					
+					
+				</tr>
+				<tr> 
 					<td height="55" colspan="3"> 
 						<div><html:image src="/eec/_imgs/btn_entrar.jpg" property="Submit" /></div>	
 					</td>
