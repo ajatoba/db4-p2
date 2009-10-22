@@ -34,7 +34,7 @@
 					</div>
 				</form>
 			</dt>
-<div id="cadastro">
+<dt id="cadastro">
 <table border="0" cellpadding="0" cellspacing="0" align="center">
 	<tr>
 		<td>
@@ -152,7 +152,7 @@
 </html:submit>
    
 </html:form>
-</div>
+</dt>
 <dt class="desc_player">
 			
 			</dt>
