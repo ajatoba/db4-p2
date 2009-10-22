@@ -32,8 +32,7 @@ import esseecraque.dao.AssinanteDAO;
 import esseecraque.dao.DAOFactory;
 import esseecraque.dao.VideoDAO;
 import esseecraque.form.*;
-import esseecraque.util.Constants;
-import esseecraque.util.SiteManager;
+import esseecraque.util.*;
 
 public final class AssinanteAction extends DispatchAction{
 	
@@ -270,6 +269,58 @@ public final class AssinanteAction extends DispatchAction{
 			
 		}
 		
+	}
+	
+	public ActionForward remindPassword(ActionMapping mapping, ActionForm form,
+			HttpServletRequest req, HttpServletResponse resp) throws Exception {
+
+		String email = req.getParameter("email");
+
+		if (email != null || email.equals("")) {
+			MessageResources messageResources = null;
+			try {
+
+				messageResources = getResources(req);
+				AssinanteDAO dao = DAOFactory.ASSINANTE_DAO();
+				Assinante user = dao.remindPassword(email);
+
+				if (user == null) {
+					req.setAttribute("mensagem", messageResources
+							.getMessage("unregistered_user"));
+				} else {
+
+					SendMail mail = new SendMail();
+
+					String smtpServer = (String) SiteManager.getInstance()
+							.getProperties().get("smtp");
+
+					mail.setFrom(messageResources.getMessage("webmaster"));
+					mail.setSmtpServer(smtpServer);
+
+					mail.setContentType("txt");
+					mail.setSubject(messageResources
+							.getMessage("password_reminder_subject"));
+					mail.setTo(user.getEmail());
+					mail.setMessage(messageResources
+							.getMessage("password_reminder_message")
+							+ " " + user.getPassword());
+
+					mail.send();
+
+					
+				}
+				req.setAttribute("mensagem", messageResources.getMessage("password_sent"));
+				return mapping.findForward("password_reminder_out");
+
+			} catch (Exception e) {
+				req.setAttribute("mensagem", e.getMessage());
+				return mapping.findForward("password_reminder_out");
+			}
+		} else {
+			req.setAttribute("mensagem", "Por favor, digite seu email");
+			return mapping.findForward("password_reminder_out");
+		}
+
 	}
 	
 	public ActionForward search(ActionMapping mapping, 
