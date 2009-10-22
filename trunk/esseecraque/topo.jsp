@@ -57,7 +57,7 @@
 					</td>
 				</tr>
 			</table>
-			<div><html:image src="/eec/_imgs/btn_entrar.jpg" property="Submit" /></div>			
+					
 			</html:form>
 			</logic:notPresent>
 			<!-- ******** ********* *************** -->
