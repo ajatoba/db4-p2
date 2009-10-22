@@ -50,13 +50,14 @@
 									</table>
 								</td>
 			            		<td align="right" valign="bottom">
-			            			<html:image src="/eec/_imgs/btn_logar.jpg" property="Submit" />
+			            			
 			            		</td>
 							</tr>
 						</table>
 					</td>
 				</tr>
-			</table>			
+			</table>
+			<div><html:image src="/eec/_imgs/btn_entrar.jpg" property="Submit" /></div>			
 			</html:form>
 			</logic:notPresent>
 			<!-- ******** ********* *************** -->
