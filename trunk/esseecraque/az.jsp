@@ -37,7 +37,7 @@
     <td><html:link page="/listAssinantes.do?act=list&letra=H" target="_parent">H</html:link></td>
   </tr>
   <tr>
-    <td><html:link page="/listAssinantes.do?act=list&letra=I" target="_parent">I</html:link></td>
+    <td><html:link page="/listAssinantes.do?act=list&letra=I" target="_parent">I </html:link></td>
     <td><html:link page="/listAssinantes.do?act=list&letra=J" target="_parent">J</html:link></td>
   </tr>
   <tr>
