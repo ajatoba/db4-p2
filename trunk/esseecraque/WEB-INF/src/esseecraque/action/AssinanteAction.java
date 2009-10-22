@@ -374,5 +374,40 @@ public final class AssinanteAction extends DispatchAction{
 		
 	}
 	
+	public ActionForward sendCommunication(ActionMapping mapping, ActionForm form,
+			HttpServletRequest req, HttpServletResponse resp) throws Exception {
+
+		String nome = req.getParameter("nome");
+		String email = req.getParameter("email");
+		String mensagem = req.getParameter("mensagem");
+		
+		MessageResources messageResources = null;
+		try {
+
+			messageResources = getResources(req);
+			SendMail mail = new SendMail();
+
+			String smtpServer = (String) SiteManager.getInstance()
+							.getProperties().get("smtp");
+
+					
+			mail.setSmtpServer(smtpServer);
+			mail.setContentType("txt");					
+			mail.setFrom(email);
+			mail.setTo(messageResources.getMessage("webmaster"));
+			mail.setSubject(messageResources.getMessage("fale_conosco_subject"));
+			mail.setMessage("De:" + nome + "\n" + mensagem);
+
+			mail.send();
+
+			req.setAttribute("mensagem", messageResources.getMessage("fale_conosco_sent"));
+
+			return mapping.findForward("fale_conosco_out");
+
+			} catch (Exception e) {
+				req.setAttribute("mensagem", e.getMessage());
+				return mapping.findForward("fale_conosco_out");
+			}		
+	}
 
 }
