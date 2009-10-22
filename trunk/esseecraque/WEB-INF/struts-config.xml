@@ -18,19 +18,18 @@
         <action path="/cadAssinanteForm" forward="/cadAssinanteForm.jsp" />
         <action path="/cadVideoForm" forward="/pages/cadVideoForm.jsp" />
         <action path="/editarPerfilForm" forward="/pages/editarPerfil.jsp" />
-        <action path="/valtarHome" forward="/pages/home.jsp" />
         <action path="/minhaConta" forward="/pages/minhaConta.jsp" />
         <action path="/votar" forward="/votar.jsp" />
         
         <action path="/welcome" 
         	type="esseecraque.action.VideoAction"
         	parameter="act">
-        	<forward name="carrega_home" path="/home.jsp" />
+        	<forward name="carrega_home" path="/" />
         	<forward name="ultimos_videos" path="/ultimosVideos.jsp" />
         </action>
         
         <action path="/busca" 
-        	type="esseecraque.action.BuscaAction"
+        	type="esseecraque.action.VideoAction"
         	parameter="act">
         	<forward name="resultado_busca" path="/resultado_busca.jsp" />
         </action>
@@ -51,7 +50,16 @@
             validate="true">   
             	<forward name="assinante_perfil" path="/pages/addAssinantePerfil.jsp" />
             	<forward name="assinante_add_sucesso" path="/pages/addAssinanteSucesso.jsp" />
-            	<forward name="assinante_add_error" path="/addAssinanteError.jsp" />   
+            	<!-- ERRO REDIRECIONA PARA O PRÓPRIO FORM -->
+            	<forward name="assinante_add_error" path="/cadAssinanteForm.jsp" />   
+        </action>
+        
+        <action path="/assinante"  
+            type="esseecraque.action.AssinanteAction"  
+            parameter="act"  
+            scope="request"  
+            validate="false">   
+            	<forward name="carrega_home" path="/" />            	
         </action>
         
         <action input="/pages/editarPerfil.jsp"
@@ -61,8 +69,9 @@
             parameter="act"  
             scope="request"  
             validate="true">   
-            	<forward name="assinante_edit_sucess" path="/pages/editarPerfilSucesso.jsp" />
-            	<forward name="assinante_edit_error" path="/pages/editarPerfilErro.jsp" />   
+            	<!-- ERRO OU SUCESSO REDIRECIONA PARA O PRÓPRIO FORM -->
+            	<forward name="assinante_edit_sucess" path="/pages/editarPerfil.jsp" />
+            	<forward name="assinante_edit_error" path="/pages/editarPerfil.jsp" />   
         </action>
         
         
@@ -80,7 +89,7 @@
         <action path="/pages/uploadVideo"
 			type="esseecraque.action.UploadAction" scope="request"
 			parameter="act" validate="false">			
-			<forward name="video_upload_sucess" path="/pages/upload_video_sucesso.jsp" />				
+			<forward name="video_upload_sucess" path="/pages/listMeusVideos.jsp" />				
 		</action>
 		
         <action input="/login.jsp"
@@ -90,8 +99,8 @@
             parameter="act"  
             scope="request"  
             validate="true">   
-            	<forward name="login_sucess" path="/pages/home.jsp" />
-            	<forward name="login_error" path="/homeGerenciador.jsp" />
+            	<forward name="login_sucess" path="/" />
+            	<forward name="login_error" path="/" />
         </action>
         
         <action path="/listMeusVideos"  
@@ -144,8 +153,16 @@
             parameter="act"  
             scope="request"  
             validate="true">   
-            	<forward name="votar_sucess" path="/votarSucess.jsp" />
-            	<forward name="votar_error" path="/votarError.jsp" />   
+            	<forward name="votar_sucess" path="/" />
+            	<forward name="votar_error" path="/" />   
+        </action>
+        
+        <action path="/admin/video"  
+            type="esseecraque.action.VideoAction"  
+            parameter="act"  
+            scope="request"  
+            validate="true">   
+            	<forward name="ultimos_videos" path="/admin/index.jsp" />  
         </action>
            
     </action-mappings>
