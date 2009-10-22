@@ -30,15 +30,13 @@
 <br />
 <br />
 
-<img src="<bean:write name='session_video_excluir' property='pathImage' />" />
+<img src="<bean:write name='session_video_excluir' property='pathImage' />" width="100" height="73"/>
 <div class="data"><bean:write name="session_video_excluir" property="dataUpload" format="dd/MM/yyyy" /></div>
 <div class="desc"><bean:write name="session_video_excluir" property="title" /></div>
 
 <br />
+<html:link page="/excluirVideoSim.do?act=excluir" >Sim</html:link> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <html:link page="/listMeusVideos.do?act=list" >Não</html:link>
 
-<h3>
-<html:link page="/excluirVideoSim.do?act=excluir" styleClass="menu_topo">Sim</html:link> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <html:link page="/listMeusVideos.do?act=list" styleClass="menu_topo">Não</html:link>
-</h3>
 					
 			<!-- FIM LISTA MEUS VÍDEOS -->
 

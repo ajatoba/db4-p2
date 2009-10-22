@@ -30,6 +30,17 @@
 			</dt>
 			
 			<!-- INÍCIO LISTA MEUS VÍDEOS -->
+			<table border="0" cellpadding="0" cellspacing="0" align="center">
+	<tr>
+		<td>
+			<span class="txtMsg">		
+			<logic:present name="mensagem">
+	  			<font color="red"><bean:write name="mensagem"/></font>
+	  		</logic:present>
+			</span>
+		</td>
+	</tr>
+</table>
 	<div id="meus_videos">
 			<table border="0" cellspacing="3" cellpadding="3" class="table_videos">
 				<logic:notEmpty name="meusVideos">
@@ -39,7 +50,7 @@
 							<td>
 								<table>
 									<tr>
-										<td width="540"><img src="<bean:write name='v' property='pathImage' />" /></td>
+										<td width="540"><img src="<bean:write name='v' property='pathImage' />" width="100" height="73"/></td>
 									</tr>
 									<tr>
 										<td class="data"><bean:write name="v" property="dataUpload" format="dd/MM/yyyy" /></td>
@@ -175,15 +186,6 @@
 </div>
 
 <!-- FIM GALERIA ÚLTIMOS VÍDEOS -->
-			</dt>
-			<dt id="mais_votados">
-				<div class="seta"><img src="/eec/_imgs/seta_tras.jpg" /></div>
-				<div class="imgs"><img src="/eec/_imgs/img_videos.jpg" /></div>
-				<div class="imgs"><img src="/eec/_imgs/img_videos.jpg" /></div>
-				<div class="imgs"><img src="/eec/_imgs/img_videos.jpg" /></div>
-				<div class="imgs"><img src="/eec/_imgs/img_videos.jpg" /></div>
-				<div class="imgs"><img src="/eec/_imgs/img_videos.jpg" /></div>
-				<div class="seta2"><img src="/eec/_imgs/seta_frente.jpg" /></div>			
 			</dt>
 			<dt class="banner2"><img src="/eec/_imgs/bannergrande.jpg" class="linkado"/><img src="/eec/_imgs/txt_pub.jpg" /></dt>
 		</div>

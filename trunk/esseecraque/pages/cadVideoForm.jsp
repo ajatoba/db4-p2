@@ -39,7 +39,7 @@
 </tr>   
 <tr>   
     <td class="form_nome">Descricao:</td>   
-    <td><html:text property="description"/></td>   
+    <td><html:textarea cols="20" rows="5" property="description"/></td>   
 </tr>
 <tr>   
     <td class="form_nome">Tags:</td>   
