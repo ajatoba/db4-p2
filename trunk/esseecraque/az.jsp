@@ -16,63 +16,63 @@
   
       <div>
         <dt class="fundo_abas">
-          <table width="300" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td colspan="2">Selecione a letra do nome do jogador</td>
-  </tr>
-  <tr>
-    <td width="142"><html:link page="/listAssinantes.do?act=list&letra=A" target="_parent">A</html:link></td>
-    <td width="158"><html:link page="/listAssinantes.do?act=list&letra=B" target="_parent">B</html:link></td>
-  </tr>
-  <tr>
-    <td><html:link page="/listAssinantes.do?act=list&letra=C" target="_parent">C</html:link></td>
-    <td><html:link page="/listAssinantes.do?act=list&letra=D" target="_parent">D</html:link></td>
-  </tr>
-  <tr>
-    <td><html:link page="/listAssinantes.do?act=list&letra=E" target="_parent">E</html:link></td>
-    <td><html:link page="/listAssinantes.do?act=list&letra=F" target="_parent">F</html:link></td>
-  </tr>
-  <tr>
-    <td><html:link page="/listAssinantes.do?act=list&letra=G" target="_parent">G</html:link></td>
-    <td><html:link page="/listAssinantes.do?act=list&letra=H" target="_parent">H</html:link></td>
-  </tr>
-  <tr>
-    <td><html:link page="/listAssinantes.do?act=list&letra=I" target="_parent">I </html:link></td>
-    <td><html:link page="/listAssinantes.do?act=list&letra=J" target="_parent">J</html:link></td>
-  </tr>
-  <tr>
-    <td><html:link page="/listAssinantes.do?act=list&letra=K" target="_parent">K</html:link></td>
-    <td><html:link page="/listAssinantes.do?act=list&letra=L" target="_parent">L</html:link></td>
-  </tr>
-  <tr>
-    <td><html:link page="/listAssinantes.do?act=list&letra=M" target="_parent">M</html:link></td>
-    <td><html:link page="/listAssinantes.do?act=list&letra=N" target="_parent">N</html:link></td>
-  </tr>
-  <tr>
-    <td><html:link page="/listAssinantes.do?act=list&letra=O" target="_parent">O</html:link></td>
-    <td><html:link page="/listAssinantes.do?act=list&letra=P" target="_parent">P</html:link></td>
-  </tr>
-  <tr>
-    <td><html:link page="/listAssinantes.do?act=list&letra=Q" target="_parent">Q</html:link></td>
-    <td><html:link page="/listAssinantes.do?act=list&letra=R" target="_parent">R</html:link></td>
-  </tr>
-  <tr>
-    <td><html:link page="/listAssinantes.do?act=list&letra=S" target="_parent">S</html:link></td>
-    <td><html:link page="/listAssinantes.do?act=list&letra=T" target="_parent">T</html:link></td>
-  </tr>
-  <tr>
-    <td><html:link page="/listAssinantes.do?act=list&letra=U" target="_parent">U</html:link></td>
-    <td><html:link page="/listAssinantes.do?act=list&letra=V" target="_parent">V</html:link></td>
-  </tr>
-  <tr>
-    <td><html:link page="/listAssinantes.do?act=list&letra=W" target="_parent">W</html:link></td>
-    <td><html:link page="/listAssinantes.do?act=list&letra=Y" target="_parent">Y</html:link></td>
-  </tr>
-  <tr>
-    <td><html:link page="/listAssinantes.do?act=list&letra=X" target="_parent">X</html:link></td>
-    <td><html:link page="/listAssinantes.do?act=list&letra=Z" target="_parent">Z</html:link></td>
-  </tr>
-</table>
+					  <table width="300" border="0" cellspacing="0" cellpadding="0" class="txt_busca_avancada">
+					  <tr>
+					    <td colspan="2">Selecione a letra do nome do jogador</td>
+					  </tr>
+					  <tr>
+					    <td width="142"><html:link page="/listAssinantes.do?act=list&letra=A" target="_parent">A</html:link></td>
+					    <td width="158"><html:link page="/listAssinantes.do?act=list&letra=B" target="_parent">B</html:link></td>
+					  </tr>
+					  <tr>
+					    <td><html:link page="/listAssinantes.do?act=list&letra=C" target="_parent">C</html:link></td>
+					    <td><html:link page="/listAssinantes.do?act=list&letra=D" target="_parent">D</html:link></td>
+					  </tr>
+					  <tr>
+					    <td><html:link page="/listAssinantes.do?act=list&letra=E" target="_parent">E</html:link></td>
+					    <td><html:link page="/listAssinantes.do?act=list&letra=F" target="_parent">F</html:link></td>
+					  </tr>
+					  <tr>
+					    <td><html:link page="/listAssinantes.do?act=list&letra=G" target="_parent">G</html:link></td>
+					    <td><html:link page="/listAssinantes.do?act=list&letra=H" target="_parent">H</html:link></td>
+					  </tr>
+					  <tr>
+					    <td><html:link page="/listAssinantes.do?act=list&letra=I" target="_parent">I </html:link></td>
+					    <td><html:link page="/listAssinantes.do?act=list&letra=J" target="_parent">J</html:link></td>
+					  </tr>
+					  <tr>
+					    <td><html:link page="/listAssinantes.do?act=list&letra=K" target="_parent">K</html:link></td>
+					    <td><html:link page="/listAssinantes.do?act=list&letra=L" target="_parent">L</html:link></td>
+					  </tr>
+					  <tr>
+					    <td><html:link page="/listAssinantes.do?act=list&letra=M" target="_parent">M</html:link></td>
+					    <td><html:link page="/listAssinantes.do?act=list&letra=N" target="_parent">N</html:link></td>
+					  </tr>
+					  <tr>
+					    <td><html:link page="/listAssinantes.do?act=list&letra=O" target="_parent">O</html:link></td>
+					    <td><html:link page="/listAssinantes.do?act=list&letra=P" target="_parent">P</html:link></td>
+					  </tr>
+					  <tr>
+					    <td><html:link page="/listAssinantes.do?act=list&letra=Q" target="_parent">Q</html:link></td>
+					    <td><html:link page="/listAssinantes.do?act=list&letra=R" target="_parent">R</html:link></td>
+					  </tr>
+					  <tr>
+					    <td><html:link page="/listAssinantes.do?act=list&letra=S" target="_parent">S</html:link></td>
+					    <td><html:link page="/listAssinantes.do?act=list&letra=T" target="_parent">T</html:link></td>
+					  </tr>
+					  <tr>
+					    <td><html:link page="/listAssinantes.do?act=list&letra=U" target="_parent">U</html:link></td>
+					    <td><html:link page="/listAssinantes.do?act=list&letra=V" target="_parent">V</html:link></td>
+					  </tr>
+					  <tr>
+					    <td><html:link page="/listAssinantes.do?act=list&letra=W" target="_parent">W</html:link></td>
+					    <td><html:link page="/listAssinantes.do?act=list&letra=Y" target="_parent">Y</html:link></td>
+					  </tr>
+					  <tr>
+					    <td><html:link page="/listAssinantes.do?act=list&letra=X" target="_parent">X</html:link></td>
+					    <td><html:link page="/listAssinantes.do?act=list&letra=Z" target="_parent">Z</html:link></td>
+					  </tr>
+					</table>
         </dt>
       </div>
   
