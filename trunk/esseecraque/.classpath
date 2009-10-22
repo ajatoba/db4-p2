@@ -40,5 +40,7 @@
 	<classpathentry kind="lib" path="WEB-INF/lib/struts.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/taglibs-string.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/telio-uploader.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/mail.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/activation.jar"/>
 	<classpathentry kind="output" path="WEB-INF/classes"/>
 </classpath>

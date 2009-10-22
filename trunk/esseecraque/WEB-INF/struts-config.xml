@@ -59,7 +59,9 @@
             parameter="act"  
             scope="request"  
             validate="false">   
-            	<forward name="carrega_home" path="/" />            	
+            	<forward name="carrega_home" path="/" />  
+            	<forward name="password_reminder_out" path="/esqueci.jsp" />  
+            	          	
         </action>
         
         <action input="/pages/editarPerfil.jsp"

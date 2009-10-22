@@ -37,7 +37,7 @@
 					        	<td width="164"> 
 					            	<table width="164" border="0" cellpadding="0" cellspacing="0">
 									  <tr> 
-										<td width="187" class="txt_logs2" height="22">&nbsp;&nbsp;&nbsp;&nbsp;<!-- Esqueci minha senha! --></td>
+										<td width="187" class="txt_logs2" height="22">&nbsp;&nbsp;&nbsp;&nbsp;Esqueci minha senha!</td>
 									  </tr>
 									  <tr> 
 										<td class="txt_logs2">&nbsp;&nbsp;&nbsp;&nbsp;<html:link page="/cadAssinanteForm.do" styleClass="link_logs2">Ainda n&atilde;o sou cadastrado.</html:link></td>
