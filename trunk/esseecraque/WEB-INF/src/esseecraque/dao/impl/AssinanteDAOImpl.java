@@ -115,4 +115,18 @@ public class AssinanteDAOImpl implements AssinanteDAO{
 		return resultado;
 	}
 	
+	
+	public Assinante remindPassword(String email){
+		HibernateUtil hu = new HibernateUtil();
+		session = hu.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		Query q = session.createQuery("SELECT assinante FROM Assinante assinante WHERE assinante.email=:txtemail");
+		q.setParameter("txtemail", email);
+		
+		Assinante a = (Assinante) q.setParameter("txtemail", email).uniqueResult();
+		session.getTransaction().commit();
+		
+		return a;
+		
+	}
 }
