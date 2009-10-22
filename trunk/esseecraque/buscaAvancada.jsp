@@ -3,7 +3,7 @@ function submitBusca(){
 	document.busca.submit();
 }
 </script>
-<div id="lists"><a href="az.jsp" border="0"><img src="/eec/_imgs/btn_jogadores.jpg" class="linkado"/><img src="/eec/_imgs/btn_posicoes.jpg" class="linkado"/><img src="/eec/_imgs/btn_categorias.jpg" class="linkado"/></a>
+<div id="lists"><img src="/eec/_imgs/btn_buscaavancada_default.jpg" class="linkado"/><img src="/eec/_imgs/btn_aaz_default.jpg" class="linkado"/>
   
   
       <div>
