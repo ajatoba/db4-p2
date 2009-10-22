@@ -71,15 +71,7 @@
 	
 <div id="image-gallery" class="stepcarousel">
 	<div class="belt">
-
-<logic:iterate id="uv" name="UltimosVideos">
-		<div class="panel">
-			<a href="player.do?act=playerVideo&idVideo=<bean:write name='uv' property='id' />&secao=liberada" >
-				<img src="<bean:write name='uv' property='pathImage' />" width="100" height="73" border="0" alt="<bean:write name='uv' property='title' />" class="imgs" />
-			</a>
-		</div>
-</logic:iterate>
-
+		<jsp:include page="ultimosVideos.html" />
 	</div>
 </div>
 	<a class="prev" href="javascript:stepcarousel.stepBy('image-gallery', -5)">Prev</a>
