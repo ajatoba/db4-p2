@@ -24,6 +24,7 @@ function submitBusca(){
 		  <tr>
 		    <td>		    
 		    <select name="posicao" styleClass="form_campo_posicao">
+		    	<option>Selecione</option>
 		    	<option value="GOL">Goleiro</option>
 		    	<option value="ZAG">Zagueiro</option>
 		    	<option value="LAT">Lateral</option>
