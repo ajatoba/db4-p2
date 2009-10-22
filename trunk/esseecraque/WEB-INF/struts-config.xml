@@ -39,6 +39,7 @@
         	parameter="act">
         	<forward name="player_secao_liberada" path="/player.jsp" />
         	<forward name="player_secao_restrita" path="/pages/player.jsp" />
+        	<forward name="carrega_home" path="/" />
         </action>
 			
         <action input="/cadAssinanteForm.jsp"
