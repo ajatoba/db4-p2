@@ -328,8 +328,6 @@ public final class AssinanteAction extends DispatchAction{
 				HttpServletRequest req, 
 				HttpServletResponse resp) throws Exception {
 
-		HttpSession objSession = req.getSession();
-		
 		try {
 		
 			String nome=null,posicao=null,cidade=null;
@@ -347,7 +345,7 @@ public final class AssinanteAction extends DispatchAction{
 			
 			List<Assinante> list = aDAO.search(assinante);
 			
-			objSession.setAttribute(Constants.ASSINANTE_BEAN_LETRA, list);
+			req.setAttribute(Constants.ASSINANTE_BEAN_LETRA, list);
 			
 			return mapping.findForward(Constants.LIST_ASSINANTE_SUCESS);
 			
