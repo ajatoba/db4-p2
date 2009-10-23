@@ -41,7 +41,7 @@
 		</td>
 	</tr>
 </table>
-	<div id="meus_videos">
+	<dt id="meus_videos">
 			<table border="0" cellspacing="3" cellpadding="3" class="table_videos">
 				<logic:notEmpty name="meusVideos">
 					<logic:iterate id="v" name="meusVideos">
@@ -81,7 +81,7 @@
                     </tr>    
                 </logic:empty>
 			</table>
-</div>					
+</dt>					
 			<!-- FIM LISTA MEUS VÍDEOS -->
 
 <dt id="ultimos_videos">
