@@ -16,8 +16,6 @@ public interface VideoDAO {
 	
 	public abstract Video buscarVideo(Long id);
 	
-	public abstract List buscarVideosLaterais();
-	
 	public abstract void removerVideo(Video v);
 	
 	public abstract List<Video> search(String busca);

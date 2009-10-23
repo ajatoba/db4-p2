@@ -18,7 +18,6 @@
 		<property name="hibernate.search.default.indexBase">/home/esseecraque/indexes</property> 
 		<mapping class="esseecraque.bean.Assinante" /> 
 		<mapping class="esseecraque.bean.Video" />
-		<mapping class="esseecraque.bean.Vid" />
 		<mapping class="esseecraque.bean.Voto" />
 		<mapping class="esseecraque.bean.PersistentObject"/>
 		

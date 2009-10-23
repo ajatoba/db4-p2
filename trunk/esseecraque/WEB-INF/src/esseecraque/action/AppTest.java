@@ -3,7 +3,6 @@ package esseecraque.action;
 import java.util.List;
 
 import esseecraque.bean.Assinante;
-import esseecraque.bean.Vid;
 import esseecraque.bean.Video;
 import esseecraque.bean.Voto;
 import esseecraque.dao.AssinanteDAO;
@@ -79,9 +78,9 @@ public class AppTest {
 		
 		VideoDAO vDAO = DAOFactory.VIDEO_DAO();
 		
-		List<Vid> list = vDAO.buscarUltimosVideos();
+		List<Video> list = vDAO.buscarUltimosVideos();
 		
-		for(Vid v : list){
+		for(Video v : list){
 			System.out.println("id: " + v.getId() + " - Título: " + v.getTitle());
 		}
 		

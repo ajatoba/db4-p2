@@ -1,14 +1,9 @@
 package esseecraque.action;
 
 import java.io.DataOutputStream;
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
-import java.io.StringWriter;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.List;
 
@@ -16,41 +11,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileItemFactory;
-import org.apache.commons.fileupload.FileUpload;
-import org.apache.commons.fileupload.FileUploadException;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.apache.lucene.analysis.StopAnalyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.queryParser.MultiFieldQueryParser;
-import org.apache.lucene.queryParser.QueryParser;
-import org.apache.lucene.search.Query;
-import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.actions.DispatchAction;
 import org.apache.struts.util.MessageResources;
-import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.annotations.FetchMode;
-import org.hibernate.search.FullTextQuery;
 import org.hibernate.search.FullTextSession;
 import org.hibernate.search.Search;
-
-import be.telio.mediastore.ui.upload.MonitoredDiskFileItemFactory;
-import be.telio.mediastore.ui.upload.UploadListener;
 
 import esseecraque.bean.*;
 import esseecraque.dao.VideoDAO;
 import esseecraque.dao.DAOFactory;
-import esseecraque.encoding.SysCommandExecutor;
 import esseecraque.form.VideoForm;
 import esseecraque.util.Constants;
 import esseecraque.util.HibernateUtil;
-import esseecraque.util.SiteManager;
 
 public final class VideoAction  extends DispatchAction{
 	
@@ -60,9 +38,7 @@ public final class VideoAction  extends DispatchAction{
 							 HttpServletResponse resp) throws Exception {
 		
 		HttpSession objSession = req.getSession();
-		
-		MessageResources messageResources = getResources(req);
-		
+				
 		Assinante assinante = (Assinante) objSession.getAttribute(Constants.ASSINANTE_BEAN);
 				
 		try
@@ -340,14 +316,14 @@ public final class VideoAction  extends DispatchAction{
 			
 			VideoDAO vDAO = DAOFactory.VIDEO_DAO();
 			
-			List<Vid> lv = vDAO.buscarUltimosVideos();
+			List<Video> lv = vDAO.buscarUltimosVideos();
 			
 			req.setAttribute(Constants.LIST_ULTIMOS_VIDEOS, lv);
 			
 			String html="";
-			Iterator<Vid> it = lv.iterator();
+			Iterator<Video> it = lv.iterator();
 			while (it.hasNext()) {
-				Vid video = (Vid) it.next();
+				Video video = (Video) it.next();
 				html = "<div class=\"panel\">";
 				html +="<a href=\"player.do?act=playerVideo&idVideo="+video.getId()+"&secao=liberada\" >";
 				html +="<img src=\""+ video.getPathImage() +"\" width=\"100\" height=\"73\" border=\"0\" alt=\""+video.getTitle()+"\" class=\"imgs\" />";
