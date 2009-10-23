@@ -30,7 +30,7 @@
 			<dt class="player">
 <!-- INICIO PLAYER -->
 
-	<embed allowFullScreen="true"src="player.swf?movie=<bean:write name='Video' property='url' />&autoplay=off" quality="high"bgcolor="#000000" width="640" height="419"align="middle" allowScriptAccess="sameDomain"type="application/x-shockwave-flash"  wmode="transparent" />
+	<embed allowFullScreen="true"src="player.swf?movie=<bean:write name='Video' property='url' />&autoplay=off" quality="high"bgcolor="#000000" width="640" height="419"align="middle" allowScriptAccess="sameDomain"type="application/x-shockwave-flash"  />
 
 <!-- FIM PLAYER -->			
 			</dt>
