@@ -2,6 +2,10 @@
 <%@ taglib uri="/WEB-INF/TLD/struts-html.tld" prefix="html" %>
 <%@ taglib uri="/WEB-INF/TLD/struts-logic.tld" prefix="logic" %>
 
+
+<link href="/eec/js/lightbox/thickbox.css" rel="stylesheet" type="text/css" />
+<script src="/eec/js/lightbox/thickbox.js" type="text/javascript"></script>
+
 <div id="menu"></div>
 
 <div id="topo">
@@ -42,7 +46,7 @@
 					        	<td width="164"> 
 					            	<table width="164" border="0" cellpadding="0" cellspacing="0">
 									  <tr> 
-										<td width="187" class="txt_logs2" height="22">&nbsp;&nbsp;&nbsp;&nbsp;Esqueci minha senha!</td>
+										<td width="187" class="txt_logs2" height="22">&nbsp;&nbsp;&nbsp;&nbsp;<a class="thickbox" href="esqueci.jsp?height=180&width=290" >Esqueci minha senha!</a></td>
 									  </tr>
 									  <tr> 
 										<td class="txt_logs2">&nbsp;&nbsp;&nbsp;&nbsp;<html:link page="/cadAssinanteForm.do" styleClass="link_logs2">Ainda n&atilde;o sou cadastrado.</html:link></td>
