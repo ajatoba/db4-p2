@@ -55,7 +55,7 @@
 
 <!-- INICIO PLAYER -->
 
-<embed allowFullScreen='true'src='player.swf?movie=videos/100000001.flv&autoplay=off' quality='high'bgcolor='#000000' width='640' height='419'align='middle' allowScriptAccess='sameDomain'type='application/x-shockwave-flash'/>
+<embed allowFullScreen='true'src='player.swf?movie=videos/100000001.flv&autoplay=off' quality='high'bgcolor='#000000' width='640' height='419'align='middle' allowScriptAccess='sameDomain'type='application/x-shockwave-flash' wmode='transparent' />
 
 <!-- FIM PLAYER -->	
 
