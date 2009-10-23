@@ -36,23 +36,36 @@ public class Assinante extends PersistentObject implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="NR_ID_ASSINANTE", unique=true)
 	private Long id;
+	
 	@Column(name="VC_EMAIL_ASSINANTE")
 	private String email;
+	
 	@Column(name="VC_PASSWORD_ASSINANTE")
 	private String password;
+	
 	@Field(index=Index.TOKENIZED, store=Store.YES)
 	@Column(name="VC_NOME_ASSINANTE")
 	private String nome;
+	
 	@Column(name="VC_CPF_ASSINANTE", unique=true)
 	private String cpf;
+	
+	@Field(index=Index.TOKENIZED, store=Store.YES)
 	@Column(name="VC_ENDERECO_ASSINANTE")
 	private String endereco;
+	
+	@Field(index=Index.TOKENIZED, store=Store.YES)
 	@Column(name="VC_CIDADE_ASSINANTE")
 	private String cidade;
+	
+	@Field(index=Index.TOKENIZED, store=Store.YES)
 	@Column(name="VC_ESTADO_ASSINANTE")
 	private String estado;
+	
 	@Column(name="DT_DATA_CAD_ASSINANTE")
 	private String dataCadastro;
+	
+	@Field(index=Index.TOKENIZED, store=Store.YES)
 	@Column(name="VC_USERNAME", unique=true)
 	private String username;
 	
@@ -68,15 +81,19 @@ public class Assinante extends PersistentObject implements Serializable{
 	@Column(name="VC_WEIGHT")
 	private String weight;
 	
+	@Field(index=Index.TOKENIZED, store=Store.YES)
 	@Column(name="VC_POSITION")
 	private String position;
 	
+	@Field(index=Index.TOKENIZED, store=Store.YES)
 	@Column(name="VC_COMMENTS")
 	private String comment;
 	
+	@Field(index=Index.TOKENIZED, store=Store.YES)
 	@Column(name="VC_TOURNAMENTS")
 	private String tournaments;
 	
+	@Field(index=Index.TOKENIZED, store=Store.YES)
 	@Column(name="VC_TEAMS")
 	private String teams;
 	
