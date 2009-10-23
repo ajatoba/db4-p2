@@ -18,6 +18,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.lucene.analysis.standard.StandardAnalyzer;
+import org.apache.lucene.queryParser.MultiFieldQueryParser;
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
@@ -26,6 +28,10 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.actions.DispatchAction;
 import org.apache.struts.util.MessageResources;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.search.FullTextSession;
+import org.hibernate.search.Search;
 
 import esseecraque.bean.Assinante;
 import esseecraque.dao.AssinanteDAO;
@@ -113,8 +119,9 @@ public final class AssinanteAction extends DispatchAction{
 			
 			objSession.setAttribute(Constants.ASSINANTE_BEAN, a);
 			
-			//return mapping.findForward(Constants.ADD_ASSINANTE_SUCESS);
-			return mapping.findForward(Constants.REDIRECIONA_INDEX);
+			req.setAttribute("mensagem_sucesso",messageResources.getMessage("msg.add.assinante.sucesso"));
+			return mapping.findForward(Constants.ADD_ASSINANTE_SUCESS);
+			
 		}catch (FileNotFoundException fnfe) {
 			fnfe.printStackTrace();
 			req.setAttribute("mensagem_erro",messageResources.getMessage("erro.userFolderNotFound"));
@@ -327,33 +334,67 @@ public final class AssinanteAction extends DispatchAction{
 				ActionForm form, 
 				HttpServletRequest req, 
 				HttpServletResponse resp) throws Exception {
-
+		
+		String nome=null,posicao=null,cidade=null;
+		
+		nome 	= req.getParameter("nome");
+		posicao	= req.getParameter("posicao");
+		cidade 	= req.getParameter("cidade");
+		
+		String keyWord = "";
+		
+		if(nome !=null && !nome.equals("")){
+			keyWord+="nome: "+nome;
+			if(( posicao !=null && !posicao.equals("")) || (cidade !=null && !cidade.equals(""))){
+				keyWord+=" AND ";
+			}
+		}
+		
+		if(posicao !=null && !posicao.equals("")){
+			keyWord+="position: "+posicao;
+			if (cidade !=null && !cidade.equals("")){
+				keyWord+=" AND ";
+			}
+		}
+		
+		if(cidade !=null && !cidade.equals("")){
+			keyWord+="cidade: "+cidade;
+		}
+				
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		
+		MessageResources messageResources = null;
+		
 		try {
 		
-			String nome=null,posicao=null,cidade=null;
+			messageResources = getResources(req);
 			
-			nome 	= req.getParameter("nome");
-			posicao	= req.getParameter("posicao");
-			cidade 	= req.getParameter("cidade");
+			FullTextSession fullTextSession = Search.getFullTextSession(session);
+			Transaction tx = fullTextSession.beginTransaction();
+
+			String[] fields = new String[]{"nome","position", "cidade"};
+			MultiFieldQueryParser parser = new MultiFieldQueryParser(fields, new StandardAnalyzer());
+			org.apache.lucene.search.Query query = parser.parse(keyWord);
+
+			org.hibernate.Query hibQuery = fullTextSession.createFullTextQuery(query, Assinante.class);
+
+			List result = hibQuery.list();
 			
-			Assinante assinante = new Assinante();
-			assinante.setNome(nome);
-			assinante.setPosition(posicao);
-			assinante.setCidade(cidade);
+			tx.commit();
+			session.close();
 			
-			AssinanteDAO aDAO = DAOFactory.ASSINANTE_DAO();
 			
-			List<Assinante> list = aDAO.search(assinante);
-			
-			req.setAttribute(Constants.ASSINANTE_BEAN_LETRA, list);
-			
+			req.setAttribute(Constants.ASSINANTE_BEAN_LETRA, result);
 			return mapping.findForward(Constants.LIST_ASSINANTE_SUCESS);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+			req.setAttribute(Constants.VIDEOS_BUSCA, "ERRO NA BUSCA:" +e.getMessage());
 			return mapping.findForward(Constants.LIST_ASSINANTE_ERROR);
-		}
+			
+		}		    
 
+		
 	}
 
 	public ActionForward logout(ActionMapping mapping, 
