@@ -21,12 +21,24 @@ import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.FileUpload;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.apache.lucene.analysis.StopAnalyzer;
+import org.apache.lucene.analysis.standard.StandardAnalyzer;
+import org.apache.lucene.queryParser.MultiFieldQueryParser;
+import org.apache.lucene.queryParser.QueryParser;
+import org.apache.lucene.search.Query;
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.actions.DispatchAction;
 import org.apache.struts.util.MessageResources;
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.annotations.FetchMode;
+import org.hibernate.search.FullTextQuery;
+import org.hibernate.search.FullTextSession;
+import org.hibernate.search.Search;
 
 import be.telio.mediastore.ui.upload.MonitoredDiskFileItemFactory;
 import be.telio.mediastore.ui.upload.UploadListener;
@@ -37,6 +49,7 @@ import esseecraque.dao.DAOFactory;
 import esseecraque.encoding.SysCommandExecutor;
 import esseecraque.form.VideoForm;
 import esseecraque.util.Constants;
+import esseecraque.util.HibernateUtil;
 import esseecraque.util.SiteManager;
 
 public final class VideoAction  extends DispatchAction{
@@ -375,7 +388,7 @@ public final class VideoAction  extends DispatchAction{
 			 HttpServletRequest req, 
 			 HttpServletResponse resp) throws Exception {
 
-			HttpSession objSession = req.getSession();
+			/*HttpSession objSession = req.getSession();
 
 			try {
 							
@@ -393,9 +406,30 @@ public final class VideoAction  extends DispatchAction{
 				e.printStackTrace();
 				return mapping.findForward(Constants.LIST_MY_VIDEOS_ERROR);
 			}
+			*/
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		FullTextSession fullTextSession = Search.getFullTextSession(session);
+		Transaction tx = fullTextSession.beginTransaction();
+		
+		String[] fields = new String[]{"title", "description"};
+		MultiFieldQueryParser parser = new MultiFieldQueryParser(fields, new StandardAnalyzer());
+		org.apache.lucene.search.Query query = parser.parse( "A" );
+
+		Criteria criteria = fullTextSession.createCriteria( Video.class ).setFetchMode("NR_ID_ASSINANTE", org.hibernate.FetchMode.JOIN );
+		org.hibernate.Query hibQuery = fullTextSession.createFullTextQuery(query, Video.class).setCriteriaQuery( criteria );
+
+		List<Video> result = hibQuery.list();
+		
+		System.out.println("RESULTADOS="+result.size());
+		  
+		tx.commit();
+		session.close();  
+		    
+		req.setAttribute(Constants.VIDEOS_BUSCA, result);
+		
+		return mapping.findForward(Constants.RESULT_BUSCA);
 
 	}
-
 
 }
 
