@@ -10,11 +10,21 @@
 </logic:present>
 
 <table>
-<tr>
-<td>
-<a href="video.do?act=listLastVideos">Publicar Últimos Vídeos</a>
-</td>
-</tr>
+	<tr>
+		<td>
+		<a href="video.do?act=listLastVideos">Publicar Últimos Vídeos</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<a href="index.do?act=updateAssinanteIndex">Atualizar Índice de Assinantes</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<a href="index.do?act=updateVideoIndex">Atualizar Índice de Vídeos</a>
+		</td>
+	</tr>
 </table>
 
 </body>

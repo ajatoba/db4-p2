@@ -10,7 +10,11 @@ import org.apache.lucene.queryParser.MultiFieldQueryParser;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.TermQuery;
 import org.apache.struts.util.MessageResources;
+import org.hibernate.CacheMode;
 import org.hibernate.Criteria;
+import org.hibernate.FlushMode;
+import org.hibernate.ScrollMode;
+import org.hibernate.ScrollableResults;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.search.FullTextQuery;
@@ -34,7 +38,8 @@ public class AppBuscaTest {
 
 
 	@SuppressWarnings("unchecked")
-	public static void main(final String[] args) throws Exception {
+	/*
+	 public static void main(final String[] args) throws Exception {
 		
 		String keyWord = "nome: Alessandro AND position: ATA AND cidade: Rio de Janeiro";
 		
@@ -93,6 +98,36 @@ public class AppBuscaTest {
 		      
 
 	}
-	
 
+	 */	
+
+	
+	public static void main(String[] x){
+		
+		int BATCH_SIZE = 1024;
+		
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		FullTextSession fullTextSession = Search.getFullTextSession(session);
+		Transaction transaction = fullTextSession.beginTransaction();
+		
+		fullTextSession.setFlushMode(FlushMode.MANUAL);
+		fullTextSession.setCacheMode(CacheMode.IGNORE);
+		transaction = fullTextSession.beginTransaction();
+		
+		ScrollableResults results = fullTextSession.createCriteria( Assinante.class )
+		    .setFetchSize(BATCH_SIZE)
+		    .scroll( ScrollMode.FORWARD_ONLY );
+		int index = 0;
+		while( results.next() ) {
+		    index++;
+		    fullTextSession.index( results.get(0) ); //index each element
+		    if (index % BATCH_SIZE == 0) {
+		        fullTextSession.flushToIndexes(); //apply changes to indexes
+		        fullTextSession.clear(); //clear since the queue is processed
+		    }
+		}
+		transaction.commit();
+		
+		System.out.println("INDICES ATUALIZADOS");
+	}
 }

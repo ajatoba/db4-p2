@@ -168,6 +168,14 @@
             validate="true">   
             	<forward name="ultimos_videos" path="/admin/index.jsp" />  
         </action>
+        
+        <action path="/admin/index"  
+            type="esseecraque.action.UpdateIndexAction"  
+            parameter="act"  
+            scope="request"  
+            validate="true">   
+            	<forward name="update_index_out" path="/admin/index.jsp" />  
+        </action>
            
     </action-mappings>
     
