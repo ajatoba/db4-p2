@@ -6,9 +6,6 @@
 <link href="/eec/js/lightbox/thickbox.css" rel="stylesheet" type="text/css" />
 <script src="/eec/js/lightbox/thickbox.js" type="text/javascript"></script>
 
-<script>
-var tb_pathToImage = "/eec/js/lightbox/loadingAnimation.gif";
-</script>
 
 <div id="menu"></div>
 
