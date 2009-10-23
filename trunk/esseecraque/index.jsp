@@ -43,6 +43,9 @@
 						<logic:present name="mensagem_erro">				  			
 				  			<font color="red"><bean:write name="mensagem_erro"/></font>
 				  		</logic:present>
+				  		<logic:present name="mensagem_sucesso">				  			
+				  			<font color="red"><bean:write name="mensagem_sucesso"/></font>
+				  		</logic:present>
 						</span>
 					</td>
 				</tr>
