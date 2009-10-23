@@ -73,7 +73,15 @@
 		    	    <td width="204" height="20" class="txt_logs">&nbsp;&nbsp;&nbsp;&nbsp;Olá, <bean:write name="Assinante" property="nome" /></td>
 				</tr>
 				<tr> 
-					<td width="204" height="20" class="txt_logs">&nbsp;&nbsp;&nbsp;&nbsp;Você possui <bean:write name="qtdVideo" /> vídeos</td>
+					<td width="204" height="20" class="txt_logs">&nbsp;&nbsp;&nbsp;&nbsp;Você possui 
+					<logic:notEmpty name="qtdVideo">
+						<bean:write name="qtdVideo" />
+					</logic:notEmpty>
+					<logic:empty name="qtdVideo">
+						0 
+					</logic:empty>
+					
+					 vídeos</td>
 				</tr>
 		        <tr>
 		        	<td width="204" class="txt_logs">&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp; <html:link page="/listMeusVideos.do?act=list" styleClass="menu_topo">Meus vídeos</html:link></td>
