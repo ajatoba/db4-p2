@@ -27,7 +27,8 @@ import org.hibernate.search.annotations.Store;
 
 @Entity
 @Table(name = "TBL_VIDEO")
-@Indexed
+@Indexed(index="indexes/video")
+
 public class Video implements Serializable{
 
 	@Id
