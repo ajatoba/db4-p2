@@ -387,48 +387,46 @@ public final class VideoAction  extends DispatchAction{
 			 ActionForm form, 
 			 HttpServletRequest req, 
 			 HttpServletResponse resp) throws Exception {
-
-			/*HttpSession objSession = req.getSession();
-
-			try {
-							
-					VideoDAO vDAO = DAOFactory.VIDEO_DAO();
-					
-					String keyWord = req.getParameter("busca");
-					
-					List lVideos = vDAO.search(keyWord);
-					
-					objSession.setAttribute(Constants.VIDEOS_BUSCA, lVideos);
-
-					return mapping.findForward(Constants.RESULT_BUSCA);				
-
-			} catch (Exception e) {
-				e.printStackTrace();
-				return mapping.findForward(Constants.LIST_MY_VIDEOS_ERROR);
-			}
-			*/
+		
+		String keyWord = req.getParameter("busca");
+		
+		if(keyWord==null || keyWord.equals("")){
+			req.setAttribute(Constants.VIDEOS_BUSCA, null);
+			return mapping.findForward(Constants.RESULT_BUSCA);
+		}
+		
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		FullTextSession fullTextSession = Search.getFullTextSession(session);
-		Transaction tx = fullTextSession.beginTransaction();
 		
-		String[] fields = new String[]{"title", "description"};
-		MultiFieldQueryParser parser = new MultiFieldQueryParser(fields, new StandardAnalyzer());
-		org.apache.lucene.search.Query query = parser.parse( "A" );
-
-		Criteria criteria = fullTextSession.createCriteria( Video.class ).setFetchMode("NR_ID_ASSINANTE", org.hibernate.FetchMode.JOIN );
-		org.hibernate.Query hibQuery = fullTextSession.createFullTextQuery(query, Video.class).setCriteriaQuery( criteria );
-
-		List<Video> result = hibQuery.list();
+		MessageResources messageResources = null;
 		
-		System.out.println("RESULTADOS="+result.size());
-		  
-		tx.commit();
-		session.close();  
-		    
-		req.setAttribute(Constants.VIDEOS_BUSCA, result);
+		try {
 		
-		return mapping.findForward(Constants.RESULT_BUSCA);
+			messageResources = getResources(req);
+			
+			FullTextSession fullTextSession = Search.getFullTextSession(session);
+			Transaction tx = fullTextSession.beginTransaction();
 
+			String[] fields = new String[]{"title","description"};
+			MultiFieldQueryParser parser = new MultiFieldQueryParser(fields, new StandardAnalyzer());
+			org.apache.lucene.search.Query query = parser.parse(keyWord);
+
+			org.hibernate.Query hibQuery = fullTextSession.createFullTextQuery(query, Video.class);
+
+			List result = hibQuery.list();
+			
+			tx.commit();
+			session.close();
+			
+			req.setAttribute(Constants.VIDEOS_BUSCA, result);
+			return mapping.findForward(Constants.RESULT_BUSCA);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			req.setAttribute(Constants.VIDEOS_BUSCA, "ERRO NA BUSCA:" +e.getMessage());
+			return mapping.findForward(Constants.RESULT_BUSCA);
+			
+		}		    
+		
 	}
 
 }
