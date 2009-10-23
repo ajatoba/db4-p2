@@ -31,7 +31,7 @@
 				<div class="btn_busca"><img src="/eec/_imgs/btnbusca.jpg" class="linkado"/></div>
 			</dt>
 <!-- INÍCIO FORM DE EDIÇÃO DO ASSINANTE -->
-<div id="dados_conta">
+<dt id="dados_conta">
 <table border="0" cellpadding="0" cellspacing="0" align="center">
 	<tr>
 		<td>
@@ -149,7 +149,7 @@
 <html:submit styleClass="botao"><bean:message key="botao.submit"/>
 </html:submit>  
 </html:form>  
-</div>
+</dt>
 			<!-- FIM FORM DE EDIÇÃO DE ASSINANTE -->
 
 <dt id="ultimos_videos">
