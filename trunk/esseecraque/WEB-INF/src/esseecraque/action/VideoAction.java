@@ -130,18 +130,23 @@ public final class VideoAction  extends DispatchAction{
 			 HttpServletRequest req, 
 			 HttpServletResponse resp) throws Exception {
 
-			HttpSession objSession = req.getSession();
-
 			try {
 				
 				Long idAssinante = Long.parseLong(req.getParameter("id"));
 				
 				VideoDAO vDAO = DAOFactory.VIDEO_DAO();
 							
-				List lVideos = vDAO.buscarMeusVideos(idAssinante);
+				List<Video> lVideos = vDAO.buscarMeusVideos(idAssinante);
 					
-				objSession.setAttribute(Constants.LIST_VIDEOS_ASSINANTE, lVideos);
+				req.setAttribute(Constants.LIST_VIDEOS_ASSINANTE, lVideos);
+				
+				Assinante a = null;
 
+				if (lVideos.size()>0) {
+					a = lVideos.get(0).getAssinante();
+					req.setAttribute(Constants.ASSINANTE_BEAN_VIDEOS, a);
+				}
+				
 				return mapping.findForward(Constants.LIST_VIDEOS_SUCESS);
 
 			}catch (Exception e) {

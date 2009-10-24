@@ -117,4 +117,12 @@ public class Video implements Serializable{
 	public void setTagVideo(String tagVideo) {
 		this.tagVideo = tagVideo;
 	}
+	public Assinante getAssinante() {
+		return assinante;
+	}
+	public void setAssinante(Assinante assinante) {
+		this.assinante = assinante;
+	}
+	
+	
 }

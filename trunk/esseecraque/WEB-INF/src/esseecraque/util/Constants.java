@@ -12,6 +12,8 @@ public interface Constants {
 	
 	public static final String VOTO_BEAN = "Voto";
 	
+	public static final String ASSINANTE_BEAN_VIDEOS = "AssinanteVideos";
+	
 	
 	public static final String ASSINANTE_PERFIL = "assinante_perfil";
 	
