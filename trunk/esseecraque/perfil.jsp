@@ -3,23 +3,18 @@
 <%@ taglib uri="/WEB-INF/TLD/struts-logic.tld" prefix="logic" %>
 <%@ taglib uri="http://displaytag.sf.net" prefix="display" %>
 
-
-<div id="lists"><bean:write name="Assinante" property="nome"/>
-      <div>
+<logic:present name="AssinanteVideos">
+	<div id="lists">
+		<bean:write name="AssinanteVideos" property="nome"/> (<bean:write name="AssinanteVideos" property="position"/>)<br/>
+		Altura <bean:write name="AssinanteVideos" property="height"/><br/>
+		Peso: <bean:write name="AssinanteVideos" property="weight"/>
+	</div>
+</logic:present>
+<logic:notPresent name="AssinanteVideos">
+	<div>
         <dt class="fundo_abas">
-       	<dt><bean:write name="Assinante" property="position"/><dt>	
-          <dt class="conteudo_abas">
-          <table>
-          <tr>
-	          <td>THUMB</td>
-	          <td>
-	          Nome : <bean:write name="Assinante" property="nome"/>
-	          Altura <bean:write name="Assinante" property="height"/>: Peso: <bean:write name="Assinante" property="weight"/>                     
-	          </td>
-          </tr>
-          </table>
-          </dt>
-        </dt>
-      </div>
-  
-</div>
+			Erro ao obter dados do Assinante proprietário dos vídeos
+		</dt>
+	</div>
+</logic:notPresent>
+
