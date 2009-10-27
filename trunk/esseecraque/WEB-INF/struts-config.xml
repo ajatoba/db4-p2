@@ -167,6 +167,9 @@
             scope="request"  
             validate="true">   
             	<forward name="ultimos_videos" path="/admin/index.jsp" />  
+            	<forward name="admin_saida" path="/admin/index.jsp" />
+            	<forward name="list_videos" path="/admin/videos_out.jsp" />
+            	
         </action>
         
         <action path="/admin/index"  
