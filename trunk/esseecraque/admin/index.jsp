@@ -25,6 +25,11 @@
 		<a href="index.do?act=updateVideoIndex">Atualizar Índice de Vídeos</a>
 		</td>
 	</tr>
+		<tr>
+		<td>
+		<a href="video.do?act=listAllVideos">Listar Vídeos</a>
+		</td>
+	</tr>
 </table>
 
 </body>
