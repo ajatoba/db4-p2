@@ -177,7 +177,7 @@ public class UploadAction extends DispatchAction {
 								
 				//************ SALVANDO EM BANCO  ******************
 				
-				String videoUrl=(String) SiteManager.getInstance().getProperties().get("video_host")+"/"+ assinante.getUsername()+"/"+encodedFileName.substring(encodedFileName.lastIndexOf(System.getProperty("file.separator"))+1,encodedFileName.length());
+				String videoUrl= "/"+ assinante.getUsername()+"/"+encodedFileName.substring(encodedFileName.lastIndexOf(System.getProperty("file.separator"))+1,encodedFileName.length());
 				
 				String imageWebPath = (String) SiteManager.getInstance().getProperties().get("user_folder_web") + assinante.getUsername() + "/" + videoFolder.substring(0, videoFolder.lastIndexOf(System.getProperty("file.separator"))) +"/" + imagePath.substring(imagePath.lastIndexOf(System.getProperty("file.separator"))+1,imagePath.length()) ;
 				
