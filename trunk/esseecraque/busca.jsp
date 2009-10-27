@@ -6,6 +6,7 @@ function submitBusca(){
 	document.busca.submit();
 }
 </script>
+<div id="lists">
 
 	 <dt class="fundo_abas">
 	    <!--TABELA DE BUSCA-->
@@ -49,3 +50,6 @@ function submitBusca(){
 	          
 	          <!--FIM TABELA DE BUSCA-->
 	        </dt>
+	        
+	        
+</div>
