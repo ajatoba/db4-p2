@@ -60,24 +60,10 @@ public final class VideoAction  extends DispatchAction{
 			v.setTagVideo(vForm.getTagVideo());
 			v.setIdAssinante(assinante.getId());	        
             v.setDataUpload(strData);
+            v.setStatus(vForm.getStatus());
             
             objSession.setAttribute(Constants.TEMP_VIDEO, v);
-            
-            /*
-            VideoDAO vDAO = DAOFactory.VIDEO_DAO();
-			
-			vDAO.salvar(v);
-			
-			//ATUALIZA O NÚMERO DE VÍDEOS
-			String str_idAssinant = String.valueOf(v.getIdAssinante());
-			int idAssinante = Integer.parseInt(str_idAssinant);
-			Long qtd = (Long)vDAO.qtdVideo(idAssinante);
-			objSession.setAttribute(Constants.QUANTIDADE_VIDEO, qtd);
-
-			vForm.reset(mapping, req);
-
-			//******************************
-			*/
+                        
 			return mapping.findForward(Constants.VIDEO_UPLOAD_FORM);
 			
 	    }catch (Exception e){
@@ -410,5 +396,70 @@ public final class VideoAction  extends DispatchAction{
 		
 	}
 
+	public ActionForward listAllVideos(ActionMapping mapping, 
+			 ActionForm form, 
+			 HttpServletRequest req, 
+			 HttpServletResponse resp) throws Exception {
+
+		MessageResources messageResources = null;
+
+		try {
+
+			messageResources = getResources(req);
+			
+			VideoDAO vDAO = DAOFactory.VIDEO_DAO();
+			
+			List<Video> lv = vDAO.listAllVideos();
+			
+			if(lv == null || lv.size() <=0){
+				req.setAttribute("mensagem",messageResources.getMessage("msg.noVideos"));
+				return mapping.findForward(Constants.ADMIN_SAIDA);
+			}else{
+				req.setAttribute(Constants.LIST_ALL_VIDEOS, lv);
+				return mapping.findForward(Constants.LIST_VIDEOS);		
+			}
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			req.setAttribute("mensagem",e.getMessage());
+			return mapping.findForward(Constants.ADMIN_SAIDA);
+		}
+		
+	}
+
+	public ActionForward updateStatus(ActionMapping mapping, 
+			 ActionForm form, 
+			 HttpServletRequest req, 
+			 HttpServletResponse resp) throws Exception {
+
+		MessageResources messageResources = null;
+		
+		int status  = Integer.parseInt(req.getParameter("status"));
+		long videoId = Integer.parseInt(req.getParameter("videoId"));
+		try {
+			messageResources = getResources(req);
+			
+			VideoDAO vDAO = DAOFactory.VIDEO_DAO();
+			
+			Video video = vDAO.buscarVideo(videoId);
+			
+			if(video != null){
+				video.setStatus(status);			
+				vDAO.atualizar(video);
+				req.setAttribute("mensagem",messageResources.getMessage("msg.statusAtualizado"));
+				return new ActionForward("/admin/video.do?act=listAllVideos");
+				
+			}else{
+				req.setAttribute("mensagem","Erro ao obter ID do vídeo");
+				return mapping.findForward(Constants.ADMIN_SAIDA);
+			}			
+			
+		} catch (Exception e) {
+			req.setAttribute("mensagem",e.getMessage());
+			return mapping.findForward(Constants.ADMIN_SAIDA);
+		}
+		
+	}
 }
 

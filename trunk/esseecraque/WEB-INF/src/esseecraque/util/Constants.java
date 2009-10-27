@@ -94,6 +94,12 @@ public interface Constants {
 	
 	public static final String UPDATE_INDEX_OUT = "update_index_out";
 	
+	public static final String LIST_ALL_VIDEOS = "Videos";
+	
+	public static final String LIST_VIDEOS = "list_videos";
+	
+	public static final String ADMIN_SAIDA = "admin_saida";
+	
 	
 
 	

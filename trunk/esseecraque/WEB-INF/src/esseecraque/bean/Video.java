@@ -35,23 +35,34 @@ public class Video implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="NR_ID_VIDEO_PK")
 	private Long id;
+	
 	@Column(name="VC_TITLE")
 	@Field(index=Index.TOKENIZED, store=Store.YES)
 	private String title;
+	
 	@Column(name="VC_DESCRIPTION")
 	@Field(index=Index.TOKENIZED, store=Store.YES)
 	private String description;
+	
 	@Column(name="VC_URL")
+	@Field(index=Index.TOKENIZED, store=Store.YES)
 	private String url;
+	
 	@Column(name="VC_REAL_PATH")
 	private String realPath;
+	
 	@Column(name="NR_ID_ASSINANTE")
 	private Long idAssinante;
+	
 	@Column(name="DT_DATE_UPLOAD")
 	private String dataUpload;
+	
 	@Column(name="VC_PATH_IMAGE")
+	@Field(index=Index.TOKENIZED, store=Store.YES)
 	private String pathImage;
+	
 	@Column(name="VC_TAG")
+	@Field(index=Index.TOKENIZED, store=Store.YES)
 	private String tagVideo;
 	
 	@IndexedEmbedded
@@ -61,51 +72,70 @@ public class Video implements Serializable{
 	@Cascade(CascadeType.SAVE_UPDATE)
 	private Assinante assinante;
 	
+	@Column(name="NR_STATUS")
+	@Field(index=Index.TOKENIZED, store=Store.YES)
+	private int status;
+	
 	public Long getId(){
 		return id;
 	}
+	
 	public void setId(Long id){
 		this.id = id;
 	}
+	
 	public String getTitle(){
 		return title;
 	}
+	
 	public void setTitle(String title){
 		this.title = title;
 	}
+	
 	public String getDescription(){
 		return description;
 	}
+	
 	public void setDescription(String description){
 		this.description = description;
 	}
+	
 	public String getUrl(){
 		return url;
 	}
+	
 	public void setUrl(String url){
 		this.url = url;
 	}
+	
 	public String getRealPath(){
 		return realPath;
 	}
+	
 	public void setRealPath(String realPath){
 		this.realPath = realPath;
 	}
+	
 	public Long getIdAssinante(){
 		return idAssinante;
 	}
+	
 	public void setIdAssinante(Long idAssinante){
 		this.idAssinante = idAssinante;
 	}
+	
 	public String getDataUpload(){
 		return dataUpload;
 	}
+	
 	public void setDataUpload(String dataUpload){
 		this.dataUpload = dataUpload;
 	}
+	
 	public String getPathImage() {
 		return pathImage;
 	}
+	
 	public void setPathImage(String pathImage) {
 		this.pathImage = pathImage;
 	}
@@ -117,12 +147,21 @@ public class Video implements Serializable{
 	public void setTagVideo(String tagVideo) {
 		this.tagVideo = tagVideo;
 	}
+	
 	public Assinante getAssinante() {
 		return assinante;
 	}
+	
 	public void setAssinante(Assinante assinante) {
 		this.assinante = assinante;
 	}
-	
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
 	
 }

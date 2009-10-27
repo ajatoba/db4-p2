@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Order;
 
 //import esseecraque.bean.Vid;
+import esseecraque.bean.Assinante;
 import esseecraque.bean.Video;
 import esseecraque.dao.VideoDAO;
 import esseecraque.util.HibernateUtil;
@@ -87,16 +88,25 @@ public class VideoDAOImpl implements VideoDAO{
 		
 	}
 	
-	public List<Video> search(String keyWord){
+	public List<Video> listAllVideos(){
 
 		HibernateUtil hu = new HibernateUtil();
 		session = hu.getSessionFactory().getCurrentSession();
 		session.beginTransaction(); 
-		Query q = session.createQuery("SELECT v FROM Video v WHERE v.title LIKE :keyWord OR v.description LIKE :keyWord OR v.tagVideo LIKE :keyWord");
-		q.setString("keyWord", "%"+keyWord+"%");
+		Query q = session.createQuery("SELECT v FROM Video v ORDER BY v.dataUpload DESC");
 		List<Video> lv = q.list();
 		session.getTransaction().commit();
 		return lv;
 		
 	}
+	
+	
+	public void atualizar(Video video){
+		HibernateUtil hu = new HibernateUtil();
+		session = hu.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		session.update(video);
+		session.getTransaction().commit();
+	}
+	
 }

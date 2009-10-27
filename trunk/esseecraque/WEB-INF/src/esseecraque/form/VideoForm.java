@@ -13,6 +13,7 @@ public class VideoForm extends ActionForm{
 	private String description;
 	private FormFile file;
 	private String tagVideo;
+	private int status;
 	
 	public Long getId(){
 		return id;
@@ -46,6 +47,14 @@ public class VideoForm extends ActionForm{
 	
 	public void setTagVideo(String tagVideo) {
 		this.tagVideo = tagVideo;
+	}
+		
+	public int getStatus() {
+		return status;
+	}
+	
+	public void setStatus(int status) {
+		this.status = status;
 	}
 	
 	public void reset(ActionMapping mapping, HttpServletRequest request) {
