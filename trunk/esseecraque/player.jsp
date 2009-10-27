@@ -29,9 +29,12 @@
 			</dt>
 			<dt class="player">
 <!-- INICIO PLAYER -->
-
-	<embed allowFullScreen="true"src="player.swf?movie=<bean:message key="video.server"/><bean:write name='Video' property='url' />&autoplay=off" quality="high"bgcolor="#000000" width="640" height="419"align="middle" allowScriptAccess="sameDomain"type="application/x-shockwave-flash" wmode="transparent" />
-
+	<logic:equal name="Video" property="status" value="0">
+		<bean:message key="video.unavailable"/>
+	</logic:equal>
+	<logic:equal name="Video" property="status" value="1">
+		<embed allowFullScreen="true"src="player.swf?movie=<bean:message key="video.server"/><bean:write name='Video' property='url' />&autoplay=off" quality="high"bgcolor="#000000" width="640" height="419"align="middle" allowScriptAccess="sameDomain"type="application/x-shockwave-flash" wmode="transparent" />
+	</logic:equal>
 <!-- FIM PLAYER -->			
 			</dt>
 			<dt class="desc_player">
