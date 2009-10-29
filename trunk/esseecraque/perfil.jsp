@@ -8,7 +8,7 @@
 	
 	
 		<dt class="pos_nome">
-        <div class="nome" align="center"><img src="_imgs/tv.jpg" width="22" height="35" align="absmiddle"/></strong> <bean:write name="AssinanteVideos" property="nome"/></strong></div></dt>
+        <div class="nome" align="center"><img src="/eec/_imgs/_imgs/tv.jpg" width="22" height="35" align="absmiddle"/></strong> <bean:write name="AssinanteVideos" property="nome"/></strong></div></dt>
         
 		<dt class="posicao">
         <div class="posmeio" align="center"><bean:write name="AssinanteVideos" property="position"/></div></dt>
