@@ -5,9 +5,15 @@
 
 <logic:present name="AssinanteVideos">
 	<div id="lists">
+	
+	
+        <dt class="fundo_abas">
 		<bean:write name="AssinanteVideos" property="nome"/> (<bean:write name="AssinanteVideos" property="position"/>)<br/>
 		Altura <bean:write name="AssinanteVideos" property="height"/><br/>
 		Peso: <bean:write name="AssinanteVideos" property="weight"/>
+		
+		</dt>
+		
 	</div>
 </logic:present>
 <logic:notPresent name="AssinanteVideos">
