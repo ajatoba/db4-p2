@@ -16,9 +16,9 @@
         <dt class="fundo_abas">
         
 	        <div class="espaco_abas">
-				<bean:write name="AssinanteVideos" property="nome"/><br/>
-				Altura: <bean:write name="AssinanteVideos" property="height"/><br/>
-				Peso: <bean:write name="AssinanteVideos" property="weight"/>
+				<strong>Nome:</strong> <bean:write name="AssinanteVideos" property="nome"/><br/>
+				<strong>Altura:</strong> <bean:write name="AssinanteVideos" property="height"/><br/>
+				<strong>Peso:</strong> <bean:write name="AssinanteVideos" property="weight"/>
 			</div>
 		
 		</dt>
