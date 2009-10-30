@@ -8,7 +8,10 @@
 <head>      
 <title><bean:message key="titulo.paginas"/></title>
 <link href="/eec/_css/estilo.css" rel="stylesheet" type="text/css">
-<link href="/eec/_css/minha_conta.css" rel="stylesheet" type="text/css">
+
+
+<link href="/eec/_css/minha_conta_RETIREI.css" rel="stylesheet" type="text/css">
+
 <link href="/eec/_css/cadastro.css" rel="stylesheet" type="text/css">
 <link href="/eec/_css/slide.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="/eec/js/jquery-1.2.6-packed.js"></script>
