@@ -29,7 +29,8 @@
         </dt>
         
         <dt class="fundo_abas">
-			Erro ao obter dados do Assinante proprietário dos vídeos
+        	<div class="espaco_abas">
+			Erro ao obter dados do Assinante proprietário dos vídeos</div>
 		</dt>
 	</div>
 </logic:notPresent>
