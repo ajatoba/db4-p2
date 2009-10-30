@@ -14,9 +14,12 @@
         <div class="posmeio" align="center"><bean:write name="AssinanteVideos" property="position"/></div></dt>
         
         <dt class="fundo_abas">
-		<bean:write name="AssinanteVideos" property="nome"/> <br/>
-		Altura <bean:write name="AssinanteVideos" property="height"/><br/>
-		Peso: <bean:write name="AssinanteVideos" property="weight"/>
+        
+	        <div class="espaco_abas">
+				<bean:write name="AssinanteVideos" property="nome"/><br/>
+				Altura: <bean:write name="AssinanteVideos" property="height"/><br/>
+				Peso: <bean:write name="AssinanteVideos" property="weight"/>
+			</div>
 		
 		</dt>
 		
