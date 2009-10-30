@@ -23,7 +23,11 @@
 	</div>
 </logic:present>
 <logic:notPresent name="AssinanteVideos">
-	<div>
+	<div id="lists">
+	
+		<dt class="posicao">
+        <div class="posmeio" align="center">&nbsp;</div></dt>
+        
         <dt class="fundo_abas">
 			Erro ao obter dados do Assinante proprietário dos vídeos
 		</dt>
