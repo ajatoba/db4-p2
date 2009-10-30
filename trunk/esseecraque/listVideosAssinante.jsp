@@ -33,42 +33,44 @@
 					</div>
 				</form>
 			</dt>
-<table border="0" cellspacing="3" cellpadding="3">
-	<logic:notEmpty name="VideosAssinante">
-		<logic:iterate id="v" name="VideosAssinante">
-			<tr>
-				<td>
-					<table class="table_videos">
-						<tr>
-							<td width="540">
-								<a href="player.do?act=playerVideo&idVideo=<bean:write name='v' property='id' />&secao=liberada" >
-									<img src="<bean:write name='v' property='pathImage' />" width="100" height="73" border="0"/>
-								</a>
-							</td>
-						</tr>
-						<tr>
-							<td class="data"><bean:write name="v" property="dataUpload" format="dd/MM/yyyy" /></td>
-						</tr>
-						<tr>
-							<td class="desc"><bean:write name="v" property="title" /></td>
-						</tr>
-					</table>
-				</td>
-			</tr>
-		</logic:iterate>
-	</logic:notEmpty>
-	<logic:empty name="VideosAssinante">  
-       	<tr>  
-	       	<td>Nenhum vídeo encontrado para esse assinante.</td>  
-        </tr>
-		<tr>  
-        	<td>&nbsp;</td>  
-        </tr>
-		<tr>  
-            <td>&nbsp;</td>  
-        </tr>    
-    </logic:empty>
-</table>
+			<dt>
+				<table border="0" cellspacing="3" cellpadding="3">
+					<logic:notEmpty name="VideosAssinante">
+						<logic:iterate id="v" name="VideosAssinante">
+							<tr>
+								<td>
+									<table class="table_videos">
+										<tr>
+											<td width="540">
+												<a href="player.do?act=playerVideo&idVideo=<bean:write name='v' property='id' />&secao=liberada" >
+													<img src="<bean:write name='v' property='pathImage' />" width="100" height="73" border="0"/>
+												</a>
+											</td>
+										</tr>
+										<tr>
+											<td class="data"><bean:write name="v" property="dataUpload" format="dd/MM/yyyy" /></td>
+										</tr>
+										<tr>
+											<td class="desc"><bean:write name="v" property="title" /></td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+					</logic:iterate>
+				</logic:notEmpty>
+				<logic:empty name="VideosAssinante">  
+			       	<tr>  
+				       	<td>Nenhum vídeo encontrado para esse assinante.</td>  
+			        </tr>
+					<tr>  
+			        	<td>&nbsp;</td>  
+			        </tr>
+					<tr>  
+			            <td>&nbsp;</td>  
+			        </tr>    
+			    </logic:empty>
+			</table>
+			</dt>
 </div>
 <div id="direita">
 			
