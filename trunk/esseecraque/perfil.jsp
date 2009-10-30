@@ -23,12 +23,7 @@
 	</div>
 </logic:present>
 <logic:notPresent name="AssinanteVideos">
-	<div id="lists">
-	
-		<dt class="posicao">
-        <div class="posmeio" align="center"><bean:write name="AssinanteVideos" property="position"/></div></dt>
-        
-        
+	<div>
         <dt class="fundo_abas">
 			Erro ao obter dados do Assinante proprietário dos vídeos
 		</dt>
