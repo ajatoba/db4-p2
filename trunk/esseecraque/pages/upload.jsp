@@ -38,7 +38,10 @@
 						<input type="image" src="/eec/_imgs/btnbusca.jpg" name="Submit" Class="linkado" />
 					</div>
 				</form>
-			</dt>
+</dt>
+			
+<dt>
+
 <form action="pages/uploadVideo.do?act=uploadVideo" enctype="multipart/form-data" method="post" onsubmit="startProgress()">
     <p>
         <h1>Upload de Vídeo</h1>
@@ -70,6 +73,7 @@
         </div>
     </p>
 </form>
+</dt>
 
 </div>
 
