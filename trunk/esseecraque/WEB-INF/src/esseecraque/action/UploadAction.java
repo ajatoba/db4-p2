@@ -36,13 +36,21 @@ public class UploadAction extends DispatchAction {
 		//*********** OBTENDO VÍDEO DA SESSÃO
 		
 		Video video = (Video)objSession.getAttribute(Constants.TEMP_VIDEO);
-		
-		if(video == null) throw new Exception(messageResources.getMessage("video_session_expired"));		
-		//***************************************
 				
+		if(video == null){
+			req.setAttribute("mensagem", messageResources.getMessage("video_upload_error"));
+			return mapping.findForward("video_upload_sucess");
+		} 		
+		//***************************************
+		
 		//*********** OBTENDO ASSINANTE DA SESSÃO
 		Assinante assinante = (Assinante)objSession.getAttribute(Constants.ASSINANTE_BEAN);
-		if(assinante == null) throw new Exception(messageResources.getMessage("user_session_expired"));	
+		
+		if(assinante == null) {
+			req.setAttribute("mensagem", messageResources.getMessage("user_session_expired"));
+			return mapping.findForward("video_upload_sucess");
+		} 	
+	
 		//***************************************
 		
 		//*********** PARÂMETROS DE UPLOAD
@@ -66,8 +74,6 @@ public class UploadAction extends DispatchAction {
 		
 		//**********************************
 				
-		
-		
 		UploadListener listener = new UploadListener(req, 30);
 	    FileItemFactory factory = new MonitoredDiskFileItemFactory(listener);
 	    
@@ -91,9 +97,10 @@ public class UploadAction extends DispatchAction {
 	    if(!objfile.exists()) objfile.mkdir();
 	    
 	    can_path = objfile.getCanonicalPath();
-	    
+	    	    
 	    try
 	    {
+	    	
 	        boolean isMultipart = FileUpload.isMultipartContent(req);  
 			
 			if (isMultipart) {  
