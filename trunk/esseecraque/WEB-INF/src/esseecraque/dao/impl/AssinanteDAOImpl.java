@@ -1,18 +1,24 @@
 package esseecraque.dao.impl;
 
 import org.apache.lucene.analysis.StopAnalyzer;
+import org.apache.lucene.analysis.standard.StandardAnalyzer;
+import org.apache.lucene.index.Term;
 import org.apache.lucene.queryParser.MultiFieldQueryParser;
+import org.apache.lucene.search.*;
+import org.apache.lucene.search.BooleanClause.Occur;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.taglibs.string.SqueezeTag;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.search.FullTextQuery;
 import org.hibernate.search.FullTextSession;
 import org.hibernate.search.Search;
 
 import java.rmi.RemoteException;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -24,6 +30,7 @@ import javax.servlet.http.HttpSession;
 import esseecraque.bean.Assinante;
 import esseecraque.bean.Video;
 import esseecraque.dao.AssinanteDAO;
+import esseecraque.dao.DAOFactory;
 import esseecraque.util.Constants;
 import esseecraque.util.HibernateUtil;
 
@@ -79,14 +86,26 @@ public class AssinanteDAOImpl implements AssinanteDAO{
 	
 	public List buscarAssinanteLetra(String letra){
 
-		HibernateUtil hu = new HibernateUtil();
-		session = hu.getSessionFactory().getCurrentSession();
-		session.beginTransaction();
-		Query q = session.createQuery("SELECT DISTINCT a FROM Assinante a WHERE a.nome LIKE :lt ORDER BY a.nome");
-		q.setString("lt", "%"+letra);
-		List resultado = q.list();
-		session.getTransaction().commit();
-		return resultado;
+		Session session = HibernateUtil.getSessionFactory().openSession();
+				
+		FullTextSession fullTextSession = Search.getFullTextSession(session);
+		Transaction tx = fullTextSession.beginTransaction();
+
+		BooleanQuery query = new BooleanQuery();  
+		
+		PrefixQuery pQuery = new PrefixQuery(new Term("nome",letra));
+		
+		query.add(pQuery, Occur.SHOULD);
+		
+		org.hibernate.Query hibQuery = fullTextSession.createFullTextQuery(query, Assinante.class);
+
+		List result = hibQuery.list();
+		
+		tx.commit();
+		session.close();
+		
+		return result;
+		
 	}	
 	
 	public Assinante remindPassword(String email){
@@ -102,4 +121,5 @@ public class AssinanteDAOImpl implements AssinanteDAO{
 		return a;
 		
 	}
+	
 }
