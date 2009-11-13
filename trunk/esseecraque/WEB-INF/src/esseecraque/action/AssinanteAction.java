@@ -201,7 +201,7 @@ public final class AssinanteAction extends DispatchAction{
 				
 				AssinanteDAO aDAO = DAOFactory.ASSINANTE_DAO();
 				
-				List<Assinante> list = aDAO.buscarAssinanteLetra(letra + "%");
+				List<Assinante> list = aDAO.buscarAssinanteLetra(letra);
 				
 				objSession.setAttribute(Constants.ASSINANTE_BEAN_LETRA, list);
 				
