@@ -6,7 +6,7 @@ import esseecraque.bean.Video;
 
 public interface VideoDAO {
 
-	public abstract void salvar(Video video);
+	public abstract Video salvar(Video video);
 	
 	public abstract List buscarMeusVideos(Long id);
 	
