@@ -14,7 +14,7 @@ public class SiteManager {
 		
 		public static SiteManager instance;
 		
-		private Properties properties = null;
+		private static Properties properties;
 		
 		private SiteManager()
 		{

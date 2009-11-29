@@ -21,13 +21,15 @@ public class VideoDAOImpl implements VideoDAO{
 			
 	}
 		
-	public void salvar(Video video){
+	public Video salvar(Video video){
 		HibernateUtil hu = new HibernateUtil();
 
 		session = hu.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 		session.save(video);
 		session.getTransaction().commit();
+		
+		return video;
 	}
 	
 	public List buscarMeusVideos(Long id){

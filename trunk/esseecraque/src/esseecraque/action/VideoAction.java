@@ -1,7 +1,10 @@
 package esseecraque.action;
 
 import java.io.DataOutputStream;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.PrintStream;
 import java.text.SimpleDateFormat;
 import java.util.Iterator;
@@ -27,6 +30,8 @@ import esseecraque.bean.*;
 import esseecraque.dao.VideoDAO;
 import esseecraque.dao.DAOFactory;
 import esseecraque.form.VideoForm;
+import esseecraque.model.ejb.VideoSessionFacadeRemote;
+import esseecraque.model.util.ServiceLocator;
 import esseecraque.util.Constants;
 import esseecraque.util.HibernateUtil;
 
@@ -461,5 +466,45 @@ public final class VideoAction  extends DispatchAction{
 		}
 		
 	}
+	
+	public ActionForward carregarArquivo(ActionMapping mapping, 
+			 ActionForm form, 
+			 HttpServletRequest request, 
+			 HttpServletResponse response) throws Exception {
+		
+		String idVideo = request.getParameter("video");
+		String tipoRequisicao = request.getParameter("tpo");
+		
+		VideoDAO vDAO = DAOFactory.VIDEO_DAO();					
+		Video video =  vDAO.buscarVideo(Long.valueOf(idVideo));
+		
+		StringBuilder path = new StringBuilder()
+		.append(video.getRealPath());
+		
+		if("video".equalsIgnoreCase(tipoRequisicao)){
+			path.append(".flv");
+			response.addHeader("Content-Disposition", "attachment; filename=\"" + System.currentTimeMillis() + ".flv\"");
+			response.setContentType("video/x-flv");
+		}
+		else{
+			path.append(".jpg");
+		}
+		
+		
+		
+		InputStream inputStream = new FileInputStream(path.toString());
+		OutputStream outputStream = response.getOutputStream();
+		int len ; 
+		byte[] buf = new byte[1024];  
+		while ((len = inputStream.read(buf)) > 0) {  
+		  outputStream.write(buf, 0, len);  
+		} 
+		
+		inputStream.close();  
+		outputStream.close();
+		
+		return null;
+	
+}
 }
 

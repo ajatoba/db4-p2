@@ -1,26 +1,35 @@
 package esseecraque.action;
 
+import java.io.File;
+import java.util.Iterator;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import java.util.*;
-import java.io.*;
-
-import be.telio.mediastore.ui.upload.*;
-
-import org.apache.commons.fileupload.*;
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileItemFactory;
+import org.apache.commons.fileupload.FileUpload;
+import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.apache.struts.action.*;
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionForward;
+import org.apache.struts.action.ActionMapping;
 import org.apache.struts.actions.DispatchAction;
 import org.apache.struts.util.MessageResources;
 
+import be.telio.mediastore.ui.upload.MonitoredDiskFileItemFactory;
+import be.telio.mediastore.ui.upload.UploadListener;
 import esseecraque.bean.Assinante;
 import esseecraque.bean.Video;
-import esseecraque.encoding.SysCommandExecutor;
-import esseecraque.util.*;
-
-import esseecraque.dao.*;
+import esseecraque.dao.DAOFactory;
+import esseecraque.dao.VideoDAO;
+import esseecraque.model.ejb.VideoSessionFacadeRemote;
+import esseecraque.model.util.ServiceLocator;
+import esseecraque.model.vo.VideoVO;
+import esseecraque.util.Constants;
+import esseecraque.util.SiteManager;
 
 public class UploadAction extends DispatchAction {
 
@@ -54,52 +63,36 @@ public class UploadAction extends DispatchAction {
 		//***************************************
 		
 		//*********** PARÂMETROS DE UPLOAD
-		String docRoot 				= (String) SiteManager.getInstance().getProperties().get("docroot");
-		String videoFolder 			= (String) SiteManager.getInstance().getProperties().get("video_folder");
-		String maxVideoUploadSize 	= (String) SiteManager.getInstance().getProperties().get("max_video_upload_size_mb");
+		String docRoot 				= SiteManager.getInstance().getProperties().getProperty("docroot");
+		String videoFolder 			= SiteManager.getInstance().getProperties().getProperty("video_folder");
+		String maxVideoUploadSize 	= SiteManager.getInstance().getProperties().getProperty("max_video_upload_size_mb");
 		//*********************************
 		
-		//***********PARÂMETROS DE ENCODING
-		String videoBitrate			= (String) SiteManager.getInstance().getProperties().get("video_bitrate");
-		String frameRate			= (String) SiteManager.getInstance().getProperties().get("frame_rate");
-		String videoSize			= (String) SiteManager.getInstance().getProperties().get("video_size");
-		String videoFormat			= (String) SiteManager.getInstance().getProperties().get("video_format");
-		String audioCodec			= (String) SiteManager.getInstance().getProperties().get("audio_codec");
-		String audioBitrate			= (String) SiteManager.getInstance().getProperties().get("audio_bitrate");
-		String audioFrequency		= (String) SiteManager.getInstance().getProperties().get("audio_frequency");
-		String audioChannels		= (String) SiteManager.getInstance().getProperties().get("audio_channels");
-		String seek					= (String) SiteManager.getInstance().getProperties().get("seek");
-		String highQuality			= (String) SiteManager.getInstance().getProperties().get("high_quality");
-		String interlace			= (String) SiteManager.getInstance().getProperties().get("interlace");
+				
+		String userFolder = (String) SiteManager.getInstance().getProperties().get("user_folder") + assinante.getUsername() + System.getProperty("file.separator");
+
+		StringBuilder pastaDestino = new StringBuilder()
+		.append(userFolder)
+		.append(videoFolder);
+		
+		String pathServVideo = SiteManager.getInstance().getProperties().getProperty("pathServVideo");
+		
+		File servidorLocal = new File(docRoot, pastaDestino.toString());
+		File servidorVideo = new File(pathServVideo, pastaDestino.toString());
+		File uploadedArquivoVideo = null;
+		
+		String nomeNovoArquivo = String.valueOf(System.currentTimeMillis());			
 		
 		//**********************************
 				
 		UploadListener listener = new UploadListener(req, 30);
 	    FileItemFactory factory = new MonitoredDiskFileItemFactory(listener);
-	    
-	    String name="", can_path="", userFolder="";
 	    long size=0;
-	    
-	    userFolder = (String) SiteManager.getInstance().getProperties().get("user_folder") + assinante.getUsername() + System.getProperty("file.separator");
-	    
-	    /*
-	     * Caso o diretório do usuário não exista 
-	     * (Por algum motivo não foi criado no cadastro), 
-	     * é criado na hora
-	     */
-	    File userRoot = new File(docRoot + userFolder);
-	    	if(!userRoot.exists()) userRoot.mkdir();
-	    
-	    /**************/
-	    	
-	    File objfile = new File(docRoot + userFolder + videoFolder);  
-	    File arquivo = null;
-	    if(!objfile.exists()) objfile.mkdir();
-	    
-	    can_path = objfile.getCanonicalPath();
 	    	    
 	    try
 	    {
+	    	
+	    	if(!servidorLocal.exists()) servidorLocal.mkdirs();
 	    	
 	        boolean isMultipart = FileUpload.isMultipartContent(req);  
 			
@@ -109,92 +102,50 @@ public class UploadAction extends DispatchAction {
 				upload.setSizeMax(Integer.parseInt(maxVideoUploadSize)*1024*1024);
 				
 				List items = upload.parseRequest(req);  
-				Iterator it = items.iterator();
-				
+				Iterator it = items.iterator();				
 				FileItem fi = (FileItem)it.next();  
 				
-				name=fi.getName();  
+				String uploadedNomeArquivo = fi.getName().substring(fi.getName().lastIndexOf(System.getProperty("file.separator"))+1, fi.getName().length());
+					 
 				size=fi.getSize();
+				
+				uploadedArquivoVideo = new File(servidorLocal,uploadedNomeArquivo);  
+				fi.write(uploadedArquivoVideo); 	
 			
-				System.out.println("NOME DO ARQUIVO:"+name);
+				System.out.println("NOME DO ARQUIVO:"+uploadedNomeArquivo);
 				
 				//****** COMPOSIÇÃO DOS NOMES (COM OS PATHS) DOS ARQUIVOS
-				String uploadedFileName = can_path + System.getProperty("file.separator") + name.substring(name.lastIndexOf(System.getProperty("file.separator"))+1, name.length());
-				//String encodedFileName = uploadedFileName.substring(0, uploadedFileName.lastIndexOf(".")+1)+videoFormat;
-				String encodedFileName = can_path + System.getProperty("file.separator") + System.currentTimeMillis() + "." + videoFormat;
-				//*******************************************************
+				String uploadedFileName = servidorLocal.getCanonicalPath() + System.getProperty("file.separator") + uploadedNomeArquivo.substring(uploadedNomeArquivo.lastIndexOf(System.getProperty("file.separator"))+1, uploadedNomeArquivo.length());						
+												
 				
 				System.out.println("NOME DO ARQUIVO SUBIDO:"+uploadedFileName);
 				
-				arquivo = new File(uploadedFileName);  
-				fi.write(arquivo); 	
-				
-				req.setAttribute("name", name);
-				req.setAttribute("size", String.valueOf(size/1024));
-				
-				//COMANDO DE ENCODING 								
-				String encoderCommand = "ffmpeg -i "+ uploadedFileName +" -b "+ videoBitrate+ " -r "+ frameRate +" -s "+ videoSize 
-				+ " -sameq ";
-				if(seek !=null && seek.equals("true")){
-					encoderCommand += " -ss "; 
-				}
-				if(highQuality !=null && highQuality.equals("true")){
-					encoderCommand += " -hq ";
-				}				
-				if (interlace != null && interlace.equals("true")) {
-					encoderCommand += " -deinterlace ";
-				}
-				
-				encoderCommand += " -ab " + audioBitrate +" -f "+ videoFormat 
-				+ " -acodec "+ audioCodec +" -ar "+ audioFrequency +" -ac "+ audioChannels +" -y "+ encodedFileName;
-
-				System.out.println("COMANDO:" + encoderCommand);
-
-				//****** FAZENDO O ENCODING				
-				SysCommandExecutor cmdExecutor = new SysCommandExecutor(); 		
-				int exitStatus = -1;
-				String cmdError = "", cmdOutput = "";
-
-				exitStatus 	= cmdExecutor.runCommand(encoderCommand);
-				cmdError 	= cmdExecutor.getCommandError();
-				cmdOutput 	= cmdExecutor.getCommandOutput();
-				
-				//************************
-				
-				//GERANDO THUMBNAIL E FINALIZANDO O PROCESSO
-				String imagePath="";
-				if(arquivo.exists()){
-					//****** OBTENDO A DURAÇÃO DO VÍDEO (DO LOG DE EXECUÇÃO DO COMANDO)
-					String duration = cmdError.substring(cmdError.indexOf("Duration:")+10, cmdError.indexOf("Duration:")+18);
-					String[] time = duration.split(":");
-					
-					if (time.length <3) throw new Exception("Erro ao calcular o tempo do vídeo");
-					
-					int seconds = (Integer.parseInt(time[0])*3600)+(Integer.parseInt(time[1])*60) + (Integer.parseInt(time[2]));
-					
-					int i = 1 + (int)(Math.random() * seconds) ;
-					
-					imagePath=encodedFileName.substring(0,encodedFileName.lastIndexOf(".")+1)+"jpg";
-					
-					String generateThumbnail="ffmpeg -itsoffset -"+ i +"  -i "+ encodedFileName +" -vcodec mjpeg -vframes 1 -an -f rawvideo -s "+ videoSize +" -y " + imagePath;
-					cmdExecutor.runCommand(generateThumbnail);					
-				}
-				
-				//*************************
+								
+				req.setAttribute("name", uploadedNomeArquivo);
+				req.setAttribute("size", String.valueOf(size/1024));				
 								
 				//************ SALVANDO EM BANCO  ******************
 				
-				String videoUrl= "/"+ assinante.getUsername()+"/"+encodedFileName.substring(encodedFileName.lastIndexOf(System.getProperty("file.separator"))+1,encodedFileName.length());
+				StringBuilder videoUrl= new StringBuilder()
+				.append("video.do?act=carregarArquivo&tpo=video&video=");
+				//.append(video.getId());
+								
 				
-				String imageWebPath = (String) SiteManager.getInstance().getProperties().get("user_folder_web") + assinante.getUsername() + "/" + videoFolder.substring(0, videoFolder.lastIndexOf(System.getProperty("file.separator"))) +"/" + imagePath.substring(imagePath.lastIndexOf(System.getProperty("file.separator"))+1,imagePath.length()) ;
+				StringBuilder imageWebPath = new StringBuilder()
+				.append("video.do?act=carregarArquivo&tpo=imagem&video=");
+				//.append(video.getId());
 				
-				video.setRealPath(encodedFileName);
-				video.setPathImage(imageWebPath);
-				video.setUrl(videoUrl);
+				StringBuilder realPath = new StringBuilder()
+				.append(servidorVideo.getCanonicalPath())
+				.append(System.getProperty("file.separator"))
+				.append(nomeNovoArquivo);
 				
-				VideoDAO vDAO = DAOFactory.VIDEO_DAO();
-					
-				vDAO.salvar(video);
+				video.setRealPath(realPath.toString());
+				video.setPathImage(imageWebPath.toString());
+				video.setUrl(videoUrl.toString());		
+				video.setStatus(0);
+				VideoDAO vDAO = DAOFactory.VIDEO_DAO();					
+				video = vDAO.salvar(video);
 					
 				//ATUALIZA O NÚMERO DE VÍDEOS
 				String str_idAssinant = String.valueOf(video.getIdAssinante());
@@ -202,18 +153,24 @@ public class UploadAction extends DispatchAction {
 				Long qtd = (Long)vDAO.qtdVideo(idAssinante);
 				objSession.setAttribute(Constants.QUANTIDADE_VIDEO, qtd);
 
+				//**************************************************				
 				
-				//**************************************************
+				/***FILA JMS***/
 				
+				VideoVO videoVO = new VideoVO();
+				videoVO.setArquivoOrigem(uploadedFileName);
+				videoVO.setIdAssinante(assinante.getId());
+				videoVO.setIdVideo(video.getId());
+				videoVO.setNomeVideoDestino(nomeNovoArquivo);
+				videoVO.setPathDestino(pastaDestino.toString());
 				
-				if (exitStatus >=0 && cmdError.indexOf("Output #")>=0) {
-					req.setAttribute("mensagem", messageResources.getMessage("video_upload_sucess"));
-				}else if(cmdError.indexOf("Output #")< 0){ 
-					req.setAttribute("mensagem", messageResources.getMessage("video_encoding_error"));
-				}else {
-					req.setAttribute("mensagem", messageResources.getMessage("video_upload_error"));
-				}
-								
+				VideoSessionFacadeRemote ejb = (VideoSessionFacadeRemote) ServiceLocator.getInstance().locateEJB(VideoSessionFacadeRemote.REMOTE);
+				
+				ejb.gravarVideo(videoVO);
+				
+				/******/				
+				
+				req.setAttribute("mensagem", messageResources.getMessage("video_upload_sucess"));				
 			}
 			return mapping.findForward("video_upload_sucess");
 			
@@ -223,7 +180,7 @@ public class UploadAction extends DispatchAction {
 	        return mapping.findForward("video_upload_sucess");
 	    }finally{
 	    	//******* APAGANDO O ARQUIVO ORIGINAL
-	    	if(arquivo != null && arquivo.exists())arquivo.delete();
+	    	//if(uploadedArquivoVideo != null && uploadedArquivoVideo.exists())uploadedArquivoVideo.delete();
 	    	//************************************
 	    	
 	    	//********* REMOVENDO O VÍDEO TEMPORÁRIO DA SESSÃO
