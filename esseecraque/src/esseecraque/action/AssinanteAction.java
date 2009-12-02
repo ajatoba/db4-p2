@@ -7,12 +7,7 @@ import java.io.FileOutputStream;
 import java.io.PrintStream;
 import java.io.StringWriter;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,12 +15,9 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.queryParser.MultiFieldQueryParser;
-import org.apache.struts.action.Action;
-import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionMessage;
 import org.apache.struts.actions.DispatchAction;
 import org.apache.struts.util.MessageResources;
 import org.hibernate.Session;
@@ -37,8 +29,13 @@ import esseecraque.bean.Assinante;
 import esseecraque.dao.AssinanteDAO;
 import esseecraque.dao.DAOFactory;
 import esseecraque.dao.VideoDAO;
-import esseecraque.form.*;
-import esseecraque.util.*;
+import esseecraque.form.AssinanteForm;
+import esseecraque.form.AssinanteLoginForm;
+import esseecraque.util.Constants;
+import esseecraque.util.HibernateUtil;
+import esseecraque.util.SendMail;
+
+
 
 public final class AssinanteAction extends DispatchAction{
 	
@@ -83,8 +80,8 @@ public final class AssinanteAction extends DispatchAction{
 	        //********** CRIANDO DIRETÓRIO DO USUÁRIO ***********
 
 			
-			String docRoot 		= (String) SiteManager.getInstance().getProperties().get("docroot");
-			String userFolder 	= (String) SiteManager.getInstance().getProperties().get("user_folder");
+			String docRoot 		= System.getProperty("docroot");
+			String userFolder 	= System.getProperty("user_folder");
 			String path 		= docRoot + userFolder + a.getUsername();
 	        
 			/*
@@ -298,8 +295,7 @@ public final class AssinanteAction extends DispatchAction{
 
 					SendMail mail = new SendMail();
 
-					String smtpServer = (String) SiteManager.getInstance()
-							.getProperties().get("smtp");
+					String smtpServer = (String) System.getProperty("smtp");
 
 					mail.setFrom(messageResources.getMessage("webmaster"));
 					mail.setSmtpServer(smtpServer);
@@ -426,8 +422,7 @@ public final class AssinanteAction extends DispatchAction{
 			messageResources = getResources(req);
 			SendMail mail = new SendMail();
 
-			String smtpServer = (String) SiteManager.getInstance()
-							.getProperties().get("smtp");
+			String smtpServer = (String) System.getProperty("smtp");
 
 					
 			mail.setSmtpServer(smtpServer);
