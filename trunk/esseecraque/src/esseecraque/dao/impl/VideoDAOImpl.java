@@ -36,7 +36,7 @@ public class VideoDAOImpl implements VideoDAO{
 		HibernateUtil hu = new HibernateUtil();
 		session = hu.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
-		Query q = session.createQuery("SELECT v FROM Video v WHERE v.idAssinante=:idSession");
+		Query q = session.createQuery("SELECT v FROM Video v WHERE v.idAssinante=:idSession and v.status=1");
 		q.setParameter("idSession", id);
 		List resultado = q.list();
 		session.getTransaction().commit();

@@ -9,13 +9,11 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.actions.DispatchAction;
 import org.apache.struts.util.MessageResources;
 import org.hibernate.CacheMode;
-import org.hibernate.Criteria;
 import org.hibernate.FlushMode;
 import org.hibernate.ScrollMode;
 import org.hibernate.ScrollableResults;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.annotations.Entity;
 import org.hibernate.search.FullTextSession;
 import org.hibernate.search.Search;
 
@@ -23,7 +21,6 @@ import esseecraque.bean.Assinante;
 import esseecraque.bean.Video;
 import esseecraque.util.Constants;
 import esseecraque.util.HibernateUtil;
-import esseecraque.util.SiteManager;
 
 public class UpdateIndexAction extends DispatchAction{
 
@@ -32,7 +29,7 @@ public class UpdateIndexAction extends DispatchAction{
 			HttpServletRequest req, 
 			HttpServletResponse resp) throws Exception {
 		
-		int BATCH_SIZE = Integer.parseInt((String) SiteManager.getInstance().getProperties().get("batch_size"))*1024;
+		int BATCH_SIZE = Integer.parseInt((String) System.getProperty("batch_size"))*1024;
 		
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		FullTextSession fullTextSession = Search.getFullTextSession(session);
@@ -78,7 +75,7 @@ public class UpdateIndexAction extends DispatchAction{
 			HttpServletRequest req, 
 			HttpServletResponse resp) throws Exception {
 		
-		int BATCH_SIZE = Integer.parseInt((String) SiteManager.getInstance().getProperties().get("batch_size"))*1024;
+		int BATCH_SIZE = Integer.parseInt((String) System.getProperty("batch_size"))*1024;
 		
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		FullTextSession fullTextSession = Search.getFullTextSession(session);

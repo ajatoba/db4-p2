@@ -29,7 +29,7 @@ import esseecraque.model.ejb.VideoSessionFacadeRemote;
 import esseecraque.model.util.ServiceLocator;
 import esseecraque.model.vo.VideoVO;
 import esseecraque.util.Constants;
-import esseecraque.util.SiteManager;
+
 
 public class UploadAction extends DispatchAction {
 
@@ -63,19 +63,19 @@ public class UploadAction extends DispatchAction {
 		//***************************************
 		
 		//*********** PARÂMETROS DE UPLOAD
-		String docRoot 				= SiteManager.getInstance().getProperties().getProperty("docroot");
-		String videoFolder 			= SiteManager.getInstance().getProperties().getProperty("video_folder");
-		String maxVideoUploadSize 	= SiteManager.getInstance().getProperties().getProperty("max_video_upload_size_mb");
+		String docRoot 				= System.getProperty("docroot");
+		String videoFolder 			= System.getProperty("video_folder");
+		String maxVideoUploadSize 	= System.getProperty("max_video_upload_size_mb");
 		//*********************************
 		
 				
-		String userFolder = (String) SiteManager.getInstance().getProperties().get("user_folder") + assinante.getUsername() + System.getProperty("file.separator");
+		String userFolder = (String) System.getProperty("user_folder") + assinante.getUsername() + System.getProperty("file.separator");
 
 		StringBuilder pastaDestino = new StringBuilder()
 		.append(userFolder)
 		.append(videoFolder);
 		
-		String pathServVideo = SiteManager.getInstance().getProperties().getProperty("pathServVideo");
+		String pathServVideo = System.getProperty("pathServVideo");
 		
 		File servidorLocal = new File(docRoot, pastaDestino.toString());
 		File servidorVideo = new File(pathServVideo, pastaDestino.toString());
@@ -126,23 +126,16 @@ public class UploadAction extends DispatchAction {
 								
 				//************ SALVANDO EM BANCO  ******************
 				
-				StringBuilder videoUrl= new StringBuilder()
-				.append("video.do?act=carregarArquivo&tpo=video&video=");
-				//.append(video.getId());
-								
-				
-				StringBuilder imageWebPath = new StringBuilder()
-				.append("video.do?act=carregarArquivo&tpo=imagem&video=");
-				//.append(video.getId());
-				
+				 
 				StringBuilder realPath = new StringBuilder()
 				.append(servidorVideo.getCanonicalPath())
 				.append(System.getProperty("file.separator"))
 				.append(nomeNovoArquivo);
 				
 				video.setRealPath(realPath.toString());
-				video.setPathImage(imageWebPath.toString());
-				video.setUrl(videoUrl.toString());		
+				
+				video.setUrl(pastaDestino.toString().concat(System.getProperty("file.separator")).concat(nomeNovoArquivo.concat(".".concat(System.getProperty("video_format")))));	
+				video.setPathImage("");
 				video.setStatus(0);
 				VideoDAO vDAO = DAOFactory.VIDEO_DAO();					
 				video = vDAO.salvar(video);
