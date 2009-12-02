@@ -87,10 +87,10 @@ public class MYSQLEsseECraqueDAO implements EsseECraqueDAO {
 		try {
   
 			openConnection();
-			psmt = conn.prepareStatement("UPDATE TBL_VIDEO SET NR_STATUS = 1,VC_PATH_IMAGE = ?,VC_URL = ?  WHERE NR_ID_VIDEO_PK = ?");			
+			psmt = conn.prepareStatement("UPDATE TBL_VIDEO SET NR_STATUS = 1,VC_PATH_IMAGE = ? WHERE NR_ID_VIDEO_PK = ?");			
 			psmt.setString(1, "player.do?act=carregarArquivo&tpo=imagem&video=".concat(String.valueOf(videoVO.getIdVideo())));
-			psmt.setString(2, "player.do?act=carregarArquivo&tpo=video&video=".concat(String.valueOf(videoVO.getIdVideo())));
-			psmt.setLong(3, videoVO.getIdVideo());
+			
+			psmt.setLong(2, videoVO.getIdVideo());
 			
 			psmt.executeUpdate();	
 		

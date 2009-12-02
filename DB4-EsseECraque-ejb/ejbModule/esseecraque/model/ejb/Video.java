@@ -6,13 +6,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.logging.Logger;
 
 import esseecraque.model.dao.EsseECraqueDAO;
 import esseecraque.model.dao.MYSQLEsseECraqueDAO;
 import esseecraque.model.util.LoggerUtil;
 import esseecraque.model.util.Mailer;
-import esseecraque.model.util.SiteManager;
 import esseecraque.model.util.SysCommandExecutor;
 import esseecraque.model.vo.EmailVO;
 import esseecraque.model.vo.VideoVO;
@@ -56,18 +54,18 @@ public class Video {
 
 		// ***********PARÂMETROS DE ENCODING
 		
-		String videoBitrate = SiteManager.getInstance().getProperties().getProperty("video_bitrate");
-		String frameRate = SiteManager.getInstance().getProperties().getProperty("frame_rate");
-		String videoSize = SiteManager.getInstance().getProperties().getProperty("video_size");
-		String videoFormat = SiteManager.getInstance().getProperties().getProperty("video_format");
-		String audioCodec = SiteManager.getInstance().getProperties().getProperty("audio_codec");
-		String audioBitrate = SiteManager.getInstance().getProperties().getProperty("audio_bitrate");
-		String audioFrequency = SiteManager.getInstance().getProperties().getProperty("audio_frequency");
-		String audioChannels = SiteManager.getInstance().getProperties().getProperty("audio_channels");
-		String seek = SiteManager.getInstance().getProperties().getProperty("seek");
-		String highQuality = SiteManager.getInstance().getProperties().getProperty("high_quality");
-		String interlace = SiteManager.getInstance().getProperties().getProperty("interlace");
-		String docRoot 	= SiteManager.getInstance().getProperties().getProperty("docroot");
+		String videoBitrate = System.getProperty("video_bitrate");
+		String frameRate = System.getProperty("frame_rate");
+		String videoSize = System.getProperty("video_size");
+		String videoFormat = System.getProperty("video_format");
+		String audioCodec = System.getProperty("audio_codec");
+		String audioBitrate = System.getProperty("audio_bitrate");
+		String audioFrequency = System.getProperty("audio_frequency");
+		String audioChannels = System.getProperty("audio_channels");
+		String seek = System.getProperty("seek");
+		String highQuality = System.getProperty("high_quality");
+		String interlace = System.getProperty("interlace");
+		String docRoot 	= System.getProperty("docroot");
 
 		// **********************************
 		
@@ -157,8 +155,8 @@ public class Video {
 		
 	
 		
-		String pathServVideo = SiteManager.getInstance().getProperties().getProperty("pathServVideo");
-		String docRoot 	= SiteManager.getInstance().getProperties().getProperty("docroot");
+		String pathServVideo = System.getProperty("pathServVideo");
+		String docRoot 	= System.getProperty("docroot");
 		
 		File servidorVideo = new File(pathServVideo);
 		File destino = new File(servidorVideo, videoVO.getPathDestino());
@@ -211,16 +209,16 @@ public class Video {
 		
 		String msgEmail = null;
 		if(isSucesso){
-			msgEmail = SiteManager.getInstance().getProperties().getProperty("msgVideoSucesso");
+			msgEmail = System.getProperty("msgVideoSucesso");
 		}else{
-			msgEmail = SiteManager.getInstance().getProperties().getProperty("msgVideoErro").concat(throwable.getMessage());
+			msgEmail = System.getProperty("msgVideoErro").concat(throwable.getMessage());
 		}
 										
 		EmailVO email = new EmailVO();
 		email.setCorpo(msgEmail);
-		email.setTitulo(SiteManager.getInstance().getProperties().getProperty("msgVideoTitulo"));
+		email.setTitulo(System.getProperty("msgVideoTitulo"));
 		email.setDestinatario(dao.consultaEmailAssinante(videoVO.getIdAssinante()));
-		email.setRemetente(SiteManager.getInstance().getProperties().getProperty("emailRemetente"));
+		email.setRemetente(System.getProperty("emailRemetente"));
 
 		Mailer.getInstance().sendMsg(email);
 	}	
