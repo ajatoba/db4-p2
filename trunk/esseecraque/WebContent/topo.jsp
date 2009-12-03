@@ -99,20 +99,18 @@
 		        <tr>
 		        	<td width="204" class="txt_logs">&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp; <html:link page="/editarPerfilForm.do" styleClass="menu_topo">Editar perfil</html:link></td>
 		        </tr>
-		        <tr>
-		        	<td width="204" class="txt_logs">&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp; <html:link page="/cadVideoForm.do" styleClass="menu_topo">Subir Vídeo</html:link></td>
-		        </tr>
+		
 		        <tr>
 		        	<td width="204" class="txt_logs">&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp; <html:link page="/assinante.do?act=logout" styleClass="menu_topo">Sair</html:link></td>
 		        </tr>
 			</table>
-			<!-- 
+			
 			<div style="width:204px;">
 				<html:link page="/cadVideoForm.do" styleClass="menu_topo">
 					<html:image src="/eec/_imgs/publicar.jpg" styleClass="linkado" />
 				</html:link>
 			</div>  
-			-->
+			
 			
 			</logic:present>
 			<!-- ******** ***************** *************** -->
