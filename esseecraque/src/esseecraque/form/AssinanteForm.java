@@ -1,5 +1,7 @@
 package esseecraque.form;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.servlet.http.HttpServletRequest;
 
@@ -27,8 +29,46 @@ public class AssinanteForm extends ActionForm{
 	private String position;
 	private String comment;
 	private String tournaments;
-	private String teams;
+	private String teams;	
 	
+	private int diaNascimento;
+	private int mesNascimento;
+	private int anoNascimento;
+	private String phoneNumber;
+	private Date birthDate = new Date(anoNascimento-1900, mesNascimento-1, diaNascimento);
+	
+	
+	public Date getBirthDate() {
+		return birthDate;
+	}
+	public void setBirthDate(Date birthDate) {
+		this.birthDate = birthDate;
+	}
+	
+	public int getDiaNascimento() {
+		return diaNascimento;
+	}
+	public void setDiaNascimento(int diaNascimento) {
+		this.diaNascimento = diaNascimento;
+	}
+	public int getMesNascimento() {
+		return mesNascimento;
+	}
+	public void setMesNascimento(int mesNascimento) {
+		this.mesNascimento = mesNascimento;
+	}
+	public int getAnoNascimento() {
+		return anoNascimento;
+	}
+	public void setAnoNascimento(int anoNascimento) {
+		this.anoNascimento = anoNascimento;
+	}
+	public String getPhoneNumber() {
+		return this.phoneNumber;
+	}
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
 	public Long getId(){
 		return id;
 	}
