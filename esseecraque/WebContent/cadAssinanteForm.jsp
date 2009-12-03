@@ -70,6 +70,27 @@
 	<td valign="middle" class="valida_form"><html:errors  property="erro.vcNomeAssinante" /></td>   
 </tr>
 <tr>   
+    <td valign="middle" class="form_nome">Data de Nascimento:</td>   
+    <td valign="middle"><html:text property="diaNascimento" styleClass="form_campo_nome" />/
+    <html:select property="mesNascimento" styleClass="form_campo_posicao">    	
+		<html:option  value="1">Jan</html:option>
+		<html:option  value="2">Fev</html:option>
+		<html:option  value="3">Mar</html:option>
+		<html:option  value="4">Abr</html:option>
+		<html:option  value="5">Mai</html:option>
+		<html:option  value="6">Jun</html:option>
+		<html:option  value="7">Jul</html:option>
+		<html:option  value="8">Ago</html:option>
+		<html:option  value="9">Set</html:option>
+		<html:option  value="10">Out</html:option>
+		<html:option  value="11">Nov</html:option>
+		<html:option  value="12">Dez</html:option>
+	</html:select>
+		/
+		<html:text property="anoNascimento" styleClass="form_campo_nome" /></td>
+	<td valign="middle" class="valida_form"></td>   
+</tr>
+<tr>   
     <td valign="middle" class="form_nome">CPF:</td>   
     <td valign="middle"><html:text property="cpf" styleClass="form_campo_nome" /></td>
 	<td valign="middle" class="valida_form"><html:errors  property="erro.vcCPFAssinante" /></td>   
@@ -118,6 +139,11 @@
 	</html:select>
     </td>
 	<td valign="middle" class="valida_form"><html:errors  property="erro.vcEstadoAssinante" /></td>   
+</tr>
+<tr>   
+    <td valign="middle" class="form_nome">Telefone (DD-XXXX-XXXX):</td>   
+    <td valign="middle"><html:text property="phoneNumber" styleClass="form_campo_nome" /></td>
+	<td valign="middle" class="valida_form"></td>   
 </tr>
 <tr>   
     <td width="74" valign="top" class="form_nome">Altura:</td>   
