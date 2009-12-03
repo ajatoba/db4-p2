@@ -20,6 +20,8 @@
 		<mapping class="esseecraque.bean.Assinante" /> 
 		<mapping class="esseecraque.bean.Video" />
 		<mapping class="esseecraque.bean.Voto" />
+		<mapping class="esseecraque.bean.Clube" />
+		<mapping class="esseecraque.bean.Torneio" />
 		<mapping class="esseecraque.bean.PersistentObject"/>
 		
 		<event type="post-update">
