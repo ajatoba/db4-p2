@@ -105,36 +105,24 @@ public class Assinante extends PersistentObject implements Serializable{
 	@Column(name="VC_PHONE")
 	private String phoneNumber;
 	
-	/*
-	private int diaNascimento = birthDate.getDate();
-	private int mesNascimento = birthDate.getMonth();
-	private int anoNascimento = birthDate.getYear();
+	@ContainedIn
+	@OneToMany(mappedBy="assinante", fetch=FetchType.LAZY)
+	@Cascade(CascadeType.ALL)
+	private List<Clube> clubes;
+
+	@ContainedIn
+	@OneToMany(mappedBy="assinante", fetch=FetchType.LAZY)
+	@Cascade(CascadeType.ALL)
+	private List<Torneio> torneios;
 	
-	
-	public int getDiaNascimento() {
-		return diaNascimento;
+	public List<Clube> getClubes() {
+		return clubes;
 	}
 
-	public void setDiaNascimento(int diaNascimento) {
-		this.diaNascimento = diaNascimento;
+	public void setClubes(List<Clube> clubes) {
+		this.clubes = clubes;
 	}
 
-	public int getMesNascimento() {
-		return mesNascimento;
-	}
-
-	public void setMesNascimento(int mesNascimento) {
-		this.mesNascimento = mesNascimento;
-	}
-
-	public int getAnoNascimento() {
-		return anoNascimento;
-	}
-
-	public void setAnoNascimento(int anoNascimento) {
-		this.anoNascimento = anoNascimento;
-	}
-*/
 	public Date getBirthDate() {
 		return birthDate;
 	}
