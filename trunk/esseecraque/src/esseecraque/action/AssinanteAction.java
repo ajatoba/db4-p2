@@ -77,6 +77,12 @@ public final class AssinanteAction extends DispatchAction{
 	        
 	        a.setDataCadastro(strData); 
 			
+	        //DATA ANIVERSÁRIO
+			java.util.Date birthDate = new java.util.Date((aForm.getAnoNascimento()-1900), (aForm.getMesNascimento()-1), aForm.getDiaNascimento());   
+            
+	        a.setBirthDate(birthDate); 
+	        a.setPhoneNumber(aForm.getPhoneNumber());
+	        
 	        //********** CRIANDO DIRETÓRIO DO USUÁRIO ***********
 
 			
