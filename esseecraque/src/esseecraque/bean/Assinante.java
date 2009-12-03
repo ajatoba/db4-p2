@@ -2,6 +2,7 @@ package esseecraque.bean;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 
@@ -96,6 +97,60 @@ public class Assinante extends PersistentObject implements Serializable{
 	@Column(name="VC_TEAMS")
 	private String teams;
 	
+	@Field(index=Index.TOKENIZED, store=Store.YES)
+	@Column(name="DT_BIRTHDATE")
+	private Date birthDate;
+	
+	@Field(index=Index.TOKENIZED, store=Store.YES)
+	@Column(name="VC_PHONE")
+	private String phoneNumber;
+	
+	/*
+	private int diaNascimento = birthDate.getDate();
+	private int mesNascimento = birthDate.getMonth();
+	private int anoNascimento = birthDate.getYear();
+	
+	
+	public int getDiaNascimento() {
+		return diaNascimento;
+	}
+
+	public void setDiaNascimento(int diaNascimento) {
+		this.diaNascimento = diaNascimento;
+	}
+
+	public int getMesNascimento() {
+		return mesNascimento;
+	}
+
+	public void setMesNascimento(int mesNascimento) {
+		this.mesNascimento = mesNascimento;
+	}
+
+	public int getAnoNascimento() {
+		return anoNascimento;
+	}
+
+	public void setAnoNascimento(int anoNascimento) {
+		this.anoNascimento = anoNascimento;
+	}
+*/
+	public Date getBirthDate() {
+		return birthDate;
+	}
+
+	public void setBirthDate(Date birthDate) {
+		this.birthDate = birthDate;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
 	public List<Video> getVideos() {
 		return Videos;
 	}
