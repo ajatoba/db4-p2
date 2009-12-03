@@ -10,6 +10,103 @@
 <link href="/eec/_css/cadastro.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="/eec/js/jquery-1.2.6-packed.js"></script>
 <script type="text/javascript" src="/eec/js/slide.noconflict.js"></script>
+
+<script language="Javascript">
+
+function addInput(divPai,nomeElemento,numeroDeFilhos,sizeInput) {		
+		var DivElementoPai = document.getElementById(divPai);
+		// somo mais 1 para que o elemento comece com name=elemento[1]
+		// pois por padrão já existe um elemento com name=elemento[0]
+		var elementos = DivElementoPai.childNodes.length+1;
+		var elementInput 		= document.getElementById(nomeElemento+'[0]');
+		var cidadeClubeInput 	= document.getElementById('cidade_clube[0]');
+		var anoInicioClubeInput = document.getElementById('ano_inicio_clube[0]');
+		var anoFimClubeInput 	= document.getElementById('ano_fim_clube[0]');
+
+		if(elementInput.value != ""){
+						
+			if (DivElementoPai.childNodes.length < numeroDeFilhos){ 	            
+				var NovoDiv = document.createElement('div');
+
+				var valorElementoImput 			= elementInput.value;
+				var valorCidadeClubeInput 		= cidadeClubeInput.value;
+				var valorAnoInicioClubeInput 	= anoInicioClubeInput.value;
+				var valorAnoFimClubeInput 		= anoFimClubeInput.value;
+				
+				elementInput.value = "";					
+				NovoDiv.setAttribute("id",nomeElemento+elementos);
+				NovoDiv.setAttribute("valign","top");					
+				NovoDiv.innerHTML  = "<input type=\"text\" readonly=\"true\" name=\"nome_clube\"       id=\"nome_clube\"       value=\" "+ valorElementoImput+" \" size=\"45\"> ";
+				NovoDiv.innerHTML += "<input type=\"text\" readonly=\"true\" name=\"cidade_clube\"     id=\"cidade_clube\"     value=\" "+ valorCidadeClubeInput + " \"     size=\"45\"> ";
+				NovoDiv.innerHTML += "<input type=\"text\" readonly=\"true\" name=\"ano_inicio_clube\" id=\"ano_inicio_clube\" value=\" "+ valorAnoInicioClubeInput + "\"  size=\"5\"> a ";
+				NovoDiv.innerHTML += "<input type=\"text\" readonly=\"true\" name=\"ano_fim_clube\"    id=\"ano_fim_clube\"    value=\" "+ valorAnoFimClubeInput + " \"     size=\"5\"> ";
+				NovoDiv.innerHTML += "<input type=\"button\" value=\"X\" onClick=\"delElemento('"+divPai+ "','"+nomeElemento+elementos+"')\"\><br> ";					
+
+				DivElementoPai.appendChild(NovoDiv);	
+
+				//LIMPANDO OS CAMPOS
+				elementInput.value			="";
+				cidadeClubeInput.value		="";
+				anoInicioClubeInput.value	="";
+				anoFimClubeInput.value		="";	            
+         }
+     }
+ }
+
+function addTorneios(divPai,nomeElemento,numeroDeFilhos,sizeInput) {		
+	var DivElementoPai = document.getElementById(divPai);
+	// somo mais 1 para que o elemento comece com name=elemento[1]
+	// pois por padrão já existe um elemento com name=elemento[0]
+	var elementos = DivElementoPai.childNodes.length+1;
+	var elementInput 		= document.getElementById(nomeElemento+'[0]');
+	var clubeTorneioInput 	= document.getElementById('clube_torneio[0]');
+	var cidadeTorneioInput 	= document.getElementById('cidade_torneio[0]');
+	var anoTorneioInput 	= document.getElementById('ano_torneio[0]');
+
+	if(elementInput.value != ""){
+					
+		if (DivElementoPai.childNodes.length < numeroDeFilhos){ 	            
+			var NovoDiv = document.createElement('div');
+
+			var valorElementoImput 			= elementInput.value;
+			var valorClubeTorneioInput 		= clubeTorneioInput.value;
+			var valorCidadeTorneioInput 	= cidadeTorneioInput.value;
+			var valorAnoTorneioInput 		= anoTorneioInput.value;
+			
+			elementInput.value = "";					
+			NovoDiv.setAttribute("id",nomeElemento+elementos);
+			NovoDiv.setAttribute("valign","top");					
+			NovoDiv.innerHTML  = "<input type=\"text\" readonly=\"true\" name=\"nome_torneio\"       id=\"nome_torneio\"     value=\" "+ valorElementoImput+" \" 			size=\"45\"> ";
+			NovoDiv.innerHTML += "<input type=\"text\" readonly=\"true\" name=\"cidade_torneio\"     id=\"cidade_torneio\"   value=\" "+ valorCidadeTorneioInput + " \"     size=\"45\"> ";
+			NovoDiv.innerHTML += "<input type=\"text\" readonly=\"true\" name=\"clube_torneio\"      id=\"clube_torneio\"    value=\" "+ valorClubeTorneioInput + "\"  		size=\"45\"> ";
+			NovoDiv.innerHTML += "<input type=\"text\" readonly=\"true\" name=\"ano_torneio\"    	 id=\"ano_torneio\"      value=\" "+ valorAnoTorneioInput + " \"     	size=\"5\"> ";
+			NovoDiv.innerHTML += "<input type=\"button\" value=\"X\" onClick=\"delElemento('"+divPai+ "','"+nomeElemento+elementos+"')\"\><br> ";					
+
+			DivElementoPai.appendChild(NovoDiv);	
+
+			//LIMPANDO OS CAMPOS
+			elementInput.value			="";
+			cidadeTorneioInput.value	="";
+			clubeTorneioInput.value		="";
+			anoTorneioInput.value		="";	            
+     }
+ }
+}
+
+
+ function delElemento(divPai,divNum){
+     var d = document.getElementById(divPai);
+     var oldElem = document.getElementById(divNum);
+     	
+     if (confirm('Tem certeza que quer apagar: \n'+"\""+oldElem.firstChild.value+"\" ?")) {
+         //remove o elemento 
+         d.removeChild(oldElem);
+     }
+ }
+
+</script>
+
+
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
 </head>
 <body>
@@ -87,7 +184,40 @@
 		<html:option  value="12">Dez</html:option>
 	</html:select>
 		/
-		<html:text property="anoNascimento" styleClass="form_campo_nome" /></td>
+	<html:select property="anoNascimento" styleClass="form_campo_posicao">    	
+		<html:option  value="1977">1977</html:option>
+		<html:option  value="1978">1978</html:option>
+		<html:option  value="1979">1979</html:option>
+		<html:option  value="1980">1980</html:option>
+		<html:option  value="1981">1981</html:option>
+		<html:option  value="1982">1982</html:option>
+		<html:option  value="1983">1983</html:option>
+		<html:option  value="1984">1984</html:option>
+		<html:option  value="1985">1985</html:option>
+		<html:option  value="1986">1986</html:option>
+		<html:option  value="1987">1987</html:option>
+		<html:option  value="1988">1988</html:option>
+		<html:option  value="1989">1989</html:option>
+		<html:option  value="1990">1990</html:option>
+		<html:option  value="1991">1991</html:option>
+		<html:option  value="1992">1992</html:option>
+		<html:option  value="1993">1993</html:option>
+		<html:option  value="1994">1994</html:option>
+		<html:option  value="1995">1995</html:option>
+		<html:option  value="1996">1996</html:option>
+		<html:option  value="1997">1997</html:option>
+		<html:option  value="1998">1998</html:option>
+		<html:option  value="1999">1999</html:option>
+		<html:option  value="2000">2000</html:option>
+		<html:option  value="2001">2001</html:option>
+		<html:option  value="2002">2002</html:option>
+		<html:option  value="2003">2003</html:option>
+		<html:option  value="2004">2004</html:option>
+		<html:option  value="2005">2005</html:option>
+		<html:option  value="2006">2006</html:option>
+		<html:option  value="2007">2007</html:option>
+	</html:select>
+	</td>
 	<td valign="middle" class="valida_form"></td>   
 </tr>
 <tr>   
@@ -172,7 +302,81 @@
     <td valign="middle" class="form_nome">URL do assinante:</td>   
     <td valign="middle">http://www.esseecraque.com.br/<html:text property="username" styleClass="form_campo_path" /></td>
 	<td valign="middle" class="valida_form"><html:errors  property="erro.vcUsername" /></td>   
-</tr>          
+</tr>
+
+<tr>
+	<td colspan="3">
+		 <table>
+		 	<tr align="center">
+		 		<td valign="top">Clubes em que Joguei:</td>
+		 	</tr>
+		 	<tr> 		
+		 		<td valign="top">
+		 			<table>
+		 				<tr>
+		 					<td>Clube:</td>
+		 					<td><input name="clube[0]" id="clube[0]" size="45" type="text"></td>
+		 				</tr>
+		 				<tr>
+		 					<td>Cidade:</td>
+		 					<td><input name="cidade_clube[0]" id="cidade_clube[0]" size="45" type="text"></td>
+		 				</tr>
+		 				<tr>
+		 					<td>Período:</td>
+		 					<td><input name="ano_inicio_clube[0]" id="ano_inicio_clube[0]" size="5" type="text"> a <input name="ano_fim_clube[0]" id="ano_fim_clube[0]" size="5" type="text"></td>
+		 				</tr>
+		 				<tr>
+		 					<TD colspan="2"><input type="button" name="add" value="+" onclick="addInput('divClubes','clube',4,45)" ></TD>
+		 				</tr>
+		 			</table>						  
+		 			
+		 			<div id="divClubes"></div>
+		 		</td>		
+		 	</tr>
+		 </table>				
+	
+	</td>
+</tr>
+<tr>
+	<td colspan="3">
+	
+		<table>
+		 	<tr align="center">
+		 		<td valign="top">Torneios que Participei:</td>
+		 	</tr>
+		 	<tr> 		
+		 		<td valign="top">
+		 			<table>
+		 				<tr>
+		 					<td>Nome do Torneio:</td>
+		 					<td><input name="torneio[0]" id="torneio[0]" size="45" type="text"></td>
+		 				</tr>
+		 				<tr>
+		 					<td>Clube que defendi:</td>
+		 					<td><input name="clube_torneio[0]" id="clube_torneio[0]" size="45" type="text"></td>
+		 				</tr>
+		 				<tr>
+		 					<td>Cidade:</td>
+		 					<td><input name="cidade_torneio[0]" id="cidade_torneio[0]" size="45" type="text"></td>
+		 				</tr>
+		 				<tr>
+		 					<td>Ano:</td>
+		 					<td><input name="ano_torneio[0]" id="ano_torneio[0]" size="5" type="text"></td>
+		 				</tr>
+		 				<tr>
+		 					<TD colspan="2"><input type="button" name="add" value="+" onclick="addTorneios('divTorneios','torneio',4,45)" ></TD>
+		 				</tr>
+		 			</table>						  
+		 			
+		 			<div id="divTorneios"></div>
+		 		</td>		
+		 	</tr>
+		 </table>
+		
+	
+	</td>
+</tr>
+          
 </table>   
 <html:submit styleClass="botao"><bean:message key="botao.submit"/>
 </html:submit>
