@@ -24,17 +24,7 @@
 	<div id="meio">
 		<div id="esquerda">
 
-			<dt class="box_busca">
-				<form action="busca.do?act=search" method="post">
-					<div class="sep_busca"></div>
-					<div class="txt_busca">
-						<input type="text" name="busca" Class="txt_buscar" />
-					</div>
-					<div class="btn_busca">
-						<input type="image" src="/eec/_imgs/btnbusca.jpg" name="Submit" Class="linkado" />
-					</div>
-				</form>
-			</dt>
+			
 
 			<table border="0" cellpadding="0" cellspacing="0" align="center">
 				<tr>
@@ -51,63 +41,51 @@
 				</tr>
 			</table>
 
-			<dt class="player">
-
-<!-- INICIO PLAYER -->
-
-<embed allowFullScreen='true'src='player.swf?movie=videos/100000001.flv&autoplay=off' quality='high' bgcolor='#000000' width='640' height='419'align='middle' allowScriptAccess='sameDomain'type='application/x-shockwave-flash' wmode='transparent' />
-
-<!-- FIM PLAYER -->	
-
-			</dt>
-			<dt class="desc_player">
-				<div class="dir_desc">
-					<div class="data_pl">09/06/2009 10:26</div>
-					<div class="desc_pl">Edson dos Santos em pedala e da show de bola</div>
-					<div class="data_pl">Compartilhar o vídeo (copie e cole a URL)</div>
-					<div class="fundo_desc">http://www.orkut.com/watch?=4fsfafdge</div>
-				</div>
-				<div class="meio_desc">
-					<div><img src="/eec/_imgs/votar.jpg" class="linkado"/></div>
-					<div><img src="/eec/_imgs/ver_perfil.jpg" class="mgn5_linkado"/></div>
-				</div>
-				<div class="esq_desc">
-					<div>Disponível para contratação</div>
-				</div>
-			</dt>
-			<dt id="ultimos_videos">
+	<div id="flash_home"></div>
+			
 
 <!-- INÍCIO GALERIA ÚLTIMOS VÍDEOS -->
 
-<img src="/eec/_imgs/ultimos_videos.jpg" />
+<div id="ultimos_videos">
+<div id="top_ultimos_videos"></div>
+<!--THUMBS-->
+<div id="lista_videos">
+<div class="box_videos">
+<dt class="thumb"><img src="/eec/_imgs/foto.jpg" width="128" height="87" /></dt>
+<dt class="desc_video">
+<span class="data_thumb">29/05/2008</span>&nbsp;<span class="txt_thumb">-&nbsp;Gols de Ziggy "O Cara" dos gols mais bonitos da pelada...</span>
+</dt>
+<div class="thumb_no_over" onmouseover="this.className='thumb_over';" onmouseout="this.className='thumb_no_over';"></div>
+</div>
 
-<div id="image-gallery-wrapper">
-	<script type="text/javascript">
-	stepcarousel.setup({
-		galleryid: 'image-gallery', //id of carousel DIV
-		beltclass: 'belt', //class of inner "belt" DIV containing all the panel DIVs
-		panelclass: 'panel', //class of panel DIVs each holding content
-		panelbehavior: {speed:500, wraparound:true, persist:true},
-		defaultbuttons: {enable: false},
-		statusvars: ['statusA', 'statusB', 'statusC'], //register 3 variables that contain current panel (start), current panel (last), and total panels
-		contenttype: ['external'] //content setting ['inline'] or ['external', 'path_to_external_file']
-	})
-	
-	</script>
-	
-<div id="image-gallery" class="stepcarousel">
-	<div class="belt">
-
-<jsp:include page="ultimosVideos.html" />
-
+<div class="box_videos2">
+<dt class="thumb"><img src="/eec/_imgs/foto.jpg" width="128" height="87" /></dt>
+<dt class="desc_video">
+<span class="data_thumb">29/05/2008</span>&nbsp;<span class="txt_thumb">-&nbsp;Gols de Ziggy "O Cara" dos gols mais bonitos da pelada...</span>
+</dt>
+<div class="thumb_no_over" onmouseover="this.className='thumb_over';" onmouseout="this.className='thumb_no_over';"></div>
+</div>
+<div class="box_videos2">
+<dt class="thumb"><img src="/eec/_imgs/foto.jpg" width="128" height="87" /></dt>
+<dt class="desc_video">
+<span class="data_thumb">29/05/2008</span>&nbsp;<span class="txt_thumb">-&nbsp;Gols de Ziggy "O Cara" dos gols mais bonitos da pelada...</span>
+</dt>
+<div class="thumb_no_over" onmouseover="this.className='thumb_over';" onmouseout="this.className='thumb_no_over';"></div>
+</div>
+<div class="box_videos2">
+<dt class="thumb"><img src="/eec/_imgs/foto.jpg" width="128" height="87" /></dt>
+<dt class="desc_video">
+<span class="data_thumb">29/05/2008</span>&nbsp;<span class="txt_thumb">-&nbsp;Gols de Ziggy "O Cara" dos gols mais bonitos da pelada...</span>
+</dt>
+<div class="thumb_no_over" onmouseover="this.className='thumb_over';" onmouseout="this.className='thumb_no_over';"></div>
 </div>
 </div>
-	<a class="prev" href="javascript:stepcarousel.stepBy('image-gallery', -5)">Prev</a>
-	<a class="next" href="javascript:stepcarousel.stepBy('image-gallery', 5)">Next</a>
+<!---->
+
 </div>
 
 <!-- FIM GALERIA ÚLTIMOS VÍDEOS -->
-			</dt>
+			
 
 
 			<dt class="banner2"><img src="/eec/_imgs/bannergrande.jpg" class="linkado"/><img src="/eec/_imgs/txt_pub.jpg" /></dt>
@@ -115,9 +93,37 @@
 		
 		<div id="direita">
 		
+<!--BUSCA SIMPLES-->
+<div id="box_busca">
+<div id="top_busca"></div>
+<div id="form">
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td class="texto_form">Altura&nbsp;<input name="" type="text" class="campos" />&nbsp;a&nbsp;<input name="" type="text" class="campos" /> metros</td>
+  </tr>
+  <tr>
+    <td class="texto_form">Peso &nbsp;&nbsp;<input name="" type="text" class="campos" />&nbsp;a&nbsp;<input name="" type="text" class="campos" /> kilos</td>
+  </tr>
+  <tr>
+    <td class="texto_form">Idade&nbsp;&nbsp;<input name="" type="text" class="campos" />&nbsp;a&nbsp;<input name="" type="text" class="campos" /> anos</td>
+  </tr>
+  <tr>
+    <td class="texto_form">Posição&nbsp;&nbsp;<select name="" class="campos2"></select></td>
+  </tr>
+  <tr>
+    <td class="texto_form">Estado&nbsp;&nbsp;&nbsp;&nbsp;<select name="" class="campos2"></select></td>
+  </tr>
+</table>
+
+</div>
+<div id="btn"></div>
+
+</div>
+<!--FIM-->		
+		
 <!-- INCLUDE DOS VÍDEOS LATERAIS -->
 
-<jsp:include page="buscaAvancada.jsp" />
+<jsp:include page="newbuscaAvancada.jsp" />
 
 <!-- INCLUDE DOS VÍDEOS LATERAIS -->
 						
