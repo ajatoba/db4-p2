@@ -6,7 +6,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>      
 <title><bean:message key="titulo.paginas"/></title>
-<link href="/eec/_css/estilo.css" rel="stylesheet" type="text/css">
+<link href="http://dev2.esseecraque.com.br/eec/_css/estilo.css" rel="stylesheet" type="text/css">
+<link href="/eec/_css/slide.css"  rel="stylesheet" type="text/css">
 <link href="/eec/_css/slide.css"  rel="stylesheet" type="text/css">
 <script type="text/javascript" src="/eec/js/jquery-1.2.6-packed.js"></script>
 <script type="text/javascript" src="/eec/js/slide.noconflict.js"></script>
@@ -14,7 +15,7 @@
 </head>
 <body>
 
-<!-- INCLUDE HOME --> 
+<!-- INCLUDE HOME -->
 
 <jsp:include page="topo.jsp" />
 
@@ -94,40 +95,28 @@
 		<div id="direita">
 		
 <!--BUSCA SIMPLES-->
-<div id="box_busca">
-<div id="top_busca"></div>
-<div id="form">
-<table width="100%" border="0" cellspacing="10" cellpadding="0">
-  <tr>
-    <td class="texto_form">Altura&nbsp;<input name="" type="text" class="campos" />&nbsp;a&nbsp;<input name="" type="text" class="campos" /> metros</td>
-  </tr>
-  <tr>
-    <td class="texto_form">Peso &nbsp;&nbsp;<input name="" type="text" class="campos" />&nbsp;a&nbsp;<input name="" type="text" class="campos" /> kilos</td>
-  </tr>
-  <tr>
-    <td class="texto_form">Idade&nbsp;&nbsp;<input name="" type="text" class="campos" />&nbsp;a&nbsp;<input name="" type="text" class="campos" /> anos</td>
-  </tr>
-  <tr>
-    <td class="texto_form">Posição&nbsp;&nbsp;<select name="" class="campos2"></select></td>
-  </tr>
-  <tr>
-    <td class="texto_form">Estado&nbsp;&nbsp;&nbsp;&nbsp;<select name="" class="campos2"></select></td>
-  </tr>
-</table>
-
-</div>
-<div id="btn"></div>
-
+<div id="box_busca_simples">
+<form action="busca.do?act=search" method="post">
+        <div class="sep_busca"></div>
+        <div class="txt_busca">
+          <input type="text" name="busca" Class="txt_buscar" />
+        </div>
+        <div class="btn_busca"><input type="image" src="/eec/_imgs/btn_buscar.jpg" name="Submit" Class="linkado" /></div>
+</form>
 </div>
 <!--FIM-->		
 		
 <!-- INCLUDE DOS VÍDEOS LATERAIS -->
 
-<jsp:include page="newbuscaAvancada.jsp" />
+<jsp:include page="busca.jsp" />
 
 <!-- INCLUDE DOS VÍDEOS LATERAIS -->
 						
-			<dt class="banner"><img src="/eec/_imgs/banner.jpg" class="linkado"/></dt>
+			<div id="bnn_01"></div>
+			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
+			<div id="bnn_02"></div>
+			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
+			<div id="bnn_03"></div>
 			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
 			<dt><img src="/eec/_imgs/banner_redondo.jpg" class="linkado" /></dt>
 		</div>
