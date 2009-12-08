@@ -1,18 +1,17 @@
-     
-<link href="/eec/_css/estilo.css" rel="stylesheet" type="text/css">
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+
 <script>
 function submitBusca(){
 	document.busca.submit();
 }
 </script>
-<div id="lists">
 
-	 <dt class="fundo_abas">
-	    <!--TABELA DE BUSCA-->
-	
+<div id="box_busca">
+<div id="top_busca"></div>
+<div id="form">
+
+		<table width="100%" border="0" cellspacing="3" cellpadding="3">
 		<form action="listAssinantes.do?act=search" method="POST" name="busca" target="_parent">
-		<table width="300" border="0" cellspacing="3" cellpadding="3">
 		  <tr>
 		    <td width="64" class="txt_busca_avancada">Nome :</td>
 		  </tr>
@@ -43,13 +42,10 @@ function submitBusca(){
 		  </tr>
 		  <tr>    
 		    <td>
-		    <input  type="image" src="/eec/_imgs/btn_busca.jpg" name="button" id="button" value="Submit" onclick="javascript: submitBusca();" /></td>
-		  </tr>
+		    <div style=" margin-left:230px;"><input  type="image" src="/eec/_imgs/btn_buscar.jpg" name="button" id="button" value="Submit" onclick="javascript: submitBusca();" /></div></td>
+		  </tr></form>
 		</table>
-		</form>
-	          
-	          <!--FIM TABELA DE BUSCA-->
-	        </dt>
-	        
-	        
+		
+</div>
+
 </div>
