@@ -52,48 +52,36 @@
 					<div>Disponível para contratação</div>
 				</div>
 			</dt>
-			<dt id="ultimos_videos">
-
-<!-- INÍCIO GALERIA ÚLTIMOS VÍDEOS -->
-
-<img src="/eec/_imgs/ultimos_videos.jpg" />
-
-<div id="image-gallery-wrapper">
-	<script type="text/javascript">
-	stepcarousel.setup({
-		galleryid: 'image-gallery', //id of carousel DIV
-		beltclass: 'belt', //class of inner "belt" DIV containing all the panel DIVs
-		panelclass: 'panel', //class of panel DIVs each holding content
-		panelbehavior: {speed:500, wraparound:true, persist:true},
-		defaultbuttons: {enable: false},
-		statusvars: ['statusA', 'statusB', 'statusC'], //register 3 variables that contain current panel (start), current panel (last), and total panels
-		contenttype: ['external'] //content setting ['inline'] or ['external', 'path_to_external_file']
-	})
-	
-	</script>
-	
-<div id="image-gallery" class="stepcarousel">
-	<div class="belt">
-		<jsp:include page="ultimosVideos.html" />
-	</div>
-</div>
-	<a class="prev" href="javascript:stepcarousel.stepBy('image-gallery', -5)">Prev</a>
-	<a class="next" href="javascript:stepcarousel.stepBy('image-gallery', 5)">Next</a>
-</div>
-
-<!-- FIM GALERIA ÚLTIMOS VÍDEOS -->
-			</dt>
-<!-- INICIO DA GALERIA VÍDEOS MAIS VOTADOS -->
+			<!-- INCLUDE OUTROS VIDEOS USUÁRIO -->
+<jsp:include page="outros_videos_user.jsp"></jsp:include>
 
 			<dt class="banner2"><img src="/eec/_imgs/bannergrande.jpg" class="linkado"/><img src="/eec/_imgs/txt_pub.jpg" /></dt>
 		</div>
-		<div id="direita">
-			<!-- INCLUDE DOS VÍDEOS LATERAIS -->
+			<div id="direita">
+		
+<!--BUSCA SIMPLES-->
+<div id="box_busca_simples">
+<form action="busca.do?act=search" method="post">
+        <div class="sep_busca"></div>
+        <div class="txt_busca">
+          <input type="text" name="busca" Class="txt_buscar" />
+        </div>
+        <div class="btn_busca"><input type="image" src="/eec/_imgs/btn_buscar.jpg" name="Submit" Class="linkado" /></div>
+</form>
+</div>
+<!--FIM-->		
+		
+<!-- INCLUDE DOS VÍDEOS LATERAIS -->
 
-<jsp:include page="buscaAvancada.jsp" />
+<jsp:include page="busca.jsp" />
 
-<!-- INCLUDE DOS VÍDEOS LATERAIS -->	
-			<dt class="banner"><img src="/eec/_imgs/banner.jpg" class="linkado"/></dt>
+<!-- INCLUDE DOS VÍDEOS LATERAIS -->
+						
+			<div id="bnn_01"></div>
+			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
+			<div id="bnn_02"></div>
+			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
+			<div id="bnn_03"></div>
 			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
 			<dt><img src="/eec/_imgs/banner_redondo.jpg" class="linkado" /></dt>
 		</div>
