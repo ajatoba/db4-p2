@@ -23,7 +23,7 @@
 <div id="meio_fundo">
 	<div id="meio">
 		<div id="esquerda">
-		<div id="top_erro">
+		<div id="top_meus_videos">
 <div id="tit_meus_videos"></div>
 
 </div>
