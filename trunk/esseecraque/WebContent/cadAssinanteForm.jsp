@@ -212,7 +212,7 @@ function submitAssinante(){
 			<dt class="banner2"><img src="/eec/_imgs/bannergrande.jpg" class="linkado"/><img src="/eec/_imgs/txt_pub.jpg" /></dt>
 		</div>
 </div>
-
+<div id="direita">
 <div id="box_busca_simples">
 <form action="busca.do?act=search" method="post">
         <div class="sep_busca"></div>
