@@ -10,103 +10,18 @@
 <link href="/eec/_css/cadastro.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="/eec/js/jquery-1.2.6-packed.js"></script>
 <script type="text/javascript" src="/eec/js/slide.noconflict.js"></script>
-
-<script language="Javascript">
-
-function addInput(divPai,nomeElemento,numeroDeFilhos,sizeInput) {		
-		var DivElementoPai = document.getElementById(divPai);
-		// somo mais 1 para que o elemento comece com name=elemento[1]
-		// pois por padrão já existe um elemento com name=elemento[0]
-		var elementos = DivElementoPai.childNodes.length+1;
-		var elementInput 		= document.getElementById(nomeElemento+'[0]');
-		var cidadeClubeInput 	= document.getElementById('cidade_clube[0]');
-		var anoInicioClubeInput = document.getElementById('ano_inicio_clube[0]');
-		var anoFimClubeInput 	= document.getElementById('ano_fim_clube[0]');
-
-		if(elementInput.value != ""){
-						
-			if (DivElementoPai.childNodes.length < numeroDeFilhos){ 	            
-				var NovoDiv = document.createElement('div');
-
-				var valorElementoImput 			= elementInput.value;
-				var valorCidadeClubeInput 		= cidadeClubeInput.value;
-				var valorAnoInicioClubeInput 	= anoInicioClubeInput.value;
-				var valorAnoFimClubeInput 		= anoFimClubeInput.value;
-				
-				elementInput.value = "";					
-				NovoDiv.setAttribute("id",nomeElemento+elementos);
-				NovoDiv.setAttribute("valign","top");					
-				NovoDiv.innerHTML  = "<input type=\"text\" readonly=\"true\" name=\"nome_clube\"       id=\"nome_clube\"       value=\" "+ valorElementoImput+" \" size=\"45\"> ";
-				NovoDiv.innerHTML += "<input type=\"text\" readonly=\"true\" name=\"cidade_clube\"     id=\"cidade_clube\"     value=\" "+ valorCidadeClubeInput + " \"     size=\"45\"> ";
-				NovoDiv.innerHTML += "<input type=\"text\" readonly=\"true\" name=\"ano_inicio_clube\" id=\"ano_inicio_clube\" value=\" "+ valorAnoInicioClubeInput + "\"  size=\"5\"> a ";
-				NovoDiv.innerHTML += "<input type=\"text\" readonly=\"true\" name=\"ano_fim_clube\"    id=\"ano_fim_clube\"    value=\" "+ valorAnoFimClubeInput + " \"     size=\"5\"> ";
-				NovoDiv.innerHTML += "<input type=\"button\" value=\"X\" onClick=\"delElemento('"+divPai+ "','"+nomeElemento+elementos+"')\"\><br> ";					
-
-				DivElementoPai.appendChild(NovoDiv);	
-
-				//LIMPANDO OS CAMPOS
-				elementInput.value			="";
-				cidadeClubeInput.value		="";
-				anoInicioClubeInput.value	="";
-				anoFimClubeInput.value		="";	            
-         }
-     }
- }
-
-function addTorneios(divPai,nomeElemento,numeroDeFilhos,sizeInput) {		
-	var DivElementoPai = document.getElementById(divPai);
-	// somo mais 1 para que o elemento comece com name=elemento[1]
-	// pois por padrão já existe um elemento com name=elemento[0]
-	var elementos = DivElementoPai.childNodes.length+1;
-	var elementInput 		= document.getElementById(nomeElemento+'[0]');
-	var clubeTorneioInput 	= document.getElementById('clube_torneio[0]');
-	var cidadeTorneioInput 	= document.getElementById('cidade_torneio[0]');
-	var anoTorneioInput 	= document.getElementById('ano_torneio[0]');
-
-	if(elementInput.value != ""){
-					
-		if (DivElementoPai.childNodes.length < numeroDeFilhos){ 	            
-			var NovoDiv = document.createElement('div');
-
-			var valorElementoImput 			= elementInput.value;
-			var valorClubeTorneioInput 		= clubeTorneioInput.value;
-			var valorCidadeTorneioInput 	= cidadeTorneioInput.value;
-			var valorAnoTorneioInput 		= anoTorneioInput.value;
-			
-			elementInput.value = "";					
-			NovoDiv.setAttribute("id",nomeElemento+elementos);
-			NovoDiv.setAttribute("valign","top");					
-			NovoDiv.innerHTML  = "<input type=\"text\" readonly=\"true\" name=\"nome_torneio\"       id=\"nome_torneio\"     value=\" "+ valorElementoImput+" \" 			size=\"45\"> ";
-			NovoDiv.innerHTML += "<input type=\"text\" readonly=\"true\" name=\"cidade_torneio\"     id=\"cidade_torneio\"   value=\" "+ valorCidadeTorneioInput + " \"     size=\"45\"> ";
-			NovoDiv.innerHTML += "<input type=\"text\" readonly=\"true\" name=\"clube_torneio\"      id=\"clube_torneio\"    value=\" "+ valorClubeTorneioInput + "\"  		size=\"45\"> ";
-			NovoDiv.innerHTML += "<input type=\"text\" readonly=\"true\" name=\"ano_torneio\"    	 id=\"ano_torneio\"      value=\" "+ valorAnoTorneioInput + " \"     	size=\"5\"> ";
-			NovoDiv.innerHTML += "<input type=\"button\" value=\"X\" onClick=\"delElemento('"+divPai+ "','"+nomeElemento+elementos+"')\"\><br> ";					
-
-			DivElementoPai.appendChild(NovoDiv);	
-
-			//LIMPANDO OS CAMPOS
-			elementInput.value			="";
-			cidadeTorneioInput.value	="";
-			clubeTorneioInput.value		="";
-			anoTorneioInput.value		="";	            
-     }
- }
+<script language="javascript">
+function submitUser(){
+document.assinanteForm.opcao_cadastro.value="1";
+document.assinanteForm.submit();
 }
 
-
- function delElemento(divPai,divNum){
-     var d = document.getElementById(divPai);
-     var oldElem = document.getElementById(divNum);
-     	
-     if (confirm('Tem certeza que quer apagar: \n'+"\""+oldElem.firstChild.value+"\" ?")) {
-         //remove o elemento 
-         d.removeChild(oldElem);
-     }
- }
+function submitAssinante(){
+	document.assinanteForm.opcao_cadastro.value="2";
+	document.assinanteForm.submit();
+}
 
 </script>
-
-
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
 </head>
 <body>
@@ -144,13 +59,24 @@ function addTorneios(divPai,nomeElemento,numeroDeFilhos,sizeInput) {
 		</td>
 	</tr>
 </table>
-<html:form action="cadAssinante.do?act=add" focus="email" onsubmit="return validateAssinanteForm(this)">   
+<html:form action="cadAssinante.do?act=add">   
 <table border="0" cellpadding="3" cellspacing="3">
+<tr>   
+    <td valign="middle" class="form_nome">Nome:</td>   
+    <td valign="middle"><html:text property="nome" styleClass="form_campo_nome" /></td>
+	<td valign="middle" class="valida_form"><html:errors  property="erro.vcNomeAssinante" /></td>   
+</tr>
 <tr>   
     <td valign="middle" class="form_nome">E-mail:</td>   
     <td valign="middle"><html:text property="email" styleClass="form_campo_nome" /></td>
-	<td valign="middle" class="valida_form"><html:errors property="erro.vcEmailAssinante"  /></td>   
-</tr>   
+	<td valign="middle" class="valida_form"><html:errors property="erro.vcEmailAssinante"  /> 
+	</td>   
+</tr>
+<tr>   
+    <td valign="middle" class="form_nome">AIM:</td>   
+    <td valign="middle"><html:text property="aim" styleClass="form_campo_nome" /></td>
+	<td valign="middle" class="valida_form"></td>   
+</tr> 
 <tr>   
     <td valign="middle" class="form_nome">Senha:</td>   
     <td valign="middle"><html:password property="password" styleClass="form_campo_nome" /></td>
@@ -161,21 +87,17 @@ function addTorneios(divPai,nomeElemento,numeroDeFilhos,sizeInput) {
     <td valign="middle"><html:password property="confPassword" styleClass="form_campo_nome" /></td>
 	<td valign="middle" class="valida_form"><html:errors  property="erro.vcConfPasswordAssinante" /></td>   
 </tr>
-<tr>   
-    <td valign="middle" class="form_nome">Nome:</td>   
-    <td valign="middle"><html:text property="nome" styleClass="form_campo_nome" /></td>
-	<td valign="middle" class="valida_form"><html:errors  property="erro.vcNomeAssinante" /></td>   
-</tr>
+
 <tr>   
     <td valign="middle" class="form_nome">Data de Nascimento:</td>   
-    <td valign="middle"><html:text property="diaNascimento" styleClass="form_campo_nome" />/
+    <td valign="middle"><html:text property="diaNascimento" styleClass="form_campo_altura" value="" />/
     <html:select property="mesNascimento" styleClass="form_campo_posicao">    	
 		<html:option  value="1">Jan</html:option>
 		<html:option  value="2">Fev</html:option>
 		<html:option  value="3">Mar</html:option>
 		<html:option  value="4">Abr</html:option>
 		<html:option  value="5">Mai</html:option>
-		<html:option  value="6">Jun</html:option>
+		<html:option  value="6">Jun</html:option> 
 		<html:option  value="7">Jul</html:option>
 		<html:option  value="8">Ago</html:option>
 		<html:option  value="9">Set</html:option>
@@ -219,11 +141,6 @@ function addTorneios(divPai,nomeElemento,numeroDeFilhos,sizeInput) {
 	</html:select>
 	</td>
 	<td valign="middle" class="valida_form"></td>   
-</tr>
-<tr>   
-    <td valign="middle" class="form_nome">CPF:</td>   
-    <td valign="middle"><html:text property="cpf" styleClass="form_campo_nome" /></td>
-	<td valign="middle" class="valida_form"><html:errors  property="erro.vcCPFAssinante" /></td>   
 </tr>
 <tr>   
     <td valign="middle" class="form_nome">Endereço:</td>   
@@ -271,116 +188,40 @@ function addTorneios(divPai,nomeElemento,numeroDeFilhos,sizeInput) {
 	<td valign="middle" class="valida_form"><html:errors  property="erro.vcEstadoAssinante" /></td>   
 </tr>
 <tr>   
+    <td valign="middle" class="form_nome">País:</td>   
+    <td valign="middle"><html:text property="pais" styleClass="form_campo_nome" /></td>
+	<td valign="middle" class="valida_form"></td>   
+</tr>
+<tr>   
+    <td valign="middle" class="form_nome">CEP:</td>   
+    <td valign="middle"><html:text property="cep" styleClass="form_campo_nome" /></td>
+	<td valign="middle" class="valida_form"></td>   
+</tr>
+
+<tr>   
     <td valign="middle" class="form_nome">Telefone (DD-XXXX-XXXX):</td>   
     <td valign="middle"><html:text property="phoneNumber" styleClass="form_campo_nome" /></td>
 	<td valign="middle" class="valida_form"></td>   
 </tr>
 <tr>   
-    <td width="74" valign="top" class="form_nome">Altura:</td>   
-    <td width="408" valign="top" ><html:text property="height" styleClass="form_campo_altura" /></td>
-	<td width="44" valign="top" class="valida_form"></td>   
-</tr>   
-<tr>   
-    <td valign="top" class="form_nome">Peso:</td>   
-    <td valign="top"><html:text property="weight" styleClass="form_campo_altura" /></td>
-	<td valign="top" class="valida_form"></td>   
+    <td valign="middle" class="form_nome">Celular (DD-XXXX-XXXX):</td>   
+    <td valign="middle"><html:text property="cellPhoneNumber" styleClass="form_campo_nome" /></td>
+	<td valign="middle" class="valida_form"></td>   
 </tr>
 <tr>   
-    <td valign="top" class="form_nome">Posição:</td>   
-    <td valign="top">
-    <html:select property="position" styleClass="form_campo_posicao">
-    	<html:option value="GOL">Goleiro</html:option>
-    	<html:option value="ZAG">Zagueiro</html:option>
-    	<html:option value="LAT">Lateral</html:option>
-    	<html:option value="MEI">Meia</html:option>
-    	<html:option value="ATA">Atacante</html:option>
-    </html:select>
-    </td>
-	<td valign="top" class="valida_form"></td>   
+    <td valign="middle" class="form_nome">Nacionalidade:</td>   
+    <td valign="middle"><html:text property="nacionalidade" styleClass="form_campo_nome" /></td>
+	<td valign="middle" class="valida_form"></td>   
 </tr>
 <tr>   
     <td valign="middle" class="form_nome">URL do assinante:</td>   
     <td valign="middle">http://www.esseecraque.com.br/<html:text property="username" styleClass="form_campo_path" /></td>
 	<td valign="middle" class="valida_form"><html:errors  property="erro.vcUsername" /></td>   
 </tr>
-
-<tr>
-	<td colspan="3">
-		 <table>
-		 	<tr align="center">
-		 		<td valign="top">Clubes em que Joguei:</td>
-		 	</tr>
-		 	<tr> 		
-		 		<td valign="top">
-		 			<table>
-		 				<tr>
-		 					<td>Clube:</td>
-		 					<td><input name="clube[0]" id="clube[0]" size="45" type="text"></td>
-		 				</tr>
-		 				<tr>
-		 					<td>Cidade:</td>
-		 					<td><input name="cidade_clube[0]" id="cidade_clube[0]" size="45" type="text"></td>
-		 				</tr>
-		 				<tr>
-		 					<td>Período:</td>
-		 					<td><input name="ano_inicio_clube[0]" id="ano_inicio_clube[0]" size="5" type="text"> a <input name="ano_fim_clube[0]" id="ano_fim_clube[0]" size="5" type="text"></td>
-		 				</tr>
-		 				<tr>
-		 					<TD colspan="2"><input type="button" name="add" value="+" onclick="addInput('divClubes','clube',4,45)" ></TD>
-		 				</tr>
-		 			</table>						  
-		 			
-		 			<div id="divClubes"></div>
-		 		</td>		
-		 	</tr>
-		 </table>				
-	
-	</td>
-</tr>
-<tr>
-	<td colspan="3">
-	
-		<table>
-		 	<tr align="center">
-		 		<td valign="top">Torneios que Participei:</td>
-		 	</tr>
-		 	<tr> 		
-		 		<td valign="top">
-		 			<table>
-		 				<tr>
-		 					<td>Nome do Torneio:</td>
-		 					<td><input name="torneio[0]" id="torneio[0]" size="45" type="text"></td>
-		 				</tr>
-		 				<tr>
-		 					<td>Clube que defendi:</td>
-		 					<td><input name="clube_torneio[0]" id="clube_torneio[0]" size="45" type="text"></td>
-		 				</tr>
-		 				<tr>
-		 					<td>Cidade:</td>
-		 					<td><input name="cidade_torneio[0]" id="cidade_torneio[0]" size="45" type="text"></td>
-		 				</tr>
-		 				<tr>
-		 					<td>Ano:</td>
-		 					<td><input name="ano_torneio[0]" id="ano_torneio[0]" size="5" type="text"></td>
-		 				</tr>
-		 				<tr>
-		 					<TD colspan="2"><input type="button" name="add" value="+" onclick="addTorneios('divTorneios','torneio',4,45)" ></TD>
-		 				</tr>
-		 			</table>						  
-		 			
-		 			<div id="divTorneios"></div>
-		 		</td>		
-		 	</tr>
-		 </table>
-		
-	
-	</td>
-</tr>
-          
+<input type="hidden" name="opcao_cadastro" value="1"/>
 </table>   
-<html:submit styleClass="botao"><bean:message key="botao.submit"/>
-</html:submit>
-   
+<html:button property="" onclick="javascript:submitUser();">Finalizar Cadastro</html:button>
+<html:button property="" onclick="javascript:submitAssinante();">Sou Jogador</html:button>  
 </html:form>
 </dt>
 <dt class="desc_player">
@@ -405,84 +246,11 @@ function addTorneios(divPai,nomeElemento,numeroDeFilhos,sizeInput) {
 	</script>
 	
 <div id="image-gallery" class="stepcarousel">
+
 	<div class="belt">
-		<div class="panel">
-			<a href="#" title="Link 1" >
-				<img src="/eec/_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagem 1" class="imgs" />
-			</a>
-		</div>
-		<div class="panel">
-			<a href="#" title="Link 2" >
-				<img src="/eec/_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagem 2" class="imgs" />
-			</a>
-		</div>
-		<div class="panel">
-			<a href="#" title="Link 3" >
-				<img src="/eec/_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagem 3" class="imgs" />
-			</a>
-		</div>
-		<div class="panel">
-			<a href="#" title="Link 4" >
-				<img src="/eec/_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagm 4" class="imgs" />
-			</a>
-		</div>
-		<div class="panel">
-			<a href="#" title="Link 5" >
-				<img src="/eec/_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagem 5" class="imgs" />
-			</a>
-		</div>
-		<div class="panel">
-			<a href="#" title="Link 6" >
-				<img src="/eec/_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagem 6" class="imgs" />
-			</a>
-		</div>
-		<div class="panel">
-			<a href="#" title="Link 7" >
-				<img src="/eec/_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagem 7" class="imgs" />
-			</a>
-		</div>
-				<div class="panel">
-			<a href="#" title="Link 8" >
-				<img src="/eec/_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagem 8" class="imgs" />
-			</a>
-		</div>
-		<div class="panel">
-			<a href="#" title="Link 9" >
-				<img src="/eec/_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagem 9" class="imgs" />
-			</a>
-		</div>
-		<div class="panel">
-			<a href="#" title="Link 10" >
-				<img src="/eec/_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagem 10" class="imgs" />
-			</a>
-		</div>
-		<div class="panel">
-			<a href="#" title="Link 11" >
-				<img src="/eec/_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagm 11" class="imgs" />
-			</a>
-		</div>
-		<div class="panel">
-			<a href="#" title="Link 12" >
-				<img src="/eec/_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagem 12" class="imgs" />
-			</a>
-		</div>
-		<div class="panel">
-			<a href="#" title="Link 13" >
-				<img src="/eec/_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagem 13" class="imgs" />
-			</a>
-		</div>
-		<div class="panel">
-			<a href="#" title="Link 14" >
-				<img src="/eec/_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagem 14" class="imgs" />
-			</a>
-		</div>
-		<div class="panel">
-			<a href="#" title="Link 15" >
-				<img src="/eec/_imgs/img_videos.jpg" width="100" height="73" border="0" alt="Imagem 15" class="imgs" />
-			</a>
-		</div>
+	<jsp:include page="ultimosVideos.html" />
 	</div>
-</div>
+
 	<a class="prev" href="javascript:stepcarousel.stepBy('image-gallery', -5)">Prev</a>
 	<a class="next" href="javascript:stepcarousel.stepBy('image-gallery', 5)">Next</a>
 </div>
