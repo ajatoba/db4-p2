@@ -59,17 +59,17 @@ public class AssinanteDAOImpl implements AssinanteDAO{
 		session.getTransaction().commit();
 	}
 	
-	public List loginAssinante(String e, String p){
+	public Assinante loginAssinante(String e, String p){
 		HibernateUtil hu = new HibernateUtil();
 		session = hu.getSessionFactory().getCurrentSession();
-		session.beginTransaction();
-		Query q = session.createQuery("SELECT a FROM esseecraque.bean.Assinante a WHERE a.email= :txtemail AND a.password=:txtpassword");
+		session.beginTransaction();		
+		Query q = session.createQuery("SELECT a FROM Assinante a WHERE a.email= :txtemail AND a.password=:txtpassword");
 		q.setString("txtemail", e);
 		q.setString("txtpassword", p);
-		List resultado = q.list();
-		session.getTransaction().commit();
-		return resultado;
+		Assinante resultado = (Assinante)q.uniqueResult();
 		
+		session.getTransaction().commit();
+		return resultado;  
 	}
 	
 	public List buscarAssinante(int idAssinante){
