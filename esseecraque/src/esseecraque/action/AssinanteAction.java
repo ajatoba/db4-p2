@@ -7,7 +7,10 @@ import java.io.FileOutputStream;
 import java.io.PrintStream;
 import java.io.StringWriter;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,11 +29,14 @@ import org.hibernate.search.FullTextSession;
 import org.hibernate.search.Search;
 
 import esseecraque.bean.Assinante;
+import esseecraque.bean.Clube;
+import esseecraque.bean.Torneio;
 import esseecraque.dao.AssinanteDAO;
 import esseecraque.dao.DAOFactory;
 import esseecraque.dao.VideoDAO;
 import esseecraque.form.AssinanteForm;
 import esseecraque.form.AssinanteLoginForm;
+import esseecraque.form.PerfilForm;
 import esseecraque.util.Constants;
 import esseecraque.util.HibernateUtil;
 import esseecraque.util.SendMail;
@@ -58,33 +64,36 @@ public final class AssinanteAction extends DispatchAction{
 			
 			AssinanteForm aForm = (AssinanteForm) form;
 
+			a.setNome(aForm.getNome());
 			a.setEmail(aForm.getEmail());
 			a.setPassword(aForm.getPassword());
-			a.setNome(aForm.getNome());
-			a.setCpf(aForm.getCpf());
+			a.setAim(aForm.getAim());			
 			a.setEndereco(aForm.getEndereco());
 			a.setCidade(aForm.getCidade());
 			a.setEstado(aForm.getEstado());
-			a.setUsername(aForm.getUsername());
-			a.setHeight(aForm.getHeight());
-			a.setWeight(aForm.getWeight());
-			a.setPosition(aForm.getPosition());
+			a.setPais(aForm.getPais());
+			a.setCep(aForm.getCep());
+			a.setPhoneNumber(aForm.getPhoneNumber());
+			a.setCellPhoneNumber(aForm.getCellPhoneNumber());
+			a.setNacionalidade(aForm.getNacionalidade());
 			
-			//DATA ATUAL
+			//DATA ANIVERSÁRIO
+	        java.util.Date dataAniversario = new java.util.Date(aForm.getAnoNascimento()-1900, aForm.getMesNascimento()-1,aForm.getDiaNascimento());   
+            SimpleDateFormat formatoAniversario = new SimpleDateFormat("yyyy-MM-dd");  
+            String strDataAniversario = formatoAniversario.format(dataAniversario);
+			
+            a.setBirthDate(strDataAniversario);
+			
+            //DATA ATUAL
 			java.util.Date data = new java.util.Date();   
             SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");  
             String strData = formato.format(data);
 	        
 	        a.setDataCadastro(strData); 
-			
-	        //DATA ANIVERSÁRIO
-			java.util.Date birthDate = new java.util.Date((aForm.getAnoNascimento()-1900), (aForm.getMesNascimento()-1), aForm.getDiaNascimento());   
-            
-	        a.setBirthDate(birthDate); 
-	        a.setPhoneNumber(aForm.getPhoneNumber());
 	        
+	        a.setUsername(aForm.getUsername());		
+							        
 	        //********** CRIANDO DIRETÓRIO DO USUÁRIO ***********
-
 			
 			String docRoot 		= System.getProperty("docroot");
 			String userFolder 	= System.getProperty("user_folder");
@@ -122,8 +131,13 @@ public final class AssinanteAction extends DispatchAction{
 			
 			objSession.setAttribute(Constants.ASSINANTE_BEAN, a);
 			
-			req.setAttribute("mensagem_sucesso",messageResources.getMessage("msg.add.assinante.sucesso"));
-			return mapping.findForward(Constants.ADD_ASSINANTE_SUCESS);
+			if(req.getParameter("opcao_cadastro").equals("1")){			
+				req.setAttribute("mensagem_sucesso",messageResources.getMessage("msg.add.assinante.sucesso"));
+				return mapping.findForward(Constants.ADD_ASSINANTE_SUCESS);
+			}else {
+				return mapping.findForward(Constants.ADD_ASSINANTE_SUCESS_PERFIL);
+			}
+			
 			
 		}catch (FileNotFoundException fnfe) {
 			fnfe.printStackTrace();
@@ -131,8 +145,18 @@ public final class AssinanteAction extends DispatchAction{
 			return mapping.findForward(Constants.ADD_ASSINANTE_ERROR);
 			
 		} catch (Exception e) {
-			e.printStackTrace();			
-			req.setAttribute("mensagem_erro", e.getMessage());
+			e.printStackTrace();
+			if(e.getCause().getMessage().indexOf("Duplicate entry") >= 0 ){
+				if(e.getCause().getMessage().indexOf("for key 2") >= 0){
+					//E-mail Repetido
+					req.setAttribute("mensagem_erro",messageResources.getMessage("erro.emailRepetido"));					
+				}else if(e.getCause().getMessage().indexOf("for key 4") >= 0){
+					//URL Repetido
+					req.setAttribute("mensagem_erro",messageResources.getMessage("erro.urlRepetida"));					
+				}
+			}else{							
+				req.setAttribute("mensagem_erro", e.getMessage());				
+			}
 			return mapping.findForward(Constants.ADD_ASSINANTE_ERROR);
 		}finally{
 			if(os!=null) os.close();
@@ -141,6 +165,135 @@ public final class AssinanteAction extends DispatchAction{
 		}
 
 	}
+		
+	public ActionForward editPerfil(ActionMapping mapping, 
+			 ActionForm form, 
+			 HttpServletRequest req, 
+			 HttpServletResponse resp) throws Exception {
+	
+		HttpSession objSession = req.getSession();
+		
+		MessageResources messageResources = null;
+		
+		try {
+
+			messageResources = getResources(req);
+
+			Assinante a = (Assinante)objSession.getAttribute(Constants.ASSINANTE_BEAN);
+
+			PerfilForm aForm = (PerfilForm) form;
+			
+			a.setWeight(aForm.getWeight());
+			a.setHeight(aForm.getHeight());
+			a.setPosition(aForm.getPosition());
+			a.setComment(aForm.getComment());
+			a.setShowAim(aForm.isShowAim());
+			a.setShowCellPhone(aForm.isShowCellPhone());
+			a.setShowEmail(aForm.isShowEmail());
+			a.setShowPhone(aForm.isShowPhone());
+			
+			//CLUBES
+	        Set<Clube> clubes = new HashSet<Clube>();
+	        
+	        String[] nomeClube, cidadeClube, anoInicioClube, anoFimClube;
+	        
+	        nomeClube 		= req.getParameterValues("nome_clube");
+	        cidadeClube 	= req.getParameterValues("cidade_clube");
+	        anoInicioClube 	= req.getParameterValues("ano_inicio_clube");
+	        anoFimClube 	= req.getParameterValues("ano_fim_clube");
+	        
+	        Clube clube = null;
+	        if(nomeClube != null && nomeClube.length > 0){
+		        for(int x=0; x < nomeClube.length; x++){
+		        	clube = new Clube();
+		        	clube.setName(nomeClube[x]);
+		        	clube.setCity(cidadeClube[x]);
+		        	
+		        	try {
+		        		clube.setStartYear(Integer.parseInt(anoInicioClube[x]));
+			        	clube.setEndYear(Integer.parseInt(anoFimClube[x]));
+					} catch (NumberFormatException nfe) {
+						nfe.printStackTrace();			
+						req.setAttribute("mensagem_erro", messageResources.getMessage("msg.add.assinante.converter.anos.erro"));
+						return mapping.findForward(Constants.ADD_ASSINANTE_ERROR);
+					}catch (Exception e) {
+						e.printStackTrace();			
+						req.setAttribute("mensagem_erro", messageResources.getMessage("msg.add.assinante.converter.anos.erro"));
+						return mapping.findForward(Constants.ADD_ASSINANTE_ERROR);
+					}
+		        	
+					clube.setAssinante(a);
+		        	
+		        	clubes.add(clube);
+		        }
+		        
+		        a.setClubes(clubes);
+	        }
+	        
+	        
+	        //***************************************************
+	        
+	        //TORNEIOS
+	        Set<Torneio> torneios = new HashSet<Torneio>();
+	        
+	        String[] nomeTorneio, cidadeTorneio, anoTorneio, clubeTorneio;
+	        
+	        nomeTorneio 	= req.getParameterValues("nome_torneio");
+	        cidadeTorneio 	= req.getParameterValues("cidade_torneio");
+	        anoTorneio 		= req.getParameterValues("ano_torneio");
+	        clubeTorneio 	= req.getParameterValues("clube_torneio");
+	        
+	        Torneio torneio = null;
+	        if(nomeTorneio != null && nomeTorneio.length > 0){
+		        for(int x=0; x < nomeTorneio.length; x++){
+		        	torneio = new Torneio();
+		        	torneio.setName(nomeTorneio[x]);
+		        	torneio.setCity(cidadeTorneio[x]);
+		        	torneio.setTeam(clubeTorneio[x]);
+		        	try {
+		        		torneio.setYear(Integer.parseInt(anoTorneio[x]));		        	
+					} catch (NumberFormatException nfe) {
+						nfe.printStackTrace();			
+						req.setAttribute("mensagem_erro", messageResources.getMessage("msg.add.assinante.converter.anos.erro"));
+						return mapping.findForward(Constants.ADD_ASSINANTE_ERROR);
+					}catch (Exception e) {
+						e.printStackTrace();			
+						req.setAttribute("mensagem_erro", messageResources.getMessage("msg.add.assinante.converter.anos.erro"));
+						return mapping.findForward(Constants.ADD_ASSINANTE_ERROR);
+					}
+		        	
+					torneio.setAssinante(a);
+		        	
+		        	torneios.add(torneio);
+		        }
+	        
+		        a.setTorneios(torneios);
+	        }
+	        
+	        
+	        //***************************************************
+	        
+	        AssinanteDAO aDAO = DAOFactory.ASSINANTE_DAO();
+
+	        System.out.println("NOME:" + a.getNome());
+	        System.out.println("NACIONALIDADE:" + a.getNacionalidade());
+	        
+			aDAO.atualizar(a);
+			
+			objSession.setAttribute(Constants.ASSINANTE_BEAN, a);
+			
+			req.setAttribute("mensagem_sucesso",messageResources.getMessage("msg.edit.perfil.sucesso"));
+			return mapping.findForward(Constants.EDIT_PERFIL_SUCESS);
+	        
+		} catch (Exception e) {
+			e.printStackTrace();
+			req.setAttribute("mensagem_erro",e.getMessage());
+			return mapping.findForward(Constants.EDIT_PERFIL_ERROR);
+		}
+
+	}
+	
+
 	
 	public ActionForward edit(ActionMapping mapping, 
 			 ActionForm form, 
@@ -155,31 +308,36 @@ public final class AssinanteAction extends DispatchAction{
 
 			messageResources = getResources(req);
 
-			Assinante a = new Assinante();
+			Assinante a = (Assinante)objSession.getAttribute(Constants.ASSINANTE_BEAN);
 
 			AssinanteForm aForm = (AssinanteForm) form;
-
-			a.setId(aForm.getId());
-			a.setEmail(aForm.getEmail());
-			a.setPassword(aForm.getPassword());
+			
 			a.setNome(aForm.getNome());
-			a.setCpf(aForm.getCpf());
+			a.setEmail(aForm.getEmail());
+			a.setAim(aForm.getAim());			
 			a.setEndereco(aForm.getEndereco());
 			a.setCidade(aForm.getCidade());
 			a.setEstado(aForm.getEstado());
-			a.setDataCadastro(aForm.getDataCadastro());
-			a.setUsername(aForm.getUsername());
-			a.setHeight(aForm.getHeight());
-			a.setWeight(aForm.getWeight());
-			a.setPosition(aForm.getPosition());
-
+			a.setPais(aForm.getPais());
+			a.setCep(aForm.getCep());
+			a.setPhoneNumber(aForm.getPhoneNumber());
+			a.setCellPhoneNumber(aForm.getCellPhoneNumber());
+			a.setNacionalidade(aForm.getNacionalidade());
+			
+			//DATA ANIVERSÁRIO
+	        java.util.Date dataAniversario = new java.util.Date(aForm.getAnoNascimento()-1900, aForm.getMesNascimento()-1,aForm.getDiaNascimento());   
+            SimpleDateFormat formatoAniversario = new SimpleDateFormat("yyyy-MM-dd");  
+            String strDataAniversario = formatoAniversario.format(dataAniversario);
+			
+            a.setBirthDate(strDataAniversario);
+					
 			AssinanteDAO aDAO = DAOFactory.ASSINANTE_DAO();
 
 			aDAO.atualizar(a);
 			
 			objSession.setAttribute(Constants.ASSINANTE_BEAN, a);
 			
-			req.setAttribute("mensagem",messageResources.getMessage("msg.edit.assinante.sucesso"));
+			req.setAttribute("mensagem_sucesso",messageResources.getMessage("msg.edit.assinante.sucesso"));
 			return mapping.findForward(Constants.EDIT_ASSINANTE_SUCESS);
 
 		} catch (Exception e) {
@@ -230,18 +388,18 @@ public final class AssinanteAction extends DispatchAction{
 		
 		try {
 
-			Assinante a = new Assinante();
+			Assinante aF = new Assinante();
 			
 			AssinanteLoginForm aForm = (AssinanteLoginForm) form;
 
-			a.setEmail(aForm.getEmail());
-			a.setPassword(aForm.getPassword());			
+			aF.setEmail(aForm.getEmail());
+			aF.setPassword(aForm.getPassword());			
 			
 			AssinanteDAO aDAO = DAOFactory.ASSINANTE_DAO();
 			
-			List<Assinante> resulLogin = aDAO.loginAssinante(a.getEmail(), a.getPassword());
+			Assinante a = aDAO.loginAssinante(aF.getEmail(), aF.getPassword());
 			
-			if (resulLogin.size()==0 || resulLogin==null){
+			if (a==null){
 				
 				req.setAttribute("mensagem_erro", messageResources
 						.getMessage("login_invalido"));
@@ -249,9 +407,7 @@ public final class AssinanteAction extends DispatchAction{
 				msgActionForward = Constants.ASSINANTE_LOGIN_ERROR_FORWARD;
 			
 			}else{
-				
-				a = resulLogin.get(0);
-				
+												
 					req.setAttribute(Constants.ASSINANTE_BEAN, a);
 					objSessao.setAttribute(Constants.ASSINANTE_BEAN, a);
 					
