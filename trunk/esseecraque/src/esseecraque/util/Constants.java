@@ -19,6 +19,8 @@ public interface Constants {
 	
 	public static final String ADD_ASSINANTE_SUCESS = "assinante_add_sucesso";
 	
+	public static final String ADD_ASSINANTE_SUCESS_PERFIL = "assinante_add_sucesso_perfil";
+	
 	public static final String ADD_ASSINANTE_ERROR = "assinante_add_error";
 	
 	public static final String ADD_VIDEO_SUCESS = "video_add_sucesso";
@@ -29,6 +31,10 @@ public interface Constants {
 	public static final String EDIT_ASSINANTE_SUCESS = "assinante_edit_sucess";
 	
 	public static final String EDIT_ASSINANTE_ERROR = "assinante_edit_error";
+	
+	public static final String EDIT_PERFIL_SUCESS = "perfil_edit_sucess";
+	
+	public static final String EDIT_PERFIL_ERROR = "perfil_edit_error";
 
 	
 	public static final String LIST_ASSINANTE_SUCESS = "assinante_list_sucess";
