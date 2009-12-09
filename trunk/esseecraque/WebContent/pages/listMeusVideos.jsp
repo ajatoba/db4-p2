@@ -23,11 +23,10 @@
 <div id="meio_fundo">
 	<div id="meio">
 		<div id="esquerda">
-		<dt class="box_busca">
-				<div class="sep_busca"></div>
-				<div class="txt_busca"><input name="busca" type="text" class="txt_buscar" /></div>
-				<div class="btn_busca"><img src="/eec/_imgs/btnbusca.jpg" class="linkado"/></div>
-			</dt>
+		<div id="top_erro">
+<div id="tit_meus_videos"></div>
+
+</div>
 			
 			<!-- INÍCIO LISTA MEUS VÍDEOS -->
 			<table border="0" cellpadding="0" cellspacing="0" align="center">
@@ -84,44 +83,34 @@
 </dt>					
 			<!-- FIM LISTA MEUS VÍDEOS -->
 
-<dt id="ultimos_videos">
-<!-- INÍCIO GALERIA ÚLTIMOS VÍDEOS -->
-<img src="/eec/_imgs/ultimos_videos.jpg" />
- 
-<div id="image-gallery-wrapper">
-	<script type="text/javascript">
-	stepcarousel.setup({
-		galleryid: 'image-gallery', //id of carousel DIV
-		beltclass: 'belt', //class of inner "belt" DIV containing all the panel DIVs
-		panelclass: 'panel', //class of panel DIVs each holding content
-		panelbehavior: {speed:500, wraparound:true, persist:true},
-		defaultbuttons: {enable: false},
-		statusvars: ['statusA', 'statusB', 'statusC'], //register 3 variables that contain current panel (start), current panel (last), and total panels
-		contenttype: ['external'] //content setting ['inline'] or ['external', 'path_to_external_file']
-	})
-	
-	</script>
-	
-<div id="image-gallery" class="stepcarousel">
-	<div class="belt">
-	<jsp:include page="../ultimosVideos.html" />
-	</div>
-</div>
-	<a class="prev" href="javascript:stepcarousel.stepBy('image-gallery', -5)">Prev</a>
-	<a class="next" href="javascript:stepcarousel.stepBy('image-gallery', 5)">Next</a>
-</div>
-
-<!-- FIM GALERIA ÚLTIMOS VÍDEOS -->
-			</dt>
+<jsp:include page="/ultimos_videos.jsp"></jsp:include>
 			<dt class="banner2"><img src="/eec/_imgs/bannergrande.jpg" class="linkado"/><img src="/eec/_imgs/txt_pub.jpg" /></dt>
 		</div>
 		<div id="direita">
-			
-			<!--INCLUDE LISTAGEM DE VIDEOS-->
-			<jsp:include page="/buscaAvancada.jsp" />
-		<!--INCLUDE LISTAGEM DE VIDEOS-->
-			
-			<dt class="banner"><img src="/eec/_imgs/banner.jpg" class="linkado"/></dt>
+		
+<!--BUSCA SIMPLES-->
+<div id="box_busca_simples">
+<form action="busca.do?act=search" method="post">
+        <div class="sep_busca"></div>
+        <div class="txt_busca">
+          <input type="text" name="busca" Class="txt_buscar" />
+        </div>
+        <div class="btn_busca"><input type="image" src="/eec/_imgs/btnbusca.jpg" name="Submit" Class="linkado" /></div>
+</form>
+</div>
+<!--FIM-->		
+		
+<!-- INCLUDE DOS VÍDEOS LATERAIS -->
+
+<jsp:include page="/busca.jsp" />
+
+<!-- INCLUDE DOS VÍDEOS LATERAIS -->
+						
+			<div id="bnn_01"></div>
+			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
+			<div id="bnn_02"></div>
+			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
+			<div id="bnn_03"></div>
 			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
 			<dt><img src="/eec/_imgs/banner_redondo.jpg" class="linkado" /></dt>
 		</div>
