@@ -9,7 +9,8 @@
        <form-bean name="assinanteForm" type="esseecraque.form.AssinanteForm"/>
        <form-bean name="assinanteLoginForm" type="esseecraque.form.AssinanteLoginForm"/>
        <form-bean name="videoForm" type="esseecraque.form.VideoForm"/>
-       <form-bean name="votoForm" type="esseecraque.form.VotoForm"/>       
+       <form-bean name="votoForm" type="esseecraque.form.VotoForm"/>
+       <form-bean name="perfilForm" type="esseecraque.form.PerfilForm"/>       
     </form-beans>
     
     <!-- Action Mapping Definitions -->   
@@ -18,6 +19,7 @@
         <action path="/cadAssinanteForm" forward="/cadAssinanteForm.jsp" />
         <action path="/cadVideoForm" forward="/pages/cadVideoForm.jsp" />
         <action path="/editarPerfilForm" forward="/pages/editarPerfil.jsp" />
+        <action path="/editarAssinanteForm" forward="/pages/editarAssinante.jsp" />
         <action path="/minhaConta" forward="/pages/minhaConta.jsp" />
         <action path="/votar" forward="/votar.jsp" />
         
@@ -43,8 +45,22 @@
             scope="request"  
             validate="true">   
             	<forward name="assinante_add_sucesso" path="/" />
+            	<forward name="assinante_add_sucesso_perfil" path="/pages/editarPerfil.jsp" />
+            	
             	<!-- ERRO REDIRECIONA PARA O PRÓPRIO FORM -->
             	<forward name="assinante_add_error" path="/cadAssinanteForm.jsp" />   
+        </action>
+        
+        <action input="/editarAssinanteForm.jsp"
+        	path="/editarAssinante"  
+            type="esseecraque.action.AssinanteAction"  
+            name="assinanteForm"
+            parameter="act"  
+            scope="request"  
+            validate="true">   
+            	<forward name="assinante_edit_sucess" path="/" />
+            	<!-- ERRO REDIRECIONA PARA O PRÓPRIO FORM -->
+            	<forward name="assinante_edit_error" path="/pages/editarAssinanteForm.jsp" />   
         </action>
         
         <action path="/assinante"  
@@ -59,15 +75,15 @@
         </action>
         
         <action input="/pages/editarPerfil.jsp"
-        	path="/editAssinante"  
+        	path="/editPerfil"  
             type="esseecraque.action.AssinanteAction"  
-            name="assinanteForm"
+            name="perfilForm"
             parameter="act"  
             scope="request"  
             validate="true">   
-            	<!-- ERRO OU SUCESSO REDIRECIONA PARA O PRÓPRIO FORM -->
-            	<forward name="assinante_edit_sucess" path="/pages/editarPerfil.jsp" />
-            	<forward name="assinante_edit_error" path="/pages/editarPerfil.jsp" />   
+            	<forward name="perfil_edit_sucess" path="/" />
+            	<!-- ERRO REDIRECIONA PARA O PRÓPRIO FORM -->
+            	<forward name="perfil_edit_error" path="/pages/editarPerfil.jsp" />   
         </action>
         
         
