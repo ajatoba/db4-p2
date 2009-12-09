@@ -1,9 +1,8 @@
 package esseecraque.bean;
 
 import java.io.Serializable;
-import java.util.Collection;
-import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 
 import javax.persistence.Column;
@@ -14,7 +13,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Cascade;
@@ -23,7 +21,6 @@ import org.hibernate.search.annotations.ContainedIn;
 import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
-import org.hibernate.search.annotations.IndexedEmbedded;
 import org.hibernate.search.annotations.Store;
 
 
@@ -69,17 +66,16 @@ public class Assinante extends PersistentObject implements Serializable{
 	@Column(name="VC_USERNAME", unique=true)
 	private String username;
 	
-	@ContainedIn
 	@OneToMany(mappedBy="assinante", fetch=FetchType.LAZY)
 	@Cascade(CascadeType.ALL)
 	private List<Video> Videos;
 	
 	//CAMPOS DE PERFIL
-	@Column(name="VC_HEIGHT")
-	private String height;
+	@Column(name="NR_HEIGHT")
+	private double height=0.0;
 	
-	@Column(name="VC_WEIGHT")
-	private String weight;
+	@Column(name="NR_WEIGHT")
+	private double weight=0.0;
 	
 	@Field(index=Index.TOKENIZED, store=Store.YES)
 	@Column(name="VC_POSITION")
@@ -90,44 +86,151 @@ public class Assinante extends PersistentObject implements Serializable{
 	private String comment;
 	
 	@Field(index=Index.TOKENIZED, store=Store.YES)
-	@Column(name="VC_TOURNAMENTS")
-	private String tournaments;
-	
-	@Field(index=Index.TOKENIZED, store=Store.YES)
-	@Column(name="VC_TEAMS")
-	private String teams;
-	
-	@Field(index=Index.TOKENIZED, store=Store.YES)
 	@Column(name="DT_BIRTHDATE")
-	private Date birthDate;
+	private String birthDate;
 	
 	@Field(index=Index.TOKENIZED, store=Store.YES)
 	@Column(name="VC_PHONE")
 	private String phoneNumber;
 	
-	@ContainedIn
-	@OneToMany(mappedBy="assinante", fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="assinante", fetch=FetchType.EAGER)
 	@Cascade(CascadeType.ALL)
-	private List<Clube> clubes;
+	private Set<Clube> clubes;
 
-	@ContainedIn
-	@OneToMany(mappedBy="assinante", fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="assinante", fetch=FetchType.EAGER)
 	@Cascade(CascadeType.ALL)
-	private List<Torneio> torneios;
+	private Set<Torneio> torneios;
 	
-	public List<Clube> getClubes() {
+	@Field(index=Index.TOKENIZED, store=Store.YES)
+	@Column(name="NR_SHOW_EMAIL")
+	private boolean showEmail;
+	
+	@Field(index=Index.TOKENIZED, store=Store.YES)
+	@Column(name="NR_SHOW_PHONE")
+	private boolean showPhone;
+	
+	@Field(index=Index.TOKENIZED, store=Store.YES)
+	@Column(name="NR_SHOW_CELL_PHONE")
+	private boolean showCellPhone;
+	
+	@Field(index=Index.TOKENIZED, store=Store.YES)
+	@Column(name="NR_SHOW_AIM")
+	private boolean showAim;
+	
+	@Field(index=Index.TOKENIZED, store=Store.YES)
+	@Column(name="VC_AIM")
+	private String aim;
+	
+	@Field(index=Index.TOKENIZED, store=Store.YES)
+	@Column(name="VC_CELL_PHONE")
+	private String cellPhoneNumber;
+	
+	@Field(index=Index.TOKENIZED, store=Store.YES)
+	@Column(name="VC_PAIS")
+	private String pais;
+	
+	@Field(index=Index.TOKENIZED, store=Store.YES)
+	@Column(name="VC_NACIONALIDADE")
+	private String nacionalidade;
+	
+	@Field(index=Index.TOKENIZED, store=Store.YES)
+	@Column(name="VC_CEP")
+	private String cep;
+		
+	
+	public boolean getShowCellPhone() {
+		return showCellPhone;
+	}
+
+	public void setShowCellPhone(boolean showCellPhone) {
+		this.showCellPhone = showCellPhone;
+	}
+
+	public boolean getShowAim() {
+		return showAim;
+	}
+
+	public void setShowAim(boolean showAim) {
+		this.showAim = showAim;
+	}
+
+	public String getAim() {
+		return aim;
+	}
+
+	public void setAim(String aim) {
+		this.aim = aim;
+	}
+
+	public String getCellPhoneNumber() {
+		return cellPhoneNumber;
+	}
+
+	public void setCellPhoneNumber(String cellPhoneNumber) {
+		this.cellPhoneNumber = cellPhoneNumber;
+	}
+
+	public String getPais() {
+		return pais;
+	}
+
+	public void setPais(String pais) {
+		this.pais = pais;
+	}
+
+	public String getNacionalidade() {
+		return nacionalidade;
+	}
+
+	public void setNacionalidade(String nacionalidade) {
+		this.nacionalidade = nacionalidade;
+	}
+
+	public String getCep() {
+		return cep;
+	}
+
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
+
+	public boolean getShowEmail() {
+		return showEmail;
+	}
+
+	public void setShowEmail(boolean showEmail) {
+		this.showEmail = showEmail;
+	}
+
+	public boolean getShowPhone() {
+		return showPhone;
+	}
+
+	public void setShowPhone(boolean showPhone) {
+		this.showPhone = showPhone;
+	}
+
+	public Set<Torneio> getTorneios() {
+		return torneios;
+	}
+
+	public void setTorneios(Set<Torneio> torneios) {
+		this.torneios = torneios;
+	}
+
+	public Set<Clube> getClubes() {
 		return clubes;
 	}
 
-	public void setClubes(List<Clube> clubes) {
+	public void setClubes(Set<Clube> clubes) {
 		this.clubes = clubes;
 	}
 
-	public Date getBirthDate() {
+	public String getBirthDate() {
 		return birthDate;
 	}
 
-	public void setBirthDate(Date birthDate) {
+	public void setBirthDate(String birthDate) {
 		this.birthDate = birthDate;
 	}
 
@@ -212,19 +315,19 @@ public class Assinante extends PersistentObject implements Serializable{
 		this.username = username;
 	}
 
-	public String getHeight() {
+	public double getHeight() {
 		return height;
 	}
 
-	public void setHeight(String height) {
+	public void setHeight(double height) {
 		this.height = height;
 	}
 
-	public String getWeight() {
+	public double getWeight() {
 		return weight;
 	}
 
-	public void setWeight(String weight) {
+	public void setWeight(double weight) {
 		this.weight = weight;
 	}
 
@@ -244,21 +347,4 @@ public class Assinante extends PersistentObject implements Serializable{
 		this.comment = comment;
 	}
 
-	public String getTournaments() {
-		return tournaments;
-	}
-
-	public void setTournaments(String tournaments) {
-		this.tournaments = tournaments;
-	}
-
-	public String getTeams() {
-		return teams;
-	}
-
-	public void setTeams(String teams) {
-		this.teams = teams;
-	}
-	
-	
 }
