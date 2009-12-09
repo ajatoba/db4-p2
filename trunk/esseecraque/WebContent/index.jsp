@@ -101,7 +101,7 @@
         <div class="txt_busca">
           <input type="text" name="busca" Class="txt_buscar" />
         </div>
-        <div class="btn_busca"><input type="image" src="/eec/_imgs/btn_buscar.jpg" name="Submit" Class="linkado" /></div>
+        <div class="btn_busca"><input type="image" src="/eec/_imgs/btnbusca.jpg" name="Submit" Class="linkado" /></div>
 </form>
 </div>
 <!--FIM-->		
