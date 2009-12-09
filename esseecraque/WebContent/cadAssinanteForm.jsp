@@ -35,18 +35,12 @@ function submitAssinante(){
 <div id="meio_fundo">
 	<div id="meio">
 		<div id="esquerda">
-		<dt class="box_busca">
-				<form action="busca.do?act=busca" method="post">
-					<div class="sep_busca"></div>
-					<div class="txt_busca">
-						<input type="text" name="busca" Class="txt_buscar" />
-					</div>
-					<div class="btn_busca">
-						<input type="image" src="/eec/_imgs/btnbusca.jpg" name="Submit" Class="linkado" />
-					</div>
-				</form>
-			</dt>
-<dt id="cadastro" >
+		<div id="conteudo_cadastro">
+		<div id="top_cadastro">
+		<div id="tit_cadastro"></div>
+		</div>
+		
+<div id="cadastro" >
 <table border="0" cellpadding="0" cellspacing="0" align="center">
 	<tr>
 		<td>
@@ -62,35 +56,32 @@ function submitAssinante(){
 <html:form action="cadAssinante.do?act=add">   
 <table border="0" cellpadding="3" cellspacing="3">
 <tr>   
-    <td valign="middle" class="form_nome">Nome:</td>   
-    <td valign="middle"><html:text property="nome" styleClass="form_campo_nome" /></td>
-	<td valign="middle" class="valida_form"><html:errors  property="erro.vcNomeAssinante" /></td>   
+    <td valign="middle" class="form_nome">Nome&nbsp;&nbsp;&nbsp;
+    <html:text property="nome" styleClass="form_campo_nome" /></td>   
+    <td valign="middle" class="valida_form"><html:errors  property="erro.vcNomeAssinante" /></td>   
 </tr>
 <tr>   
-    <td valign="middle" class="form_nome">E-mail:</td>   
-    <td valign="middle"><html:text property="email" styleClass="form_campo_nome" /></td>
-	<td valign="middle" class="valida_form"><html:errors property="erro.vcEmailAssinante"  /> 
-	</td>   
+    <td valign="middle" class="form_nome">E-mail&nbsp;&nbsp;
+    <html:text property="email" styleClass="form_campo_nome" /></td>   
+    <td valign="middle" class="valida_form"><html:errors property="erro.vcEmailAssinante"  /> 
+    </td>   
 </tr>
 <tr>   
-    <td valign="middle" class="form_nome">AIM:</td>   
-    <td valign="middle"><html:text property="aim" styleClass="form_campo_nome" /></td>
-	<td valign="middle" class="valida_form"></td>   
+    <td valign="middle" class="form_nome">Msn / Icq / Yahoo&nbsp;&nbsp;
+    <html:text property="aim" styleClass="form_campo_msn" /></td>   
+    <td valign="middle" class="valida_form"></td>   
 </tr> 
 <tr>   
-    <td valign="middle" class="form_nome">Senha:</td>   
-    <td valign="middle"><html:password property="password" styleClass="form_campo_nome" /></td>
-	<td valign="middle" class="valida_form"><html:errors  property="erro.vcPasswordAssinante" /></td>   
-</tr>
-<tr>   
-    <td valign="middle" class="form_nome">Confirmar Senha:</td>   
-    <td valign="middle"><html:password property="confPassword" styleClass="form_campo_nome" /></td>
-	<td valign="middle" class="valida_form"><html:errors  property="erro.vcConfPasswordAssinante" /></td>   
+    <td valign="middle" class="form_nome">Senha&nbsp;
+    <html:password property="password" styleClass="form_campo_senha" />&nbsp;&nbsp; Confirmar Senha &nbsp;<html:password property="confPassword" styleClass="form_campo_senha" /></td>   
+    <td valign="middle" class="valida_form"><html:errors  property="erro.vcPasswordAssinante" /><html:errors  property="erro.vcConfPasswordAssinante" /></td>   
 </tr>
 
+
 <tr>   
-    <td valign="middle" class="form_nome">Data de Nascimento:</td>   
-    <td valign="middle"><html:text property="diaNascimento" styleClass="form_campo_altura" value="" />/
+    <td valign="middle" class="form_nome">Data de Nascimento&nbsp;&nbsp;
+      <html:text property="diaNascimento" styleClass="form_campo_altura" value="" />
+      /
     <html:select property="mesNascimento" styleClass="form_campo_posicao">    	
 		<html:option  value="1">Jan</html:option>
 		<html:option  value="2">Fev</html:option>
@@ -138,139 +129,112 @@ function submitAssinante(){
 		<html:option  value="2005">2005</html:option>
 		<html:option  value="2006">2006</html:option>
 		<html:option  value="2007">2007</html:option>
-	</html:select>
-	</td>
-	<td valign="middle" class="valida_form"></td>   
+	</html:select>	</td>   
+    <td valign="middle" class="valida_form"></td>   
 </tr>
 <tr>   
-    <td valign="middle" class="form_nome">Endereço:</td>   
-    <td valign="middle"><html:text property="endereco" styleClass="form_campo_nome" /></td>
-	<td valign="middle" class="valida_form"><html:errors  property="erro.vcEnderecoAssinante" /></td>   
+    <td valign="middle" class="form_nome">Endereço&nbsp;&nbsp;
+    <html:text property="endereco" styleClass="form_campo_end" /></td>   
+    <td valign="middle" class="valida_form"><html:errors  property="erro.vcEnderecoAssinante" /></td>   
 </tr>
 <tr>   
-    <td valign="middle" class="form_nome">Cidade:</td>   
-    <td valign="middle"><html:text property="cidade" styleClass="form_campo_nome" /></td>
-	<td valign="middle" class="valida_form"><html:errors  property="erro.vcCidadeAssinante" /></td>   
+    <td valign="middle" class="form_nome">Cidade&nbsp;&nbsp;
+    <html:text property="cidade" styleClass="form_campo_senha2"/>&nbsp;&nbsp;<html:errors  property="erro.vcCidadeAssinante" />Estado&nbsp;&nbsp;
+    <html:select property="estado" styleClass="form_campo_senha2">    	
+        <html:option  value="Acre">Acre</html:option>
+        <html:option  value="Alagoas">Alagoas</html:option>
+        <html:option  value="Amapá">Amapá</html:option>
+        <html:option  value="Amazonas">Amazonas</html:option>
+        <html:option  value="Bahia">Bahia</html:option>
+        <html:option  value="Ceará">Ceará</html:option> 
+        <html:option  value="Distrito Federal">Distrito Federal</html:option> 
+        <html:option  value="Espírito Santos">Espírito Santos</html:option>
+        <html:option  value="Goias">Goias</html:option>
+        <html:option  value="Maranhão">Maranhão</html:option>
+        <html:option  value="Mato Grosso">Mato Grosso</html:option>
+        <html:option  value="Mato Grosso do Sul">Mato Grosso do Sul</html:option>
+        <html:option  value="Minas Gerais">Minas Gerais</html:option> 
+        <html:option  value="Pará">Pará</html:option>
+        <html:option  value="Paraíba">Paraíba</html:option> 
+        <html:option  value="Paraná">Paraná</html:option>
+        <html:option  value="Pernambuco">Pernambuco</html:option>
+        <html:option  value="Piauí">Piauí</html:option>
+        <html:option  value="Rio de Janeiro">Rio de Janeiro</html:option>
+        <html:option  value="Rio Grande do Norte">Rio Grande do Norte</html:option>
+        <html:option  value="Rio Grande do Sul">Rio Grande do Sul</html:option>
+        <html:option  value="Rondônia">Rondônia</html:option>
+        <html:option  value="Roraima">Roraima</html:option>
+        <html:option  value="Santa Catarina">Santa Catarina</html:option>
+        <html:option  value="São Paulo">São Paulo</html:option>
+        <html:option  value="Sergipe">Sergipe</html:option> 
+        <html:option  value="Tocantins">Tocantins</html:option>
+      </html:select>  &nbsp;&nbsp;País &nbsp;&nbsp;
+    <html:text property="pais" styleClass="form_campo_senha2" />   </td> 
+    <td valign="middle" class="valida_form"><html:errors  property="erro.vcEstadoAssinante" /></td>   
 </tr>
 <tr>   
-    <td valign="middle" class="form_nome">Estado:</td>   
-    <td valign="middle">
-    <html:select property="estado" styleClass="form_campo_posicao">    	
-		<html:option  value="Acre">Acre</html:option>
-		<html:option  value="Alagoas">Alagoas</html:option>
-		<html:option  value="Amapá">Amapá</html:option>
-		<html:option  value="Amazonas">Amazonas</html:option>
-		<html:option  value="Bahia">Bahia</html:option>
-		<html:option  value="Ceará">Ceará</html:option> 
-		<html:option  value="Distrito Federal">Distrito Federal</html:option> 
-		<html:option  value="Espírito Santos">Espírito Santos</html:option>
-		<html:option  value="Goias">Goias</html:option>
-		<html:option  value="Maranhão">Maranhão</html:option>
-		<html:option  value="Mato Grosso">Mato Grosso</html:option>
-		<html:option  value="Mato Grosso do Sul">Mato Grosso do Sul</html:option>
-		<html:option  value="Minas Gerais">Minas Gerais</html:option> 
-		<html:option  value="Pará">Pará</html:option>
-		<html:option  value="Paraíba">Paraíba</html:option> 
-		<html:option  value="Paraná">Paraná</html:option>
-		<html:option  value="Pernambuco">Pernambuco</html:option>
-		<html:option  value="Piauí">Piauí</html:option>
-		<html:option  value="Rio de Janeiro">Rio de Janeiro</html:option>
-		<html:option  value="Rio Grande do Norte">Rio Grande do Norte</html:option>
-		<html:option  value="Rio Grande do Sul">Rio Grande do Sul</html:option>
-		<html:option  value="Rondônia">Rondônia</html:option>
-		<html:option  value="Roraima">Roraima</html:option>
-		<html:option  value="Santa Catarina">Santa Catarina</html:option>
-		<html:option  value="São Paulo">São Paulo</html:option>
-		<html:option  value="Sergipe">Sergipe</html:option> 
-		<html:option  value="Tocantins">Tocantins</html:option>
-	</html:select>
-    </td>
-	<td valign="middle" class="valida_form"><html:errors  property="erro.vcEstadoAssinante" /></td>   
-</tr>
-<tr>   
-    <td valign="middle" class="form_nome">País:</td>   
-    <td valign="middle"><html:text property="pais" styleClass="form_campo_nome" /></td>
-	<td valign="middle" class="valida_form"></td>   
-</tr>
-<tr>   
-    <td valign="middle" class="form_nome">CEP:</td>   
-    <td valign="middle"><html:text property="cep" styleClass="form_campo_nome" /></td>
-	<td valign="middle" class="valida_form"></td>   
+    <td valign="middle" class="form_nome">CEP:
+    <html:text property="cep" styleClass="form_campo_senha2" /></td>   
+    <td valign="middle" class="valida_form"></td>   
 </tr>
 
 <tr>   
-    <td valign="middle" class="form_nome">Telefone (DD-XXXX-XXXX):</td>   
-    <td valign="middle"><html:text property="phoneNumber" styleClass="form_campo_nome" /></td>
-	<td valign="middle" class="valida_form"></td>   
+    <td valign="middle" class="form_nome">Telefone (DD-XXXX-XXXX):
+    <html:text property="phoneNumber" styleClass="form_campo_senha2" /></td>   
+    <td valign="middle" class="valida_form"></td>   
 </tr>
 <tr>   
-    <td valign="middle" class="form_nome">Celular (DD-XXXX-XXXX):</td>   
-    <td valign="middle"><html:text property="cellPhoneNumber" styleClass="form_campo_nome" /></td>
-	<td valign="middle" class="valida_form"></td>   
+    <td valign="middle" class="form_nome">Celular (DD-XXXX-XXXX):
+    <html:text property="cellPhoneNumber" styleClass="form_campo_senha2" /></td>   
+    <td valign="middle" class="valida_form"></td>   
 </tr>
 <tr>   
-    <td valign="middle" class="form_nome">Nacionalidade:</td>   
-    <td valign="middle"><html:text property="nacionalidade" styleClass="form_campo_nome" /></td>
-	<td valign="middle" class="valida_form"></td>   
+    <td valign="middle" class="form_nome">Nacionalidade:
+    <html:text property="nacionalidade" styleClass="form_campo_senha3" /></td>   
+    <td valign="middle" class="valida_form"></td>   
 </tr>
 <tr>   
-    <td valign="middle" class="form_nome">URL do assinante:</td>   
-    <td valign="middle">http://www.esseecraque.com.br/<html:text property="username" styleClass="form_campo_path" /></td>
-	<td valign="middle" class="valida_form"><html:errors  property="erro.vcUsername" /></td>   
+    <td valign="middle" class="form_nome">URL do assinante:http://www.esseecraque.com.br/<html:text property="username" styleClass="form_campo_path" /></td>   
+    <td valign="middle" class="valida_form"><html:errors  property="erro.vcUsername" /></td>   
 </tr>
 <input type="hidden" name="opcao_cadastro" value="1"/>
 </table>   
+<div id="bottom_erro">
+<div id="btn_cadastro">
 <html:button property="" onclick="javascript:submitUser();">Finalizar Cadastro</html:button>
-<html:button property="" onclick="javascript:submitAssinante();">Sou Jogador</html:button>  
+<html:button property="" onclick="javascript:submitAssinante();">Sou Jogador</html:button> </div>
+</div>
+ 
 </html:form>
-</dt>
-<dt class="desc_player">
-			
-			</dt>
-			<dt id="ultimos_videos">
-<!-- INÍCIO GALERIA ÚLTIMOS VÍDEOS -->
-<img src="/eec/_imgs/ultimos_videos.jpg" />
-
-<div id="image-gallery-wrapper">
-	<script type="text/javascript">
-	stepcarousel.setup({
-		galleryid: 'image-gallery', //id of carousel DIV
-		beltclass: 'belt', //class of inner "belt" DIV containing all the panel DIVs
-		panelclass: 'panel', //class of panel DIVs each holding content
-		panelbehavior: {speed:500, wraparound:true, persist:true},
-		defaultbuttons: {enable: false},
-		statusvars: ['statusA', 'statusB', 'statusC'], //register 3 variables that contain current panel (start), current panel (last), and total panels
-		contenttype: ['external'] //content setting ['inline'] or ['external', 'path_to_external_file']
-	})
-	
-	</script>
-	
-<div id="image-gallery" class="stepcarousel">
-
-	<div class="belt">
-	<jsp:include page="ultimosVideos.html" />
-	</div>
-
-	<a class="prev" href="javascript:stepcarousel.stepBy('image-gallery', -5)">Prev</a>
-	<a class="next" href="javascript:stepcarousel.stepBy('image-gallery', 5)">Next</a>
 </div>
 
-<!-- FIM GALERIA ÚLTIMOS VÍDEOS -->
-			</dt>
 			
 			<dt class="banner2"><img src="/eec/_imgs/bannergrande.jpg" class="linkado"/><img src="/eec/_imgs/txt_pub.jpg" /></dt>
 		</div>
+</div>
 
-
-<div id="direita">
-			
+<div id="box_busca_simples">
+<form action="busca.do?act=search" method="post">
+        <div class="sep_busca"></div>
+        <div class="txt_busca">
+          <input type="text" name="busca" Class="txt_buscar" />
+        </div>
+        <div class="btn_busca"><input type="image" src="/eec/_imgs/btnbusca.jpg" name="Submit" Class="linkado" /></div>
+</form>
+</div>
+<!--FIM-->		
+		
 <!-- INCLUDE DOS VÍDEOS LATERAIS -->
 
-<jsp:include page="buscaAvancada.jsp" />
+<jsp:include page="/busca.jsp" />
 
 <!-- INCLUDE DOS VÍDEOS LATERAIS -->
-			
-			<dt class="banner"><img src="/eec/_imgs/banner.jpg" class="linkado"/></dt>
+						
+			<div id="bnn_01"></div>
+			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
+			<div id="bnn_02"></div>
+			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
+			<div id="bnn_03"></div>
 			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
 			<dt><img src="/eec/_imgs/banner_redondo.jpg" class="linkado" /></dt>
 		</div>
