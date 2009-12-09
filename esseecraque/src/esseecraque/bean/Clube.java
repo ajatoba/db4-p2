@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Cascade;
@@ -42,19 +43,17 @@ public class Clube implements Serializable{
 	@Field(index=Index.TOKENIZED, store=Store.YES)
 	private String city;
 	
-	@Column(name="NM_START_YEAR")
+	@Column(name="NR_START_YEAR")
 	@Field(index=Index.TOKENIZED, store=Store.YES)
 	private int startYear;
 	
-	@Column(name="NM_END_YEAR")
+	@Column(name="NR_END_YEAR")
 	@Field(index=Index.TOKENIZED, store=Store.YES)
 	private int endYear;
 	
-	@IndexedEmbedded
-	@OneToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="NR_ID_ASSINANTE", insertable=false, updatable=false)
-	@Fetch(FetchMode.JOIN)
-	@Cascade(CascadeType.SAVE_UPDATE)
+	@ManyToOne(fetch=FetchType.LAZY)  
+	@JoinColumn(name="NR_ID_ASSINANTE")
+	@Cascade(CascadeType.ALL)
 	private Assinante assinante;
 	
 			
