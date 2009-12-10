@@ -15,7 +15,7 @@
 	
 	<div>
 	
-		<dt class="logo"><img src="/eec/_imgs/logo.jpg" class="linkado"/></dt>
+		<dt class="logo"><a href="index.jsp"><img src="/eec/_imgs/logo.jpg" border="0" class="linkado"/></a></dt>
 		<dt class="form"><img src="/eec/_imgs/banner_assine.jpg" /></dt>
 		<dt class="frm_in">
 			
@@ -38,7 +38,8 @@
 				<tr>			
 		        	<td width="56" height="25" class="txt_logs">&nbsp;&nbsp;&nbsp;&nbsp;Senha:</td>
 					<td><dt class="box_log"><html:password property="password" styleClass="txt_logar" /></dt></td>				
-		        	<td><img src="/eec/_imgs/setinha_login.jpg" width="23" height="25" /></td>
+		        	<td><html:image src="/eec/_imgs/seta_logar.jpg" property="Submit" />     	
+		        	</td>
 				</tr>
 				<tr> 
 					<td height="55" colspan="3"> 
@@ -63,7 +64,7 @@
 				</tr>
 				
 				<tr>			
-		        	<td colspan="3"><html:image src="/eec/_imgs/btn_entrar.jpg" property="Submit" /></td>					
+		        	<td colspan="3"><a href="cadAssinanteForm.do"><img src="/eec/_imgs/btcadastrar.jpg" border="0" property="Submit" /></a></td>					
 				</tr>
 			</table>
 			
