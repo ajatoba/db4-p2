@@ -20,11 +20,12 @@
 <div id="meio_fundo">
 	<div id="meio">
 		<div id="esquerda">
+		<div id="erro">
 			<div id="pub_video">
 <div id="top_pub_video">
 <div id="tit_pub_video"></div>
 </div>
-			<dt class="form_upload">
+	<div id="conteudo_erro">		
 
 <html:form action="cadVideo.do?act=add">  
 
@@ -58,8 +59,8 @@ STATUS HIDDEN
 -->
 <html:hidden property="status" value="0"/>
 </html:form>
-            
-            </dt>
+            </div>
+            </div>
 			
 
 <dt class="banner2"><img src="/eec/_imgs/bannergrande.jpg" class="linkado"/><img src="/eec/_imgs/txt_pub.jpg" /></dt>
