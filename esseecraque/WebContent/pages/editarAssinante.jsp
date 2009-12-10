@@ -222,13 +222,11 @@ document.assinanteForm.submit();
         <div class="btn_busca"><input type="image" src="/eec/_imgs/btnbusca.jpg" name="Submit" Class="linkado" /></div>
 </form>
 </div>
-<!--FIM-->		
-		
-<!-- INCLUDE DOS VÍDEOS LATERAIS -->
+
 
 <jsp:include page="/busca.jsp" />
 
-<!-- INCLUDE DOS VÍDEOS LATERAIS -->
+
 						
 			<div id="bnn_01"></div>
 			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
