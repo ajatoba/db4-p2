@@ -148,11 +148,10 @@ function addTorneios(divPai,nomeElemento,numeroDeFilhos,sizeInput) {
 <div id="meio_fundo">
 	<div id="meio">
 		<div id="esquerda">
-<dt class="box_busca">
-				<div class="sep_busca"></div>
-				<div class="txt_busca"><input name="busca" type="text" class="txt_buscar" /></div>
-				<div class="btn_busca"><img src="/eec/_imgs/btnbusca.jpg" class="linkado"/></div>
-			</dt>
+<div id="conteudo_perfil_completo">
+<div id="top_perfil_completo">
+<div class="top_tit_perfil"></div>
+</div>
 <!-- INÍCIO FORM DE EDIÇÃO DO ASSINANTE -->
 <dt id="dados_conta">
 <table border="0" cellpadding="0" cellspacing="0" align="center">
@@ -169,25 +168,20 @@ function addTorneios(divPai,nomeElemento,numeroDeFilhos,sizeInput) {
 <html:form action="editPerfil.do?act=editPerfil">
 <table border="0" cellpadding="3" cellspacing="3">
 <tr>   
-    <td width="74" valign="top" class="form_nome">Altura:</td>   
-    <td width="408" valign="top" ><html:text name="Assinante"  property="height" styleClass="form_campo_altura" /></td>
+    <td width="408" valign="top" class="form_nome">Descreva seu biotipo :&nbsp; Altura &nbsp;<html:text name="Assinante"  property="height" styleClass="form_campo_altura" />&nbsp;metros&nbsp;&nbsp;Peso&nbsp;<html:text name="Assinante" property="weight" styleClass="form_campo_altura" /> quilos</td>   
+    <td width="74" valign="top" ></td>
 	<td width="44" valign="top" class="valida_form"></td>   
 </tr>   
 <tr>   
-    <td valign="top" class="form_nome">Peso:</td>   
-    <td valign="top"><html:text name="Assinante" property="weight" styleClass="form_campo_altura" /></td>
-	<td valign="top" class="valida_form"></td>   
-</tr>
-<tr>   
-    <td valign="top" class="form_nome">Posição:</td>   
-    <td valign="top">
-    <html:select name="Assinante" property="position" styleClass="form_campo_posicao">
+    <td valign="top" class="form_nome">Posições em campo que desempenha melhor? &nbsp;<html:select name="Assinante" property="position" styleClass="form_campo_posicao">
     	<html:option value="GOL">Goleiro</html:option>
     	<html:option value="ZAG">Zagueiro</html:option>
     	<html:option value="LAT">Lateral</html:option>
     	<html:option value="MEI">Meia</html:option>
     	<html:option value="ATA">Atacante</html:option>
-    </html:select>
+    </html:select></td>   
+    <td valign="top">
+    
     </td>
 	<td valign="top" class="valida_form"></td>   
 </tr>
@@ -196,49 +190,46 @@ function addTorneios(divPai,nomeElemento,numeroDeFilhos,sizeInput) {
 	<td colspan="3">
 		 <table>
 		 	<tr align="center">
-		 		<td valign="top" class="form_nome">Clubes em que Joguei:</td>
+		 		<td valign="top" class="form_nome">Quais times voc&ecirc; ja jogou?</td>
 		 	</tr>
 		 	<tr> 		
 		 		<td valign="top">
 		 			<table>
 		 				<tr>
-		 					<td class="form_nome">Clube:</td>
-		 					<td><input name="clube[0]" id="clube[0]" size="45" type="text" class="form_campo_nome"></td>
+		 					<td class="form_nome">Nome do time <input name="clube[0]" id="clube[0]" size="45" type="text" class="form_campo_nome_time"> Cidade
+		 					<td><input name="cidade_clube[0]" id="cidade_clube[0]" size="45" type="text"  class="form_campo_nome_time"></td>
+		 				</tr>
+		 				
+		 				<tr>
+		 					<td class="form_nome" colspan="2">Período&nbsp;<input name="ano_inicio_clube[0]" id="ano_inicio_clube[0]" size="5" type="text" class="form_campo_altura" > &nbsp;até &nbsp;<input name="ano_fim_clube[0]" id="ano_fim_clube[0]" size="5" type="text" class="form_campo_altura">&nbsp;&nbsp;<input type="image" src="/eec/_imgs/btn_adicionar.jpg" name="add"  onclick="addInput('divClubes','clube',4,45)" ></td>
 		 				</tr>
 		 				<tr>
-		 					<td class="form_nome">Cidade:</td>
-		 					<td><input name="cidade_clube[0]" id="cidade_clube[0]" size="45" type="text" class="form_campo_nome"></td>
-		 				</tr>
-		 				<tr>
-		 					<td class="form_nome">Período:</td>
-		 					<td><input name="ano_inicio_clube[0]" id="ano_inicio_clube[0]" size="5" type="text" class="form_campo_altura" > a <input name="ano_fim_clube[0]" id="ano_fim_clube[0]" size="5" type="text" class="form_campo_altura"></td>
-		 				</tr>
-		 				<tr>
-		 					<TD colspan="2"><input type="button" name="add" value="+" onclick="addInput('divClubes','clube',4,45)" ></TD>
+		 					<TD colspan="2"></TD>
 		 				</tr>
 		 			</table>						  
 		 			
-		 			<div id="divClubes">
-			 			
+		 			<br>
+		 			
+			 			<table width="100%" border="0" cellpadding="0" cellspacing="0" class="descricao_times">
+			 			<tr><td>
 			 			<%
 			 			if(clubes != null && clubes.size() >0){
 				 			while(it.hasNext()){
 								c = (Clube)it.next();
 							%>
-							<div id="clube<%=c.getId()%>">			 			
-				 				<input type="text" readonly="true" name="nome_clube" 		id="nome_clube" 		value="<%=c.getName() %>" 		size="20"/>
-								<input type="text" readonly="true" name="cidade_clube" 		id="cidade_clube"   	value="<%=c.getCity() %>" 		size="15">
-								<input type="text" readonly="true" name="ano_inicio_clube" 	id="ano_inicio_clube" 	value="<%=c.getStartYear() %>" 	size="5" class="form_campo_altura" > a 
-								<input type="text" readonly="true" name="ano_fim_clube"    	id="ano_fim_clube"    	value="<%=c.getEndYear() %>"    size="5" class="form_campo_altura" >
-								<input type="button" value="X" onClick="delElemento('divClubes','clube<%=c.getId()%>')"/><br>					
+							<div <%=c.getId()%>" >			 			
+				 				&nbsp;&nbsp;<%=c.getName() %> - <%=c.getCity() %> em <%=c.getEndYear() %>
+								<input type="button" value="X" onClick="delElemento('divClubes','clube<%=c.getId()%>')"/>
+								<br>					
 				 			</div>
+				 			
 							<%
 							}
 			 			}
 						%>
-			 			
-		 			
-		 			</div>
+			 			</td></tr>
+		 			</table>
+		 		
 		 		</td>		
 		 	</tr>
 		 </table>				
@@ -250,50 +241,44 @@ function addTorneios(divPai,nomeElemento,numeroDeFilhos,sizeInput) {
 	
 		<table>
 		 	<tr align="center">
-		 		<td valign="top" class="form_nome">Torneios que Participei:</td>
+		 		<td valign="top" class="form_nome">Títulos conquistados:</td>
 		 	</tr>
 		 	<tr> 		
 		 		<td valign="top">
 		 			<table>
 		 				<tr>
-		 					<td class="form_nome">Nome do Torneio:</td>
-		 					<td><input name="torneio[0]" id="torneio[0]" size="45" type="text" class="form_campo_nome"></td>
+		 					<td class="form_nome">Nome do Título &nbsp;: &nbsp;<input name="torneio[0]" id="torneio[0]" size="45" type="text" class="form_campo_nome_time">&nbsp;&nbsp;Time&nbsp; : &nbsp;<input name="clube_torneio[0]" id="clube_torneio[0]" size="45" type="text" class="form_campo_nome_time"></td>
 		 				</tr>
+		 			
 		 				<tr>
-		 					<td class="form_nome">Clube que defendi:</td>
-		 					<td><input name="clube_torneio[0]" id="clube_torneio[0]" size="45" type="text" class="form_campo_nome"></td>
+		 					<td class="form_nome">Cidade&nbsp;:&nbsp;	<input name="cidade_torneio[0]" id="cidade_torneio[0]" size="45" type="text" class="form_campo_nome_time">&nbsp;&nbsp;Ano&nbsp;:&nbsp;
+		 					<input name="ano_torneio[0]" id="ano_torneio[0]" size="5" type="text" class="form_campo_altura">&nbsp;<input type="image" src="/eec/_imgs/btn_adicionar.jpg" name="add"  onclick="addTorneios('divTorneios','torneio',4,45)" ></td>
 		 				</tr>
+		 				
 		 				<tr>
-		 					<td class="form_nome">Cidade:</td>
-		 					<td><input name="cidade_torneio[0]" id="cidade_torneio[0]" size="45" type="text" class="form_campo_nome"></td>
-		 				</tr>
-		 				<tr>
-		 					<td class="form_nome">Ano:</td>
-		 					<td><input name="ano_torneio[0]" id="ano_torneio[0]" size="5" type="text" class="form_campo_altura"></td>
-		 				</tr>
-		 				<tr>
-		 					<TD colspan="2"><input type="button" name="add" value="+" onclick="addTorneios('divTorneios','torneio',4,45)" ></TD>
+		 					<TD colspan="2"></TD>
 		 				</tr>
 		 			</table>						  
-		 			
-		 			<div id="divTorneios">
-		 			<%
+		 			<br>
+		 				<table width="100%" border="0" cellpadding="0" cellspacing="0" class="descricao_times">
+			 			<tr><td>
+			 			<%
 			 			if(torneios != null && torneios.size() >0){
 				 			while(itTorneios.hasNext()){
 								t = (Torneio)itTorneios.next();
 							%>
-							<div id="torneio<%=t.getId()%>">			 			
-				 				<input type="text" readonly="true" name="nome_torneio" 		id="nome_torneio" 	value="<%=t.getName()%>" 	size="20"/>
-								<input type="text" readonly="true" name="cidade_torneio" 	id="cidade_torneio" value="<%=t.getCity()%>" 	size="15">
-								<input type="text" readonly="true" name="clube_torneio" 	id="clube_torneio" 	value="<%=t.getTeam()%>" 	size="5" class="form_campo_altura" > a 
-								<input type="text" readonly="true" name="ano_torneio"    	id="ano_torneio"    value="<%=t.getYear()%>"    size="5" class="form_campo_altura" >
-								<input type="button" value="X" onClick="delElemento('divTorneios','torneio<%=t.getId()%>')"/><br>					
+							<div <%=t.getId()%>" >			 			
+				 				&nbsp;&nbsp;<%=t.getName()%> - <%=t.getCity()%> - <%=t.getTeam()%> em <%=t.getYear()%>
+								<input type="button" value="X" onClick="delElemento('divClubes','clube<%=c.getId()%>')"/>
+								<br>					
 				 			</div>
+				 			
 							<%
 							}
 			 			}
 						%>
-		 			</div>
+			 			</td></tr>
+		 			</table>
 		 		</td>		
 		 	</tr>
 		 </table>
@@ -301,66 +286,66 @@ function addTorneios(divPai,nomeElemento,numeroDeFilhos,sizeInput) {
 	
 	</td>
 </tr>
-<tr>   
-    <td valign="top" class="form_nome">Comentários:</td>   
-    <td valign="top"><html:textarea cols="250" rows="20" name="Assinante" property="comment" styleClass="form_campo_altura" /></td>
-	<td valign="top" class="valida_form"></td>   
+<tr>
+<td  colspan="3"  class="form_nome_obs">Comentários:</td>
 </tr>
 <tr>   
-    <td valign="top" class="form_nome"><html:checkbox name="Assinante" property="showEmail" styleClass="form_campo_altura" />Publicar Email</td>   
-    <td valign="top" class="form_nome"><html:checkbox name="Assinante" property="showAim" styleClass="form_campo_altura" />Publicar AIM</td>
-	<td valign="top" class="form_nome"><html:checkbox name="Assinante" property="showCellPhone" styleClass="form_campo_altura" />Publicar Celular</td>   
-	<td valign="top" class="form_nome"><html:checkbox name="Assinante" property="showPhone" styleClass="form_campo_altura" />Publicar Telefone</td>
+    <td colspan="3" valign="top" class="form_nome_obs"><html:textarea cols="20" rows="5" name="Assinante" property="comment"  /></td>   
+      
+</tr>
+<tr>
+<td  colspan="3"  class="form_nome_obs">Desejo publicar</td>
+</tr>
+<tr>   
+    <td valign="top" class="form_nome" colspan="3" ><html:checkbox name="Assinante" property="showEmail" /> Email  
+    <html:checkbox name="Assinante" property="showAim" /> Aim / Msn / Icq
+	<html:checkbox name="Assinante" property="showCellPhone"  /> Celular 
+	<html:checkbox name="Assinante" property="showPhone"  />Telefone</td>
 </tr>
 
 
 </table>
-
+<div >
 <html:submit styleClass="botao"><bean:message key="botao.submit"/>
 </html:submit>  
-</html:form>  
-</dt>
+</html:form> 
+</div> 
+
 			<!-- FIM FORM DE EDIÇÃO DE ASSINANTE -->
 
-<dt id="ultimos_videos">
-<!-- INÍCIO GALERIA ÚLTIMOS VÍDEOS -->
-<img src="/eec/_imgs/ultimos_videos.jpg" />
-
-<div id="image-gallery-wrapper">
-	<script type="text/javascript">
-	stepcarousel.setup({
-		galleryid: 'image-gallery', //id of carousel DIV
-		beltclass: 'belt', //class of inner "belt" DIV containing all the panel DIVs
-		panelclass: 'panel', //class of panel DIVs each holding content
-		panelbehavior: {speed:500, wraparound:true, persist:true},
-		defaultbuttons: {enable: false},
-		statusvars: ['statusA', 'statusB', 'statusC'], //register 3 variables that contain current panel (start), current panel (last), and total panels
-		contenttype: ['external'] //content setting ['inline'] or ['external', 'path_to_external_file']
-	})
-	
-	</script>
-	
-<div id="image-gallery" class="stepcarousel">
-	<div class="belt">
-	<jsp:include page="../ultimosVideos.html" />
-	</div>
-</div>
-	<a class="prev" href="javascript:stepcarousel.stepBy('image-gallery', -5)">Prev</a>
-	<a class="next" href="javascript:stepcarousel.stepBy('image-gallery', 5)">Next</a>
 </div>
 
-<!-- FIM GALERIA ÚLTIMOS VÍDEOS -->
-			</dt>
+
+
 			
 			<dt class="banner2"><img src="/eec/_imgs/bannergrande.jpg" class="linkado"/><img src="/eec/_imgs/txt_pub.jpg" /></dt>
 		</div>
+		
+		
+		
 		<div id="direita">
+<div id="box_busca_simples">
+<form action="busca.do?act=search" method="post">
+        <div class="sep_busca"></div>
+        <div class="txt_busca">
+          <input type="text" name="busca" Class="txt_buscar" />
+        </div>
+        <div class="btn_busca"><input type="image" src="/eec/_imgs/btnbusca.jpg" name="Submit" Class="linkado" /></div>
+</form>
+</div>
+<!--FIM-->		
 		
-			<!--INCLUDE LISTAGEM DE VIDEOS-->
-			<jsp:include page="/buscaAvancada.jsp" />
-		<!--INCLUDE LISTAGEM DE VIDEOS-->
-		
-			<dt class="banner"><img src="/eec/_imgs/banner.jpg" class="linkado"/></dt>
+<!-- INCLUDE DOS VÍDEOS LATERAIS -->
+
+<jsp:include page="/busca.jsp" />
+
+<!-- INCLUDE DOS VÍDEOS LATERAIS -->
+						
+			<div id="bnn_01"></div>
+			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
+			<div id="bnn_02"></div>
+			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
+			<div id="bnn_03"></div>
 			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
 			<dt><img src="/eec/_imgs/banner_redondo.jpg" class="linkado" /></dt>
 		</div>
