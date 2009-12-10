@@ -11,7 +11,7 @@
 			<span>Ajuda</span> <br>
 			Dúvidas mais frequentes &nbsp;|&nbsp;
 			Como publicar um vídeo &nbsp;|&nbsp;
-			<a class="thickbox" href="fale_conosco.jsp?height=400&width=400" >Fale conosco</a>
+			<a href="mailto:falecom@esseecraque.com.br" style="color:#8C8C8C;">Fale conosco</a>
 			<dt><img src="/eec/_imgs/ico_okt.jpg" class="ico" /><img src="/eec/_imgs/ico_face.jpg" class="ico" /><img src="/eec/_imgs/ico_rss.jpg" class="ico" /></dt>		
 		</div>
 		<div class="rod_dir">
@@ -33,13 +33,13 @@
 <div id="rodape_baixo">
 	<span>2009. Todos os direitos reservados</span>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
-	Acordo de utilização &nbsp;|&nbsp;
-	Anuncie &nbsp;|&nbsp;
-	Desenvolvedores &nbsp;|&nbsp;
-	Comunidade no orkut &nbsp;|&nbsp;
+	<a href="acordo_utilizacao.jsp" style="color:#8C8C8C; text-decoration:none;">Acordo de utilização </a>&nbsp;|&nbsp;
+	<a href="mailto:comercial@esseecraque.com.br" style="color:#8C8C8C; text-decoration:none;">Anuncie</a> &nbsp;|&nbsp;
+	<a href="http://www.db4.com.br" target="_blank" style="color:#8C8C8C; text-decoration:none;">Desenvolvedores</a> &nbsp;|&nbsp;
+	<a href="http://www.orkut.com.br/Main#Community?cmm=96846569" target="_blank" style="color:#8C8C8C; text-decoration:none;">Comunidade no orkut</a> &nbsp;|&nbsp;
 	Rss Feed &nbsp;|&nbsp;
 	Adicionar a Del.icio.us &nbsp;|&nbsp;
-	Download Logo
+	<a href="/eec/download/logo_esseecraque.jpg" target="_blank" style="color:#8C8C8C; text-decoration:none;">Download Logo</a>
 </div>
 
 </body>
