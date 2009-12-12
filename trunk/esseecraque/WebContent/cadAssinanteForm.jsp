@@ -193,16 +193,13 @@ function submitAssinante(){
     <html:text property="nacionalidade" styleClass="form_campo_senha3" /></td>   
     <td valign="middle" class="valida_form"></td>   
 </tr>
-<tr>   
-    <td valign="middle" class="form_nome">URL do assinante:http://www.esseecraque.com.br/<html:text property="username" styleClass="form_campo_path" /></td>   
-    <td valign="middle" class="valida_form"><html:errors  property="erro.vcUsername" /></td>   
-</tr>
+
 <input type="hidden" name="opcao_cadastro" value="1"/>
 </table>   
 <div id="bottom_erro">
 <div id="btn_cadastro">
-<html:button property="" onclick="javascript:submitUser();">Finalizar Cadastro</html:button>
-<html:button property="" onclick="javascript:submitAssinante();">Sou Jogador</html:button> </div>
+<img src="/eec/_imgs/btn_finalizar_cadastro.jpg" onclick="javascript:submitUser();"/>
+<img src="/eec/_imgs/btn_perfil_completo.jpg" onclick="javascript:submitAssinante();"/>
 </div>
  
 </html:form>
