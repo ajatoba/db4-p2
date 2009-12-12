@@ -18,5 +18,8 @@ public interface AssinanteDAO {
 	public abstract List buscarAssinanteLetra(String letra);
 	
 	public abstract Assinante remindPassword(String email);
-		
+	
+	public abstract int deleteClubesAssinante(Assinante assinante);
+	
+	public abstract int deleteTorneiosAssinante(Assinante assinante);
 }
