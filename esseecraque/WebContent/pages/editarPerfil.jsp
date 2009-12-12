@@ -5,40 +5,17 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<%@page import="esseecraque.bean.Assinante"%>
-<%@page import="java.util.List"%>
-<%@page import="esseecraque.bean.Clube"%>
-<%@page import="java.util.Iterator"%>
-<%@page import="esseecraque.bean.Torneio"%>
-<%@page import="java.util.Set"%><html:html>
+<html:html>
 <head>      
 <title><bean:message key="titulo.paginas"/></title>
+
 <link href="/eec/_css/estilo.css" rel="stylesheet" type="text/css">
-
 <link href="/eec/_css/minha_conta_RETIREI.css" rel="stylesheet" type="text/css">
-
 <link href="/eec/_css/cadastro.css" rel="stylesheet" type="text/css">
 <link href="/eec/_css/slide.css" rel="stylesheet" type="text/css">
+
 <script type="text/javascript" src="/eec/js/jquery-1.2.6-packed.js"></script>
 <script type="text/javascript" src="/eec/js/slide.noconflict.js"></script>
-
-<% 
-Assinante a = (Assinante)session.getAttribute("Assinante");
-
-Set<Clube> clubes = a.getClubes();
-Iterator it = null;
-if(clubes != null && clubes.size() >0){
-	it = clubes.iterator();
-}
-Clube c = null;
-
-Set<Torneio> torneios = a.getTorneios();
-Iterator itTorneios = null;
-if(torneios != null && torneios.size() >0){
-	itTorneios = torneios.iterator();
-}
-Torneio t = null;
-%>
 
 <script language="Javascript">
 
@@ -65,12 +42,12 @@ function addInput(divPai,nomeElemento,numeroDeFilhos,sizeInput) {
 				elementInput.value = "";					
 				NovoDiv.setAttribute("id",nomeElemento+elementos);
 				NovoDiv.setAttribute("valign","top");					
-				NovoDiv.innerHTML  = "<input type=\"text\" readonly=\"true\" name=\"nome_clube\"       id=\"nome_clube\"       value=\""+ valorElementoImput+"\" size=\"20\"> ";
-				NovoDiv.innerHTML += "<input type=\"text\" readonly=\"true\" name=\"cidade_clube\"     id=\"cidade_clube\"     value=\""+ valorCidadeClubeInput + "\"     size=\"15\"> ";
+				NovoDiv.innerHTML  = "<input class=\"form_campo_nome_time\" type=\"text\" readonly=\"true\" name=\"nome_clube\"       id=\"nome_clube\"       value=\""+ valorElementoImput+"\" size=\"20\"> ";
+				NovoDiv.innerHTML += "<input class=\"form_campo_nome_time\" type=\"text\" readonly=\"true\" name=\"cidade_clube\"     id=\"cidade_clube\"     value=\""+ valorCidadeClubeInput + "\"     size=\"15\"> ";
 				NovoDiv.innerHTML += "<input class=\"form_campo_altura\" type=\"text\" readonly=\"true\" name=\"ano_inicio_clube\" id=\"ano_inicio_clube\" value=\""+ valorAnoInicioClubeInput + "\"  size=\"5\"> a ";
 				NovoDiv.innerHTML += "<input class=\"form_campo_altura\" type=\"text\" readonly=\"true\" name=\"ano_fim_clube\"    id=\"ano_fim_clube\"    value=\""+ valorAnoFimClubeInput + "\"     size=\"5\"> ";
-				NovoDiv.innerHTML += "<input type=\"button\" value=\"X\" onClick=\"delElemento('"+divPai+ "','"+nomeElemento+elementos+"')\"\><br> ";					
-
+				NovoDiv.innerHTML += "<img src=\"/eec/_imgs/btn_excluir.jpg\" value=\"X\" onClick=\"delElemento('"+divPai+ "','"+nomeElemento+elementos+"')\"\><br> ";					
+				
 				DivElementoPai.appendChild(NovoDiv);	
 
 				//LIMPANDO OS CAMPOS
@@ -106,11 +83,11 @@ function addTorneios(divPai,nomeElemento,numeroDeFilhos,sizeInput) {
 			elementInput.value = "";					
 			NovoDiv.setAttribute("id",nomeElemento+elementos);
 			NovoDiv.setAttribute("valign","top");					
-			NovoDiv.innerHTML  = "<input type=\"text\" readonly=\"true\" name=\"nome_torneio\"       id=\"nome_torneio\"     value=\""+ valorElementoImput+"\" 			size=\"25\"> ";
-			NovoDiv.innerHTML += "<input type=\"text\" readonly=\"true\" name=\"cidade_torneio\"     id=\"cidade_torneio\"   value=\""+ valorCidadeTorneioInput + "\"     size=\"15\"> ";
-			NovoDiv.innerHTML += "<input type=\"text\" readonly=\"true\" name=\"clube_torneio\"      id=\"clube_torneio\"    value=\""+ valorClubeTorneioInput + "\"  		size=\"25\"> ";
+			NovoDiv.innerHTML  = "<input class=\"form_campo_nome_time\" type=\"text\" readonly=\"true\" name=\"nome_torneio\"       id=\"nome_torneio\"     value=\""+ valorElementoImput+"\" 			size=\"25\"> ";
+			NovoDiv.innerHTML += "<input class=\"form_campo_path\" type=\"text\" readonly=\"true\" name=\"cidade_torneio\"     id=\"cidade_torneio\"   value=\""+ valorCidadeTorneioInput + "\"     size=\"15\"> ";
+			NovoDiv.innerHTML += "<input class=\"form_campo_path\" type=\"text\" readonly=\"true\" name=\"clube_torneio\"      id=\"clube_torneio\"    value=\""+ valorClubeTorneioInput + "\"  		size=\"25\"> ";
 			NovoDiv.innerHTML += "<input class=\"form_campo_altura\" type=\"text\" readonly=\"true\" name=\"ano_torneio\"    	 id=\"ano_torneio\"      value=\""+ valorAnoTorneioInput + "\"     	size=\"5\"> ";
-			NovoDiv.innerHTML += "<input type=\"button\" value=\"X\" onClick=\"delElemento('"+divPai+ "','"+nomeElemento+elementos+"')\"\><br> ";					
+			NovoDiv.innerHTML += "<img src=\"/eec/_imgs/btn_excluir.jpg\" value=\"X\" onClick=\"delElemento('"+divPai+ "','"+nomeElemento+elementos+"')\"\><br> ";					
 
 			DivElementoPai.appendChild(NovoDiv);	
 
@@ -128,7 +105,7 @@ function addTorneios(divPai,nomeElemento,numeroDeFilhos,sizeInput) {
      var d = document.getElementById(divPai);
      var oldElem = document.getElementById(divNum);
      	
-     if (confirm('Tem certeza que quer apagar: \n'+"\""+oldElem.firstChild.value+"\" ?")) {
+     if (confirm('Tem certeza que quer apagar ?')) {
          //remove o elemento 
          d.removeChild(oldElem);
      }
@@ -201,7 +178,8 @@ function addTorneios(divPai,nomeElemento,numeroDeFilhos,sizeInput) {
 		 				</tr>
 		 				
 		 				<tr>
-		 					<td class="form_nome" colspan="2">Período&nbsp;<input name="ano_inicio_clube[0]" id="ano_inicio_clube[0]" size="5" type="text" class="form_campo_altura" > &nbsp;até &nbsp;<input name="ano_fim_clube[0]" id="ano_fim_clube[0]" size="5" type="text" class="form_campo_altura">&nbsp;&nbsp;<input type="image" src="/eec/_imgs/btn_adicionar.jpg" name="add"  onclick="addInput('divClubes','clube',4,45)" ></td>
+		 					<td class="form_nome" colspan="2">Período&nbsp;<input name="ano_inicio_clube[0]" id="ano_inicio_clube[0]" size="5" type="text" class="form_campo_altura" > &nbsp;até &nbsp;<input name="ano_fim_clube[0]" id="ano_fim_clube[0]" size="5" type="text" class="form_campo_altura">&nbsp;&nbsp;
+		 					<img src="/eec/_imgs/btn_adicionar.jpg" name="add" onclick="addInput('divClubes','clube',4,45)" ></td>
 		 				</tr>
 		 				<tr>
 		 					<TD colspan="2"></TD>
@@ -212,21 +190,23 @@ function addTorneios(divPai,nomeElemento,numeroDeFilhos,sizeInput) {
 		 			
 			 			<table width="100%" border="0" cellpadding="0" cellspacing="0" class="descricao_times">
 			 			<tr><td>
-			 			<%
-			 			if(clubes != null && clubes.size() >0){
-				 			while(it.hasNext()){
-								c = (Clube)it.next();
-							%>
-							<div <%=c.getId()%>" >			 			
-				 				&nbsp;&nbsp;<%=c.getName() %> - <%=c.getCity() %> em <%=c.getEndYear() %>
-								<input type="button" value="X" onClick="delElemento('divClubes','clube<%=c.getId()%>')"/>
+			 			
+			 			<div id="divClubes">
+			 			
+						<logic:notEmpty name="Assinante" property="clubes">
+						    <logic:iterate name="Assinante" property="clubes" id="clube">
+						    	<div id="clube<bean:write name="clube" property="id"/>" >			 			
+				 				<input class="form_campo_nome_time" type="text" readonly="true" name="nome_clube" id="nome_clube" value="<bean:write name="clube" property="name"/>" size="20"> 
+								<input class="form_campo_nome_time" type="text" readonly="true" name="cidade_clube" id="cidade_clube" value="<bean:write name="clube" property="city"/>" size="15">
+								<input class="form_campo_altura" type="text" readonly="true" name="ano_inicio_clube" id="ano_inicio_clube" value="<bean:write name="clube" property="startYear"/>" size="5"> a 
+								<input class="form_campo_altura" type="text" readonly="true" name="ano_fim_clube" id="ano_fim_clube" value="<bean:write name="clube" property="endYear"/>" size="5">
+								<img src="/eec/_imgs/btn_excluir.jpg" value="X" onClick="delElemento('divClubes','clube<bean:write name="clube" property="id"/>')"/>
 								<br>					
-				 			</div>
-				 			
-							<%
-							}
-			 			}
-						%>
+				 				</div>
+						    </logic:iterate>
+						</logic:notEmpty>
+						
+						</div>
 			 			</td></tr>
 		 			</table>
 		 		
@@ -252,7 +232,8 @@ function addTorneios(divPai,nomeElemento,numeroDeFilhos,sizeInput) {
 		 			
 		 				<tr>
 		 					<td class="form_nome">Cidade&nbsp;:&nbsp;	<input name="cidade_torneio[0]" id="cidade_torneio[0]" size="45" type="text" class="form_campo_nome_time">&nbsp;&nbsp;Ano&nbsp;:&nbsp;
-		 					<input name="ano_torneio[0]" id="ano_torneio[0]" size="5" type="text" class="form_campo_altura">&nbsp;<input type="image" src="/eec/_imgs/btn_adicionar.jpg" name="add"  onclick="addTorneios('divTorneios','torneio',4,45)" ></td>
+		 					<input name="ano_torneio[0]" id="ano_torneio[0]" size="5" type="text" class="form_campo_altura">&nbsp;
+		 					<img src="/eec/_imgs/btn_adicionar.jpg" name="add"  onclick="addTorneios('divTorneios','torneio',4,45)" ></td>
 		 				</tr>
 		 				
 		 				<tr>
@@ -262,21 +243,22 @@ function addTorneios(divPai,nomeElemento,numeroDeFilhos,sizeInput) {
 		 			<br>
 		 				<table width="100%" border="0" cellpadding="0" cellspacing="0" class="descricao_times">
 			 			<tr><td>
-			 			<%
-			 			if(torneios != null && torneios.size() >0){
-				 			while(itTorneios.hasNext()){
-								t = (Torneio)itTorneios.next();
-							%>
-							<div <%=t.getId()%>" >			 			
-				 				&nbsp;&nbsp;<%=t.getName()%> - <%=t.getCity()%> - <%=t.getTeam()%> em <%=t.getYear()%>
-								<input type="button" value="X" onClick="delElemento('divClubes','clube<%=c.getId()%>')"/>
+			 			<div id="divTorneios">
+			 			
+			 			<logic:notEmpty name="Assinante" property="torneios">
+						    <logic:iterate name="Assinante" property="torneios" id="torneio">
+						    	<div id="torneio<bean:write name="torneio" property="id"/>" >								
+								<input class="form_campo_nome_time" type="text" readonly="true" name="nome_torneio" id="nome_torneio" value="<bean:write name="torneio" property="name"/>" size="25">
+								<input class="form_campo_path" type="text" readonly="true" name="cidade_torneio" id="cidade_torneio" value="<bean:write name="torneio" property="city"/>" size="15">
+								<input class="form_campo_path" type="text" readonly="true" name="clube_torneio" id="clube_torneio" value="<bean:write name="torneio" property="team"/>" size="25">
+								<input class="form_campo_altura" type="text" readonly="true" name="ano_torneio" id="ano_torneio" value="<bean:write name="torneio" property="year"/>" size="5">
+								<img src="/eec/_imgs/btn_excluir.jpg" value="X" onClick="delElemento('divTorneios','torneio<bean:write name="torneio" property="id"/>')"/>
 								<br>					
-				 			</div>
-				 			
-							<%
-							}
-			 			}
-						%>
+				 				</div>					
+						    </logic:iterate>
+						</logic:notEmpty>
+
+						</div>
 			 			</td></tr>
 		 			</table>
 		 		</td>		
@@ -293,6 +275,22 @@ function addTorneios(divPai,nomeElemento,numeroDeFilhos,sizeInput) {
     <td colspan="3" valign="top" class="form_nome_obs"><html:textarea cols="20" rows="5" name="Assinante" property="comment"  /></td>   
       
 </tr>
+<tr>   
+    <td valign="middle" class="form_nome">URL do assinante:http://www.esseecraque.com.br/
+    <!-- UMA VEZ PREENCHIDO, O CAMPO URL NÃO PODE SER ALTERADO -->
+    <logic:empty name="Assinante" property="username">
+    	<html:text name="Assinante" property="username" styleClass="form_campo_path" />
+    </logic:empty>
+    <logic:notEmpty name="Assinante" property="username">
+    	<html:text name="Assinante" property="username" styleClass="form_campo_path" readonly="true"/>
+    </logic:notEmpty>
+    <!-- ******************************************************* -->
+    </td>   
+    <td valign="middle" class="valida_form"><html:errors  property="erro.vcUsername" /></td>   
+</tr>
+
+
+
 <tr>
 <td  colspan="3"  class="form_nome_obs">Desejo publicar</td>
 </tr>
