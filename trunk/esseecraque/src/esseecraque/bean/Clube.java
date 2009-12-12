@@ -53,7 +53,7 @@ public class Clube implements Serializable{
 	
 	@ManyToOne(fetch=FetchType.LAZY)  
 	@JoinColumn(name="NR_ID_ASSINANTE")
-	@Cascade(CascadeType.ALL)
+	@Cascade(CascadeType.MERGE)
 	private Assinante assinante;
 	
 			
