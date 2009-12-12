@@ -53,9 +53,7 @@ public final class AssinanteAction extends DispatchAction{
 		HttpSession objSession = req.getSession();
 		
 		MessageResources messageResources = null;
-		FileOutputStream os = null;
-		PrintStream ps = null;
-		DataOutputStream ods = null;
+		
 		try {
 
 			messageResources = getResources(req);
@@ -90,59 +88,20 @@ public final class AssinanteAction extends DispatchAction{
             String strData = formato.format(data);
 	        
 	        a.setDataCadastro(strData); 
-	        
-	        a.setUsername(aForm.getUsername());		
-							        
-	        //********** CRIANDO DIRETÓRIO DO USUÁRIO ***********
+	        				        
+	        AssinanteDAO aDAO = DAOFactory.ASSINANTE_DAO();
 			
-			String docRoot 		= System.getProperty("docroot");
-			String userFolder 	= System.getProperty("user_folder");
-			String path 		= docRoot + userFolder + a.getUsername();
-	        
-			/*
-		     * Caso o diretório de usuários não exista 
-		     * (Por algum motivo não foi criado pelo Administrador), 
-		     * é criado na hora
-		     */
-		    File userRoot = new File(docRoot + userFolder);
-		    	if(!userRoot.exists()) userRoot.mkdir();
-		    
-		    /**************/
-			
-			File f = new File(path);
-			
-			if(!f.exists()){
-				f.mkdir();
-			}
-			os = new FileOutputStream(path + System.getProperty("file.separator") + "index.html");		
-			
-			ps = new PrintStream(os);
-			ods = new DataOutputStream(os);
-			ods.flush();
-			ods.writeBytes(new StringWriter().toString());	
-	        
-	        //***************************************************
-	        					
-			AssinanteDAO aDAO = DAOFactory.ASSINANTE_DAO();
-			
-			aDAO.salvar(a);
-				
-			aForm.reset(mapping, req);
+			aDAO.salvar(a);			
 			
 			objSession.setAttribute(Constants.ASSINANTE_BEAN, a);
 			
 			if(req.getParameter("opcao_cadastro").equals("1")){			
-				req.setAttribute("mensagem_sucesso",messageResources.getMessage("msg.add.assinante.sucesso"));
+				req.setAttribute("mensagem_sucesso",messageResources.getMessage("msg.add.assinante.sucesso"));				
 				return mapping.findForward(Constants.ADD_ASSINANTE_SUCESS);
 			}else {
 				return mapping.findForward(Constants.ADD_ASSINANTE_SUCESS_PERFIL);
 			}
 			
-			
-		}catch (FileNotFoundException fnfe) {
-			fnfe.printStackTrace();
-			req.setAttribute("mensagem_erro",messageResources.getMessage("erro.userFolderNotFound"));
-			return mapping.findForward(Constants.ADD_ASSINANTE_ERROR);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -150,20 +109,13 @@ public final class AssinanteAction extends DispatchAction{
 				if(e.getCause().getMessage().indexOf("for key 2") >= 0){
 					//E-mail Repetido
 					req.setAttribute("mensagem_erro",messageResources.getMessage("erro.emailRepetido"));					
-				}else if(e.getCause().getMessage().indexOf("for key 4") >= 0){
-					//URL Repetido
-					req.setAttribute("mensagem_erro",messageResources.getMessage("erro.urlRepetida"));					
 				}
 			}else{							
 				req.setAttribute("mensagem_erro", e.getMessage());				
 			}
 			return mapping.findForward(Constants.ADD_ASSINANTE_ERROR);
-		}finally{
-			if(os!=null) os.close();
-			if(ods!=null) ods.close();
-			if(ps!=null) ps.close();
 		}
-
+		
 	}
 		
 	public ActionForward editPerfil(ActionMapping mapping, 
@@ -174,6 +126,11 @@ public final class AssinanteAction extends DispatchAction{
 		HttpSession objSession = req.getSession();
 		
 		MessageResources messageResources = null;
+		FileOutputStream os = null;
+		PrintStream ps = null;
+		DataOutputStream ods = null;
+		
+		AssinanteDAO aDAO = DAOFactory.ASSINANTE_DAO();
 		
 		try {
 
@@ -191,6 +148,15 @@ public final class AssinanteAction extends DispatchAction{
 			a.setShowCellPhone(aForm.isShowCellPhone());
 			a.setShowEmail(aForm.isShowEmail());
 			a.setShowPhone(aForm.isShowPhone());
+			a.setUsername(aForm.getUsername());		
+			
+			//DELETANDO OS CLUBES E TORNEIOS DO ASSINANTE			
+			if(a.getClubes() != null && a.getClubes().size() >0)
+				aDAO.deleteClubesAssinante(a);
+			
+			if(a.getTorneios() != null && a.getTorneios().size() > 0)
+				aDAO.deleteTorneiosAssinante(a);
+			/*********************************/
 			
 			//CLUBES
 	        Set<Clube> clubes = new HashSet<Clube>();
@@ -214,11 +180,11 @@ public final class AssinanteAction extends DispatchAction{
 			        	clube.setEndYear(Integer.parseInt(anoFimClube[x]));
 					} catch (NumberFormatException nfe) {
 						nfe.printStackTrace();			
-						req.setAttribute("mensagem_erro", messageResources.getMessage("msg.add.assinante.converter.anos.erro"));
+						req.setAttribute("mensagem", messageResources.getMessage("msg.add.assinante.converter.anos.erro"));
 						return mapping.findForward(Constants.ADD_ASSINANTE_ERROR);
 					}catch (Exception e) {
 						e.printStackTrace();			
-						req.setAttribute("mensagem_erro", messageResources.getMessage("msg.add.assinante.converter.anos.erro"));
+						req.setAttribute("mensagem", messageResources.getMessage("msg.add.assinante.converter.anos.erro"));
 						return mapping.findForward(Constants.ADD_ASSINANTE_ERROR);
 					}
 		        	
@@ -254,11 +220,11 @@ public final class AssinanteAction extends DispatchAction{
 		        		torneio.setYear(Integer.parseInt(anoTorneio[x]));		        	
 					} catch (NumberFormatException nfe) {
 						nfe.printStackTrace();			
-						req.setAttribute("mensagem_erro", messageResources.getMessage("msg.add.assinante.converter.anos.erro"));
+						req.setAttribute("mensagem", messageResources.getMessage("msg.add.assinante.converter.anos.erro"));
 						return mapping.findForward(Constants.ADD_ASSINANTE_ERROR);
 					}catch (Exception e) {
 						e.printStackTrace();			
-						req.setAttribute("mensagem_erro", messageResources.getMessage("msg.add.assinante.converter.anos.erro"));
+						req.setAttribute("mensagem", messageResources.getMessage("msg.add.assinante.converter.anos.erro"));
 						return mapping.findForward(Constants.ADD_ASSINANTE_ERROR);
 					}
 		        	
@@ -273,11 +239,36 @@ public final class AssinanteAction extends DispatchAction{
 	        
 	        //***************************************************
 	        
-	        AssinanteDAO aDAO = DAOFactory.ASSINANTE_DAO();
-
-	        System.out.println("NOME:" + a.getNome());
-	        System.out.println("NACIONALIDADE:" + a.getNacionalidade());
+	        //********** CRIANDO DIRETÓRIO DO USUÁRIO ***********
+			
+			String docRoot 		= System.getProperty("docroot");
+			String userFolder 	= System.getProperty("user_folder");
+			String path 		= docRoot + userFolder + a.getUsername();
 	        
+			/*
+		     * Caso o diretório de usuários não exista 
+		     * (Por algum motivo não foi criado pelo Administrador), 
+		     * é criado na hora
+		     */
+		    File userRoot = new File(docRoot + userFolder);
+		    	if(!userRoot.exists()) userRoot.mkdir();
+		    
+		    /**************/
+			
+			File f = new File(path);
+			
+			if(!f.exists()){
+				f.mkdir();
+			}
+			os = new FileOutputStream(path + System.getProperty("file.separator") + "index.html");		
+			
+			ps = new PrintStream(os);
+			ods = new DataOutputStream(os);
+			ods.flush();
+			ods.writeBytes(new StringWriter().toString());	
+	        
+	        //***************************************************
+	        					
 			aDAO.atualizar(a);
 			
 			objSession.setAttribute(Constants.ASSINANTE_BEAN, a);
@@ -285,10 +276,19 @@ public final class AssinanteAction extends DispatchAction{
 			req.setAttribute("mensagem_sucesso",messageResources.getMessage("msg.edit.perfil.sucesso"));
 			return mapping.findForward(Constants.EDIT_PERFIL_SUCESS);
 	        
+		}catch (FileNotFoundException fnfe) {
+			fnfe.printStackTrace();
+			req.setAttribute("mensagem",messageResources.getMessage("erro.userFolderNotFound"));
+			return mapping.findForward(Constants.ADD_ASSINANTE_ERROR);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
-			req.setAttribute("mensagem_erro",e.getMessage());
+			req.setAttribute("mensagem",e.getMessage());
 			return mapping.findForward(Constants.EDIT_PERFIL_ERROR);
+		}finally{
+			if(os!=null) os.close();
+			if(ods!=null) ods.close();
+			if(ps!=null) ps.close();
 		}
 
 	}
