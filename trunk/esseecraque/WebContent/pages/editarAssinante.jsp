@@ -196,10 +196,6 @@ document.assinanteForm.submit();
     <html:text name="Assinante"  property="nacionalidade" styleClass="form_campo_senha3" /></td>   
     <td valign="middle" class="valida_form"></td>   
 </tr>
-<tr>   
-    <td valign="middle" class="form_nome">URL do assinante:http://www.esseecraque.com.br/<html:text name="Assinante"  property="username" styleClass="form_campo_path" /></td>   
-    <td valign="middle" class="valida_form"><html:errors  property="erro.vcUsername" /></td>   
-</tr>
 <input type="hidden" name="opcao_cadastro" value="1"/>
 </table>   
 <html:button property="" onclick="javascript:submitUser();">Submeter</html:button>  
