@@ -16,18 +16,27 @@ import org.hibernate.Transaction;
 import org.hibernate.search.FullTextQuery;
 import org.hibernate.search.FullTextSession;
 import org.hibernate.search.Search;
+import org.jboss.virtual.plugins.context.vfs.AssembledDirectoryHandler;
 
 import java.rmi.RemoteException;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import esseecraque.bean.Assinante;
+import esseecraque.bean.Clube;
+import esseecraque.bean.Torneio;
 import esseecraque.bean.Video;
 import esseecraque.dao.AssinanteDAO;
 import esseecraque.dao.DAOFactory;
@@ -53,8 +62,8 @@ public class AssinanteDAOImpl implements AssinanteDAO{
 	
 	public void atualizar(Assinante assinante){
 		HibernateUtil hu = new HibernateUtil();
-		session = hu.getSessionFactory().getCurrentSession();
-		session.beginTransaction();
+		session = hu.getSessionFactory().getCurrentSession();		
+		session.beginTransaction();		
 		session.update(assinante);
 		session.getTransaction().commit();
 	}
@@ -119,6 +128,112 @@ public class AssinanteDAOImpl implements AssinanteDAO{
 		session.getTransaction().commit();
 		
 		return a;
+		
+	}
+	
+	public int deleteClubesAssinante(Assinante assinante){
+		
+		HibernateUtil hu = new HibernateUtil();
+		session = hu.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		/*
+		Query q = session.createQuery("SELECT c FROM Clube c WHERE c.assinante.id=:idAssinante");
+		
+		q.setParameter("idAssinante", assinante.getId());
+		
+		List resultado = q.list();
+		*/
+		Set<Clube> resultado = assinante.getClubes();
+		Iterator<Clube> it = resultado.iterator();
+		//Clube c = null;
+		
+		System.out.println("DELETANDO CLUBES");
+		
+		while (it.hasNext()) {
+			//c = (Clube) it.next();
+			session.delete(it.next());
+		}
+		
+		session.getTransaction().commit();
+		
+		return resultado.size();
+		
+	}
+	
+	public int deleteTorneiosAssinante(Assinante assinante){
+		
+		HibernateUtil hu = new HibernateUtil();
+		session = hu.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+
+		Set<Torneio> resultado = assinante.getTorneios();
+		Iterator<Torneio> it = resultado.iterator();
+		
+		while (it.hasNext()) {
+			session.delete(it.next());
+		}
+		
+		session.getTransaction().commit();
+		
+		return resultado.size();
+		
+	}
+	
+	public static void main (String[] x){
+		
+		AssinanteDAO aDAO = DAOFactory.ASSINANTE_DAO();		
+		
+		Assinante a = null; 
+		/*
+		
+		a = new Assinante();
+		
+		a.setNome("Alessandro Jatobbá");
+		a.setEmail("jatoba@jatoba.org");
+		a.setPassword("jatoba");
+		a.setBirthDate("1977-08-24");
+		a.setEndereco("teste");
+		a.setCidade("Rio de Janeiro");
+		a.setPais("Brasil");
+		a.setCep("212221");
+		a.setEstado("Rio de Janeiro");
+		a.setNacionalidade("Brasileiro");
+		a.setPhoneNumber("21-3259-0955");
+		a.setCellPhoneNumber("21-9124-7740");
+		a.setDataCadastro("2009-10-10");
+		*/
+		a = aDAO.loginAssinante("jatoba@jatoba.org", "jatoba");
+		
+		try {
+			aDAO.deleteClubesAssinante(a);
+			
+			Set<Clube> clubes = new HashSet<Clube>();
+			Clube c1 = new Clube();
+			c1.setName("novo clube");
+			c1.setCity("Flamengo");
+			c1.setStartYear(2003);
+			c1.setEndYear(2009);
+			c1.setAssinante(a);
+			
+			Clube c2 = new Clube();
+			c2.setName("novo clube");
+			c2.setCity("Botafogo");
+			c2.setStartYear(2003);
+			c2.setEndYear(2009);
+			c2.setAssinante(a);
+			
+			clubes.add(c1);
+			clubes.add(c2);
+			
+			a.setClubes(clubes);
+			aDAO.atualizar(a);
+			//aDAO.salvar(a);
+			System.out.println("ASsinante Atualizado");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
 		
 	}
 	
