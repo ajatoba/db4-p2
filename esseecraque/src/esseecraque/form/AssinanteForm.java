@@ -31,7 +31,6 @@ public class AssinanteForm extends ActionForm{
 	private String estado;
 	private String cep;
 	private String dataCadastro;
-	private String username;	
 	private int diaNascimento;
 	private int mesNascimento;
 	private int anoNascimento;
@@ -148,13 +147,7 @@ public class AssinanteForm extends ActionForm{
 		this.dataCadastro = dataCadastro;
 	}
 	
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
+	
 	public ActionErrors validate(ActionMapping mapping,
 			HttpServletRequest request) {
 		
@@ -177,10 +170,7 @@ public class AssinanteForm extends ActionForm{
 			errors.add("erro.vcEstadoAssinante", new ActionMessage("erro.vcEstadoAssinante"));
 		}
 		
-		else if( getUsername() == null || getUsername().length() < 1) {
-			errors.add("erro.vcUsername", new ActionMessage("erro.vcUsername"));
-		}
-		
+			
 		return errors;
 	}
 	
@@ -193,8 +183,7 @@ public class AssinanteForm extends ActionForm{
 		this.endereco = null;
 		this.cidade = null;
 		this.estado = null;
-		this.username = null;
-		
+			
 	}
 	
 }

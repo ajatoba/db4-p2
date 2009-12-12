@@ -12,7 +12,14 @@ public class PerfilForm extends ActionForm {
 	private boolean showPhone;
 	private boolean showAim;
 	private boolean showCellPhone;
+	private String username;
 	
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
 	public double getHeight() {
 		return height;
 	}
