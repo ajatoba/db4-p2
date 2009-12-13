@@ -7,8 +7,10 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.text.SimpleDateFormat;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -33,6 +35,7 @@ import esseecraque.form.VideoForm;
 import esseecraque.model.ejb.VideoSessionFacadeRemote;
 import esseecraque.model.util.ServiceLocator;
 import esseecraque.util.Constants;
+import esseecraque.util.HTMLReader;
 import esseecraque.util.HibernateUtil;
 
 public final class VideoAction  extends DispatchAction{
@@ -306,30 +309,34 @@ public final class VideoAction  extends DispatchAction{
 		FileOutputStream os = null;
 		PrintStream ps = null;
 		DataOutputStream ods = null;
+		
 		try {
-
 			messageResources = getResources(req);
 			
-			VideoDAO vDAO = DAOFactory.VIDEO_DAO();
+			String template = HTMLReader.readHTML(req.getRealPath("/") + "templates" + System.getProperty("file.separator")+ "ultimos_videos_template.html");
+			String html = "";
+			Map<String,String>  tags = null;
+			
+			VideoDAO vDAO = DAOFactory.VIDEO_DAO();			
 			
 			List<Video> lv = vDAO.buscarUltimosVideos();
-			
-			req.setAttribute(Constants.LIST_ULTIMOS_VIDEOS, lv);
-			
-			String html="";
+						
 			Iterator<Video> it = lv.iterator();
+			
 			while (it.hasNext()) {
-				Video video = (Video) it.next();
-				html = "<div class=\"panel\">";
-				html +="<a href=\"player.do?act=playerVideo&idVideo="+video.getId()+"&secao=liberada\" >";
-				html +="<img src=\""+ video.getPathImage() +"\" width=\"100\" height=\"73\" border=\"0\" alt=\""+video.getTitle()+"\" class=\"imgs\" />";
-				html +="</a>";
-				html +="</div>";
+				Video video = (Video) it.next();				
+				tags = new HashMap<String, String>();
+				
+				tags.put("<ID_VIDEO>", String.valueOf(video.getId()));
+				tags.put("<DESCRICAO_VIDEO>", video.getDescription());
+				tags.put("<DATA_VIDEO>", video.getDataUpload());
+				tags.put("<THUMB_VIDEO>", video.getPathImage());
+				
+				html += HTMLReader.replaceAllTags(template, tags);
 			}
-
 			
 			String docRoot = req.getRealPath("/");//(String)SiteManager.getInstance().getProperties().getProperty("docroot");
-			String fileName = "ultimosVideos.html";
+			String fileName = "ultimos_videos.html";
 			
 			String path = docRoot+fileName;
 
@@ -341,18 +348,19 @@ public final class VideoAction  extends DispatchAction{
 			ods.writeBytes(html);	
 			
 			req.setAttribute("mensagem",messageResources.getMessage("msg.ultimosVideosSucesso"));
-			
+			return mapping.findForward(Constants.ULTIMOS_VIDEOS);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+			req.setAttribute("mensagem",e.getMessage());				
+			return mapping.findForward(Constants.ULTIMOS_VIDEOS);
+			
 		}finally{
 			if(os!=null) os.close();
 			if(ods!=null) ods.close();
 			if(ps!=null) ps.close();
 		}
 		
-		return mapping.findForward(Constants.ULTIMOS_VIDEOS);
-			
 	}
 	
 	public ActionForward search(ActionMapping mapping, 
