@@ -1,5 +1,9 @@
 package esseecraque.dao.impl;
 
+import java.io.DataOutputStream;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
+import java.util.Iterator;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -10,7 +14,10 @@ import org.hibernate.criterion.Order;
 //import esseecraque.bean.Vid;
 import esseecraque.bean.Assinante;
 import esseecraque.bean.Video;
+import esseecraque.dao.DAOFactory;
 import esseecraque.dao.VideoDAO;
+import esseecraque.util.Constants;
+import esseecraque.util.HTMLReader;
 import esseecraque.util.HibernateUtil;
 
 public class VideoDAOImpl implements VideoDAO{
@@ -45,11 +52,15 @@ public class VideoDAOImpl implements VideoDAO{
 	
 	public List<Video> buscarUltimosVideos(){
 		
+		
 		HibernateUtil hu = new HibernateUtil();
 		session = hu.getSessionFactory().getCurrentSession();
-		session.beginTransaction();
-		Query q = session.createQuery("SELECT v FROM Video v ORDER BY v.id DESC");
-		List resultado = q.list();
+		session.beginTransaction();		
+		
+		Query q = session.createQuery("SELECT v FROM Video v ORDER BY v.id DESC LIMIT 0,4");
+		//Traz no máximo 4 resultados
+		List resultado = q.list();		
+		
 		session.getTransaction().commit();
 		return resultado;
 		
@@ -109,6 +120,6 @@ public class VideoDAOImpl implements VideoDAO{
 		session.beginTransaction();
 		session.update(video);
 		session.getTransaction().commit();
-	}
-	
+	}	
+		
 }
