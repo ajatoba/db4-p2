@@ -28,19 +28,13 @@
 <div id="meio_fundo">
 	<div id="meio">
 		<div id="esquerda">
-<dt class="box_busca">
-				<form action="busca.do?act=busca" method="post">
-					<div class="sep_busca"></div>
-					<div class="txt_busca">
-						<input type="text" name="busca" Class="txt_buscar" />
-					</div>
-					<div class="btn_busca">
-						<input type="image" src="/eec/_imgs/btnbusca.jpg" name="Submit" Class="linkado" />
-					</div>
-				</form>
-</dt>
+		<div id="erro">
+			<div id="pub_video">
+<div id="top_pub_video">
+<div id="tit_pub_video"></div>
+</div>
+	<div id="conteudo_erro">	
 			
-<dt>
 
 <form action="pages/uploadVideo.do?act=uploadVideo" enctype="multipart/form-data" method="post" onsubmit="startProgress()">
     <p>
@@ -73,15 +67,41 @@
         </div>
     </p>
 </form>
-</dt>
+        </div>
+            </div>
+			
 
-</div>
+<dt class="banner2"><img src="/eec/_imgs/bannergrande.jpg" class="linkado"/><img src="/eec/_imgs/txt_pub.jpg" /></dt>
+		</div>
+		
+		
+	</div>
 
 <div id="direita">
-		<!--INCLUDE LISTAGEM DE VIDEOS-->
-			<jsp:include page="/buscaAvancada.jsp" />
-		<!--INCLUDE LISTAGEM DE VIDEOS-->
-			<dt class="banner"><img src="/eec/_imgs/banner.jpg" class="linkado"/></dt>
+		
+<!--BUSCA SIMPLES-->
+<div id="box_busca_simples">
+<form action="busca.do?act=search" method="post">
+        <div class="sep_busca"></div>
+        <div class="txt_busca">
+          <input type="text" name="busca" Class="txt_buscar" />
+        </div>
+        <div class="btn_busca"><input type="image" src="/eec/_imgs/btnbusca.jpg" name="Submit" Class="linkado" /></div>
+</form>
+</div>
+<!--FIM-->		
+		
+<!-- INCLUDE DOS VÍDEOS LATERAIS -->
+
+<jsp:include page="/busca.jsp" />
+
+<!-- INCLUDE DOS VÍDEOS LATERAIS -->
+						
+			<div id="bnn_01"></div>
+			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
+			<div id="bnn_02"></div>
+			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
+			<div id="bnn_03"></div>
 			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
 			<dt><img src="/eec/_imgs/banner_redondo.jpg" class="linkado" /></dt>
 		</div>
