@@ -56,19 +56,17 @@
 	<!-- ************* -->
 	</div>
 
-
-
 </div>
 <!---->
-
+<dt class="banner2"><img src="/eec/_imgs/bannergrande.jpg" class="linkado"/><img src="/eec/_imgs/txt_pub.jpg" /></dt>
 </div>
 
 <!-- FIM GALERIA ÚLTIMOS VÍDEOS -->
 			
 
 
-			<dt class="banner2"><img src="/eec/_imgs/bannergrande.jpg" class="linkado"/><img src="/eec/_imgs/txt_pub.jpg" /></dt>
-		</div>
+			
+		
 		
 		<div id="direita">
 		
@@ -84,20 +82,21 @@
 </div>
 <!--FIM-->		
 		
-<!-- INCLUDE DOS VÍDEOS LATERAIS -->
+
 
 <jsp:include page="busca.jsp" />
 
-<!-- INCLUDE DOS VÍDEOS LATERAIS -->
+
 						
 			<div id="bnn_01"></div>
-			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:8px;" /></dt>
+			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:10px;" /></dt>
 			<div id="bnn_02"></div>
-			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:8px;" /></dt>
+			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:10px;" /></dt>
 			<div id="bnn_03"></div>
-			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:8px;" /></dt>
+			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:10px;" /></dt>
 			<dt><img src="/eec/_imgs/banner_redondo.jpg" class="linkado" /></dt>
-		</div>
+		
+	</div>
 	</div>
 </div>
 <jsp:include page="rodape.jsp" />
