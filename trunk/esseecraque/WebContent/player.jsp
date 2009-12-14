@@ -22,11 +22,7 @@
 <div id="meio_fundo">
 	<div id="meio">
 		<div id="esquerda">
-			<dt class="box_busca">
-				<div class="sep_busca"></div>
-				<div class="txt_busca"><input name="busca" type="text" class="txt_buscar" /></div>
-				<div class="btn_busca"><img src="/eec/_imgs/btnbusca.jpg" class="linkado"/></div>
-			</dt>
+			
 			<dt class="player">
 <!-- INICIO PLAYER -->
 	<logic:equal name="Video" property="status" value="0">
@@ -52,8 +48,19 @@
 					<div>Disponível para contratação</div>
 				</div>
 			</dt>
-			<!-- INCLUDE OUTROS VIDEOS USUÁRIO -->
-<jsp:include page="outros_videos_user.jsp"></jsp:include>
+		<!-- INÍCIO GALERIA ÚLTIMOS VÍDEOS -->
+
+<div id="ultimos_videos">
+	<div id="top_ultimos_videos"></div>
+	<div id="lista_videos">
+	
+	<!-- THUMBS VIDEOS -->
+	<jsp:include page="ultimos_videos.html" />
+	<!-- ************* -->
+	</div>
+
+</div>
+<!---->
 
 			<dt class="banner2"><img src="/eec/_imgs/bannergrande.jpg" class="linkado"/><img src="/eec/_imgs/txt_pub.jpg" /></dt>
 		</div>
@@ -66,25 +73,26 @@
         <div class="txt_busca">
           <input type="text" name="busca" Class="txt_buscar" />
         </div>
-        <div class="btn_busca"><input type="image" src="/eec/_imgs/btn_buscar.jpg" name="Submit" Class="linkado" /></div>
+        <div class="btn_busca"><input type="image" src="/eec/_imgs/btnbusca.jpg" name="Submit" Class="linkado" /></div>
 </form>
 </div>
 <!--FIM-->		
 		
-<!-- INCLUDE DOS VÍDEOS LATERAIS -->
+
 
 <jsp:include page="busca.jsp" />
 
-<!-- INCLUDE DOS VÍDEOS LATERAIS -->
+
 						
 			<div id="bnn_01"></div>
-			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
+			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:10px;" /></dt>
 			<div id="bnn_02"></div>
-			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
+			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:10px;" /></dt>
 			<div id="bnn_03"></div>
-			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
+			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:10px;" /></dt>
 			<dt><img src="/eec/_imgs/banner_redondo.jpg" class="linkado" /></dt>
-		</div>
+		
+	</div>
 	</div>
 </div>
 <jsp:include page="rodape.jsp" />
