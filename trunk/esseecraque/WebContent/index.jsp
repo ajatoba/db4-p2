@@ -6,7 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>      
 <title><bean:message key="titulo.paginas"/></title>
-<link href="http://dev2.esseecraque.com.br/eec/_css/estilo.css" rel="stylesheet" type="text/css">
+<link href="/eec/_css/estilo.css" rel="stylesheet" type="text/css">
 <link href="/eec/_css/slide.css"  rel="stylesheet" type="text/css">
 <link href="/eec/_css/slide.css"  rel="stylesheet" type="text/css">
 <script type="text/javascript" src="/eec/js/jquery-1.2.6-packed.js"></script>
