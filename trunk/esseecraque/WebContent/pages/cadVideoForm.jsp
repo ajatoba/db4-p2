@@ -82,11 +82,11 @@ STATUS HIDDEN
 </div>
 <!--FIM-->		
 		
-<!-- INCLUDE DOS VÍDEOS LATERAIS -->
+
 
 <jsp:include page="/busca.jsp" />
 
-<!-- INCLUDE DOS VÍDEOS LATERAIS -->
+
 						
 			<div id="bnn_01"></div>
 			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
