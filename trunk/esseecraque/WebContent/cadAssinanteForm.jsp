@@ -5,9 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>      
 <title><bean:message key="titulo.paginas"/></title>
-<link href="/eec/_css/estilo.css" rel="stylesheet" type="text/css">
-<link href="/eec/_css/slide.css" rel="stylesheet" type="text/css">
-<link href="/eec/_css/cadastro.css" rel="stylesheet" type="text/css">
+<link href="http://dev2.esseecraque.com.br/eec/_css/estilo.css" rel="stylesheet" type="text/css">
+<link href="http://dev2.esseecraque.com.br/eec/_css/slide.css" rel="stylesheet" type="text/css">
+<link href="http://dev2.esseecraque.com.br/eec/_css/cadastro.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="/eec/js/jquery-1.2.6-packed.js"></script>
 <script type="text/javascript" src="/eec/js/slide.noconflict.js"></script>
 <script language="javascript">
@@ -200,16 +200,14 @@ function submitAssinante(){
 <div id="btn_cadastro">
 <img src="/eec/_imgs/btn_finalizar_cadastro.jpg" onclick="javascript:submitUser();"/>
 <img src="/eec/_imgs/btn_perfil_completo.jpg" onclick="javascript:submitAssinante();"/>
-</div>
- 
-</html:form>
-</div>
+</html:form></div>
 
-			
-			<dt class="banner2"><img src="/eec/_imgs/bannergrande.jpg" class="linkado"/><img src="/eec/_imgs/txt_pub.jpg" /></dt>
-		</div>
+</div>	
+<div><img src="/eec/_imgs/bannergrande.jpg" class="linkado"/><img src="/eec/_imgs/txt_pub.jpg" /></div>
 </div>
-<div id="direita">
+</div>
+	</div>
+    <div id="direita">
 <div id="box_busca_simples">
 <form action="busca.do?act=search" method="post">
         <div class="sep_busca"></div>
@@ -235,8 +233,9 @@ function submitAssinante(){
 			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
 			<dt><img src="/eec/_imgs/banner_redondo.jpg" class="linkado" /></dt>
 		</div>
-	</div>
-</div>
+    </div>
+    </div>
+    
 <jsp:include page="rodape.jsp" />
 
 
