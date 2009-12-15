@@ -83,7 +83,19 @@
 </dt>					
 			<!-- FIM LISTA MEUS VÍDEOS -->
 
-<jsp:include page="/ultimos_videos.jsp"></jsp:include>
+		<!-- INÍCIO GALERIA ÚLTIMOS VÍDEOS -->
+
+<div id="ultimos_videos">
+	<div id="top_ultimos_videos"></div>
+	<div id="lista_videos">
+	
+	<!-- THUMBS VIDEOS -->
+	<jsp:include page="/ultimos_videos.html" />
+	<!-- ************* -->
+	</div>
+
+</div>
+<!---->
 			<dt class="banner2"><img src="/eec/_imgs/bannergrande.jpg" class="linkado"/><img src="/eec/_imgs/txt_pub.jpg" /></dt>
 		</div>
 		<div id="direita">
