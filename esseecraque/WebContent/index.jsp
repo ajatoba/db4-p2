@@ -52,7 +52,7 @@
 	<div id="lista_videos">
 	
 	<!-- THUMBS VIDEOS -->
-	<%@ include file="ultimos_videos.html" %>
+	<jsp:include page="ultimos_videos.jsp" />
 	<!-- ************* -->
 	</div>
 
