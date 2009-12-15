@@ -336,7 +336,7 @@ public final class VideoAction  extends DispatchAction{
 			}
 			
 			String docRoot = req.getRealPath("/");//(String)SiteManager.getInstance().getProperties().getProperty("docroot");
-			String fileName = "ultimos_videos.html";
+			String fileName = "ultimos_videos.jsp";
 			
 			String path = docRoot+fileName;
 
