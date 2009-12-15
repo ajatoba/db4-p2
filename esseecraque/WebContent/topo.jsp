@@ -62,7 +62,7 @@
 				</tr>
 				
 				<tr>			
-		        	<td colspan="3"><a href="cadAssinanteForm.do"><img src="/eec/_imgs/btcadastrar.jpg" border="0" property="Submit" /></a></td>					
+		        	<td colspan="3"><a href="/esseecraque/cadAssinanteForm.do"><img src="/eec/_imgs/btcadastrar.jpg" border="0" property="Submit" /></a></td>					
 				</tr>
 			</table>
 			
