@@ -50,9 +50,7 @@
 									  <tr> 
 										<td width="187" class="txt_logs2" height="22">&nbsp;&nbsp;&nbsp;&nbsp;<a class="thickbox" href="lightbox.jsp?height=180&width=290" >Esqueci minha senha!</a></td>
 									  </tr>
-									  <tr> 
-										<td class="txt_logs2">&nbsp;&nbsp;&nbsp;&nbsp;<html:link page="/cadAssinanteForm.do" styleClass="link_logs2">Ainda n&atilde;o sou cadastrado.</html:link></td>
-									  </tr>
+									
 									</table>
 								</td>
 			            		<td align="right" valign="bottom">
@@ -64,7 +62,7 @@
 				</tr>
 				
 				<tr>			
-		        	<td colspan="3"><img src="/eec/_imgs/btn_entrar.jpg" border="0" property="Submit" /></td>					
+		        	<td colspan="3"><a href="cadAssinanteForm.do"><img src="/eec/_imgs/btcadastrar.jpg" border="0" property="Submit" /></a></td>					
 				</tr>
 			</table>
 			
@@ -89,46 +87,32 @@
 					
 					 vídeos</td>
 				</tr>
-				<logic:notEmpty name="Assinante" property="username">
-			        <tr>
-			        	<td width="204" class="txt_logs">&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp; <html:link page="/listMeusVideos.do?act=list" styleClass="menu_topo">Meus vídeos</html:link></td>
-			        </tr>
-			        <!-- 
-			        <tr>
-			        	<td width="204" class="txt_logs">&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp; <html:link page="/minhaConta.do" styleClass="menu_topo">Minha conta</html:link></td>
-			        </tr>
-			        -->
-		        </logic:notEmpty>
-		        
+		        <tr>
+		        	<td width="204" class="txt_logs">&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp; <html:link page="/listMeusVideos.do?act=list" styleClass="menu_topo">Meus vídeos</html:link></td>
+		        </tr>	
+		        <!-- 
+		        <tr>
+		        	<td width="204" class="txt_logs">&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp; <html:link page="/minhaConta.do" styleClass="menu_topo">Minha conta</html:link></td>
+		        </tr>
+		        -->
 		        <tr>
 		        	<td width="204" class="txt_logs">&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp; <html:link page="/editarAssinanteForm.do" styleClass="menu_topo">Editar cadastro</html:link></td>
 		        </tr>
-		        
-		        <logic:empty name="Assinante" property="username">
-			        <tr>
-			        	<td width="204" class="txt_logs">&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp; <html:link page="/editarPerfilForm.do" styleClass="menu_topo">Assinar</html:link></td>
-			        </tr>
-		        </logic:empty>       
+		        <tr>
+		        	<td width="204" class="txt_logs">&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp; <html:link page="/editarPerfilForm.do" styleClass="menu_topo">Editar perfil</html:link></td>
+		        </tr>
 		
 		        <tr>
 		        	<td width="204" class="txt_logs">&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp; <html:link page="/assinante.do?act=logout" styleClass="menu_topo">Sair</html:link></td>
 		        </tr>
 			</table>
 			
-			<logic:notEmpty name="Assinante" property="username">
 			<div style="width:204px;">
 				<html:link page="/cadVideoForm.do" styleClass="menu_topo">
-					<html:image src="/eec/_imgs/publicar.jpg" styleClass="linkado" />
+					<img src="/eec/_imgs/publicar.jpg" border="0" property="Submit" />
 				</html:link>
 			</div>  
-			</logic:notEmpty>
-			<logic:empty name="Assinante" property="username">
-			<div style="width:204px;">
-				<html:link page="/editarPerfilForm.do" styleClass="menu_topo">
-					<html:image src="/eec/_imgs/btcadastrar.jpg" styleClass="linkado" />
-				</html:link>
-			</div>  
-			</logic:empty>
+			
 			
 			</logic:present>
 			<!-- ******** ***************** *************** -->
