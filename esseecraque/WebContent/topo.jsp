@@ -87,9 +87,11 @@
 					
 					 vídeos</td>
 				</tr>
+		        <logic:notEmpty name="Assinante" property="username">
 		        <tr>
 		        	<td width="204" class="txt_logs">&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp; <html:link page="/listMeusVideos.do?act=list" styleClass="menu_topo">Meus vídeos</html:link></td>
 		        </tr>	
+		        </logic:notEmpty>
 		        <!-- 
 		        <tr>
 		        	<td width="204" class="txt_logs">&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp; <html:link page="/minhaConta.do" styleClass="menu_topo">Minha conta</html:link></td>
@@ -98,21 +100,30 @@
 		        <tr>
 		        	<td width="204" class="txt_logs">&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp; <html:link page="/editarAssinanteForm.do" styleClass="menu_topo">Editar cadastro</html:link></td>
 		        </tr>
+		        <logic:notEmpty name="Assinante" property="username">
 		        <tr>
 		        	<td width="204" class="txt_logs">&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp; <html:link page="/editarPerfilForm.do" styleClass="menu_topo">Editar perfil</html:link></td>
 		        </tr>
-		
+				</logic:notEmpty>
 		        <tr>
 		        	<td width="204" class="txt_logs">&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp; <html:link page="/assinante.do?act=logout" styleClass="menu_topo">Sair</html:link></td>
 		        </tr>
 			</table>
 			
+			<logic:notEmpty name="Assinante" property="username">
 			<div style="width:204px;">
 				<html:link page="/cadVideoForm.do" styleClass="menu_topo">
 					<img src="/eec/_imgs/publicar.jpg" border="0" property="Submit" />
 				</html:link>
 			</div>  
-			
+			</logic:notEmpty>
+			<logic:empty name="Assinante" property="username">
+			<div style="width:204px;">
+				<html:link page="/editarPerfilForm.do" styleClass="menu_topo">
+					<img src="/eec/_imgs/assinar.jpg" border="0" property="Submit" />
+				</html:link>
+			</div>  
+			</logic:empty>
 			
 			</logic:present>
 			<!-- ******** ***************** *************** -->
