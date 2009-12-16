@@ -22,17 +22,18 @@
 <div id="meio_fundo">
 	<div id="meio">
 		<div id="esquerda">
-			<div id="top_player_videos">
-<div id="tit_player_videos"></div>
-
-</div>
+			<dt class="box_busca">
+				<div class="sep_busca"></div>
+				<div class="txt_busca"><input name="busca" type="text" class="txt_buscar" /></div>
+				<div class="btn_busca"><img src="/eec/_imgs/btnbusca.jpg" class="linkado"/></div>
+			</dt>
 			<dt class="player">
 <!-- INICIO PLAYER -->
 	<logic:equal name="Video" property="status" value="0">
 		<bean:message key="video.unavailable"/>
 	</logic:equal>
 	<logic:equal name="Video" property="status" value="1">
-		<embed allowFullScreen="true"src="player.swf?movie=<bean:message key="video.server"/>/<bean:write name='Video' property='url' />&autoplay=off" quality="high"bgcolor="#000000" width="640" height="400"align="middle" allowScriptAccess="sameDomain"type="application/x-shockwave-flash" wmode="transparent" />
+		<embed allowFullScreen="true"src="player.swf?movie=<bean:message key="video.server"/>/<bean:write name='Video' property='url' />&autoplay=off" quality="high"bgcolor="#000000" width="640" height="419"align="middle" allowScriptAccess="sameDomain"type="application/x-shockwave-flash" wmode="transparent" />
 	</logic:equal> 
 <!-- FIM PLAYER -->			
 			</dt>
@@ -40,28 +41,49 @@
 				<div class="dir_desc">
 					<div class="data_pl"><bean:write name='Video' property='dataUpload' format="dd/MM/yyyy" /></div>
 					<div class="desc_pl"><bean:write name='Video' property='title' /></div>
-					<div class="data_pl"></div>
+					<div class="data_pl">Compartilhar o vídeo (copie e cole a URL)</div>
 					<div class="fundo_desc"><bean:write name='Video' property='url' /></div>
 				</div>
 				<div class="meio_desc">
+					<div><a href="votar.do"><img src="/eec/_imgs/votar.jpg" class="linkado" border="0" /></a></div>
 					<div><img src="/eec/_imgs/ver_perfil.jpg" class="mgn5_linkado"/></div>
-					<div></div>
 				</div>
-				
+				<div class="esq_desc">
+					<div>Disponível para contratação</div>
+				</div>
 			</dt>
-		<!-- INÍCIO GALERIA ÚLTIMOS VÍDEOS -->
+			<dt id="ultimos_videos">
 
-<div id="ultimos_videos">
-	<div id="top_ultimos_videos"></div>
-	<div id="lista_videos">
+<!-- INÍCIO GALERIA ÚLTIMOS VÍDEOS -->
+
+<img src="/eec/_imgs/ultimos_videos.jpg" />
+
+<div id="image-gallery-wrapper">
+	<script type="text/javascript">
+	stepcarousel.setup({
+		galleryid: 'image-gallery', //id of carousel DIV
+		beltclass: 'belt', //class of inner "belt" DIV containing all the panel DIVs
+		panelclass: 'panel', //class of panel DIVs each holding content
+		panelbehavior: {speed:500, wraparound:true, persist:true},
+		defaultbuttons: {enable: false},
+		statusvars: ['statusA', 'statusB', 'statusC'], //register 3 variables that contain current panel (start), current panel (last), and total panels
+		contenttype: ['external'] //content setting ['inline'] or ['external', 'path_to_external_file']
+	})
 	
-	<!-- THUMBS VIDEOS -->
-	<jsp:include page="ultimos_videos.jsp" />
-	<!-- ************* -->
+	</script>
+	
+<div id="image-gallery" class="stepcarousel">
+	<div class="belt">
+		<jsp:include page="ultimosVideos.html" />
 	</div>
-
 </div>
-<!---->
+	<a class="prev" href="javascript:stepcarousel.stepBy('image-gallery', -5)">Prev</a>
+	<a class="next" href="javascript:stepcarousel.stepBy('image-gallery', 5)">Next</a>
+</div>
+
+<!-- FIM GALERIA ÚLTIMOS VÍDEOS -->
+			</dt>
+<!-- INICIO DA GALERIA VÍDEOS MAIS VOTADOS -->
 
 			<dt class="banner2"><img src="/eec/_imgs/bannergrande.jpg" class="linkado"/><img src="/eec/_imgs/txt_pub.jpg" /></dt>
 		</div>
@@ -74,26 +96,25 @@
         <div class="txt_busca">
           <input type="text" name="busca" Class="txt_buscar" />
         </div>
-        <div class="btn_busca"><input type="image" src="/eec/_imgs/btnbusca.jpg" name="Submit" Class="linkado" /></div>
+        <div class="btn_busca"><input type="image" src="/eec/_imgs/btn_buscar.jpg" name="Submit" Class="linkado" /></div>
 </form>
 </div>
 <!--FIM-->		
 		
-
+<!-- INCLUDE DOS VÍDEOS LATERAIS -->
 
 <jsp:include page="busca.jsp" />
 
-
+<!-- INCLUDE DOS VÍDEOS LATERAIS -->
 						
 			<div id="bnn_01"></div>
-			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:10px;" /></dt>
+			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
 			<div id="bnn_02"></div>
-			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:10px;" /></dt>
+			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
 			<div id="bnn_03"></div>
-			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:10px;" /></dt>
+			<dt><img src="/eec/_imgs/txt_pub.jpg" style="margin-bottom:6px;" /></dt>
 			<dt><img src="/eec/_imgs/banner_redondo.jpg" class="linkado" /></dt>
-		
-	</div>
+		</div>
 	</div>
 </div>
 <jsp:include page="rodape.jsp" />
