@@ -196,14 +196,14 @@ function submitAssinante(){
 
 <input type="hidden" name="opcao_cadastro" value="1"/>
 </table>   
-<div id="bottom_erro">
+<div id="bottom_cadastro">
 <div id="btn_cadastro">
-<img src="/eec/_imgs/btn_finalizar_cadastro.jpg" onclick="javascript:submitUser();"/>
-<img src="/eec/_imgs/btn_perfil_completo.jpg" onclick="javascript:submitAssinante();"/>
+<img src="/eec/_imgs/btn_finalizar_cadastro.jpg" style="cursor:hand;" onclick="javascript:submitUser();"/>
+<img src="/eec/_imgs/btn_perfil_completo.jpg" style="cursor:hand;" onclick="javascript:submitAssinante();"/>
 </html:form></div>
 
 </div>	
-<div><img src="/eec/_imgs/bannergrande.jpg" class="linkado"/><img src="/eec/_imgs/txt_pub.jpg" /></div>
+<div style="margin-top:8px;"><img src="/eec/_imgs/bannergrande.jpg" class="linkado"/><img src="/eec/_imgs/txt_pub.jpg" /></div>
 </div>
 </div>
 	</div>

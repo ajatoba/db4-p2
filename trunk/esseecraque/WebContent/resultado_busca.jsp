@@ -41,27 +41,11 @@ document.getElementById("btnRes"+ id).className = 'closeRes';
 			</div>
 			
 		
-				<div class="down_rbusca">
 				
-<!-- Início Resultado Busca -->	
-					
 
-<div id="image-gallery-wrapper">
-	<script type="text/javascript">
-	stepcarousel.setup({
-		galleryid: 'image-gallery', //id of carousel DIV
-		beltclass: 'belt', //class of inner "belt" DIV containing all the panel DIVs
-		panelclass: 'panel', //class of panel DIVs each holding content
-		panelbehavior: {speed:500, wraparound:true, persist:true},
-		defaultbuttons: {enable: false},
-		statusvars: ['statusA', 'statusB', 'statusC'], //register 3 variables that contain current panel (start), current panel (last), and total panels
-		contenttype: ['external'] //content setting ['inline'] or ['external', 'path_to_external_file']
-	})
+
 	
-	</script>
 
-<div id="image-gallery" class="stepcarousel">
-	<div class="belt">
 	
 		<table border="0" cellpadding="0" cellspacing="0">
 			<logic:notEmpty name="videos_busca">
@@ -89,13 +73,8 @@ document.getElementById("btnRes"+ id).className = 'closeRes';
 
 		</table>
 		
-	</div>
-</div><!-- /image-gallery -->
-	
-</div><!-- /image-gallery-wrapper -->
 
-<!-- Fim resultado busca -->					
-				</div>
+
 							
 			
 			</div>

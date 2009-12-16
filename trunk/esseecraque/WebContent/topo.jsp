@@ -15,7 +15,7 @@
 	
 	<div>
 	
-		<dt class="logo"><a href="index.jsp"><img src="/eec/_imgs/logo.jpg" border="0" class="linkado"/></a></dt>
+		<dt class="logo"><a href="/esseecraque/index.jsp"><img src="/eec/_imgs/logo.jpg" border="0" class="linkado"/></a></dt>
 		<dt class="form"><img src="/eec/_imgs/banner_assine.jpg" /></dt>
 		<dt class="frm_in">
 			

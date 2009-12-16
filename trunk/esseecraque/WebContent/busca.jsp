@@ -11,7 +11,7 @@ function submitBusca(){
 <div id="form">
 
 		<table width="100%" border="0" cellspacing="3" cellpadding="3">
-		<form action="listAssinantes.do?act=search" method="POST" name="busca" target="_parent">
+		<form action="/esseecraque/listAssinantes.do?act=search" method="POST" name="busca" target="_parent">
 		  <tr>
 		    <td width="64" class="txt_busca_avancada">Nome :</td>
 		  </tr>
