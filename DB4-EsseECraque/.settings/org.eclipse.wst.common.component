@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="DB4-EsseECraque">
+        <wb-resource deploy-path="/" source-path="/EarContent"/>
+        <dependent-module deploy-path="/" handle="module:/resource/DB4-EsseECraque-web/DB4-EsseECraque-web">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module deploy-path="/" handle="module:/resource/DB4-EsseECraque-ejb/DB4-EsseECraque-ejb">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="DB4-EsseECraque-ejbClient.jar" deploy-path="/" handle="module:/resource/DB4-EsseECraque-ejbClient/DB4-EsseECraque-ejbClient">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+       
+    </wb-module>
+</project-modules>
