@@ -1,6 +1,7 @@
 package esseecraque.model.vo;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class VideoVO implements Serializable {
 	
@@ -14,6 +15,10 @@ public class VideoVO implements Serializable {
 	private Long idAssinante;
 	private String arquivoOrigem;
 	private String pathDestino;
+	private Date data;
+	private String descricao;
+	private String pathImage;
+	
 
 	private String nomeVideoDestino;
 	public Long getIdVideo() {
@@ -52,6 +57,26 @@ public class VideoVO implements Serializable {
 	public void setNomeVideoDestino(String nomeVideoDestino) {
 		this.nomeVideoDestino = nomeVideoDestino;
 	}
+	public Date getData() {
+		return data;
+	}
+	public void setData(Date data) {
+		this.data = data;
+	}
+	public String getDescricao() {
+		return descricao;
+	}
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+	public String getPathImage() {
+		return pathImage;
+	}
+	public void setPathImage(String pathImage) {
+		this.pathImage = pathImage;
+	}
+	
+	
 	
 	
 	
