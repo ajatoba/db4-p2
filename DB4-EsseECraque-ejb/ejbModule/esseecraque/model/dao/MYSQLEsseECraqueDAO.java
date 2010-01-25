@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -148,6 +150,37 @@ public class MYSQLEsseECraqueDAO implements EsseECraqueDAO {
 		}finally{			
 			closeConnection();			
 		}
+	}
+	
+	@Override
+	public List<VideoVO> listaUltimosVideos() throws SQLException, NamingException {
+		
+		Statement stmt = null;
+		
+		List<VideoVO> lista = new ArrayList<VideoVO>();
+		
+		try {
+			
+			openConnection();
+			stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT  NR_ID_VIDEO_PK,VC_DESCRIPTION,DT_DATE_UPLOAD,VC_PATH_IMAGE FROM TBL_VIDEO WHERE NR_STATUS = 1 ORDER BY NR_ID_VIDEO_PK DESC LIMIT 0,4");			 
+			 
+			while(rs.next()){
+				
+				VideoVO video = new VideoVO();
+				
+				video.setIdVideo(rs.getLong("NR_ID_VIDEO_PK"));
+				video.setDescricao(rs.getString("VC_DESCRIPTION"));
+				video.setData(rs.getDate("DT_DATE_UPLOAD"));
+				video.setPathImage(rs.getString("VC_PATH_IMAGE"));
+				lista.add(video);			
+			}
+						
+			return lista;			
+		
+		}finally{			
+			closeConnection();			
+		}		
 	}
 
 }

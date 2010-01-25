@@ -1,6 +1,7 @@
 package esseecraque.model.dao;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.naming.NamingException;
 
@@ -13,5 +14,7 @@ public interface EsseECraqueDAO {
 	public String consultaEmailAssinante(long codigoAssinante)  throws SQLException, NamingException ;
 	
 	public String consultaPathArquivo(long idVideo)  throws SQLException, NamingException ;
+	
+	public List<VideoVO>  listaUltimosVideos() throws SQLException,NamingException;
 
 }

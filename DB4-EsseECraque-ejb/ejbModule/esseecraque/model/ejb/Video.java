@@ -1,14 +1,23 @@
 package esseecraque.model.ejb;
 
+import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.PrintStream;
+import java.text.SimpleDateFormat;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 import esseecraque.model.dao.EsseECraqueDAO;
 import esseecraque.model.dao.MYSQLEsseECraqueDAO;
+import esseecraque.model.dao.VideoDAO;
+import esseecraque.model.util.HTMLReader;
 import esseecraque.model.util.LoggerUtil;
 import esseecraque.model.util.Mailer;
 import esseecraque.model.util.SysCommandExecutor;
@@ -222,5 +231,58 @@ public class Video {
 
 		Mailer.getInstance().sendMsg(email);
 	}	
+	
+	
+	public void listLastVideos() throws Exception {
+		
+		FileOutputStream os = null;
+		PrintStream ps = null;
+		DataOutputStream ods = null;
+		
+		try {			
+			
+			String template = "";//HTMLReader.readHTML(req.getRealPath("/") + "templates" + System.getProperty("file.separator")+ "ultimos_videos_template.html");
+			String html = "";
+			Map<String,String>  tags = null;
+			
+		    SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+		    
+		    
+			List<VideoVO> lv = dao.listaUltimosVideos();
+			for (VideoVO video : lv) {
+							
+				tags = new HashMap<String, String>();
+				
+				tags.put("<ID_VIDEO>", String.valueOf(video.getIdVideo()));
+				tags.put("<DESCRICAO_VIDEO>", video.getDescricao());
+				tags.put("<DATA_VIDEO>", format.format(video.getData()));
+				tags.put("<THUMB_VIDEO>", video.getPathImage());
+				
+				html += HTMLReader.replaceAllTags(template, tags);
+			}
+			
+			String docRoot = "";//req.getRealPath("/");//(String)SiteManager.getInstance().getProperties().getProperty("docroot");
+			String fileName = "ultimos_videos.jsp";
+			
+			String path = docRoot+fileName;
+
+			os = new FileOutputStream(path);		
+			
+			ps = new PrintStream(os);
+			ods = new DataOutputStream(os);
+			ods.flush();
+			ods.writeBytes(html);	
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+						
+		}finally{
+			if(os!=null) os.close();
+			if(ods!=null) ods.close();
+			if(ps!=null) ps.close();
+		}
+		
+	}
 	
 }
