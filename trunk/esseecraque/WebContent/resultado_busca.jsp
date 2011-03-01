@@ -1,6 +1,8 @@
 <%@ taglib uri="/WEB-INF/TLD/struts-bean.tld" prefix="bean" %>   
 <%@ taglib uri="/WEB-INF/TLD/struts-html.tld" prefix="html" %>
 <%@ taglib uri="/WEB-INF/TLD/struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>      
@@ -49,34 +51,27 @@ document.getElementById("btnRes"+ id).className = 'closeRes';
 	
 		<table border="0" cellpadding="0" cellspacing="0">
 			<logic:notEmpty name="videos_busca">
-				<logic:iterate id="resulBusca" name="videos_busca">				
-						<tr>
+				<tr>
+				
+				<logic:iterate id="resulBusca" name="videos_busca" indexId="i">							
 							<td>
 								<a href="player.do?act=playerVideo&idVideo=<bean:write name='resulBusca' property='id' />&secao=liberada" >
 									<img src="<bean:write name='resulBusca' property='pathImage' />" width="100" height="73" border="0" alt="<bean:write name='resulBusca' property='title' />"/>
 								</a>
-							</td>
-						</tr>
-					
-					</logic:iterate>					
-					
-				</logic:notEmpty>
+							</td>					
+				</logic:iterate>					
+				</tr>
+			</logic:notEmpty>
 				
-				<logic:empty name="videos_busca">  
+			<logic:empty name="videos_busca">  
                 	<tr>
 	                	<td>
 	                	Nenhum vídeo encontrado.
 	                	</td>
                 	</tr>
-                	
-                </logic:empty>
-
+               	
+            </logic:empty>
 		</table>
-		
-
-
-							
-			
 			</div>
 			<dt class="banner2"><img src="/eec/_imgs/bannergrande.jpg" class="linkado"/><img src="/eec/_imgs/txt_pub.jpg" /></dt>
 		</div>

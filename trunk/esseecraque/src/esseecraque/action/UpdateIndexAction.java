@@ -29,7 +29,7 @@ public class UpdateIndexAction extends DispatchAction{
 			HttpServletRequest req, 
 			HttpServletResponse resp) throws Exception {
 		
-		int BATCH_SIZE = Integer.parseInt((String) System.getProperty("batch_size"))*1024;
+		int BATCH_SIZE = 10*1024;//Integer.parseInt((String) System.getProperty("batch_size"))*1024;
 		
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		FullTextSession fullTextSession = Search.getFullTextSession(session);
@@ -75,7 +75,7 @@ public class UpdateIndexAction extends DispatchAction{
 			HttpServletRequest req, 
 			HttpServletResponse resp) throws Exception {
 		
-		int BATCH_SIZE = Integer.parseInt((String) System.getProperty("batch_size"))*1024;
+		int BATCH_SIZE = 10*1024;//Integer.parseInt((String) System.getProperty("batch_size"))*1024;
 		
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		FullTextSession fullTextSession = Search.getFullTextSession(session);
