@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="StrutsProcess">
+ <PROCESS-ITEM ID="#minhaConta" NAME="action0" PATH="/minhaConta"
+  SHAPE="32,17,0,0" SUBTYPE="forward" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="action0" PATH="/pages/minhaConta.jsp"
+   TARGET="page0" TITLE="forward" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#votarAdd" NAME="action1" PATH="/votarAdd"
+  SHAPE="32,129,0,0" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="votar_error" NAME="forward0" PATH="/"
+   TARGET="action22" TITLE="votar_error" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="votar_sucess" NAME="forward1" PATH="/"
+   TARGET="action22" TITLE="votar_sucess" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#excluirVideo" NAME="action2" PATH="/excluirVideo"
+  SHAPE="32,385,0,0" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="video_excluir_resp" NAME="forward0"
+   PATH="/pages/excluirVideo.jsp" TARGET="page1"
+   TITLE="video_excluir_resp" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="excluir_video_error" NAME="forward1"
+   PATH="/pages/excluirVideo.jsp" TARGET="page1"
+   TITLE="excluir_video_error" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#editarPerfilForm" NAME="action3"
+  PATH="/editarPerfilForm" SHAPE="32,529,0,0" SUBTYPE="forward"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="action3" PATH="/pages/editarPerfil.jsp"
+   TARGET="page2" TITLE="forward" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#admin#video" NAME="action4" PATH="/admin/video"
+  SHAPE="32,785,0,0" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="ultimos_videos" NAME="forward0"
+   PATH="/admin/index.jsp" TARGET="page3" TITLE="ultimos_videos"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="list_videos" NAME="forward1"
+   PATH="/admin/videos_out.jsp" TARGET="page4" TITLE="list_videos"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="admin_saida" NAME="forward2"
+   PATH="/admin/index.jsp" TARGET="page3" TITLE="admin_saida"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#listVideosAssinante" NAME="action5"
+  PATH="/listVideosAssinante" SHAPE="32,1073,0,0" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="list_videos_assinante_error" NAME="forward0"
+   PATH="/listVideosAssinante.jsp" TARGET="page5"
+   TITLE="list_videos_assinante_error" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="list_videos_assinante_sucess" NAME="forward1"
+   PATH="/listVideosAssinante.jsp" TARGET="page5"
+   TITLE="list_videos_assinante_sucess" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#excluirVideoSim" NAME="action6"
+  PATH="/excluirVideoSim" SHAPE="32,1217,0,0" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="list_meus_videos_sucess" NAME="forward0"
+   PATH="/pages/listMeusVideos.jsp" TARGET="page6"
+   TITLE="list_meus_videos_sucess" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="excluir_video_error" NAME="forward1"
+   PATH="/pages/listMeusVideos.jsp" TARGET="page6"
+   TITLE="excluir_video_error" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#cadAssinanteForm" NAME="action7"
+  PATH="/cadAssinanteForm" SHAPE="32,1617,0,0" SUBTYPE="forward"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="action7" PATH="/cadAssinanteForm.jsp"
+   TARGET="page7" TITLE="forward" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#pages#uploadVideo" NAME="action8"
+  PATH="/pages/uploadVideo" SHAPE="32,1361,0,0" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="video_upload_sucess" NAME="forward0"
+   PATH="/pages/listMeusVideos.jsp" TARGET="page6"
+   TITLE="video_upload_sucess" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#listMeusVideos" NAME="action9"
+  PATH="/listMeusVideos" SHAPE="32,1473,0,0" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="list_meus_videos_erro" NAME="forward0"
+   PATH="/pages/listMeusVideos.jsp" TARGET="page6"
+   TITLE="list_meus_videos_erro" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="list_meus_videos_sucess" NAME="forward1"
+   PATH="/pages/listMeusVideos.jsp" TARGET="page6"
+   TITLE="list_meus_videos_sucess" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#loginAssinante" NAME="action10"
+  PATH="/loginAssinante" SHAPE="32,1873,0,0" TITLE="assinanteLoginForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="login_error" NAME="forward0" PATH="/"
+   TARGET="action22" TITLE="login_error" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="login_sucess" NAME="forward1" PATH="/"
+   TARGET="action22" TITLE="login_sucess" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#admin#index" NAME="action11" PATH="/admin/index"
+  SHAPE="32,961,0,0" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="update_index_out" NAME="forward0"
+   PATH="/admin/index.jsp" TARGET="page3" TITLE="update_index_out"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#votar" NAME="action12" PATH="/votar"
+  SHAPE="32,2129,0,0" SUBTYPE="forward" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="action12" PATH="/votar.jsp" TARGET="page8"
+   TITLE="forward" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#cadVideoForm" NAME="action13" PATH="/cadVideoForm"
+  SHAPE="32,2241,0,0" SUBTYPE="forward" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="action13" PATH="/pages/cadVideoForm.jsp"
+   TARGET="page9" TITLE="forward" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#busca" NAME="action14" PATH="/busca"
+  SHAPE="32,2353,0,0" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="resultado_busca" NAME="forward0"
+   PATH="/resultado_busca.jsp" TARGET="page10" TITLE="resultado_busca"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#editPerfil" NAME="action15" PATH="/editPerfil"
+  SHAPE="32,641,0,0" TITLE="perfilForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="perfil_edit_sucess" NAME="forward0" PATH="/"
+   TARGET="action22" TITLE="perfil_edit_sucess" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="perfil_edit_error" NAME="forward1"
+   PATH="/pages/editarPerfil.jsp" TARGET="page2"
+   TITLE="perfil_edit_error" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#assinante" NAME="action16" PATH="/assinante"
+  SHAPE="32,2465,0,0" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="carrega_home" NAME="forward0" PATH="/"
+   TARGET="action22" TITLE="carrega_home" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="fale_conosco_out" NAME="forward1"
+   PATH="/fale_conosco.jsp" TARGET="page11" TITLE="fale_conosco_out"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="password_reminder_out" NAME="forward2"
+   PATH="/esqueci.jsp" TARGET="page12" TITLE="password_reminder_out"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#player" NAME="action17" PATH="/player"
+  SHAPE="32,2865,0,0" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="player_secao_liberada" NAME="forward0"
+   PATH="/player.jsp" TARGET="page13" TITLE="player_secao_liberada"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="carrega_home" NAME="forward1" PATH="/"
+   TARGET="action22" TITLE="carrega_home" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="player_secao_restrita" NAME="forward2"
+   PATH="/player.jsp" TARGET="page13" TITLE="player_secao_restrita"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#cadVideo" NAME="action18" PATH="/cadVideo"
+  SHAPE="32,3153,0,0" TITLE="videoForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="video_upload_form" NAME="forward0"
+   PATH="/pages/upload.jsp" TARGET="page14" TITLE="video_upload_form"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#listAssinantes" NAME="action19"
+  PATH="/listAssinantes" SHAPE="32,3265,0,0" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="assinante_list_sucess" NAME="forward0"
+   PATH="/assinantes.jsp" TARGET="page15" TITLE="assinante_list_sucess"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="assinante_list_error" NAME="forward1"
+   PATH="/assinantes.jsp" TARGET="page15" TITLE="assinante_list_error"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#cadAssinante" NAME="action20" PATH="/cadAssinante"
+  SHAPE="32,1729,0,0" TITLE="assinanteForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="assinante_add_sucesso" NAME="forward0"
+   PATH="/" TARGET="action22" TITLE="assinante_add_sucesso"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="assinante_add_error" NAME="forward1"
+   PATH="/cadAssinanteForm.jsp" TARGET="page7"
+   TITLE="assinante_add_error" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="assinante_add_sucesso_perfil" NAME="forward2"
+   PATH="/pages/editarPerfil.jsp" TARGET="page2"
+   TITLE="assinante_add_sucesso_perfil" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page0" PATH="/pages/minhaConta.jsp"
+  SHAPE="240,34,0,0" SUBTYPE="jsp" TITLE="minhaConta.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page1" PATH="/pages/excluirVideo.jsp"
+  SHAPE="256,402,0,0" SUBTYPE="jsp" TITLE="excluirVideo.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page2" PATH="/pages/editarPerfil.jsp"
+  SHAPE="272,546,0,0" SUBTYPE="jsp" TITLE="editarPerfil.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page3" PATH="/admin/index.jsp" SHAPE="272,802,0,0"
+  SUBTYPE="jsp" TITLE="index.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page4" PATH="/admin/videos_out.jsp"
+  SHAPE="272,978,0,0" SUBTYPE="jsp" TITLE="videos_out.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page5" PATH="/listVideosAssinante.jsp"
+  SHAPE="256,1090,0,0" SUBTYPE="jsp" TITLE="listVideosAssinante.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page6" PATH="/pages/listMeusVideos.jsp"
+  SHAPE="304,1234,0,0" SUBTYPE="jsp" TITLE="listMeusVideos.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page7" PATH="/cadAssinanteForm.jsp"
+  SHAPE="256,1634,0,0" SUBTYPE="jsp" TITLE="cadAssinanteForm.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page8" PATH="/votar.jsp" SHAPE="240,2146,0,0"
+  SUBTYPE="jsp" TITLE="votar.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page9" PATH="/pages/cadVideoForm.jsp"
+  SHAPE="240,2258,0,0" SUBTYPE="jsp" TITLE="cadVideoForm.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page10" PATH="/resultado_busca.jsp"
+  SHAPE="240,2370,0,0" SUBTYPE="jsp" TITLE="resultado_busca.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page11" PATH="/fale_conosco.jsp"
+  SHAPE="272,2658,0,0" SUBTYPE="jsp" TITLE="fale_conosco.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page12" PATH="/esqueci.jsp" SHAPE="272,2770,0,0"
+  SUBTYPE="jsp" TITLE="esqueci.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page13" PATH="/player.jsp" SHAPE="272,2882,0,0"
+  SUBTYPE="jsp" TITLE="player.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page14" PATH="/pages/upload.jsp"
+  SHAPE="240,3170,0,0" SUBTYPE="jsp" TITLE="upload.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page15" PATH="/assinantes.jsp" SHAPE="256,3282,0,0"
+  SUBTYPE="jsp" TITLE="assinantes.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#editarAssinanteForm" NAME="action21"
+  PATH="/editarAssinanteForm" SHAPE="32,3889,0,0" SUBTYPE="forward"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="action21" PATH="/pages/editarAssinante.jsp"
+   TARGET="page16" TITLE="forward" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page16" PATH="/pages/editarAssinante.jsp"
+  SHAPE="240,3906,0,0" SUBTYPE="jsp" TITLE="editarAssinante.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#" NAME="action22" PATH="/" SHAPE="240,2977,0,0"
+  SUBTYPE="unknown" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#editarAssinante" NAME="action23"
+  PATH="/editarAssinante" SHAPE="32,2273,0,0" TITLE="assinanteForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="assinante_edit_sucess" NAME="forward0"
+   PATH="/" TARGET="action22" TITLE="assinante_edit_sucess"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="assinante_edit_error" NAME="forward1"
+   PATH="/pages/editarAssinanteForm.jsp" TARGET="page18"
+   TITLE="assinante_edit_error" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page18" PATH="/pages/editarAssinanteForm.jsp"
+  SHAPE="240,2497,0,0" SUBTYPE="jsp" TITLE="editarAssinanteForm.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+</PROCESS>
